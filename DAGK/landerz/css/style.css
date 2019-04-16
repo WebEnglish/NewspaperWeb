@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5,
     .site-section {
       padding: 5em 0; } }
   .site-section.site-section-sm {
-    padding: 4em 0; }
+    padding: 1em 0; }
 
 .site-section-heading {
   padding-bottom: 20px;
@@ -1777,7 +1777,8 @@ h1, h2, h3, h4, h5,
 
 .section-title {
   color: #000;
-  font-size: 40px;
+  font-size: 20px;
+  margin-top: 20px;
   font-weight: 900; }
   @media (max-width: 991.98px) {
     .section-title {
@@ -1848,3 +1849,37 @@ h1, h2, h3, h4, h5,
   .main-menu {
     display: none !important; } }
 
+ .img-top{
+    width: 60%;
+    margin-left: 20%;
+}
+
+.carousel-control-prev{
+  margin-left: 150px;
+  -moz-window-shadow: 5%;
+}
+
+.carousel-control-next{
+  margin-right: 150px;
+  -moz-window-shadow: 5%;
+}
+
+.carousel-caption{
+  color: white;
+}
+
+.most-img{
+  width:100%;
+}
+
+.sign-in{
+  list-style-type: none !important;
+}
+
+.contain-sign-in-up{
+  width: 90%
+}
+
+.sign-in-up{
+  display: inline;
+}
