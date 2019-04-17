@@ -1965,3 +1965,15 @@ h1, h2, h3, h4, h5,
    border: 0;
    color: #08685b;
  }
+
+ .cbx{
+   margin: auto;
+   width: 80%;
+   padding-top: 50px;
+   display: flex;
+   flex-wrap: nowrap;
+ }
+
+ .btn-btn{
+   padding-top: 30px;
+ }
