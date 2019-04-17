@@ -306,6 +306,11 @@ h1, h2, h3, h4, h5,
   display: block;
 }
 
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+
   .site-navbar .site-navigation.border-bottom {
     border-bottom: 1px solid #f3f3f4 !important; }
   .site-navbar .site-navigation .site-menu {
@@ -1879,7 +1884,7 @@ h1, h2, h3, h4, h5,
 }
 
 .contain-sign-in-up{
-  width: 90%
+  width: 90%;
 }
 
 .sign-in-up{
@@ -1938,3 +1943,25 @@ h1, h2, h3, h4, h5,
   border-radius: 50%;
   color:white;
   }
+
+ .body-for-writing{
+   margin: auto;
+   width: 80%;
+   height: 100%;;
+ }
+
+ .btn-save, .btn-out{
+   float: right;
+   margin-right: 30%;
+   margin-top: 1%;
+   background-color: white;
+   color: #00d2b6;
+   border: none;
+ }
+
+ .btn-save:hover, .btn-out:hover{
+   transition: 0.1s;
+   cursor: pointer;
+   border: 0;
+   color: #08685b;
+ }
