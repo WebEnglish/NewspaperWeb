@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     
   </head>
@@ -40,14 +41,20 @@
       <div class="site-mobile-menu-body"></div>
     </div>
     
-    <div class="contain-sign-in-up">
-      <div class="contain-sign text-right">
-        <ul class="sign-in">
-          <li class="sign-in-up"><a href="#">Đăng nhập<span class="mx-2"></span></a></li>
-          
-          <li class="sign-in-up"><a href="#" >Đăng kí</a></li>
+    <div >
+        <ul class="sign-in" style="display:flex; justify-content: flex-end; padding-right:30px;" >
+          <li class="sign-in-up dropdown">
+              <img class="avatar" src="./images/user.png">
+              <a href="#" class="text-black">Username <span class="mx-2"></span></a>
+              <div class="dropdown-content">
+                <a href="#">Nông sản</a>
+                <a href="#">Hải sản</a>
+              </div>
+          </li>
+          <li class="sign-in-up">
+              <a href="#">Đăng xuất</a>
+          </li>
         </ul>
-      </div>
     </div>
 
 
@@ -117,6 +124,7 @@
           </div>
           <div class="col-6 col-md-6 d-inline-block d-lg-none ml-md-0" ><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
         </div>
+       
       </div>      
     </header>
 
