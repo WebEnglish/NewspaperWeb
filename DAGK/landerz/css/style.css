@@ -299,7 +299,7 @@ h1, h2, h3, h4, h5,
 }
 
 .dropdown-content a:hover {
-  background-color: none;
+  background-color: rgb(243, 241, 241);
   color: #00d2b5;}
 
 .dropdown:hover .dropdown-content {
