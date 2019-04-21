@@ -1992,7 +1992,8 @@ p{
 .LoginOut{
   display: flex;
   justify-content:
-   flex-end; padding-right:70px;
+   flex-end; 
+   padding-right:70px;
    margin-top: 10px;
 }
 
