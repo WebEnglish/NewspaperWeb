@@ -41,21 +41,23 @@
       <div class="site-mobile-menu-body"></div>
     </div>
     
-    <div >
-        <ul class="sign-in" style="display:flex; justify-content: flex-end; padding-right:30px;" >
-          <li class="sign-in-up dropdown">
-              <img class="avatar" src="./images/user.png">
-              <a href="#" class="text-black">Username <span class="mx-2"></span></a>
-              <div class="dropdown-content">
-                <a href="#">Nông sản</a>
-                <a href="#">Hải sản</a>
-              </div>
-          </li>
-          <li class="sign-in-up">
-              <a href="#">Đăng xuất</a>
-          </li>
-        </ul>
-    </div>
+    <div class="LoginOut">
+      <ul class="sign-in">
+        <li class="dropdown">
+          <a href="#">Username<span class="mx-2"></span></a>
+          <div class="dropdown-content"  >
+            <div style="padding-bottom: 10px">
+              <img style="margin-left:65px; height: 60px; width: 60px; border-radius: 100%" src=".\images\avt.jpg">
+            </div>
+            <label class="text-center" href="#">Thời hạn tài khoản còn:<br><u style="font-weight:800;" >7 ngày</u>. </label>
+            <a href="#" style="font-weight:400">Chỉnh sửa thông tin</a>
+            <a href="#" style="font-weight:400">Gia hạn tài khoản</a>
+          </div>
+        </li>  
+        <li class="dropdown"><a href="#">Đăng xuất</a>
+        </li>
+      </ul>
+  </div>
 
 
     <div class="container d-none d-lg-block">
@@ -482,52 +484,61 @@
     </div>
     
     <!-- top 10 chuyên mục -->
-    <div class="site-section-sm" >
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-12 text-center">
-            <h2 class="section-title mb-3">Top 10 chuyên mục được ưa thích</h2>
-          </div>
-          <div class="row align-items-stretch">
+  <div class="site-section-sm">
+    <div class="container">
+      <div class="row mb-5">
+
+        <div class="col-12 text-center">
+          <h2 class="section-title mb-3">Top 10 chuyên mục được ưa thích</h2>
+        </div>
+
+        <div class="row align-items-stretch">
+          <span style="width: 50%">
             <div class="title-chuyen-muc">
-              <h3 class="justify-content-start">Âm nhạc Quốc tế <br>- Bài viết nổi bật</h3>
+              <h3 class="text-center">Âm nhạc Quốc tế</h3>
             </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="" data-aos="fade-up">
               <div class="unit-4 d-block">
                 <div class="unit-4-icon mb-3">
-                  <img src=".\images\bts.jpg"    class="most-img">
+                  <img src=".\images\bts.jpg" class="most-img">
                 </div>
                 <div>
-                  <h3><a href="#" class="text-black"><b>MV mới của BTS phá kỉ lục của BLACKPINK trở thành MV có nhiều lướt xem nhất</b></a></h3>
+                  <h3><a href="#" class="text-black"><b>MV mới của BTS phá kỉ lục của BLACKPINK trở thành MV có nhiều
+                        lướt xem nhất</b></a></h3>
                   <p><a href="#">Âm nhạc - Quốc tế</a><span class="mx-2">&bullet;</span> 14/04/2019</p>
                   <p><a href="#">Xem tiếp...</a></p>
                 </div>
               </div>
             </div>
+          </span>
 
+          <span style="width: 50%">
             <div class="title-chuyen-muc">
-                <h3 class="justify-content-start">Thể thao Quốc tế <br>- Bài viết nổi bật</h3>
-              </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+              <h3 class="text-center">Thể thao Quốc tế </h3>
+            </div>
+            <div class="" data-aos="fade-up">
               <div class="unit-4 d-block">
                 <div class="unit-4-icon mb-3">
-                  <img src=".\images\liv1.jpg"    class="most-img">
+                  <img style="height: 350px;" src=".\images\liv1.jpg" class="most-img">
                 </div>
                 <div>
-                  <h3><a href="#" class="text-black"><b>Tâm lý của Liverpool hay đôi chân của Man City sẽ định đoạt ngai vàng Premier League?</b></a></h3>
+                  <h3><a href="#" class="text-black"><b>Tâm lý của Liverpool hay đôi chân của Man City sẽ định đoạt ngai
+                        vàng Premier League?</b></a></h3>
                   <p><a href="#">Thể thao - Quốc tế</a><span class="mx-2">&bullet;</span> 14/04/2019</p>
                   <p><a href="#">Xem tiếp...</a></p>
                 </div>
               </div>
             </div>
+          </span>
 
-            <div class="title-chuyen-muc">
-                <h3 class="justify-content-start">Thể thao trong nước - Bài viết nổi bật</h3>
+          <span style="width: 50%">
+          <div class="title-chuyen-muc">
+                <h3 class="text-center">Thể thao trong nước</h3>
               </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" >
+            <div data-aos="fade-up" >
               <div class="unit-4 d-block">
                 <div class="unit-4-icon mb-3">
-                  <img src=".\images\vt1.jpg"    class="most-img">
+                  <img style="height: 350px;" style="height: 350px;" src=".\images\vt1.jpg"    class="most-img">
                 </div>
                 <div>
                   <h3><a href="#" class="text-black"><b>Văn Toàn tỏa sáng, HAGL đánh bại Quảng Ninh trong cuộc rượt đuổi nghẹt thở</b></a></h3>
@@ -536,14 +547,16 @@
                 </div>
               </div>
             </div>
-  
+          </span>
+
+          <span style="width: 50%">
             <div class="title-chuyen-muc">
-                <h3 class="justify-content-start">Fashion Làm đẹp - Bài viết nổi bật</h3>
+                <h3 class="text-center">Fashion Làm đẹp</h3>
               </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div  data-aos="fade-up">
               <div class="unit-4 d-block">
                 <div class="unit-4-icon mb-3">
-                  <img src=".\images\toc.jpg"    class="most-img">
+                  <img style="height: 350px;" src=".\images\toc.jpg"    class="most-img">
                 </div>
                 <div>
                   <h3><a href="#" class="text-black"><b>Vừa xinh trẻ lại mát lành còn giảm mụn đáng kể: Đây chính là kiểu tóc giúp chị em sống sót trong mùa hè tới</b></a></h3>
@@ -552,102 +565,7 @@
                 </div>
               </div>
             </div>
-
-            <div class="title-chuyen-muc">
-                <h3 class="justify-content-start">Âm nhạc trong nước - Bài viết nổi bật</h3>
-              </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-              <div class="unit-4 d-block">
-                <div class="unit-4-icon mb-3">
-                  <img src=".\images\trend.jpg" class="most-img">
-                </div>
-                <div>
-                  <h3><a href="#" class="text-black"><b>Nhanh chóng bắt trend câu nói "Tiền nhiều để làm gì", Huỳnh Hiền Năng sáng tác riêng một ca khúc cho hiện tượng này</b></a></h3>
-                  <p><a href="#">Âm nhạc - Trong nước</a><span class="mx-2">&bullet;</span> 14/04/2019</p>
-                  <p><a href="#">Xem tiếp...</a></p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="title-chuyen-muc">
-                <h3 class="justify-content-start">Giáo dục Tin tức - Bài viết nổi bật</h3>
-              </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-              <div class="unit-4 d-block">
-                <div class="unit-4-icon mb-3">
-                  <img src=".\images\hop.jpg" class="most-img">
-                </div>
-                <div>
-                  <h3><a href="#" class="text-black"><b>Nhóm nữ sinh bắt bạn quỳ, đánh dằn mặt bị đuổi học một tuần</b></a></h3>
-                  <p><a href="#">Giáo dục - Tin tức</a><span class="mx-2">&bullet;</span> 13/04/2019</p>
-                  <p><a href="#">Xem tiếp...</a></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="title-chuyen-muc">
-                <h3 class="justify-content-start">Fashion Mặc gì - Bài viết nổi bật</h3>
-              </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-              <div class="unit-4 d-block">
-                <div class="unit-4-icon mb-3">
-                  <img src=".\images\clothes.jpg" class="most-img">
-                </div>
-                <div>
-                  <h3><a href="#" class="text-black"><b>Tham khảo 15 set đồ này của các quý cô châu Á để không bỡ ngỡ khi thời tiết mới chớm hè</b></a></h3>
-                  <p><a href="#">Fashion - Mặc gì</a><span class="mx-2">&bullet;</span> 13/04/2019</p>
-                  <p><a href="#">Xem tiếp...</a></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="title-chuyen-muc">
-                <h3 class="justify-content-start">Kinh doanh Hải sản - Bài viết nổi bật</h3>
-              </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-              <div class="unit-4 d-block">
-                <div class="unit-4-icon mb-3">
-                  <img src=".\images\sgcoop.jpg" class="most-img">
-                </div>
-                <div>
-                  <h3><a href="#" class="text-black"><b>Saigon Co.op đẩy mạnh thu mua hải sản an toàn cho ngư dân Miền Trung</b></a></h3>
-                  <p><a href="#">Kinh doanh - Hải sản</a><span class="mx-2">&bullet;</span> 13/04/2019</p>
-                  <p><a href="#">Xem tiếp...</a></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="title-chuyen-muc">
-                <h3 class="justify-content-start">Giáo dục Tuyển sinh - Bài viết nổi bật</h3>
-              </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-              <div class="unit-4 d-block">
-                <div class="unit-4-icon mb-3">
-                  <img src=".\images\truong.jpg" class="most-img">
-                </div>
-                <div>
-                  <h3><a href="#" class="text-black"><b>Gần 30.000 học sinh Sài Gòn sẽ rớt lớp 10 công lập</b></a></h3>
-                  <p><a href="#">Giáo dục - Tuyển sinh</a><span class="mx-2">&bullet;</span> 13/04/2019</p>
-                  <p><a href="#">Xem tiếp...</a></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="title-chuyen-muc">
-                <h3 class="justify-content-start">Kinh doanh Nông sản - Bài viết nổi bật</h3>
-              </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-              <div class="unit-4 d-block">
-                <div class="unit-4-icon mb-3">
-                  <img src=".\images\thit.jpg" class="most-img">
-                </div>
-                <div>
-                  <h3><a href="#" class="text-black"><b>Rabobank: Giá thịt và cá trên toàn cầu sẽ tăng do dịch tả lợn Châu Phi</b></a></h3>
-                  <p><a href="#">Kinh doanh - Nông sản</a> <span class="mx-2">&bullet;</span> 13/04/2019</p>
-                  <p><a href="#">Xem tiếp...</a></p>
-                </div>
-              </div>
-            </div>
+          </span>
           </div>
           </div>
       </div>

@@ -42,19 +42,27 @@
       <div class="site-mobile-menu-body"></div>
     </div>
     
-    <div class="contain-sign-in-up">
-      <div class="contain-sign text-right">
-        <ul class="sign-in">
-          <li class="sign-in-up">
-              <img class="avatar" src="./images/user.png">
-              <a href="#" class="text-black">Username <span class="mx-2"></span></a>
-          </li>
-          <li class="sign-in-up">
-              <a href="#">Đăng xuất</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <div class="LoginOut">
+      <ul class="sign-in">
+        <li class="dropdown">
+          <img class="small-avatar" src=".\images\blackpink.png">
+          <a href="#">Username<span class="mx-2"></span></a>
+          <div class="dropdown-content" >
+            <div style="padding-bottom: 10px">
+              <img class="avatar" src=".\images\blackpink.png">
+              <p class="text-center"> Việt An</p>
+            </div>
+            <label class="text-center" href="#"> Thời hạn tài khoản còn:<br><u style="font-weight:800;" >7 ngày</u>. </label>
+            <a href="#" style="font-weight:400">Chỉnh sửa thông tin</a>
+            <a href="#" style="font-weight:400">Gia hạn tài khoản</a>
+            <a href="writer-xem-ds-bai-viet.html" style="font-weight:400">Danh sách bài viết</a>
+            <a href="writer.html" style="font-weight:400">Viết bài</a>
+          </div>
+        </li>  
+        <li class="dropdown"><a href="#">Đăng xuất</a>
+        </li>
+      </ul>
+  </div>
 
 
     <div class="container d-none d-lg-block">
@@ -141,28 +149,40 @@
           CKEDITOR.replace( 'editor1' );
       </script>
         </div>
-        <div class="cbx">
-          <p class="text-black">Chọn chuyên mục:<span class="mx-2"></span></p>
-          <select>
-            <option value="kinh doanh - nông sản">Kinh doanh - Nông sản</option>
-            <option value="kinh doanh - hải sản">Kinh doanh - Hải sản</option>
-            <option value="âm nhạc - trong nước">Âm nhạc - Trong nước</option>
-            <option value="âm nhạc - quốc tế">Âm nhạc - Quốc tế</option>
-            <option value="giáo dục - tin tức">Giáo dục - Tin tức</option>
-            <option value="giáo dục - tuyển sinh">Giáo dục - Tuyển sinh</option>
-            <option value="thể thao - trong nước">Thể thao - Trong nước</option>
-            <option value="thể thao - quốc tế">Thể thao - Quốc tế</option>
-            <option value="fashion - mặc gì">Fashion - Mặc gì</option>
-            <option value="fashion - làm đẹp">Fashion - Làm đẹp</option>
-          </select>
-          <span>
-            
+        <div class="more-detail">
+          <span class="cbx-option">
+              <p>Chọn chuyên mục: &nbsp;</p>
+              <select class="choose-cbx">
+                <option value="kinh doanh - nông sản">Kinh doanh - Nông sản</option>
+                <option value="kinh doanh - hải sản">Kinh doanh - Hải sản</option>
+                <option value="âm nhạc - trong nước">Âm nhạc - Trong nước</option>
+                <option value="âm nhạc - quốc tế">Âm nhạc - Quốc tế</option>
+                <option value="giáo dục - tin tức">Giáo dục - Tin tức</option>
+                <option value="giáo dục - tuyển sinh">Giáo dục - Tuyển sinh</option>
+                <option value="thể thao - trong nước">Thể thao - Trong nước</option>
+                <option value="thể thao - quốc tế">Thể thao - Quốc tế</option>
+                <option value="fashion - mặc gì">Fashion - Mặc gì</option>
+                <option value="fashion - làm đẹp">Fashion - Làm đẹp</option>
+              </select>
+          </span>
+          <span class="txt-tag">
+            <p>Nhập thẻ tag: &nbsp;</p>
+            <textarea placeholder="Nhập tag ở đây..."></textarea>
           </span>
         </div>
         <div class="btn-btn">
-            <button class="btn-out"><b>Thoát</b></button>
+            <button class="btn-out"><b>Về trang chủ</b></button>
           <button class="btn-save"><b>Lưu</b></button>
         </div>
+    </div>
+    <div class="hint-href">
+      <ul>
+        <li>
+          <a href="writer-xem-ds-bai-viet.html">
+            <b>Xem danh sách bài đã viết</b>
+          </a>
+        </li>
+      </ul>
     </div>
    
 
