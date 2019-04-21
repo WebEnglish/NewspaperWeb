@@ -1984,7 +1984,10 @@ h1, h2, h3, h4, h5,
   font-style: italic ;
 }
 p{
-  font-weight: 400; 
+  line-height: 25px;
+  font-size:17px;
+  font-weight: 500; 
+  font-family: "Times New Roman";
 }
 .most-img{
   width:100%;
