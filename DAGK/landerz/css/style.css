@@ -1999,7 +1999,7 @@ p{
    padding-right:70px;
    margin-top: 10px;
 }
-
+/* Phân trang nè */
 .pagination {
   
   list-style: none;
@@ -2050,3 +2050,5 @@ p{
   background-color: #00d2b5;
   color: white;
 }
+
+/*hết Phân trang nè */
