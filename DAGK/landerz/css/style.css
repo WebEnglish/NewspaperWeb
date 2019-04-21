@@ -285,7 +285,11 @@ h1, h2, h3, h4, h5,
   display: none;
   position: absolute;
   background-color: #f9f9f9;
+<<<<<<< HEAD
   min-width: 225px;
+=======
+  min-width: 200px;
+>>>>>>> Hung
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 9999;
 }
@@ -299,7 +303,11 @@ h1, h2, h3, h4, h5,
 }
 
 .dropdown-content a:hover {
+<<<<<<< HEAD
   background-color: rgb(243, 241, 241);
+=======
+  background-color: rgb(233, 231, 231);
+>>>>>>> Hung
   color: #00d2b5;}
 
 .dropdown:hover .dropdown-content {
@@ -1991,6 +1999,7 @@ h1, h2, h3, h4, h5,
    flex-wrap: nowrap;
  }
 
+<<<<<<< HEAD
  .more-detail{
   margin: auto;
   width: 80%;
@@ -2056,3 +2065,83 @@ td{
    padding-right:70px;
    margin-top: 10px;
 }
+=======
+ .btn-btn{
+   padding-top: 30px;
+ }
+ 
+.Node
+{
+  text-align: center; 
+  font-style: italic ;
+}
+p{
+  line-height: 25px;
+  font-size:17px;
+  font-weight: 500; 
+  font-family: "Times New Roman";
+}
+.most-img{
+  width:100%;
+}
+.LoginOut{
+  display: flex;
+  justify-content:
+   flex-end; 
+   padding-right:70px;
+   margin-top: 10px;
+}
+/* Phân trang nè */
+.pagination {
+  
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  
+}
+.pagination li {
+  display: inline;
+  text-align: center;
+
+}
+.pagination a {
+  float: left;
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 5px 12px;
+  color: black;
+  margin-left: -1px;
+  border: 1px solid transparent;
+  line-height: 1.5;
+}
+.pagination a.active {
+  cursor: default;
+}
+.pagination a:active {
+  outline: none;
+}
+.modal-3 a {
+  margin-left: 3px; 
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+.modal-3 a:hover {
+  background-color: #00d2b5;
+  color: white;
+}
+.modal-3 a.active, .modal-3 a:active {
+  background-color: #00d2b5;
+  color: white;
+}
+
+/*hết Phân trang nè */
+>>>>>>> Hung
