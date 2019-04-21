@@ -285,11 +285,7 @@ h1, h2, h3, h4, h5,
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-<<<<<<< HEAD
-  min-width: 225px;
-=======
   min-width: 200px;
->>>>>>> Hung
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 9999;
 }
@@ -303,12 +299,9 @@ h1, h2, h3, h4, h5,
 }
 
 .dropdown-content a:hover {
-<<<<<<< HEAD
-  background-color: rgb(243, 241, 241);
-=======
   background-color: rgb(233, 231, 231);
->>>>>>> Hung
-  color: #00d2b5;}
+  color: #00d2b5;
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
@@ -1999,7 +1992,6 @@ h1, h2, h3, h4, h5,
    flex-wrap: nowrap;
  }
 
-<<<<<<< HEAD
  .more-detail{
   margin: auto;
   width: 80%;
@@ -2059,13 +2051,6 @@ td{
   margin-top: 40px;
 }
 
-.LoginOut{
-  display: flex;
-  justify-content: flex-end;
-   padding-right:70px;
-   margin-top: 10px;
-}
-=======
  .btn-btn{
    padding-top: 30px;
  }
@@ -2144,4 +2129,3 @@ p{
 }
 
 /*hết Phân trang nè */
->>>>>>> Hung
