@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Admin</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<!--Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="./vendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="./vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="./build/css/custom.min.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div role="main">
+        <div class="">
+          <div style="display: flex; justify-content: space-between ">
+
+            <span style="width: 30%;">
+              <div style="text-align: center; padding-top: 6px;">
+                <h3><b>Biên tập viên</b></h3>
+              </div>
+            </span>
+            <span style="width: 40%;">
+              <div style="padding-top:13px;" class=" form-group  top_search">
+                <div class="input-group">
+                  <input type="text" style="height:30px;" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button style="height:30px;" class="btn btn-default" type="button"><i
+                        class="fas fa-search"></i></button>
+                  </span>
+                </div>
+              </div>
+
+
+            </span>
+
+            <span style="width: 30%;">
+              <div>
+                <ul class="nav" style="text-align: center; padding-top: 6px;">
+                  <li class="">
+                    <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <img src="images/img.jpg" alt="">Việt An
+                      <span class=" fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu" >
+                      <li><a href="javascript:;"> Thông tin tài khoản</a></li>
+                      <li>
+                        <a href="javascript:;">
+                          <span>Cài đặt</span>
+                        </a>
+                      </li>
+                      <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Thoát</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </span>
+
+          </div>
+
+
+          <div class="row">
+            <div class="clearfix"></div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Danh sách các bài viết</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li class="dropdown">
+                      <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                        &nbsp;<i class="fas fa-plus-circle"></i></a>
+                    </li>
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>STT</th>
+                        <th style="width: 400px;">Tên bài viết</th>
+                        <th>Ngày đăng</th>
+                        <th>Tác giả</th>
+                        <th>List tag</th>
+                        <th>Chuyên mục</th>
+                        <th style="text-align: center">Duyệt</th>
+                        <th style="text-align: center">Từ chối</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td id="name">Sơn Tùng M-TP "ló dạng" bằng hit cũ sau gần 1 năm “chơi trốn tìm” với khán giả: Bước lùi hay
+                          ủ mưu?</td>
+                        <td> 14/04/2019 19:00:20 PM</td>
+                        <td>Lê Hưng</td>
+                        <td>
+                          <ul style="list-style:none; padding-left: 0px;">
+                            <li>Nhạc trong nước</li>
+                            <li>Nhạc nước ngoài</li>
+                          </ul>
+                        </td>
+                        <td>Âm nhạc - Quốc tế</td>
+                        <td style="text-align: center"><input type="radio" name="a" data-toggle="modal"
+                            data-target="#myModal"></td>
+                        <td style="text-align: center"><input type="radio" name="a" data-toggle="modal"
+                            data-target="#myModal"></td>
+                    <!--  </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Soobin Hoàng Sơn trở lại đường đua Vpop với teaser như phim hành động, tạo hình thì "choáng
+                          thôi rồi"</td>
+                        <td>21/04/2019 9:34:32 AM</td>
+                        <td>Nguyễn An</td>
+                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td>Âm nhạc - Trong nước</td>
+                        <td><a href="#">Xem chi tiết</a></td>
+                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Hè này phải mặc đẹp hơn hè năm ngoái, và đây là 5 items bạn nên sắm ngay để ghi điểm phong
+                          cách</td>
+                        <td>18/04/2019 12:45:23 AM</td>
+                        <td>Hưng Lê</td>
+                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td>Fashion - Mặc gì</td>
+                        <td><a href="#">Xem chi tiết</a></td>
+                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>4 loại mặt nạ đất sét “thải độc” giá từ 150.000 VNĐ, đem lại làn da mịn mướt hơn bao giờ hết
+                        </td>
+                        <td>18/04/2019 18:20:54 PM</td>
+                        <td>Izzy An</td>
+                        <td>Đang xuất bản&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td>Fashion - Làm đẹp</td>
+                        <td><a href="#">Xem chi tiết</a></td>
+                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                        <td>Triệu Việt Hưng chấn thương nguy hiểm, nhập viện khẩn cấp</td>
+                        <td>19/04/2019 05:59:03 AM</td>
+                        <td>Hưng Tom</td>
+                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td>Thể thao - Trong nước</td>
+                        <td><a href="#">Xem chi tiết</a></td>
+                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">6</th>
+                        <td>Ronaldo có tên trong danh sách đăng ký trận Ajax vs Juventus</td>
+                        <td>22/04/2019 11:34:23 AM</td>
+                        <td>Hưng Lê</td>
+                        <td>Đang xuất bản&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td>Thể thao - Quốc tế</td>
+                        <td><a href="#">Xem chi tiết</a></td>
+                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Modal Heading</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" id="body">
+                  Modal body..
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /page content -->
+
+      <!-- footer content -->
+
+    </div>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $("#body").text = $("#name").text;
+
+    })
+
+  </script>
+  <script>
+    var d = new Date();
+    document.getElementById("date").innerHTML = d;
+  </script>
+  <!-- jQuery -->
+  <script src="../vendors/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- FastClick -->
+  <script src="../vendors/fastclick/lib/fastclick.js"></script>
+  <!-- NProgress -->
+  <script src="../vendors/nprogress/nprogress.js"></script>
+  <!-- iCheck -->
+  <script src="../vendors/iCheck/icheck.min.js"></script>
+
+  <!-- Custom Theme Scripts -->
+  <script src="../build/js/custom.min.js"></script>
+</body>
+
+</html>
