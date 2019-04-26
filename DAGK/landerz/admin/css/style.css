@@ -1,0 +1,96 @@
+/* phan trang */
+.pagination {
+  
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .pagination li {
+    display: inline;
+    text-align: center;
+    padding: 5px;
+  }
+  .pagination a {
+    float: left;
+    display: block;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 6px 12px;
+    color: black;
+    margin-left: -1px;
+    border: 0px solid transparent !important;
+    border-radius: 100% !important;
+    line-height: 1.5;
+  }
+  .pagination a.active {
+    cursor: default;
+  }
+  .pagination a:active {
+    outline: none;
+  }
+  .modal-3 a {
+    margin-left: 3px; 
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .modal-3 a:hover {
+    background-color: #6aa59d;
+    color: white;
+  }
+  .modal-3 a.active, .modal-3 a:active {
+    background-color: #6aa59d;
+    color: white;
+  }
+/* phan trang */
+
+.status{
+  border: none;
+  background-color: transparent;
+}
+
+.modal-dialog{
+  width: 400px;
+}
+
+.modal-dialog-rewrite{
+  margin: auto;
+  width: 50%;
+}
+
+.text-black{
+  color: black;
+}
+
+thead{
+  background-color: #6aa59d;
+  color: white;
+}
+
+.btn{
+  float: right;
+}
+
+.btn-save{
+ background-color: #D9534F;
+ color: white;
+}
+
+.btn-save:hover{
+  background-color: #C83633;
+  color: white;
+}
+
+.btnsaved{
+  color: white;
+  background:#6aa59d ;
+}
+
+.btnsaved:hover{
+  color: white;
+  background-color: #74d1c5 ;
+}

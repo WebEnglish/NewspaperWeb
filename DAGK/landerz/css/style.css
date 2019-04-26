@@ -70,6 +70,7 @@ h1, h2, h3, h4, h5,
   font-size: 16px;
   border-radius: 30px;
   padding: 10px 30px; }
+
   .btn:hover, .btn:active, .btn:focus {
     outline: none;
     -webkit-box-shadow: none !important;
@@ -317,7 +318,7 @@ h1, h2, h3, h4, h5,
   .site-navbar .site-navigation .site-menu {
     margin-bottom: 0; }
     .site-navbar .site-navigation .site-menu .active {
-      color: #00d2b5;
+      color: #00d2b5 !important;
       display: inline-block;
       padding: 5px 20px; }
     .site-navbar .site-navigation .site-menu a {
@@ -1856,24 +1857,26 @@ h1, h2, h3, h4, h5,
     display: none !important; } }
 
  .img-top{
-    width: 70%;
+    width: 1000px;  
+  height: 550px;
     margin: auto;
     display: flex;
     align-self: center;
 }
 
 .carousel-control-prev{
-  margin-left: 150px;
+  margin-left: 50px;
   -moz-window-shadow: 5%;
 }
 
 .carousel-control-next{
-  margin-right: 150px;
+  margin-right: 50px;
   -moz-window-shadow: 5%;
 }
 
 .carousel-caption{
   color: white;
+  background-color: #000;
 }
 
 .most-img{
@@ -1961,27 +1964,23 @@ h1, h2, h3, h4, h5,
    height: 100%;;
  }
 
- .btn-save, .btn-out{
-   float: right;
+ .btn{
+   margin-left: 45%;
    margin-top: 1%;
-   background-color: white;
-   color: #00d2b6;
-   border: none;
+   background-image: linear-gradient(to right, #00d2b5, #399e91);
+   box-shadow: 2px 2px 1px 1px #777;
  }
 
- .btn-save{
-   margin-right: 20%;
+ .btn:hover{
+   color: white;
  }
 
- .btn-out{
-  margin-right: 35%;
- }
-
+ 
  .btn-save:hover, .btn-out:hover{
    transition: 0.1s;
    cursor: pointer;
    border: 0;
-   color: #08685b;
+   color: #14534b;
  }
 
  .cbx{
@@ -1992,55 +1991,98 @@ h1, h2, h3, h4, h5,
    flex-wrap: nowrap;
  }
 
- .more-detail{
-  margin: auto;
-  width: 80%;
-  margin-top: 3%;
-  display: flex;
-  justify-content: space-between;
-}
-
 .cbx-option{
  display: flex;
  flex-wrap: nowrap;
+ margin: auto;
+  width: 80%;
+  margin-top: 3%;
 }
 
 .choose-cbx{
-  height: 50%;
+  height: 100%;
+  box-shadow: 5px 2px 0px 0px #8d8d8d;
+}
+
+.choose-mul-cbx{
+  height: 100% !important;
+  box-shadow: 5px 2px 0px 0px #8d8d8d;
+}
+
+.cbx-option-mul{
+  height: 200px;
 }
 
 .txt-tag{
   display: flex;
   flex-wrap: nowrap;
-  float: right !important;
 }
 
-.hint-href{
-  margin:auto;
+.div-tong{
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto;
   width: 80%;
+  margin-top: 25px;
+}
+
+#btnChoose, #btnUnchoose{
+  color: white;
+  border: none;
+  background: #67a8a0;
+  border-radius: 20%;
+  box-shadow: 2px 2px 0px 0px #b3b3b3;
+}
+
+.Button{
+  margin-top: 40px;
+    margin-left:30px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#btnChoose:hover, #btnUnchoose:hover{
+  background-color: #00d2b5;
+}
+
+.ChosenSubject{
+  margin-top: 40px;
+}
+
+#txtChosen{
+  box-shadow: 5px 3px 0px 0px #8d8d8d;
 }
 
 .list-table, .them-bai{
   margin: auto;
   width: 80%;
+  font: bold;
+  cursor: pointer;
+}
+
+.list-turndown-table{
+  margin: auto;
+  width: 100%;
+  cursor: pointer;
+}
+
+.table-heading{
+  background-color: rgb(119, 179, 161);
+  color:white !important;
 }
 
 td{
   padding: 5px;
-  width: 200px;
   text-align: center;
 }
 
 #stt{
-  width: 50px !important;
+  width: 5px !important;
 }
 
 #ten-bai-viet{
   width: 400px !important;
-}
-
-.table-heading{
-  background-color: rgb(194, 193, 193);
 }
 
 .fa-tools{
@@ -2052,7 +2094,7 @@ td{
 }
 
  .btn-btn{
-   padding-top: 30px;
+   margin-bottom: 100px;
  }
  
 .Node
@@ -2129,3 +2171,4 @@ p{
 }
 
 /*hết Phân trang nè */
+
