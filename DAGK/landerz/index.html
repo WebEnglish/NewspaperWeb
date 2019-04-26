@@ -54,12 +54,36 @@
       </ul>
 
     </div>
+    
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div
+            style="padding: 10px; background-color: #2A3F54;color: white; font-weight: bold; display:flex; flex-direction:row; justify-content: space-between">
+            <h4 class="modal-title">Lý do</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div>
+            <textarea style="width: 97%;   margin: 10px; height:150px; box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.08)" placeholder="Vui lòng nhập lí do để phóng viên chỉnh sửa..." ></textarea>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Lưu</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
 
 
     <div class="container d-none d-lg-block">
       <div class="row">
         <div class="col-12 text-center mb-4 mt-5">
-          <h1 class="mb-0 site-logo"><a href="index.html" class="text-black mb-0"><b>Báo Điện Tử HungAn</b></a></h1>
+          <h1 class="mb-0 site-logo"><a href="index.html" class="mb-0"><b>Báo Điện Tử HungAn</b></a></h1>
         </div>
       </div>
     </div>
@@ -75,52 +99,42 @@
           <!-- menu -->
           <div class="col-12 col-md-10 main-menu">
             <nav class="site-navigation position-relative text-center" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="#home-section" class="nav-link"><b>Trang chủ</b></a></li>
-                <li class="dropdown"><a href="#feature-section" class="nav-link"><b>Kinh doanh</b></a>
-                  <div class="dropdown-content">
-                    <a href="#"><b>Nông sản</b></a>
-                    <a href="#"><b>Hải sản</b></a>
-                  </div>
-                </li>
-                <li class="dropdown"><a href="#education-section" class="nav-link"><b>Giáo dục</b></a>
-                  <div class="dropdown-content">
-                    <a href="#"><b>Tin tức</b></a>
-                    <a href="#"><b>Tuyển sinh</b></a>
-                  </div>
-                </li>
-                <li class="dropdown"><a href="#music-section" class="nav-link"><b>Âm nhạc</b></a>
-                  <div class="dropdown-content">
-                    <a href="#"><b>Trong nước</b></a>
-                    <a href="#"><b>Quốc tế</b></a>
-                  </div>
-                </li>
-                <li class="dropdown"><a href="#fashion-section" class="nav-link"><b>Fashion</b></a>
-                  <div class="dropdown-content">
-                    <a href="#"><b>Mặc gì</b></a>
-                    <a href="#"><b>Làm đẹp</b></a>
-                  </div>
-                </li>
-                <li class="dropdown"><a href="#contact-section" class="nav-link"><b>Thể thao</b></a>
-                  <div class="dropdown-content">
-                    <a href="#"><b>Trong nước</b></a>
-                    <a href="#"><b>Quốc tế</b></a>
-                  </div>
-                </li>
-                <li>
-                  <div class="search-container h-100">
-                    <div class="d-flex justify-content-center h-100">
-                      <div class="searchbar">
-                        <input class="search_input" type="text" name="" placeholder="Search...">
-                        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+                <ul class="site-menu main-menu js-clone-nv mr-auto d-none d-lg-block">
+                    <li><a href="#home-section" class="nav-link">Trang chủ</a></li>
+                    <li class="dropdown"><a href="#feature-section" class="nav-link">Kinh doanh</a>
+                        <div class="dropdown-content">
+                            <a href="NongSan.html">Nông sản</a>
+                            <a href="HaiSan.html">Hải sản</a>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="#education-section" class="nav-link">Giáo dục</a>
+                        <div class="dropdown-content">
+                            <a href="TinGiaoDuc.html">Tin tức</a>
+                            <a href="TinTuyenSinh.html">Tuyển sinh</a>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="#music-section" class="nav-link">Âm nhạc</a>
+                        <div class="dropdown-content">
+                            <a href="AmNhacTrongNuoc.html">Trong nước</a>
+                            <a href="AmNhacNuocNgoai.html">Quốc tế</a>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="#fashion-section" class="nav-link">Fashion</a>
+                        <div class="dropdown-content">
+                            <a href="FashionMacGi.html">Mặc gì</a>
+                            <a href="FashionLamDep.html">Làm đẹp</a>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="#contact-section" class="nav-link">Thể thao</a>
+                        <div class="dropdown-content">
+                            <a href="BongDaTrongNuoc.html">Trong nước</a>
+                            <a href="BongDaNuocNgoai.html">Quốc tế</a>
+                        </div>
+                    </li>
+                </ul>
             </nav>
-          </div>
-          <div class="col-6 col-md-6 d-inline-block d-lg-none ml-md-0"><a href="#"
+        </div>
+       <div class="col-6 col-md-6 d-inline-block d-lg-none ml-md-0"><a href="#"
               class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
           </div>
         </div>

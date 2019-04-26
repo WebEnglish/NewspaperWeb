@@ -1,0 +1,26 @@
+.img-small{
+    width: 70px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.text-small{
+    font-size: 14px;
+    line-height: 24px;
+    color: black !important;
+    
+}
+.text-small:hover{
+    color: red !important;
+}
+
+.div-big{
+    padding: 20px; 
+    text-align: center;
+    box-shadow: 2px 2px 3px 3px gray
+}
+.div-small{
+    display: flex;
+    align-items:flex-start; 
+    text-align: left;
+}

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Admin</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!--Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="./vendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="./vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="./build/css/custom.min.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div role="main">
+        <div class="">
+          <div style="display: flex; justify-content: space-between ">
+
+            <span style="width: 30%;">
+              <div style="text-align: center; padding-top: 6px;">
+                <h3><b>Biên tập viên</b></h3>
+              </div>
+            </span>
+            <span style="width: 40%;">
+              <div style="padding-top:13px;" class=" form-group  top_search">
+                <div class="input-group">
+                  <input type="text" style="height:30px;" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button style="height:30px;" class="btn btn-default" type="button"><i
+                        class="fas fa-search"></i></button>
+                  </span>
+                </div>
+              </div>
+
+
+            </span>
+
+            <span style="width: 30%;">
+              <div>
+                <ul class="nav" style="text-align: center; padding-top: 6px;">
+                  <li class="">
+                    <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <img src="images/img.jpg" alt="">Việt An
+                      <span class=" fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu">
+                      <li><a href="javascript:;"> Thông tin tài khoản</a></li>
+                      <li>
+                        <a href="javascript:;">
+                          <span>Cài đặt</span>
+                        </a>
+                      </li>
+                      <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Thoát</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </span>
+
+          </div>
+
+
+          <div class="row" style="padding-left:20px; padding-right: 20px;">
+            <div class="clearfix"></div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Danh sách các bài viết</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li class="dropdown">
+                      <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                        &nbsp;<i class="fas fa-plus-circle"></i></a>
+                    </li>
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <table id="table" class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>STT</th>
+                        <th style="width: 400px;">Tên bài viết</th>
+                        <th>Ngày đăng</th>
+                        <th>Tác giả</th>
+                        <th>List tag</th>
+                        <th>Chuyên mục</th>
+                        <th style="text-align: center">Option</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr data-href="..\VanToanToaSang.html">
+                        <th scope="row">1</th>
+                        <td id="name">Sơn Tùng M-TP "ló dạng" bằng hit cũ sau gần 1 năm “chơi trốn tìm” với khán giả:
+                          Bước lùi hay
+                          ủ mưu?</td>
+                        <td> 14/04/2019 19:00:20 PM</td>
+                        <td>Lê Hưng</td>
+                        <td>
+                          <ul id="ULTag" style="list-style:none; padding-left: 0px;">
+                            <li rel="Bóng đá trong nước">Bóng đá trong nước</li>
+                            <li rel="Bóng đá nước ngoài">Bóng đá nước ngoài</li>
+                          </ul>
+                        </td>
+                        <td>Âm nhạc quốc tế</td>
+                        <td style="display:flex; flex-direction:row; justify-content: space-around">
+                          <button style="border: none; background-color: transparent" id="btn" class="btnSelect"
+                            data-toggle="modal" data-target="#myModal"><i class="fas fa-user-check"></i></button>
+                          <button style="border: none; background-color: transparent" data-toggle="modal" data-target="#myModal1"><i
+                              class="fas fa-user-times"></i></button>
+                        </td>
+                      </tr>
+                      <tr data-href="..\VanToanToaSang.html">
+                        <th scope="row">1</th>
+                        <td id="name">Sơn Tùng M-TP "ló dạng" bằng hit cũ sau gần 1 năm “chơi trốn tìm” với khán giả:
+                          Bước lùi hay
+                          ủ mưu?</td>
+                        <td> 14/04/2019 19:00:20 PM</td>
+                        <td>Lê Hưng</td>
+                        <td>
+                          <ul id="ULTag" style="list-style:none; padding-left: 0px;">
+                            <li rel="Tuyển sinh">Tuyển sinh</li>
+                            <li rel="Giáo dục">Giáo dục</li>
+                          </ul>
+                        </td>
+                        <td>Giáo dục</td>
+                        <td style="display:flex; flex-direction:row; justify-content: space-around">
+                          <button style="border: none; background-color: transparent" id="btn" class="btnSelect"
+                            data-toggle="modal" data-target="#myModal"><i class="fas fa-user-check"></i></button>
+                          <button style="border: none; background-color: transparent" data-toggle="modal" data-target="#myModal1"><i
+                              class="fas fa-user-times"></i></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div
+                  style="padding: 10px; background-color: #2A3F54;color: white; font-weight: bold; display:flex; flex-direction:row; justify-content: space-between">
+                  <h4 class="modal-title">Hiệu chỉnh thông tin</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="color:black">
+                  <div style="display: flex; flex-direction:row">
+                    <div style="width: 50%">
+                      <h3><u>Chuyên mục</u></h3>
+                      <select id="type" style="width: 100%; height: 30px; ">
+                        <option value="Bóng đá trong nước">Bóng đá trong nước</option>
+                        <option value="Âm nhạc quốc tế">Âm nhạc quốc tế</option>
+                        <option value="Fashion-Mặc gì">Fashion-Mặc gì</option>
+                        <option value="Âm nhạc trong nước">Âm nhạc trong nước</option>
+                        <option value="Giáo dục">Giáo dục</option>
+                        <option value="Tuyển sinh">Tuyển sinh</option>
+                      </select>
+                    </div>
+                    <br><br>
+                    <div style="width: 50%; margin-left: 10px">
+                      <h3><u>Thời điểm xuất bản</u></h3>
+                      <input style="width:100%; height: 30px;" type="date">
+                    </div>
+                  </div>
+                  <div style=" width: 100%">
+                    <h3><u>Danh sách nhãn</u></h3>
+                    <div>
+                      <span>
+                        <ul id="Tag">
+                          <li><input type="checkbox"  value="Bóng đá trong nước">Bóng đá trong nước</li>
+                          <li><input type="checkbox" value="Tuyển sinh">Tuyển sinh</li>
+                          <li><input type="checkbox" value="Bóng đá nước ngoài">Bóng đá nước ngoài</li>
+                          <li><input type="checkbox" value="Giáo dục">Giáo dục</li>
+                        </ul>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Lưu</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="myModal1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div
+                  style="padding: 10px; background-color: #2A3F54;color: white; font-weight: bold; display:flex; flex-direction:row; justify-content: space-between">
+                  <h4 class="modal-title">Lý do</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div>
+                  <textarea style="width: 97%;   margin: 10px; height:150px; box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.08)" placeholder="Vui lòng nhập lí do để phóng viên chỉnh sửa..." ></textarea>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Lưu</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#table").on('click', '.btnSelect', function () {
+        var currentRow = $(this).closest("tr");
+        var col1 = currentRow.find("td:eq(1)").text();
+        var col4 = currentRow.find("td:eq(4)").text();
+        $("#type").val(col4);  
+
+        var arr=[];
+        currentRow.find("td:eq(3)").find("ul li").each(function(){
+          arr.push($(this).attr('rel'));         
+        })     
+        var i = 0;
+        for(i = 0; i < arr.length;i++)
+        {
+           $("#tag").prop(arr[i],"checked",true);
+          //  $("#tag").each(function(){
+          //    if($(this).val = arr[i])
+          //    {
+          //      $(this).prop('checked', true);
+          //    }
+          //  })
+        }   
+
+      })
+
+      $('td:not(:last-child)').click(function () {
+        
+      })
+
+    });
+  </script>
+
+
+  <script>
+    $(document).ready(function () {
+      $("#infor").click(function () {
+        window.location = $(this).data("href");
+      });
+    });
+  </script>
+
+  <script>
+    var d = new Date();
+    document.getElementById("date").innerHTML = d;
+  </script>
+
+  <!-- jQuery -->
+  <script src="./vendors/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- FastClick -->
+  <script src="./vendors/fastclick/lib/fastclick.js"></script>
+  <!-- NProgress -->
+  <script src="./vendors/nprogress/nprogress.js"></script>
+  <!-- iCheck -->
+  <script src="./vendors/iCheck/icheck.min.js"></script>
+
+  <!-- Custom Theme Scripts -->
+  <script src="./build/js/custom.min.js"></script>
+</body>
+
+</html>
