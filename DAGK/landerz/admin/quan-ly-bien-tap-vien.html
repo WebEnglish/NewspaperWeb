@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin - Quản lý Biên tập viên</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Bootstrap -->
+    <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="./vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="./vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="./build/css/custom.min.css" rel="stylesheet">
+
+    <link href="./css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Báo Điện Tử</span></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2>Việt An</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>Quản lý</h3>
+                            <ul class="nav side-menu">
+                                <li><a><i class="fa fa-home"></i> Home</a>
+                                    <!-- <ul class="nav child_menu">
+                      <li><a href="index.html">Dashboard</a></li>
+                      <li><a href="index2.html">Dashboard2</a></li>
+                      <li><a href="index3.html">Dashboard3</a></li>
+                    </ul> -->
+                                </li>
+
+                                <li><a><i class="fa fa-table"></i> Quản lý<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="quan-ly-bai-viet.html">Quản lý bài viết</a></li>
+                                        <li><a href="quan-ly-chuyen-muc.html">Quản lý chuyên mục</a></li>
+                                        <li><a href="quan-ly-the-tag.html">Quản lý thẻ tag</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a><i class="fas fa-users"></i> &nbsp Quản lý người dùng <span
+                                            class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="quan-ly-nguoi-dung.html">Độc giả</a></li>
+                                        <li><a href="quan-ly-bien-tap-vien.html">Biên tập viên</a></li>
+                                        <li><a href="quan-ly-phong-vien.html">Phóng viên</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+
+                    <!-- /menu footer buttons -->
+                    <!-- <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+              <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+          </div> -->
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="images/img.jpg" alt="">Việt An
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="javascript:;"> Thông tin tài khoản</a></li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span>Cài đặt</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Thoát</a></li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3><b>Quản lý Biên tập viên</b></h3>
+                        </div>
+
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i
+                                                class="fas fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+                        <div class="clearfix"></div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Danh sách Biên tập viên</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <!-- <li class="dropdown">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                                                &nbsp;<i class="fas fa-plus-circle"></i></a>
+                                        </li> -->
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <table class="table table-hover" id="table">
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Tên tài khoản</th>
+                                                <th>Tên cá nhân</th>
+                                                <th>Email</th>
+                                                <th>SĐT</th>
+                                                <th>Ngày sinh</th>
+                                                <th>Phụ trách</th>
+                                                <th>Hành động</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td scope="row"><b>1</b></td>
+                                                <td>BTV An</td>
+                                                <td>Nguyễn Thị Việt An</td>
+                                                <td>anh.vy98@gmail.com</td>
+                                                <td>0336720111</td>
+                                                <td>03/05/1998</td>
+                                                <td>
+                                                    <select class="status">
+                                                        <option value="fashion - mặc gì">Fashion - Mặc gì</option>
+                                                        <option value="thể thao - trong nước">Thể thao - Trong nước
+                                                        </option>
+                                                        <option value="kinh doanh - nông sản">Kinh doanh - Nông sản
+                                                        </option>
+                                                        <option value="kinh doanh - hải sản">Kinh doanh - Hải sản
+                                                        </option>
+                                                        <option value="âm nhạc - trong nước">Âm nhạc - Trong nước
+                                                        </option>
+                                                        <option value="âm nhạc - quốc tế">Âm nhạc - Quốc tế</option>
+                                                        <option value="giáo dục - tin tức">Giáo dục - Tin tức</option>
+                                                        <option value="giáo dục - tuyển sinh">Giáo dục - Tuyển sinh
+                                                        </option>
+                                                        <option value="thể thao - quốc tế">Thể thao - Quốc tế</option>
+                                                        <option value="fashion - làm đẹp">Fashion - Làm đẹp</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <a href="" data-toggle="modal" data-target="#myModal-detail"
+                                                        class="btn-detail"><i class="fas fa-eye"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash-alt"></i></a>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row"><b>2</b></td>
+                                                <td>BTV Hưng</td>
+                                                <td>Lê Công Hưng</td>
+                                                <td>lehung22227@gmail.com</td>
+                                                <td>0339083303</td>
+                                                <td>03/09/1997</td>
+                                                <td>
+                                                    <select class="status" id="type">
+                                                        <option value="thể thao - trong nước">Thể thao - Trong nước
+                                                        </option>
+                                                        <option value="kinh doanh - nông sản">Kinh doanh - Nông sản
+                                                        </option>
+                                                        <option value="kinh doanh - hải sản">Kinh doanh - Hải sản
+                                                        </option>
+                                                        <option value="âm nhạc - trong nước">Âm nhạc - Trong nước
+                                                        </option>
+                                                        <option value="âm nhạc - quốc tế">Âm nhạc - Quốc tế</option>
+                                                        <option value="giáo dục - tin tức">Giáo dục - Tin tức</option>
+                                                        <option value="giáo dục - tuyển sinh">Giáo dục - Tuyển sinh
+                                                        </option>
+                                                        <option value="thể thao - quốc tế">Thể thao - Quốc tế</option>
+                                                        <option value="fashion - mặc gì">Fashion - Mặc gì</option>
+                                                        <option value="fashion - làm đẹp">Fashion - Làm đẹp</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <a href="" data-toggle="modal" data-target="#myModal-detail"
+                                                        onclick="detail()"><i class="fas fa-eye"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash-alt"></i></a>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <button class="btn btnsaved" onclick="Saved()"><b>Lưu</b></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <ul class="pagination modal-3">
+                                    <li><a href="#">&laquo</a></li>
+                                    <li><a href="#" class="active">1</a></li>
+                                    <li><a href="#" class="next">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--delete-->
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
+                                    </div>
+
+                                    <!-- Modal body
+                  <div class="modal-body">
+                    
+                  </div> -->
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng
+                                            ý</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Delete-->
+
+                        <!-- detail -->
+                        <div class="modal fade" id="myModal-detail">
+                            <div class="modal-dialog-detail">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title text-black">Thông tin chi tiết</h4>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--giahan -->
+
+
+
+                    </div>
+                </div>
+                <!-- /page content -->
+
+            </div>
+        </div>
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+
+        <!-- <script>
+            $(document).ready(function () {
+                $("#table").on('click', '.btnRewrite', function () {
+                    // get the current row
+                    var currentRow = $(this).closest("tr");
+
+                    var col1 = currentRow.find("td:eq(0)").text(); // get current row table cell  TD value
+                    var a = col1;
+                    $("#txtTitle").val(a);
+                });
+            });
+
+            $(document).ready(function () {
+                $("#myModal-rewrite").on('click', '.btn-save', function () {
+                    var b = $("#txtTitle").val();
+                    var currentRow = $(this).closest("tr");
+                    var a = '<a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>';
+                    $("td:eq(0)").html(b + a);
+
+                })
+            });
+        </script> -->
+
+        <script>
+            function Saved() {
+                alert("Đã lưu");
+            }
+        </script>
+        <script>
+            $(document).ready(function () {
+                $("#table").on('click', '.btn-detail', function () {
+                    var currentRow = $(this).closest("tr");
+                    var col1 = currentRow.find("td:eq(1)").text();
+                    var col2 = currentRow.find("td:eq(2)").text();
+                    var col3 = currentRow.find("td:eq(3)").text();
+                    var col4 = currentRow.find("td:eq(4)").text();
+                    var col5 = currentRow.find("td:eq(5)").text();
+                    $("#type").val(col5);
+
+                    // var arr = [];
+                    // currentRow.find("td:eq(3)").find("ul li").each(function () {
+                    //     arr.push($(this).attr('rel'));
+                    // })
+                    // var i = 0;
+                    // for (i = 0; i < arr.length; i++) {
+                    //     $("#tag").prop(arr[i], "checked", true);
+                    //  $("#tag").each(function(){
+                    //    if($(this).val = arr[i])
+                    //    {
+                    //      $(this).prop('checked', true);
+                    //    }
+                    //  })
+                
+
+                })
+            });
+        </script>
+        <!-- jQuery -->
+        <script src="./vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="./vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="./vendors/nprogress/nprogress.js"></script>
+        <!-- iCheck -->
+        <script src="./vendors/iCheck/icheck.min.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="./build/js/custom.min.js"></script>
+</body>
+
+</html>

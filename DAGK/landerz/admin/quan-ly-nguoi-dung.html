@@ -189,6 +189,7 @@
                                                 <th>Tên tài khoản</th>
                                                 <th>Email</th>
                                                 <th>SĐT</th>
+                                                <th>Ngày sinh</th>
                                                 <th>Ngày tạo</th>
                                                 <th>Ngày hết hạn</th>
                                                 <th>Hiện trạng tài khoản</th>
@@ -203,14 +204,18 @@
                                                 <td>An Izzy</td>
                                                 <td>anh.vy98@gmail.com</td>
                                                 <td>01636720111</td>
+                                                <td>03/05/1998</td>
                                                 <td>14/04/2019 19:00:20 PM</td>
                                                 <td>20/04/2019 23:55:00 PM</td>
                                                 <td>Đã hết hạn</td>
                                                 <td>Đã yêu cầu gia hạn</td>
                                                 <td>
-                                                    <button class="btn" data-toggle="modal" data-target="#myModal-giahan">Gia hạn</button>
+                                                    <button class="btn" data-toggle="modal"
+                                                        data-target="#myModal-giahan">Gia hạn</button>
                                                 </td>
                                                 <td>
+                                                    <a href="" data-toggle="modal" data-target="#myModal-detail"><i
+                                                            class="fas fa-eye"></i></a>
                                                     &nbsp;
                                                     <a href="#" data-toggle="modal" data-target="#myModal"><i
                                                             class="fas fa-trash-alt"></i></a>
@@ -222,6 +227,7 @@
                                                 <td>Hưng Lê</td>
                                                 <td>lehung22227@gmail.com</td>
                                                 <td>0339083303</td>
+                                                <td>03/09/1997</td>
                                                 <td>14/04/2019 05:40:20 AM</td>
                                                 <td>20/04/2019 23:55:00 PM</td>
                                                 <td>Đã hết hạn</td>
@@ -230,6 +236,8 @@
                                                     <!-- <button class="btn">Gia hạn</button> -->
                                                 </td>
                                                 <td>
+                                                    <a href="" data-toggle="modal"
+                                                        data-target="#myModal-detail""><i class=" fas fa-eye"></i></a>
                                                     &nbsp;
                                                     <a href="#" data-toggle="modal" data-target="#myModal"><i
                                                             class="fas fa-trash-alt"></i></a>
@@ -241,14 +249,18 @@
                                                 <td>An Hưng</td>
                                                 <td>an.hung.55@gmail.com</td>
                                                 <td>01636720111</td>
+                                                <td>05/05/1998</td>
                                                 <td>20/04/2019 23:45:22 PM</td>
                                                 <td>27/04/2019 23:55:00 PM</td>
                                                 <td>Chưa hết hạn</td>
                                                 <td>Đã yêu cầu gia hạn</td>
                                                 <td>
-                                                    <button class="btn" data-toggle="modal" data-target="#myModal-giahan">Gia hạn</button>
+                                                    <button class="btn" data-toggle="modal"
+                                                        data-target="#myModal-giahan">Gia hạn</button>
                                                 </td>
                                                 <td>
+                                                    <a href="" data-toggle="modal" data-target="#myModal-detail"><i
+                                                            class="fas fa-eye"></i></a>
                                                     &nbsp;
                                                     <a href="#" data-toggle="modal" data-target="#myModal"><i
                                                             class="fas fa-trash-alt"></i></a>
@@ -301,30 +313,30 @@
 
                         <!-- giahan -->
                         <div class="modal fade" id="myModal-giahan">
-                                <div class="modal-dialog-giahan">
-                                    <div class="modal-content">
-    
-                                        <!-- Modal Header -->
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Xác nhận gia hạn</h4>
-                                        </div>
-    
-                                        <!-- Modal body -->
-                                        <div class="modal-body">
-                                            <input type="date" name="date" id="GiahanDate">
-                                        </div>
-    
-                                        <!-- Modal footer -->
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng
-                                                ý</button>
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
-                                        </div>
-    
+                            <div class="modal-dialog-giahan">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title text-black">Xác nhận gia hạn</h4>
                                     </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <input type="date" name="date" id="GiahanDate">
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng
+                                            ý</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                                    </div>
+
                                 </div>
                             </div>
+                        </div>
                         <!--giahan -->
 
 
