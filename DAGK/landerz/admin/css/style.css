@@ -62,6 +62,12 @@
   width: 50%;
 }
 
+.modal-dialog-giahan{
+  margin: auto;
+  width: 15%;
+  margin-top: 100px;
+}
+
 .text-black{
   color: black;
 }
@@ -87,10 +93,18 @@ thead{
 
 .btnsaved{
   color: white;
-  background:#6aa59d ;
+  background-image: linear-gradient(to right, #6aa59d, #359c8f);
 }
 
 .btnsaved:hover{
-  color: white;
-  background-color: #74d1c5 ;
+  color: black;
+}
+
+#GiahanDate{
+  margin-left: 13px;
+}
+
+.modal-footer{
+  display: flex;
+  justify-content: space-around;
 }
