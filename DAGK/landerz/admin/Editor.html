@@ -12,8 +12,8 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<!--Jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Bootstrap -->
   <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -63,7 +63,7 @@
                       <img src="images/img.jpg" alt="">Việt An
                       <span class=" fa fa-angle-down"></span>
                     </a>
-                    <ul class="dropdown-menu dropdown-usermenu" >
+                    <ul class="dropdown-menu dropdown-usermenu">
                       <li><a href="javascript:;"> Thông tin tài khoản</a></li>
                       <li>
                         <a href="javascript:;">
@@ -80,7 +80,7 @@
           </div>
 
 
-          <div class="row">
+          <div class="row" style="padding-left:20px; padding-right: 20px;">
             <div class="clearfix"></div>
 
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -98,7 +98,7 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                  <table class="table table-hover">
+                  <table id="table" class="table table-hover">
                     <thead>
                       <tr>
                         <th>STT</th>
@@ -107,17 +107,56 @@
                         <th>Tác giả</th>
                         <th>List tag</th>
                         <th>Chuyên mục</th>
-                        <th style="text-align: center">Duyệt</th>
-                        <th style="text-align: center">Từ chối</th>
+                        <th style="text-align: center">Option</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
+                      <tr data-href="..\VanToanToaSang.html">
                         <th scope="row">1</th>
-                        <td id="name">Sơn Tùng M-TP "ló dạng" bằng hit cũ sau gần 1 năm “chơi trốn tìm” với khán giả: Bước lùi hay
+                        <td id="name">Sơn Tùng M-TP "ló dạng" bằng hit cũ sau gần 1 năm “chơi trốn tìm” với khán giả:
+                          Bước lùi hay
                           ủ mưu?</td>
                         <td> 14/04/2019 19:00:20 PM</td>
                         <td>Lê Hưng</td>
+                        <td>
+                          <ul id="ULTag" style="list-style:none; padding-left: 0px;">
+                            <li rel="Nhạc trong nước">Nhạc trong nước</li>
+                            <li rel="Nhạc nước ngoài">Nhạc nước ngoài</li>
+                          </ul>
+                        </td>
+                        <td>Âm nhạc quốc tế</td>
+                        <td style="display:flex; flex-direction:row; justify-content: space-around">
+                          <button style="border: none; background-color: transparent" id="btn" class="btnSelect"
+                            data-toggle="modal" data-target="#myModal"><i class="fas fa-user-check"></i></button>
+                          <button style="border: none; background-color: transparent"><i class="fas fa-user-times"></i></button>
+                        </td>
+                      </tr>
+                      <tr data-href="..\VanToanToaSang.html">
+                        <th scope="row">1</th>
+                        <td id="name">Sơn Tùng M-TP "ló dạng" bằng hit cũ sau gần 1 năm “chơi trốn tìm” với khán giả:
+                          Bước lùi hay
+                          ủ mưu?</td>
+                        <td> 14/04/2019 19:00:20 PM</td>
+                        <td>Lê Hưng</td>
+                        <td>
+                          <ul id="ULTag" style="list-style:none; padding-left: 0px;">
+                            <li rel="Tuyển sinh">Nhạc trong nước</li>
+                            <li rel="Giáo dục">Nhạc nước ngoài</li>
+                          </ul>
+                        </td>
+                        <td>Giáo dục</td>
+                        <td style="display:flex; flex-direction:row; justify-content: space-around">
+                          <button style="border: none; background-color: transparent" id="btn" class="btnSelect"
+                            data-toggle="modal" data-target="#myModal"><i class="fas fa-user-check"></i></button>
+                          <button style="border: none; background-color: transparent"><i class="fas fa-user-times"></i></button>
+                        </td>
+                      </tr>
+                      <!--<tr id="row1" data-href="..\VanToanToaSang.html">
+                        <th scope="row">3</th>
+                        <td>Hè này phải mặc đẹp hơn hè năm ngoái, và đây là 5 items bạn nên sắm ngay để ghi điểm phong
+                          cách</td>
+                        <td>18/04/2019 12:45:23 AM</td>
+                        <td>Hưng Lê</td>
                         <td>
                           <ul style="list-style:none; padding-left: 0px;">
                             <li>Nhạc trong nước</li>
@@ -125,79 +164,51 @@
                           </ul>
                         </td>
                         <td>Âm nhạc - Quốc tế</td>
-                        <td style="text-align: center"><input type="radio" name="a" data-toggle="modal"
-                            data-target="#myModal"></td>
-                        <td style="text-align: center"><input type="radio" name="a" data-toggle="modal"
-                            data-target="#myModal"></td>
-                    <!--  </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Soobin Hoàng Sơn trở lại đường đua Vpop với teaser như phim hành động, tạo hình thì "choáng
-                          thôi rồi"</td>
-                        <td>21/04/2019 9:34:32 AM</td>
-                        <td>Nguyễn An</td>
-                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Âm nhạc - Trong nước</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Hè này phải mặc đẹp hơn hè năm ngoái, và đây là 5 items bạn nên sắm ngay để ghi điểm phong
-                          cách</td>
-                        <td>18/04/2019 12:45:23 AM</td>
-                        <td>Hưng Lê</td>
-                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Fashion - Mặc gì</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
+                        <td style="display:flex; flex-direction:row; justify-content: space-between">
+                          <a href="..\VanToanToaSang.html"><i class="fas fa-info"></i></a>
+                          <a data-toggle="modal" data-target="#myModal"><i class="fas fa-user-check"></i></a>
+                          <a data-toggle="modal" data-target="#myModal"><i class="fas fa-user-times"></i></a>
+                        </td>
+                      <tr id="row1" data-href="..\VanToanToaSang.html">
                         <th scope="row">4</th>
                         <td>4 loại mặt nạ đất sét “thải độc” giá từ 150.000 VNĐ, đem lại làn da mịn mướt hơn bao giờ hết
                         </td>
                         <td>18/04/2019 18:20:54 PM</td>
                         <td>Izzy An</td>
-                        <td>Đang xuất bản&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Fashion - Làm đẹp</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
+                        <td>
+                          <ul style="list-style:none; padding-left: 0px;">
+                            <li>Nhạc trong nước</li>
+                            <li>Nhạc nước ngoài</li>
+                          </ul>
+                        </td>
+                        <td>Âm nhạc - Quốc tế</td>
+                        <td style="display:flex; flex-direction:row; justify-content: space-between">
+                          <a href="..\VanToanToaSang.html"><i class="fas fa-info"></i></a>
+                          <a data-toggle="modal" data-target="#myModal"><i class="fas fa-user-check"></i></a>
+                          <a data-toggle="modal" data-target="#myModal"><i class="fas fa-user-times"></i></a>
+                        </td>
+                      <tr id="row1" data-href="..\VanToanToaSang.html">
                         <th scope="row">5</th>
                         <td>Triệu Việt Hưng chấn thương nguy hiểm, nhập viện khẩn cấp</td>
                         <td>19/04/2019 05:59:03 AM</td>
                         <td>Hưng Tom</td>
-                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Thể thao - Trong nước</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">6</th>
-                        <td>Ronaldo có tên trong danh sách đăng ký trận Ajax vs Juventus</td>
-                        <td>22/04/2019 11:34:23 AM</td>
-                        <td>Hưng Lê</td>
-                        <td>Đang xuất bản&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Thể thao - Quốc tế</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr> -->
+                        <td>
+                          <ul style="list-style:none; padding-left: 0px;">
+                            <li>Nhạc trong nước</li>
+                            <li>Nhạc nước ngoài</li>
+                          </ul>
+                        </td>
+                        <td>Âm nhạc - Quốc tế</td>
+                        <td style="display:flex; flex-direction:row; justify-content: space-between">
+                          <a href="..\VanToanToaSang.html"><i class="fas fa-info"></i></a>
+                          <a data-toggle="modal" data-target="#myModal"><i class="fas fa-user-check"></i></a>
+                          <a data-toggle="modal" data-target="#myModal"><i class="fas fa-user-times"></i></a>
+                        </td> -->
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
-
-
-
-
-
           </div>
           <!-- The Modal -->
           <div class="modal fade" id="myModal">
@@ -205,19 +216,55 @@
               <div class="modal-content">
 
                 <!-- Modal Header -->
-                <div class="modal-header">
-                  <h4 class="modal-title">Modal Heading</h4>
+                <div
+                  style="padding: 10px; background-color: #2A3F54;color: white; font-weight: bold; display:flex; flex-direction:row; justify-content: space-between">
+                  <h4 class="modal-title">Hiệu chỉnh thông tin</h4>
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body" id="body">
-                  Modal body..
+                <div class="modal-body" style="color:black">
+                  <div style="display: flex; flex-direction:row">
+                    <div style="width: 50%">
+                      <h3><u>Chuyên mục</u></h3>
+                      <select id="type" style="width: 100%; height: 30px; ">
+                        <option value="Bóng đá trong nước">Bóng đá trong nước</option>
+                        <option value="Âm nhạc quốc tế">Âm nhạc quốc tế</option>
+                        <option value="Fashion-Mặc gì">Fashion-Mặc gì</option>
+                        <option value="Âm nhạc trong nước">Âm nhạc trong nước</option>
+                        <option value="Giáo dục">Giáo dục</option>
+                        <option value="Tuyển sinh">Tuyển sinh</option>
+                      </select>
+                    </div>
+                    <br><br>
+                    <div style="width: 50%; margin-left: 10px">
+                      <h3><u>Thời điểm xuất bản</u></h3>
+                      <input style="width:100%; height: 30px;" type="date">
+                    </div>
+                  </div>
+                  <div style=" width: 100%">
+                    <h3><u>Danh sách nhãn</u></h3>
+                    <div>
+                      <span>                        
+                        <ul>                          
+                          <li><input type="checkbox" >abc</li>
+                          <li><input type="checkbox" >agf</li>
+                          <li><input type="checkbox" >fa</li>
+                          <li><input type="checkbox" >há</li>
+                        </ul>
+                      </span>
+                    </div>
+                    <p id="tag"></p>
+                  </div>
+
+
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Lưu</button>
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
                 </div>
 
               </div>
@@ -225,23 +272,48 @@
           </div>
         </div>
       </div>
-      <!-- /page content -->
-
-      <!-- footer content -->
 
     </div>
   </div>
+
   <script>
-    $(document).ready(function(){
-      $("#body").text = $("#name").text;
+    $(document).ready(function () {
+      $("#table").on('click', '.btnSelect', function () {
+        var currentRow = $(this).closest("tr");
+        var col1 = currentRow.find("td:eq(1)").text();
+        var col3 = currentRow.find("td:eq(3)").text();
+        var col4 = currentRow.find("td:eq(4)").text();
+        
+        alert(currentRow.index())
+        // $("#ULTag li").each(function () {
+        //   arr.push($(this).attr('rel'));
+        // })
 
-    })
+        $("#tag").text(col3);
+        $("#type").val(col4);
+      })
 
+      $('td:not(:last-child)').click(function(){
+        alert('ádkjhsdfsdf');
+      })
+
+    });
   </script>
+
+
+  <script>
+    $(document).ready(function () {
+      $("#infor").click(function () {
+        window.location = $(this).data("href");
+      });
+    });
+  </script>
+
   <script>
     var d = new Date();
     document.getElementById("date").innerHTML = d;
   </script>
+
   <!-- jQuery -->
   <script src="./vendors/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap -->
