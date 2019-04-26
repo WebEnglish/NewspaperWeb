@@ -46,5 +46,51 @@
     background-color: #6aa59d;
     color: white;
   }
-
 /* phan trang */
+
+.status{
+  border: none;
+  background-color: transparent;
+}
+
+.modal-dialog{
+  width: 400px;
+}
+
+.modal-dialog-rewrite{
+  margin: auto;
+  width: 50%;
+}
+
+.text-black{
+  color: black;
+}
+
+thead{
+  background-color: #6aa59d;
+  color: white;
+}
+
+.btn{
+  float: right;
+}
+
+.btn-save{
+ background-color: #D9534F;
+ color: white;
+}
+
+.btn-save:hover{
+  background-color: #C83633;
+  color: white;
+}
+
+.btnsaved{
+  color: white;
+  background:#6aa59d ;
+}
+
+.btnsaved:hover{
+  color: white;
+  background-color: #74d1c5 ;
+}

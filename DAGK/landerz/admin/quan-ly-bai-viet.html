@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Admin</title>
+  <title>Admin - Quản lý bài viết</title>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -27,6 +27,7 @@
 
   <link href="./css/style.css" rel="stylesheet">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
@@ -67,31 +68,10 @@
                       <li><a href="index3.html">Dashboard3</a></li>
                     </ul> -->
                 </li>
-                <!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">General Form</a></li>
-                      <li><a href="form_advanced.html">Advanced Components</a></li>
-                      <li><a href="form_validation.html">Form Validation</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
-                      <li><a href="form_buttons.html">Form Buttons</a></li>
-                    </ul>
-                  </li> -->
-                <!-- <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="general_elements.html">General Elements</a></li>
-                      <li><a href="media_gallery.html">Media Gallery</a></li>
-                      <li><a href="typography.html">Typography</a></li>
-                      <li><a href="icons.html">Icons</a></li>
-                      <li><a href="glyphicons.html">Glyphicons</a></li>
-                      <li><a href="widgets.html">Widgets</a></li>
-                      <li><a href="invoice.html">Invoice</a></li>
-                      <li><a href="inbox.html">Inbox</a></li>
-                      <li><a href="calendar.html">Calendar</a></li>
-                    </ul>
-                  </li> -->
-                <li><a href="quan-ly-bai-viet.html"><i class="fa fa-table"></i> Quản lý bài viết<span class="fa fa-chevron-down"></span></a>
+
+                <li><a><i class="fa fa-table"></i> Quản lý<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
+                    <li><a href="quan-ly-bai-viet.html">Quản lý bài viết</a></li>
                     <li><a href="quan-ly-chuyen-muc.html">Quản lý chuyên mục</a></li>
                     <li><a href="quan-ly-the-tag.html">Quản lý thẻ tag</a></li>
                   </ul>
@@ -154,70 +134,7 @@
                 </ul>
               </li>
 
-              <!-- <li role="presentation" class="dropdown">
-                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="badge bg-green">10</span>
-                </a>
-                 <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                  <li>
-                    <a>
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <div class="text-center">
-                      <a>
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-               </li> -->
+
             </ul>
           </nav>
         </div>
@@ -247,124 +164,7 @@
           <div class="clearfix"></div>
 
           <div class="row">
-            <!-- <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Basic Tables <small>basic table subtitle</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                          class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
 
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Stripped table <small>Stripped table subtitle</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                          class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-              </div>
-            </div> -->
 
             <div class="clearfix"></div>
 
@@ -377,12 +177,6 @@
                       <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">
                         &nbsp;<i class="fas fa-plus-circle"></i></a>
 
-                      <!-- <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Thêm bài</a>
-                        </li>
-                        <li><a href="#">Xóa bài</a>
-                        </li>
-                      </ul> -->
                     </li>
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -390,7 +184,7 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                  <table class="table table-hover">
+                  <table class="table table-hover" id="table">
                     <thead>
                       <tr>
                         <th>STT</th>
@@ -400,412 +194,251 @@
                         <th>Trạng thái</th>
                         <th>Chuyên mục</th>
                         <th>Hành động</th>
-                        <th></th>
-                        <th></th>
+
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td>Sơn Tùng M-TP "ló dạng" bằng hit cũ sau gần 1 năm “chơi trốn tìm” với khán giả: Bước lùi hay
-                          ủ mưu?</td>
+                        <td>Văn Toàn tỏa sáng, HAGL đánh bại Quảng Ninh trong cuộc rượt đuổi nghẹt thở
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                              class="fas fa-pen"></i></a>
+                        </td>
                         <td> 14/04/2019 19:00:20 PM</td>
                         <td>Lê Hưng</td>
-                        <td>Đang xuất bản&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Âm nhạc - Quốc tế</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td>
+                          <select class="status">
+                            <option value="đang xuất bản">Đang xuất bản</option>
+                            <option value="draft">Draft</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="status">
+                            <option value="thể thao - trong nước">Thể thao - Trong nước</option>
+                            <option value="kinh doanh - nông sản">Kinh doanh - Nông sản</option>
+                            <option value="kinh doanh - hải sản">Kinh doanh - Hải sản</option>
+                            <option value="âm nhạc - trong nước">Âm nhạc - Trong nước</option>
+                            <option value="âm nhạc - quốc tế">Âm nhạc - Quốc tế</option>
+                            <option value="giáo dục - tin tức">Giáo dục - Tin tức</option>
+                            <option value="giáo dục - tuyển sinh">Giáo dục - Tuyển sinh</option>
+                            <option value="thể thao - quốc tế">Thể thao - Quốc tế</option>
+                            <option value="fashion - mặc gì">Fashion - Mặc gì</option>
+                            <option value="fashion - làm đẹp">Fashion - Làm đẹp</option>
+                          </select>
+                        </td>
+                        <td>
+                          <a href="..\VanToanToaSang.html"><i class="fas fa-eye"></i></a>
+                          &nbsp;
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+
+                        </td>
+
                       </tr>
                       <tr>
                         <th scope="row">2</th>
-                        <td>Soobin Hoàng Sơn trở lại đường đua Vpop với teaser như phim hành động, tạo hình thì "choáng
-                          thôi rồi"</td>
-                        <td>21/04/2019 9:34:32 AM</td>
-                        <td>Nguyễn An</td>
-                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Âm nhạc - Trong nước</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td>Nhấn mạnh: Quần jeans không chỉ bụi bặm mà còn rất dịu dàng, sang chảnh nếu bạn diện 4 kiểu
+                          dáng sau <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                              class="fas fa-pen"></i></a></td>
+                        <td>18/04/2019 12:45:23 AM</td>
+                        <td>Hưng Lê</td>
+                        <td>
+                          <select class="status">
+                            <option value="đang xuất bản">Đang xuất bản</option>
+                            <option value="draft">Draft</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="status">
+                            <option value="fashion - mặc gì">Fashion - Mặc gì</option>
+                            <option value="thể thao - trong nước">Thể thao - Trong nước</option>
+                            <option value="kinh doanh - nông sản">Kinh doanh - Nông sản</option>
+                            <option value="kinh doanh - hải sản">Kinh doanh - Hải sản</option>
+                            <option value="âm nhạc - trong nước">Âm nhạc - Trong nước</option>
+                            <option value="âm nhạc - quốc tế">Âm nhạc - Quốc tế</option>
+                            <option value="giáo dục - tin tức">Giáo dục - Tin tức</option>
+                            <option value="giáo dục - tuyển sinh">Giáo dục - Tuyển sinh</option>
+                            <option value="thể thao - quốc tế">Thể thao - Quốc tế</option>
+                            <option value="fashion - làm đẹp">Fashion - Làm đẹp</option>
+                          </select>
+                        </td>
+                        <td>
+                          <a href="NhanManh_QuanJeans.html"><i class="fas fa-eye"></i></a>
+                          &nbsp;
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+
+                        </td>
                       </tr>
                       <tr>
                         <th scope="row">3</th>
-                        <td>Hè này phải mặc đẹp hơn hè năm ngoái, và đây là 5 items bạn nên sắm ngay để ghi điểm phong
-                          cách</td>
-                        <td>18/04/2019 12:45:23 AM</td>
-                        <td>Hưng Lê</td>
-                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Fashion - Mặc gì</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>4 loại mặt nạ đất sét “thải độc” giá từ 150.000 VNĐ, đem lại làn da mịn mướt hơn bao giờ hết
+                        <td>Hầu hết mọi người đều bỏ qua bước này khi rửa mặt, bảo sao da cứ lên mụn mãi không dứt
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                              class="fas fa-pen"></i></a>
                         </td>
-                        <td>18/04/2019 18:20:54 PM</td>
-                        <td>Izzy An</td>
-                        <td>Đang xuất bản&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Fashion - Làm đẹp</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">5</th>
-                        <td>Triệu Việt Hưng chấn thương nguy hiểm, nhập viện khẩn cấp</td>
-                        <td>19/04/2019 05:59:03 AM</td>
-                        <td>Hưng Tom</td>
-                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Thể thao - Trong nước</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">6</th>
-                        <td>Ronaldo có tên trong danh sách đăng ký trận Ajax vs Juventus</td>
                         <td>22/04/2019 11:34:23 AM</td>
-                        <td>Hưng Lê</td>
-                        <td>Đang xuất bản&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Thể thao - Quốc tế</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td>Việt An</td>
+                        <td>
+                          <select class="status">
+                            <option value="draft">Draft</option>
+                            <option value="đang xuất bản">Đang xuất bản</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="status">
+                            <option value="fashion - làm đẹp">Fashion - Làm đẹp</option>
+                            <option value="thể thao - quốc tế">Thể thao - Quốc tế</option>
+                            <option value="thể thao - trong nước">Thể thao - Trong nước</option>
+                            <option value="kinh doanh - nông sản">Kinh doanh - Nông sản</option>
+                            <option value="kinh doanh - hải sản">Kinh doanh - Hải sản</option>
+                            <option value="âm nhạc - trong nước">Âm nhạc - Trong nước</option>
+                            <option value="âm nhạc - quốc tế">Âm nhạc - Quốc tế</option>
+                            <option value="giáo dục - tin tức">Giáo dục - Tin tức</option>
+                            <option value="giáo dục - tuyển sinh">Giáo dục - Tuyển sinh</option>
+                            <option value="fashion - mặc gì">Fashion - Mặc gì</option>
+                          </select>
+                        </td>
+                        <td>
+                          <a href="../Xem-bai-duoc-duyet.html"><i class="fas fa-eye"></i></a>
+                          &nbsp;
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+
+                        </td>
                       </tr>
-                      <!-- <tr>
-                          <th scope="row">6</th>
-                          <td> Vụ bạo lực học đường nào nguy hiểm nhất?</td>
-                          <td>22/04/2019 16:15:24 AM</td>
-                          <td>Nguyễn An</td>
-                          <td>Draf&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                          <td>Giáo dục - Tin tức</td>
-                          <td><a href="#">Xem chi tiết</a></td>
-                          <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                          <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
-                          <th scope="row">6</th>
-                          <td> Vụ bạo lực học đường nào nguy hiểm nhất?</td>
-                          <td>22/04/2019 16:15:24 AM</td>
-                          <td>Nguyễn An</td>
-                          <td>Draf&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                          <td>Giáo dục - Tin tức</td>
-                          <td><a href="#">Xem chi tiết</a></td>
-                          <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                          <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr> -->
+
                     </tbody>
                   </table>
+                  <div>
+                    <button class="btn btnsaved" onclick="Saved()"><b>Lưu</b></button>
+                  </div>
                 </div>
               </div>
               <div>
                 <ul class="pagination modal-3">
                   <li><a href="#">&laquo</a></li>
                   <li><a href="#" class="active">1</a></li>
-                  <li> <a href="#">2</a></li>
-                  <li> <a href="#">3</a></li>
-                  <li> <a href="#">4</a></li>
-                  <li> <a href="#">5</a></li>
-                  <li> <a href="#">6</a></li>
-                  <li> <a href="#">7</a></li>
-                  <li> <a href="#">8</a></li>
-                  <li> <a href="#">9</a></li>
                   <li><a href="#" class="next">&raquo;</a></li>
                 </ul>
               </div>
             </div>
-           
 
+            <!--delete-->
+            <div class="modal fade" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
 
-            <!-- <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Boardered table <small>Bordered table subtitle</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                          class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-              </div>
-            </div> -->
-
-            <div class="clearfix"></div>
-
-            <div class="col-md-12 col-sm-12 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Table design <small>Custom design</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                          class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-
-                <div class="x_content">
-
-                  <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>
-
-                  <div class="table-responsive">
-                    <table class="table table-striped jambo_table bulk_action">
-                      <thead>
-                        <tr class="headings">
-                          <th>
-                            <input type="checkbox" id="check-all" class="flat">
-                          </th>
-                          <th class="column-title">Invoice </th>
-                          <th class="column-title">Invoice Date </th>
-                          <th class="column-title">Order </th>
-                          <th class="column-title">Bill to Name </th>
-                          <th class="column-title">Status </th>
-                          <th class="column-title">Amount </th>
-                          <th class="column-title no-link last"><span class="nobr">Action</span>
-                          </th>
-                          <th class="bulk-actions" colspan="7">
-                            <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span
-                                class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-                          </th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        <tr class="even pointer">
-                          <td class="a-center ">
-                            <input type="checkbox" class="flat" name="table_records">
-                          </td>
-                          <td class=" ">121000040</td>
-                          <td class=" ">May 23, 2014 11:47:56 PM </td>
-                          <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i></td>
-                          <td class=" ">John Blank L</td>
-                          <td class=" ">Paid</td>
-                          <td class="a-right a-right ">$7.45</td>
-                          <td class=" last"><a href="#">View</a>
-                          </td>
-                        </tr>
-                        <tr class="odd pointer">
-                          <td class="a-center ">
-                            <input type="checkbox" class="flat" name="table_records">
-                          </td>
-                          <td class=" ">121000039</td>
-                          <td class=" ">May 23, 2014 11:30:12 PM</td>
-                          <td class=" ">121000208 <i class="success fa fa-long-arrow-up"></i>
-                          </td>
-                          <td class=" ">John Blank L</td>
-                          <td class=" ">Paid</td>
-                          <td class="a-right a-right ">$741.20</td>
-                          <td class=" last"><a href="#">View</a>
-                          </td>
-                        </tr>
-                        <tr class="even pointer">
-                          <td class="a-center ">
-                            <input type="checkbox" class="flat" name="table_records">
-                          </td>
-                          <td class=" ">121000038</td>
-                          <td class=" ">May 24, 2014 10:55:33 PM</td>
-                          <td class=" ">121000203 <i class="success fa fa-long-arrow-up"></i>
-                          </td>
-                          <td class=" ">Mike Smith</td>
-                          <td class=" ">Paid</td>
-                          <td class="a-right a-right ">$432.26</td>
-                          <td class=" last"><a href="#">View</a>
-                          </td>
-                        </tr>
-                        <tr class="odd pointer">
-                          <td class="a-center ">
-                            <input type="checkbox" class="flat" name="table_records">
-                          </td>
-                          <td class=" ">121000037</td>
-                          <td class=" ">May 24, 2014 10:52:44 PM</td>
-                          <td class=" ">121000204</td>
-                          <td class=" ">Mike Smith</td>
-                          <td class=" ">Paid</td>
-                          <td class="a-right a-right ">$333.21</td>
-                          <td class=" last"><a href="#">View</a>
-                          </td>
-                        </tr>
-                        <tr class="even pointer">
-                          <td class="a-center ">
-                            <input type="checkbox" class="flat" name="table_records">
-                          </td>
-                          <td class=" ">121000040</td>
-                          <td class=" ">May 24, 2014 11:47:56 PM </td>
-                          <td class=" ">121000210</td>
-                          <td class=" ">John Blank L</td>
-                          <td class=" ">Paid</td>
-                          <td class="a-right a-right ">$7.45</td>
-                          <td class=" last"><a href="#">View</a>
-                          </td>
-                        </tr>
-                        <tr class="odd pointer">
-                          <td class="a-center ">
-                            <input type="checkbox" class="flat" name="table_records">
-                          </td>
-                          <td class=" ">121000039</td>
-                          <td class=" ">May 26, 2014 11:30:12 PM</td>
-                          <td class=" ">121000208 <i class="error fa fa-long-arrow-down"></i>
-                          </td>
-                          <td class=" ">John Blank L</td>
-                          <td class=" ">Paid</td>
-                          <td class="a-right a-right ">$741.20</td>
-                          <td class=" last"><a href="#">View</a>
-                          </td>
-                        </tr>
-                        <tr class="even pointer">
-                          <td class="a-center ">
-                            <input type="checkbox" class="flat" name="table_records">
-                          </td>
-                          <td class=" ">121000038</td>
-                          <td class=" ">May 26, 2014 10:55:33 PM</td>
-                          <td class=" ">121000203</td>
-                          <td class=" ">Mike Smith</td>
-                          <td class=" ">Paid</td>
-                          <td class="a-right a-right ">$432.26</td>
-                          <td class=" last"><a href="#">View</a>
-                          </td>
-                        </tr>
-                        <tr class="odd pointer">
-                          <td class="a-center ">
-                            <input type="checkbox" class="flat" name="table_records">
-                          </td>
-                          <td class=" ">121000037</td>
-                          <td class=" ">May 26, 2014 10:52:44 PM</td>
-                          <td class=" ">121000204</td>
-                          <td class=" ">Mike Smith</td>
-                          <td class=" ">Paid</td>
-                          <td class="a-right a-right ">$333.21</td>
-                          <td class=" last"><a href="#">View</a>
-                          </td>
-                        </tr>
-
-                        <tr class="even pointer">
-                          <td class="a-center ">
-                            <input type="checkbox" class="flat" name="table_records">
-                          </td>
-                          <td class=" ">121000040</td>
-                          <td class=" ">May 27, 2014 11:47:56 PM </td>
-                          <td class=" ">121000210</td>
-                          <td class=" ">John Blank L</td>
-                          <td class=" ">Paid</td>
-                          <td class="a-right a-right ">$7.45</td>
-                          <td class=" last"><a href="#">View</a>
-                          </td>
-                        </tr>
-                        <tr class="odd pointer">
-                          <td class="a-center ">
-                            <input type="checkbox" class="flat" name="table_records">
-                          </td>
-                          <td class=" ">121000039</td>
-                          <td class=" ">May 28, 2014 11:30:12 PM</td>
-                          <td class=" ">121000208</td>
-                          <td class=" ">John Blank L</td>
-                          <td class=" ">Paid</td>
-                          <td class="a-right a-right ">$741.20</td>
-                          <td class=" last"><a href="#">View</a>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
                   </div>
 
+                  <!-- Modal body
+                  <div class="modal-body">
+                    
+                  </div> -->
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                  </div>
 
                 </div>
               </div>
             </div>
+            <!--Delete-->
+
+            <!-- rewrite-1 -->
+            <div class="modal fade" id="myModal-rewrite">
+              <div class="modal-dialog-rewrite">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-black">Bảng chỉnh sửa</h4>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <label for="txtTitle">
+                      <b class="text-black">Tiêu đề bài báo:&nbsp;</b>
+                      <input type="text" name="txtTitle" id="txtTitle" style="width:600px" value="">
+                    </label>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-save" data-dismiss="modal">Lưu</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!--rewrite-1 -->
+
+
+
           </div>
         </div>
+        <!-- /page content -->
+
       </div>
-      <!-- /page content -->
-
-      <!-- footer content -->
-      <footer>
-        <div class="pull-right">
-          Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-        </div>
-        <div class="clearfix"></div>
-      </footer>
-      <!-- /footer content -->
     </div>
-  </div>
+    <!-- footer content -->
+    <footer>
+      <div class="pull-right">
+        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+      </div>
+      <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
 
-  <script>
-    var d = new Date();
-    document.getElementById("date").innerHTML = d;
-  </script>
-  <!-- jQuery -->
-  <script src="./vendors/jquery/dist/jquery.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- FastClick -->
-  <script src="./vendors/fastclick/lib/fastclick.js"></script>
-  <!-- NProgress -->
-  <script src="./vendors/nprogress/nprogress.js"></script>
-  <!-- iCheck -->
-  <script src="./vendors/iCheck/icheck.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#table").on('click', '.btnRewrite', function () {
+          // get the current row
+          var currentRow = $(this).closest("tr");
 
-  <!-- Custom Theme Scripts -->
-  <script src="./build/js/custom.min.js"></script>
+          var col1 = currentRow.find("td:eq(0)").text(); // get current row table cell  TD value
+          var a = col1;
+          $("#txtTitle").val(a);
+        });
+      });
+
+      $(document).ready(function () {
+        $("#myModal-rewrite").on('click', '.btn-save', function () {
+          var b = $("#txtTitle").val();
+           var currentRow = $(this).closest("tr");
+           var a = '<a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>';
+          $("td:eq(0)").html(b +a);
+          
+        })
+      });
+    </script>
+
+    <script>
+      function Saved() {
+        alert("Đã lưu");
+      }
+    </script>
+
+    <!-- jQuery -->
+    <script src="./vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="./vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="./vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="./vendors/iCheck/icheck.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="./build/js/custom.min.js"></script>
 </body>
 
 </html>

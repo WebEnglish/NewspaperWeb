@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Admin</title>
+  <title>Admin - Quản lý chuyên mục</title>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -27,6 +27,7 @@
 
   <link href="./css/style.css" rel="stylesheet">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
@@ -61,9 +62,16 @@
               <h3>Quản lý</h3>
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Home</a>
+                  <!-- <ul class="nav child_menu">
+                      <li><a href="index.html">Dashboard</a></li>
+                      <li><a href="index2.html">Dashboard2</a></li>
+                      <li><a href="index3.html">Dashboard3</a></li>
+                    </ul> -->
                 </li>
-                <li><a href="quan-ly-bai-viet.html"><i class="fa fa-table"></i> Quản lý bài viết<span class="fa fa-chevron-down"></span></a>
+
+                <li><a><i class="fa fa-table"></i> Quản lý<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
+                    <li><a href="quan-ly-bai-viet.html">Quản lý bài viết</a></li>
                     <li><a href="quan-ly-chuyen-muc.html">Quản lý chuyên mục</a></li>
                     <li><a href="quan-ly-the-tag.html">Quản lý thẻ tag</a></li>
                   </ul>
@@ -80,6 +88,23 @@
             </div>
           </div>
           <!-- /sidebar menu -->
+
+          <!-- /menu footer buttons -->
+          <!-- <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+              <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+          </div> -->
+          <!-- /menu footer buttons -->
         </div>
       </div>
 
@@ -109,70 +134,7 @@
                 </ul>
               </li>
 
-              <!-- <li role="presentation" class="dropdown">
-                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-envelope-o"></i>
-                  <span class="badge bg-green">10</span>
-                </a>
-                 <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                  <li>
-                    <a>
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a>
-                      <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                      <span>
-                        <span>John Smith</span>
-                        <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <div class="text-center">
-                      <a>
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-               </li> -->
+
             </ul>
           </nav>
         </div>
@@ -184,7 +146,7 @@
         <div class="">
           <div class="page-title">
             <div class="title_left">
-              <h3><b>Quản lý bài viết</b></h3>
+              <h3><b>Quản lý Chuyên mục</b></h3>
             </div>
 
             <div class="title_right">
@@ -202,135 +164,18 @@
           <div class="clearfix"></div>
 
           <div class="row">
-            <!-- <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Basic Tables <small>basic table subtitle</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                          class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
 
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Stripped table <small>Stripped table subtitle</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                          class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
-              </div>
-            </div> -->
 
             <div class="clearfix"></div>
 
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>Danh sách các bài viết</h2>
+                  <h2>Danh sách các chuyên mục</h2>
                   <ul class="nav navbar-right panel_toolbox">
                     <li class="dropdown">
-                      <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-                        &nbsp;<i class="fas fa-plus-circle"></i></a>
+                      <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" onclick="addRow()">
+                        &nbsp;<i class="fas fa-plus-circle">Thêm</i></a>
 
                       <!-- <ul class="dropdown-menu" role="menu">
                         <li><a href="#">Thêm bài</a>
@@ -345,113 +190,124 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                  <table class="table table-hover">
+                  <table class="table table-hover" id="table">
                     <thead>
                       <tr>
                         <th>STT</th>
-                        <th>Tên bài viết</th>
-                        <th>Ngày đăng</th>
-                        <th>Tác giả</th>
-                        <th>Trạng thái</th>
-                        <th>Chuyên mục</th>
+                        <th>Tên chuyên mục</th>
                         <th>Hành động</th>
-                        <th></th>
-                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Sơn Tùng M-TP "ló dạng" bằng hit cũ sau gần 1 năm “chơi trốn tìm” với khán giả: Bước lùi hay
-                          ủ mưu?</td>
-                        <td> 14/04/2019 19:00:20 PM</td>
-                        <td>Lê Hưng</td>
-                        <td>Đang xuất bản&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Âm nhạc - Quốc tế</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Soobin Hoàng Sơn trở lại đường đua Vpop với teaser như phim hành động, tạo hình thì "choáng
-                          thôi rồi"</td>
-                        <td>21/04/2019 9:34:32 AM</td>
-                        <td>Nguyễn An</td>
-                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Âm nhạc - Trong nước</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Hè này phải mặc đẹp hơn hè năm ngoái, và đây là 5 items bạn nên sắm ngay để ghi điểm phong
-                          cách</td>
-                        <td>18/04/2019 12:45:23 AM</td>
-                        <td>Hưng Lê</td>
-                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Fashion - Mặc gì</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">4</th>
-                        <td>4 loại mặt nạ đất sét “thải độc” giá từ 150.000 VNĐ, đem lại làn da mịn mướt hơn bao giờ hết
+                        <td scope="row">1</td>
+                        <td>Thể thao - Trong nước
                         </td>
-                        <td>18/04/2019 18:20:54 PM</td>
-                        <td>Izzy An</td>
-                        <td>Đang xuất bản&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Fashion - Làm đẹp</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                        </td>
+
                       </tr>
                       <tr>
-                        <th scope="row">5</th>
-                        <td>Triệu Việt Hưng chấn thương nguy hiểm, nhập viện khẩn cấp</td>
-                        <td>19/04/2019 05:59:03 AM</td>
-                        <td>Hưng Tom</td>
-                        <td>Draft&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Thể thao - Trong nước</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td scope="row">2</td>
+                        <td>Thể thao - Quốc tế
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                            class="fas fa-pen"></i></a></td>
+                        </td>
                       </tr>
                       <tr>
-                        <th scope="row">6</th>
-                        <td>Ronaldo có tên trong danh sách đăng ký trận Ajax vs Juventus</td>
-                        <td>22/04/2019 11:34:23 AM</td>
-                        <td>Hưng Lê</td>
-                        <td>Đang xuất bản&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                        <td>Thể thao - Quốc tế</td>
-                        <td><a href="#">Xem chi tiết</a></td>
-                        <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                        <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr>
-                      <!-- <tr>
-                          <th scope="row">6</th>
-                          <td> Vụ bạo lực học đường nào nguy hiểm nhất?</td>
-                          <td>22/04/2019 16:15:24 AM</td>
-                          <td>Nguyễn An</td>
-                          <td>Draf&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                          <td>Giáo dục - Tin tức</td>
-                          <td><a href="#">Xem chi tiết</a></td>
-                          <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                          <td><a href="#"><i class="fas fa-tools"></i></a></td>
+                        <td scope="row">3</td>
+                        <td>Âm nhạc - trong nước
+                        </td>
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                            class="fas fa-pen"></i></a>
+                        </td>
                       </tr>
                       <tr>
-                          <th scope="row">6</th>
-                          <td> Vụ bạo lực học đường nào nguy hiểm nhất?</td>
-                          <td>22/04/2019 16:15:24 AM</td>
-                          <td>Nguyễn An</td>
-                          <td>Draf&nbsp;<a href="#"><i class="fas fa-tools"></i></a></td>
-                          <td>Giáo dục - Tin tức</td>
-                          <td><a href="#">Xem chi tiết</a></td>
-                          <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                          <td><a href="#"><i class="fas fa-tools"></i></a></td>
-                      </tr> -->
+                        <td scope="row">4</td>
+                        <td>Âm nhạc - Quốc tế
+                        </td>
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                            class="fas fa-pen"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">5</td>
+                        <td>Fashion - Làm đẹp
+                        </td>
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                            class="fas fa-pen"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">6</td>
+                        <td>Fashion - Mặc gì
+                        </td>
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                            class="fas fa-pen"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">7</td>
+                        <td>Kinh doanh - Nông sản
+                        </td>
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                            class="fas fa-pen"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">8</td>
+                        <td>Kinh doanh - Hải sản
+                        </td>
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                            class="fas fa-pen"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">9</td>
+                        <td>Giáo dục - Tin tức
+                        </td>
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                            class="fas fa-pen"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">10</td>
+                        <td>Giáo dục - Tuyển sinh</td>
+                        <td>
+                          <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
+                          &nbsp;
+                          <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
+                            class="fas fa-pen"></i></a>
+                        </td>
+                      </tr>
+
                     </tbody>
                   </table>
                 </div>
@@ -460,81 +316,71 @@
                 <ul class="pagination modal-3">
                   <li><a href="#">&laquo</a></li>
                   <li><a href="#" class="active">1</a></li>
-                  <li> <a href="#">2</a></li>
-                  <li> <a href="#">3</a></li>
-                  <li> <a href="#">4</a></li>
-                  <li> <a href="#">5</a></li>
-                  <li> <a href="#">6</a></li>
-                  <li> <a href="#">7</a></li>
-                  <li> <a href="#">8</a></li>
-                  <li> <a href="#">9</a></li>
                   <li><a href="#" class="next">&raquo;</a></li>
                 </ul>
               </div>
             </div>
-           
 
+            <!--delete-->
+            <div class="modal fade" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
 
-            <!-- <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="x_panel">
-                <div class="x_title">
-                  <h2>Boardered table <small>Bordered table subtitle</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i
-                          class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
+                  </div>
 
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <!-- Modal body
+                  <div class="modal-body">
+                    
+                  </div> -->
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                  </div>
 
                 </div>
               </div>
-            </div> -->
+            </div>
+            <!--Delete-->
 
-            <div class="clearfix"></div>
+            <!-- rewrite-1 -->
+            <div class="modal fade" id="myModal-rewrite">
+              <div class="modal-dialog-rewrite">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-black">Bảng chỉnh sửa</h4>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <label for="txtTitle">
+                      <b class="text-black" id= "test">Tên chuyên mục:&nbsp;</b>
+                      <input type="text" name="txtCat" id="txtCat" style="width:600px"
+                        value="">
+                    </label>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Lưu</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!--rewrite-1 -->
+           
+
+            <!-- <div class="clearfix"></div>
 
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
@@ -730,37 +576,62 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- /page content -->
-
-      <!-- footer content -->
-      <footer>
-        <div class="pull-right">
-          Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+      </div> -->
+          </div>
         </div>
-        <div class="clearfix"></div>
-      </footer>
-      <!-- /footer content -->
+        <!-- /page content -->
+
+      </div>
     </div>
-  </div>
+    <!-- footer content -->
+    <footer>
+      <div class="pull-right">
+        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+      </div>
+      <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
 
-  <script>
-    var d = new Date();
-    document.getElementById("date").innerHTML = d;
-  </script>
-  <!-- jQuery -->
-  <script src="./vendors/jquery/dist/jquery.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- FastClick -->
-  <script src="./vendors/fastclick/lib/fastclick.js"></script>
-  <!-- NProgress -->
-  <script src="./vendors/nprogress/nprogress.js"></script>
-  <!-- iCheck -->
-  <script src="./vendors/iCheck/icheck.min.js"></script>
+    <script>
+        $(document).ready(function(){
+         $("#table").on('click','.btnRewrite', function() {
+          // get the current row
+          var currentRow = $(this).closest("tr");
+    
+          var col1 = currentRow.find("td:eq(1)").text(); // get current row 3rd table cell  TD value
+          var a = col1;
+           $("#txtCat").val(a);
+         });
+     });
+    </script>
 
-  <!-- Custom Theme Scripts -->
-  <script src="./build/js/custom.min.js"></script>
+    <script>
+        function addRow(){
+          var t = document.getElementById("table");
+                var row = t.insertRow(11);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                cell1.innerHTML = "11";
+                cell2.innerHTML = "(trống)"
+                cell3.innerHTML = '<a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>' +
+                    '&nbsp;' + '<a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>';
+         }
+    </script>
+
+    <!-- jQuery -->
+    <script src="./vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="./vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="./vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="./vendors/iCheck/icheck.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="./build/js/custom.min.js"></script>
 </body>
 
 </html>
