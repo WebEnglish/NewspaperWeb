@@ -45,14 +45,38 @@
 
     <div style="display: flex; justify-content: flex-end; padding-right:40px;margin-top: 10px; ">
       <ul class="sign-in">
-        <li class="dropdown"><a href="#">Đăng nhập<span class="mx-2"></span></a>
-        </li>
+        <button data-toggle="modal" data-target="#myModal"><li class="dropdown"><a href="#">Đăng nhập<span class="mx-2"></span></a>
+        </li></button>
 
         <li class="dropdown"><a href="#">Đăng kí</a>
         </li>
 
       </ul>
 
+    </div>
+    
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div
+            style="padding: 10px; background-color: #2A3F54;color: white; font-weight: bold; display:flex; flex-direction:row; justify-content: space-between">
+            <h4 class="modal-title">Lý do</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div>
+            <textarea style="width: 97%;   margin: 10px; height:150px; box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.08)" placeholder="Vui lòng nhập lí do để phóng viên chỉnh sửa..." ></textarea>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Lưu</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+          </div>
+
+        </div>
+      </div>
     </div>
 
 
