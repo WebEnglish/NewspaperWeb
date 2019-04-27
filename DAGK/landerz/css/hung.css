@@ -24,3 +24,15 @@
     align-items:flex-start; 
     text-align: left;
 }
+.Hungscontainer
+{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 100%;
+    margin-top:50px;
+    width:70%;
+    justify-content: flex-end;
+    margin-left:130px;
+    color:black;
+    padding: 10px;
+    box-shadow: 2px 2px 3px 3px gray
+}
