@@ -61,7 +61,7 @@
 						<span class="txt1">
 							Quên
 						</span>
-						<a class="txt1" href="#">
+						<a class="txt1" href="#" data-toggle="modal" data-target="#myModal">
 							Mật khẩu?
 						</a>
 					</div>
@@ -80,8 +80,64 @@
 		</div>
 	</div>
 	
-	
+	<!-- Quên MK -->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+		  <div class="modal-content">
 
+			<!-- Modal Header -->
+			<div class="modal-header">
+			  <h4 class="modal-title text-black">Quên mật khẩu?</h4>
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+			  <label for="txtTitle">
+				<b class="text-black">Nhập email tài khoản của bạn để lấy lại mật khẩu(*)</b>
+				<input t class="input100" ype="text" name="txtTitle" id="txtTitle" style="width:450px;" value="">
+			  </label>
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#myModal-notify">Tiếp</button>
+			  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+			</div>
+
+		  </div>
+		</div>
+	  </div>
+	  <!-- /Quên MK -->
+	  
+	  <!-- Notify -->
+	  <div class="modal fade" id="myModal-notify">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+			  <h4 class="modal-title text-black">Thông báo</h4>
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+			  <label for="txtTitle">
+				<b class="text-black">Một mật khẩu mới đã được chuyển vào email của quý khách. 
+					Xin hãy kiểm tra email của mình để nhận mật khẩu và sau đó quay lại đây để tiến hành đăng nhập.</b>
+			  </label>
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+			</div>
+
+		  </div>
+		</div>
+	  </div>
+	  <!-- /Notify -->
 	
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
