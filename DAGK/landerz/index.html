@@ -43,50 +43,106 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
+    <div style="height: 100px; background-color: #00d2b5; margin-top: -30px">
+        <img src="./images/test.png" style="margin-left: 40px; margin-top: -30px;width: 385px;">
+    </div>
+
+
     <div style="display: flex; justify-content: flex-end; padding-right:40px;margin-top: 10px; ">
       <ul class="sign-in">
-        <button data-toggle="modal" data-target="#myModa"><li class="dropdown"><a href="#"><b>Đăng nhập</b><span class="mx-2"></span></a>
+        <button data-toggle="modal" data-target="#myModal" style="border: 0px; background-color: transparent"><li class="dropdown"><a href="#"><b>Đăng nhập</b><span class="mx-2"></span></a>
         </li></button>
-
-        <li class="dropdown"><a href="#"><b>Đăng kí</b></a>
-        </li>
-
+        <button data-toggle="modal" data-target="#myModal1" style="border: 0px; background-color: transparent"><li class="dropdown"><a href="#"><b>Đăng kí</b><span class="mx-2"></span></a>
+        </li></button>
       </ul>
-
     </div>
-    
+    <!--Đăng nhập-->
     <div class="modal fade" id="myModal">
       <div class="modal-dialog">
-        <div class="modal-content">
-
+        <div class="modal-content" style="font-weight:bold">
           <!-- Modal Header -->
-          <div
-            style="padding: 10px; background-color: #2A3F54;color: white; font-weight: bold; display:flex; flex-direction:row; justify-content: space-between">
-            <h4 class="modal-title">Lý do</h4>
+          <div style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Thông tin đăng nhập</h4>
           </div>
-          <div>
-            <textarea style="width: 97%;   margin: 10px; height:150px; box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.08)" placeholder="Vui lòng nhập lí do để phóng viên chỉnh sửa..." ></textarea>
+          <div style="margin :10px 30px" >
+              <div style="display:flex; flex-direction:row">
+                <label for="TK" style="width:20%;">Tài khoản: </label>
+                <input id="TK" style="width:80%" type="text">
+              </div>
+              <br>
+              <div style="display:flex; flex-direction:row">
+                  <label for="pass" style="width:20%">Mật khẩu: </label>
+                  <input id="pass" style="width:80%" type="password">
+              </div>                
           </div>
           <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Lưu</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-
+          <div class="modal-footer"  style="justify-content: center;border-top: 0px">
+            <button type="button" style="border-radius: 7% ;
+            background-image: linear-gradient(to bottom right, rgb(209, 28, 28), rgb(233, 104, 18) /* Standard " class="btn-danger" data-dismiss="modal">Đăng nhập</button> &nbsp; 
           </div>
-
+          <div style="display:flex ;justify-content: space-around ;margin-bottom: 20px">
+            <button style="border: 0px; background-color: transparent" data-toggle="modal" data-target="#myModal3" style="color: #00D2B5"><u>Quên mật khẩu</u></button>
+            <button style="border: 0px; background-color: transparent" data-toggle="modal" data-target="#myModal1" href="#"><u>Đăng kí</u></button>
+          </div>
         </div>
       </div>
     </div>
 
-
-    <div class="container d-none d-lg-block">
-      <div class="row">
-        <div class="col-12 text-center mb-4 mt-5">
-          <h1 class="mb-0 site-logo"><a href="index.html" class="mb-0"><b>Báo Điện Tử HungAn</b></a></h1>
+  <!--Modal Quên mật khẩu-->
+   
+    <!--Modal Đăng kí-->
+    <div class="modal fade" id="myModal1" >
+        <div class="modal-dialog">
+          <div class="modal-content" style="font-weight:bold;">
+  
+            <div style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Thông tin đăng kí</h4>
+            </div>
+            <div style="margin :10px 30px" >
+                <div style="display:flex; flex-direction:column">
+                  <label for="ten" style="width:100%;">Email: </label>
+                  <input id="ten" style="margin-top:-10px;width:100%" type="email">
+                  <br>
+                  <p style="margin-top: -30px;color:red">Hãy dùng email thật của bạn để nhận liên kết kích hoạt</p>
+                </div>
+                <br>
+                <div style="display:flex; flex-direction:column; margin-top:-30px">
+                    <label for="TK" style="width:100%;">Họ và tên: </label>
+                    <input id="TK" style="margin-top:-10px; width:100%" type="text">
+                  </div>
+                <br>
+                <div style="display:flex; flex-direction:column">
+                    <label for="TK" style="width:100%;">Ngày sinh: </label>
+                    <input id="TK" style="margin-top:-9px; width:100%" type="date">
+                  </div>
+                <br>                
+                <div style="display:flex; flex-direction:column">
+                    <label for="pass" style="width:100%">Mật khẩu: </label>
+                    <input id="pass" style="margin-top:-10px;width:100%" type="password">
+                </div>
+                <br>
+                <div style="display:flex; flex-direction:column">
+                    <label for="pass" style="width:100%">Nhập lại mật khẩu: </label>
+                    <input id="pass" style="margin-top:-10px;width:100%" type="password">
+                </div>
+                <br>
+                <div>
+                  <label>
+                    <input type="checkbox">&nbsp;&nbsp; <u>Tôi đồng ý với quy định của toà soạn</u>
+                  </label>
+                </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer" style="justify-content: center;margin-top:0px;border-top: 0px">
+              <button type="button" style=" width:140px;border-radius: 7% ;
+              background-image: linear-gradient(to bottom right, rgb(209, 28, 28), rgb(233, 104, 18); /* Standard " class="btn-danger" data-dismiss="modal">Đăng kí</button> &nbsp; 
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
@@ -614,14 +670,6 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
-
   <div class="footer py-5 border-top text-center">
     <div class="container">
       <div class="row mb-5">
@@ -646,9 +694,6 @@
       </div>
     </div>
   </div>
-
-
-
 
   </div> <!-- .site-wrap -->
 
