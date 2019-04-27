@@ -45,7 +45,7 @@
           <!-- menu profile quick info -->
           <div class="profile clearfix">
             <div class="profile_pic">
-              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              <img src="images/user.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
@@ -61,7 +61,7 @@
             <div class="menu_section">
               <h3>Quản lý</h3>
               <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i> Home</a>
+                <li><a href="index.html"><i class="fa fa-home"></i> Home</a>
                   <!-- <ul class="nav child_menu">
                       <li><a href="index.html">Dashboard</a></li>
                       <li><a href="index2.html">Dashboard2</a></li>
@@ -77,12 +77,13 @@
                   </ul>
                 </li>
                 <li>
-                  <a><i class="fas fa-users"></i> &nbsp Quản lý người dùng <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="#">Độc giả</a></li>
-                    <li><a href="#">Biên tập viên</a></li>
-                    <li><a href="#">Phóng viên</a></li>
-                  </ul>
+                    <a><i class="fas fa-users"></i> &nbsp Quản lý người dùng <span
+                            class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="quan-ly-nguoi-dung.html">Độc giả</a></li>
+                        <li><a href="quan-ly-bien-tap-vien.html">Biên tập viên</a></li>
+                        <li><a href="quan-ly-phong-vien.html">Phóng viên</a></li>
+                    </ul>
                 </li>
               </ul>
             </div>
@@ -120,17 +121,17 @@
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
                   aria-expanded="false">
-                  <img src="images/img.jpg" alt="">Việt An
+                  <img src="images/user.png" alt="">Việt An
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="javascript:;"> Thông tin tài khoản</a></li>
+                  <li><a href="Chinh-sua-thong-tin-ca-nhan.html">Cập nhật thông tin</a></li>
                   <li>
-                    <a href="javascript:;">
-                      <span>Cài đặt</span>
+                    <a href="Doi-mat-khau.html">
+                      <span>Đổi mật khẩu</span>
                     </a>
                   </li>
-                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Thoát</a></li>
+                  <li><a href="Đăng nhập/index.html"><i class="fa fa-sign-out pull-right"></i>Thoát</a></li>
                 </ul>
               </li>
 
@@ -193,6 +194,7 @@
                         <th>Tác giả</th>
                         <th>Trạng thái</th>
                         <th>Chuyên mục</th>
+                        <th>Dạng bài</th>
                         <th>Hành động</th>
 
                       </tr>
@@ -224,6 +226,12 @@
                             <option value="thể thao - quốc tế">Thể thao - Quốc tế</option>
                             <option value="fashion - mặc gì">Fashion - Mặc gì</option>
                             <option value="fashion - làm đẹp">Fashion - Làm đẹp</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="status">
+                            <option value="premium">Premium</option>
+                            <option value="none">None</option>
                           </select>
                         </td>
                         <td>
@@ -263,6 +271,12 @@
                           </select>
                         </td>
                         <td>
+                          <select class="status">
+                            <option value="premium">Premium</option>
+                            <option value="none">None</option>
+                          </select>
+                        </td>
+                        <td>
                           <a href="NhanManh_QuanJeans.html"><i class="fas fa-eye"></i></a>
                           &nbsp;
                           <a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>
@@ -296,6 +310,12 @@
                             <option value="giáo dục - tin tức">Giáo dục - Tin tức</option>
                             <option value="giáo dục - tuyển sinh">Giáo dục - Tuyển sinh</option>
                             <option value="fashion - mặc gì">Fashion - Mặc gì</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="status">
+                              <option value="none">None</option>
+                            <option value="premium">Premium</option>
                           </select>
                         </td>
                         <td>
