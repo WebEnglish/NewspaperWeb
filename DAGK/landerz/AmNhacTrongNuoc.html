@@ -43,20 +43,148 @@
             <div class="site-mobile-menu-body"></div>
         </div>
 
-        <div class="LoginOut">
-            <ul class="sign-in" style="display:flex; flex-direction:row">
-                <li class=""><a href="#">Đăng nhập<span class="mx-2"></span></a></li>
-                <li class=""><a href="#">Đăng kí</a></li>
-            </ul>
-        </div>
+        <div
+            style="height: 150px; margin-top: px;display: flex;justify-content: space-between; padding-right:40px;margin-top: 10px; ">
+            <a href="index.html"><img src="./images/avtTest.jpg"
+                    style="margin-left: 60px; margin-top: -30px;width: 250px;"></a>
+            <span>
+                <ul class="sign-in" style="display: flex;justify-content: center">
+                    <button data-toggle="modal" data-target="#myModal"
+                        style="border: 0px; background-color: transparent">
+                        <li class="dropdown"><a href="#"><b>Đăng nhập</b><span class="mx-2"></span></a>
+                        </li>
+                    </button>
+                    <button data-toggle="modal" data-target="#myModal1"
+                        style="border: 0px; background-color: transparent">
+                        <li class="dropdown"><a href="#"><b>Đăng kí</b><span class="mx-2"></span></a>
+                        </li>
+                    </button>
+                </ul>
+            </span>
 
-        <div class="container d-none d-lg-block">
-            <div class="row">
-                <div class="col-12 text-center mb-4 mt-5">
-                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black mb-0">Báo Điện Tử HungAn</a></h1>
+        </div>
+        <!--Đăng nhập-->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content" style="font-weight:bold">
+                    <!-- Modal Header -->
+                    <div
+                        style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thông tin đăng nhập</h4>
+                    </div>
+                    <div style="margin :10px 30px">
+                        <div style="display:flex; flex-direction:row">
+                            <label for="TK" style="width:20%;">Tài khoản: </label>
+                            <input id="TK" style="width:80%" type="text">
+                        </div>
+                        <br>
+                        <div style="display:flex; flex-direction:row">
+                            <label for="pass" style="width:20%">Mật khẩu: </label>
+                            <input id="pass" style="width:80%" type="password">
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer" style="justify-content: center;border-top: 0px">
+                        <button type="button" style="border-radius: 7%" ; background-image: linear-gradient(to bottom
+                            right, rgb(209, 28, 28), rgb(233, 104, 18) /* Standard " class=" btn-danger"
+                            data-dismiss="modal">Đăng
+                            nhập</button> &nbsp;
+                    </div>
+                    <div style="display:flex ;justify-content: space-around ;margin-bottom: 20px">
+                        <button style="border: 0px; background-color: transparent" data-toggle="modal"
+                            data-target="#myModal3" style="color: #00D2B5"><u>Quên mật khẩu</u></button>
+                        <button style="border: 0px; background-color: transparent" data-toggle="modal"
+                            data-target="#myModal1" href="#"><u>Đăng kí</u></button>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!--Modal Quên mật khẩu-->
+        <div class="modal fade" id="myModal3">
+            <div class="modal-dialog">
+                <div class="modal-content" style="font-weight:bold; height:300px">
+                    <div
+                        style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Quên mật khẩu</h4>
+                    </div>
+                    <div style="margin :10px 30px;">
+                        <div style="display:flex; flex-direction:column">
+                            <label for="mail" style="width:100%;">Email: </label>
+                            <input id="mail" style="width:100%" type="email">
+                            <p style="margin-top: 0px;color:red">Hãy dùng email thật của bạn để nhận mật khẩu mới</p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer" style="justify-content: center;border-top: 0px">
+                        <button type="button" style="border-radius: 7%" ; background-image: linear-gradient(to bottom
+                            right, rgb(209, 28, 28), rgb(233, 104, 18); /* Standard " class=" btn-danger"
+                            data-dismiss="modal">Gửi</button>
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Modal Đăng kí-->
+        <div class="modal fade" id="myModal1">
+            <div class="modal-dialog">
+                <div class="modal-content" style="font-weight:bold;width:550px">
+
+                    <div
+                        style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thông tin đăng kí</h4>
+                    </div>
+                    <div style="margin :10px 30px">
+                        <div style="display:flex; flex-direction:column">
+                            <label for="ten" style="width:100%;">Email: </label>
+                            <input id="ten" style="margin-top:-10px;width:100%" type="email">
+                            <br>
+                            <p style="margin-top: -30px;color:red">Hãy dùng email thật của bạn để nhận liên kết kích
+                                hoạt</p>
+                        </div>
+                        <br>
+                        <div style="display:flex; flex-direction:column; margin-top:-30px">
+                            <label for="TK" style="width:100%;">Họ và tên: </label>
+                            <input id="TK" style="margin-top:-10px; width:100%" type="text">
+                        </div>
+                        <br>
+                        <div style="display:flex; flex-direction:column">
+                            <label for="TK" style="width:100%;">Ngày sinh: </label>
+                            <input id="TK" style="margin-top:-9px; width:100%" type="date">
+                        </div>
+                        <br>
+                        <div style="display:flex; flex-direction:column">
+                            <label for="pass" style="width:100%">Mật khẩu: </label>
+                            <input id="pass" style="margin-top:-10px;width:100%" type="password">
+                        </div>
+                        <br>
+                        <div style="display:flex; flex-direction:column">
+                            <label for="pass" style="width:100%">Nhập lại mật khẩu: </label>
+                            <input id="pass" style="margin-top:-10px;width:100%" type="password">
+                        </div>
+                        <br>
+                        <div>
+                            <label>
+                                <input type="checkbox">&nbsp;&nbsp; <u>Tôi đồng ý với quy định của toà soạn</u>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer" style="justify-content: center;margin-top:0px;border-top: 0px">
+                        <button type="button" style=" width:140px;border-radius: 7%" ; background-image:
+                            linear-gradient(to bottom right, rgb(209, 28, 28), rgb(233, 104, 18); /* Standard " class="
+                            btn-danger" data-dismiss="modal">Đăng
+                            kí</button> &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <header class="site-navbar py-md-4 js-sticky-header site-navbar-target" role="banner">
 
             <div class="container">
@@ -105,7 +233,7 @@
                             </ul>
                         </nav>
                     </div>
-                <div class="col-6 col-md-6 d-inline-block d-lg-none ml-md-0"><a href="#"
+                    <div class="col-6 col-md-6 d-inline-block d-lg-none ml-md-0"><a href="#"
                             class="site-menu-toggle js-menu-toggle text-black float-right"><span
                                 class="icon-menu h3"></span></a></div>
                 </div>
@@ -127,7 +255,8 @@
                                 <a href="NhanManh_QuanJeans.html"><img style="width: 100%; height: 250px;"
                                         src="https://kenh14cdn.com/2019/4/6/photo-1-155454047861094261611.jpg"
                                         alt="Image" class="img-fluid"></a>
-                                <h2><a href="NhanManh_QuanJeans.html">Sơn Tùng M-TP "ló dạng" bằng hit cũ sau gần 1 năm “chơi trốn tìm” với
+                                <h2><a href="NhanManh_QuanJeans.html">Sơn Tùng M-TP "ló dạng" bằng hit cũ sau gần 1 năm
+                                        “chơi trốn tìm” với
                                         khán giả: Bước lùi hay ủ mưu?
 
                                     </a></h2>
@@ -166,7 +295,8 @@
                                 <a href="NhanManh_QuanJeans.html"><img style="width: 100%; height: 250px;"
                                         src="https://kenh14cdn.com/2019/4/12/5686998420640525236432996506462337715666944n-15550504558632136204824.jpg"
                                         alt="Image" class="img-fluid"></a>
-                                <h2><a href="NhanManh_QuanJeans.html">Chi Pu để lộ tạo hình trong sản phẩm âm nhạc mới, sẽ là một MV sặc mùi
+                                <h2><a href="NhanManh_QuanJeans.html">Chi Pu để lộ tạo hình trong sản phẩm âm nhạc mới,
+                                        sẽ là một MV sặc mùi
                                         cổ trang kiếm hiệp?
                                     </a></h2>
                                 <div class="meta mb-4"><a href="AmNhacTrongNuoc.html">Âm nhạc trong nước</a> <span
@@ -188,7 +318,8 @@
                                     <a href="NhanManh_QuanJeans.html"><img style="width: 100%; height: 250px;"
                                             src="https://kenh14cdn.com/2019/4/10/soobin-9-15549131333501455709225.jpeg"
                                             alt="Image" class="img-fluid"></a>
-                                    <h2><a href="NhanManh_QuanJeans.html">Soobin Hoàng Sơn trở lại đường đua Vpop với teaser như phim hành
+                                    <h2><a href="NhanManh_QuanJeans.html">Soobin Hoàng Sơn trở lại đường đua Vpop với
+                                            teaser như phim hành
                                             động, tạo hình thì "choáng thôi rồi"
 
                                         </a></h2>
@@ -208,7 +339,8 @@
                                     <a href="NhanManh_QuanJeans.html"><img style="width: 100%; height: 250px "
                                             src="https://kenh14cdn.com/2019/4/4/photo-1-1554323017158149053764.png"
                                             alt="Image" class="img-fluid"></a>
-                                    <h2><a href="NhanManh_QuanJeans.html">Rapper underground và những lần thách thức công chúng: Đừng dùng sự
+                                    <h2><a href="NhanManh_QuanJeans.html">Rapper underground và những lần thách thức
+                                            công chúng: Đừng dùng sự
                                             “tự do” của hip hop để làm hại đến cộng đồng
                                         </a></h2>
                                     <div class="meta mb-4"><a href="AmNhacTrongNuoc.html">Âm nhạc trong nước</a> <span
@@ -225,11 +357,14 @@
 
                         </div>
                     </div>
-                    <label style="font-size:15px; color: red; font-weight: 700;"><i class="fas fa-key"></i>&nbsp;Từ khoá:
+                    <label style="font-size:15px; color: red; font-weight: 700;"><i class="fas fa-key"></i>&nbsp;Từ
+                        khoá:
                         <a href="AmNhacTrongNuoc.html" class="tag_item"
-                            style="font-size: 15px;font-weight: 700; background-color: rgb(210, 223, 223)">#Nhạc trong nước</a>
+                            style="font-size: 15px;font-weight: 700; background-color: rgb(210, 223, 223)">#Nhạc trong
+                            nước</a>
                         &nbsp;&nbsp;<a href="AmNhacNuocNgoai.html" class="tag_item"
-                            style="font-size: 15px; font-weight: 700; background-color: rgb(210, 223, 223)">#Nhạc quốc tế</a>
+                            style="font-size: 15px; font-weight: 700; background-color: rgb(210, 223, 223)">#Nhạc quốc
+                            tế</a>
                     </label>
 
                 </div>
