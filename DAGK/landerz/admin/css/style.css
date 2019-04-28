@@ -145,3 +145,9 @@ margin-left: 500px;
 .red{
   color: rgb(235, 32, 29)
 }
+
+#myModal-detail{
+  margin: auto;
+  width: 50%;
+  margin-top: 100px;
+}
