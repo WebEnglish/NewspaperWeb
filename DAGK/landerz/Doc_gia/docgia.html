@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Báo Điện Tử TH16 &mdash; News </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="../fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+
+
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
+
+  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="../css/aos.css">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div class="site-wrap" id="home-section">
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    <div
+      style="height: 150px; margin-top: px;display: flex;justify-content: space-between; padding-right:40px;margin-top: 10px; ">
+      <a href="index.html"><img src="../images/avtTest.jpg"
+          style="margin-left: 60px; margin-top: -30px;width: 250px;"></a>
+      <span style="padding-right:60px; padding-top: 10px">
+        <ul class="sign-in">
+          <li class="dropdown">
+            <a href="#"><i class="fas fa-user"></i>&nbsp; Username<span class="mx-2"></span></a>
+            <div class="dropdown-content" style="z-index: 9999;">
+              <div style="padding-bottom: 10px">
+                <img style="margin-left:65px; height: 60px; width: 60px; border-radius: 100%" src="..\images\avt.jpg">
+              </div>
+              <label class="text-center" href="#">Thời hạn tài khoản còn:<br><u style="font-weight:800;">7 ngày</u>. </label>
+              <a href="UpdateInfor.html" style="font-weight:400">Chỉnh sửa thông tin</a>
+              <a href="#" style="font-weight:400">Gia hạn tài khoản</a>
+              <a href="" data-toggle="modal" data-target="#myModal3" style="font-weight:400">Đổi mật khẩu</a>
+              <a href="index.html" style="font-weight:400">Đăng xuất</a>               
+            </div>
+          </li>             
+          </li>
+        </ul>
+      </span>
+      <div class="modal fade" id="myModal3">
+        <div class="modal-dialog">
+          <div class="modal-content" style="font-weight:bold">
+            <div
+              style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Thay đổi mật khẩu</h4>
+            </div>
+            <div style="margin :10px 30px;">
+              <div style="display:flex; flex-direction:column">
+                <label style="width:100%;">Mật khẩu cũ: </label>
+                <input style="width:100%" type="password">
+              </div>
+              <br>
+              <div style="display:flex; flex-direction:column">
+                <label style="width:100%">Mật khẩu mới: </label>
+                <input style="width:100%" type="password">
+              </div>
+              <br>
+              <div style="display:flex; flex-direction:column">
+                <label style="width:100%">Nhập lại mật khẩu mới: </label>
+                <input style="width:100%" type="password">
+              </div>
+            </div>
+            <div class="modal-footer" style="justify-content: center;border-top: 0px">
+              <button type="button" style="border-radius: 7%" class="btn-danger" data-dismiss="modal">Thay đổi</button>
+              &nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row justify-content-center">
+
+          <div class="col-6 col-md-6 col-xl-2  d-block d-lg-none">
+            <h1 class="mb-0 site-logo"><a href="index.html" class="text-black mb-0"><b>Báo Điện Tử HungAn</b></a></h1>
+          </div>
+
+          <!-- menu -->
+          <div class="col-12 col-md-10 main-menu">
+            <nav class="site-navigation position-relative text-center" role="navigation">
+              <ul class="site-menu main-menu js-clone-nv mr-auto d-none d-lg-block">
+                <li><a href="index.html" class="nav-link active"><b>Trang chủ</b></a></li>
+                <li class="dropdown"><a href="#feature-section" class="nav-link"><b>Kinh doanh</b></a>
+                  <div class="dropdown-content">
+                    <a href="NongSan.html"><b>Nông sản</b></a>
+                    <a href="HaiSan.html"><b>Hải sản</b></a>
+                  </div>
+                </li>
+                <li class="dropdown"><a href="#education-section" class="nav-link"><b>Giáo dục</b></a>
+                  <div class="dropdown-content">
+                    <a href="TinGiaoDuc.html"><b>Tin tức</b></a>
+                    <a href="TinTuyenSinh.html"><b>Tuyển sinh</b></a>
+                  </div>
+                </li>
+                <li class="dropdown"><a href="#music-section" class="nav-link"><b>Âm nhạc</b></a>
+                  <div class="dropdown-content">
+                    <a href="AmNhacTrongNuoc.html"><b>Trong nước</b></a>
+                    <a href="AmNhacNuocNgoai.html"><b>Quốc tế</b></a>
+                  </div>
+                </li>
+                <li class="dropdown"><a href="#fashion-section" class="nav-link"><b>Fashion</b></a>
+                  <div class="dropdown-content">
+                    <a href="FashionMacGi.html"><b>Mặc gì</b></a>
+                    <a href="FashionLamDep.html"><b>Làm đẹp</b></a>
+                  </div>
+                </li>
+                <li class="dropdown"><a href="#contact-section" class="nav-link"><b>Thể thao</b></a>
+                  <div class="dropdown-content">
+                    <a href="BongDaTrongNuoc.html"><b>Trong nước</b></a>
+                    <a href="BongDaNuocNgoai.html"><b>Quốc tế</b></a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-6 col-md-6 d-inline-block d-lg-none ml-md-0"><a href="#"
+              class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- bai viet nổi bật trong tuần -->
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h6 class="section-title mb-3">Bài viết nổi bật trong tuần</h6>
+          </div>
+        </div>
+        <div class="container">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="..\images\bts.png" alt="Los Angeles" class="img-top">
+                <div class="carousel-caption">
+                  <h4><a href="NhanManh_QuanJeans.html" class="text-white"><b>MV mới của BTS phá kỉ lục của BLACKPINK
+                        <br> trở thành MV có nhiều lướt xem nhất</b></a></h4>
+                  <p>Chuyên mục: Âm nhạc</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="..\images\vt1.jpg" alt="Chicago" class="img-top">
+                <div class="carousel-caption">
+                  <h3><a href="VanToanToaSang.html" class="text-white"><b>Văn Toàn tỏa sáng, HAGL <br>đánh bại Quảng
+                        Ninh trong cuộc rượt đuổi<br> nghẹt thở</b></a></h3>
+                  <p>Chuyên mục: Thể thao</p>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <img src="..\images\mu-west-ham.jpg" class="img-top">
+                <div class="carousel-caption">
+                  <h3><a href="VanToanToaSang.html" class="text-white"><b>M.U 2-1 West Ham: Cú đúp penalty của<br> Pogba
+                        cứu rỗi Quỷ đỏ</b></a></h3>
+                  <p>Chuyên mục: Bóng đá</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- //bài viết được xem nhiều nhất -->
+  <div class="site-section-sm">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title mb-3">Bài viết được xem nhiều nhất</h2>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\SonTung.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>Sơn Tùng MTP trở lại với hit cũ sau 1
+                      năm</b></a></h3>
+                <p><a href="AmNhacTrongNuoc.html">Âm nhạc - Trong nước</a><span class="mx-2">&bullet;</span> 13/04/2019
+                </p>
+                <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\bts.png" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>MV mới của BTS phá kỉ lục của BLACKPINK trở
+                      thành MV có nhiều lướt xem nhất</b></a></h3>
+                <p><a href="AmNhacNuocNgoai.html">Âm nhạc - Quốc tế</a><span class="mx-2">&bullet;</span>14/04/2019</p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\mu-west-ham.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>M.U 2-1 West Ham: Cú đúp penalty của Pogba cứu
+                      rỗi Quỷ đỏ</b></a></h3>
+                <p><a href="BongDaNuocNgoai.html">Thể thao - Quốc tế</a><span class="mx-2">&bullet;</span> 13/04/2019
+                </p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\taylor.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>Chỉ mới “nhá hàng” comeback, Taylor Swift đã
+                      chơi lớn thế này rồi</b></a></h3>
+                <p><a href="AmNhacNuocNgoai.html">Âm nhạc - Quốc tế</a><span class="mx-2">&bullet;</span> 12/04/2019</p>
+                <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\blackpink.png" class="most-img">
+              </div>
+              <div>
+                <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>Youtube xác nhận MV của BLACKPINK trở thành
+                      MV được xem nhiều nhất trong 24h</b></a></h3>
+                <p><a href="AmNhacNuocNgoai.html">Âm nhạc - quốc tế</a><span class="mx-2">&bullet;</span> 10/04/2019</p>
+                <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\ta-lon.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>Dịch tả lợn Châu Phi: Trong thách thức, có cơ
+                      hội!</b></a></h3>
+                <p><a href="NongSan.html">Nông sản</a><span class="mx-2">&bullet;</span> 11/04/2019</p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\lang-chai.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>Làng chài "tỉ phú"</b></a></h3>
+                <p><a href="HaiSan.html">Hải sản</a><span class="mx-2">&bullet;</span> 13/04/2019</p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\truong.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>Tạm đình chỉ thầy giáo bị tố dâm ô 7 học sinh
+                      nam</b></a></h3>
+                <p><a href="TinGiaoDuc.html">Giáo dục - Tin tức</a><span class="mx-2">&bullet;</span> 11/04/2019</p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\hop.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="TinGiaoDuc.html" class="text-black"><b>Nhóm nữ sinh bắt bạn quỳ, đánh dằn mặt bị đuổi học
+                      một tuần</b></a></h3>
+                <p><a href="#">Giáo dục - Tin tức</a><span class="mx-2">&bullet;</span> 11/04/2019</p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\face.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>Hầu hết mọi người đều bỏ qua bước này khi rửa
+                      mặt, bảo sao da cứ lên mụn mãi không dứt</b></a></h3>
+                <p><a href="FashionLamDep.html">Fashion - Làm đẹp</a> <span class="mx-2">&bullet;</span> 10/04/2019</p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <!-- //bài viết mới nhất -->
+  <div class="site-section-sm">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title mb-3">Bài viết mới nhất</h2>
+        </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\mat-na.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>4 loại mặt nạ đất sét “thải độc” giá từ 150.000
+                      VNĐ, đem lại làn da mịn mướt hơn bao giờ hết</b></a></h3>
+                <p><a href="FashionLamDep.html">Fashion - Làm đẹp</a><span class="mx-2">&bullet;</span> 14/04/2019</p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\jean.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>Quần jeans không chỉ bụi bặm mà còn rất dịu
+                      dàng, sang chảnh nếu bạn diện 4 kiểu dáng sau</b></a></h3>
+                <p><a href="FashionMacGi.html">Fashion - Mặc gì</a><span class="mx-2">&bullet;</span> 14/04/2019</p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\tuyen-sinh-lop-10.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>Gần 30.000 học sinh Sài Gòn sẽ rớt lớp 10 công
+                      lập</b></a></h3>
+                <p><a href="TinGiaoDuc.html">Giáo dục - Tuyển sinh</a><span class="mx-2">&bullet;</span> 14/04/2019</p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\neo-gia.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>Nhiều mặt hàng "neo" giá</b></a></h3>
+                <p><a href="HaiSan.html">Kinh doanh - Hải sản</a><span class="mx-2">&bullet;</span> 14/04/2019</p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\trend.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>Nhanh chóng bắt trend câu nói "Tiền nhiều để làm
+                      gì", Huỳnh Hiền Năng sáng tác riêng một ca khúc cho hiện tượng này</b></a></h3>
+                <p><a href="AmNhacTrongNuoc.html">Âm nhạc - Trong nước</a><span class="mx-2">&bullet;</span> 14/04/2019
+                </p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\bay.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>Thủ môn Viettel bay người ăn mừng Bùi Tiến Dũng
+                      ghi bàn</b></a></h3>
+                <p><a href="BongDaTrongNuoc.html">Thể thao - Trong nước</a><span class="mx-2">&bullet;</span> 13/04/2019
+                </p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\liverpool-chelsea-480.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>Nhận định bóng đá Liverpool vs Chelsea,
+                      22h30 ngày 14/4: Vượt khúc cua quyết định</b></a></h3>
+                <p><a href="BongDaNuocNgoai.html">Thể thao - Quốc tế</a><span class="mx-2">&bullet;</span> 13/04/2019
+                </p>
+                <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\dua-hau.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>Đặc sắc Lễ hội dưa hấu lần đầu tiên ở Việt
+                      Nam</b></a></h3>
+                <p><a href="NongSan.html">Kinh doanh - Nông sản</a><span class="mx-2">&bullet;</span> 13/04/2019</p>
+                <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\shoes.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>Thực sự tồn tại mẫu giày không chỉ giúp bạn
+                      thêm cao ráo, thanh mảnh mà còn sang lên rất nhiều</b></a></h3>
+                <p><a href="FashionMacGi.html">Fashion - Mặc gì</a><span class="mx-2">&bullet;</span> 13/04/2019</p>
+                <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="unit-4 d-block">
+              <div class="unit-4-icon mb-3">
+                <img src="..\images\cardi-b.jpg" class="most-img">
+              </div>
+              <div>
+                <h3><a href="VanToanToaSang.html" class="text-black"><b>Dù hứng chịu phản ứng gay gắt từ dư luận nhưng
+                      Cardi B vẫn vượt mặt Nicki Minaj tại Billboard Music Awards</b></a></h3>
+                <p><a href="AmNhacNuocNgoai.html">Âm nhạc - Quốc tế</a> <span class="mx-2">&bullet;</span> 13/04/2019
+                </p>
+                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <!-- top 10 chuyên mục -->
+  <div class="site-section-sm">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title mb-3">Top 10 chuyên mục được ưa thích</h2>
+        </div>
+        <div class="row align-items-stretch">
+          <span style="width: 50%">
+            <div class="title-chuyen-muc">
+              <h3 class="text-center">Âm nhạc Quốc tế</h3>
+            </div>
+            <div class="" data-aos="fade-up">
+              <div class="unit-4 d-block">
+                <div class="unit-4-icon mb-3">
+                  <img src="..\images\bts.jpg" class="most-img">
+                </div>
+                <div>
+                  <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>MV mới của BTS phá kỉ lục của BLACKPINK
+                        trở thành MV có nhiều
+                        lướt xem nhất</b></a></h3>
+                  <p><a href="AmNhacNuocNgoai.html">Âm nhạc - Quốc tế</a><span class="mx-2">&bullet;</span> 14/04/2019
+                  </p>
+                  <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
+                </div>
+              </div>
+            </div>
+          </span>
+
+          <span style="width: 50%">
+            <div class="title-chuyen-muc">
+              <h3 class="text-center">Thể thao Quốc tế </h3>
+            </div>
+            <div class="" data-aos="fade-up">
+              <div class="unit-4 d-block">
+                <div class="unit-4-icon mb-3">
+                  <img style="height: 350px;" src="..\images\liv1.jpg" class="most-img">
+                </div>
+                <div>
+                  <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>Tâm lý của Liverpool hay đôi chân của Man
+                        City sẽ định đoạt ngai
+                        vàng Premier League?</b></a></h3>
+                  <p><a href="BongDaNuocNgoai.html">Thể thao - Quốc tế</a><span class="mx-2">&bullet;</span> 14/04/2019
+                  </p>
+                  <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
+                </div>
+              </div>
+            </div>
+          </span>
+
+          <span style="width: 50%">
+            <div class="title-chuyen-muc">
+              <h3 class="text-center">Thể thao trong nước</h3>
+            </div>
+            <div data-aos="fade-up">
+              <div class="unit-4 d-block">
+                <div class="unit-4-icon mb-3">
+                  <img style="height: 350px;" style="height: 350px;" src="..\images\vt1.jpg" class="most-img">
+                </div>
+                <div>
+                  <h3><a href="VanToanToaSang.html" class="text-black"><b>Văn Toàn tỏa sáng, HAGL đánh bại Quảng Ninh
+                        trong cuộc rượt đuổi nghẹt thở</b></a></h3>
+                  <p><a href="AmNhacTrongNuoc.html">Thể thao - Trong nước</a><span class="mx-2">&bullet;</span>
+                    14/04/2019</p>
+                  <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+                </div>
+              </div>
+            </div>
+          </span>
+
+          <span style="width: 50%">
+            <div class="title-chuyen-muc">
+              <h3 class="text-center">Fashion Làm đẹp</h3>
+            </div>
+            <div data-aos="fade-up">
+              <div class="unit-4 d-block">
+                <div class="unit-4-icon mb-3">
+                  <img style="height: 350px;" src="..\images\toc.jpg" class="most-img">
+                </div>
+                <div>
+                  <h3><a href="VanToanToaSang.html" class="text-black"><b>Vừa xinh trẻ lại mát lành còn giảm mụn đáng
+                        kể: Đây chính là kiểu tóc giúp chị em sống sót trong mùa hè tới</b></a></h3>
+                  <p><a href="FashionLamDep.html">Fashion - Làm đẹp</a><span class="mx-2">&bullet;</span> 14/04/2019</p>
+                  <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
+                </div>
+              </div>
+            </div>
+          </span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="footer py-5 border-top text-center">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12">
+          <p class="mb-0">
+            <a href="#" class="p-3"><span class="icon-facebook"></span></a>
+            <a href="#" class="p-3"><span class="icon-twitter"></span></a>
+            <a href="#" class="p-3"><span class="icon-instagram"></span></a>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="mb-0">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
+            <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  </div> <!-- .site-wrap -->
+
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/jquery-ui.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/jquery.stellar.min.js"></script>
+  <script src="../js/jquery.countdown.min.js"></script>
+  <script src="../js/bootstrap-datepicker.min.js"></script>
+  <script src="../js/jquery.easing.1.3.js"></script>
+  <script src="../js/aos.js"></script>
+  <script src="../js/jquery.fancybox.min.js"></script>
+  <script src="../js/jquery.sticky.js"></script>
+
+
+  <script src="../js/main.js"></script>
+
+
+
+</body>
+
+</html>
