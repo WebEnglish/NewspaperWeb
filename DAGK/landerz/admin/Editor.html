@@ -56,23 +56,13 @@
             </span>
 
             <span style="width: 30%;">
-              <div>
-                <ul class="nav" style="text-align: center; padding-top: 6px;">
-                  <li class="">
-                    <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <img src="images/avt.jpg" alt="">Việt An
-                      <span class=" fa fa-angle-down"></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-usermenu">
-                      <li><a href="javascript:;"> Cập nhập thông tin</a></li>
-                      <li>
-                        <a href="javascript:;">
-                          <span>Đổi mật khẩu</span>
-                        </a>
-                      </li>
-                      <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i>Thoát</a></li>
-                    </ul>
-                  </li>
+              <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" style="display:flex;justify-content:center;margin-top: 10px; border: 0px; background-color: transparent" data-toggle="dropdown"><i class="fas fa-user-tie"></i>&nbsp;&nbsp; Việt An
+                  </a>
+                <ul class="dropdown-menu" style="margin-left:150px;" >
+                  <li><a href="../UpdateInfor.html">Cập nhật thông tin</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#myModal3">Thay đổi mật khẩu</a></li>
+                  <li><a href="../index.html">Đăng xuất</a></li>
                 </ul>
               </div>
             </span>
@@ -133,14 +123,15 @@
                         </td>
                       </tr>
                       <tr data-href="..\VanToanToaSang.html">
-                        <th scope="row">2</th>
-                        <td id="name">Mặc Youtube trừ view oan ức, BTS vẫn hiên ngang phá vỡ kỉ lục MV đạt 100 triệu lượt xem nhanh nhất thế giới của BLACKPINK!</td>
-                        <td> 11/03/2019 19:00:20 PM</td>
+                        <th scope="row">1</th>
+                        <td id="name">
+                          Mặc Youtube trừ view oan ức, BTS vẫn hiên ngang phá vỡ kỉ lục MV đạt 100 triệu lượt xem nhanh nhất thế giới của BLACKPINK!</td>
+                        <td> 13/02/2019 19:00:20 PM</td>
                         <td>Viet An</td>
                         <td>
                           <ul id="ULTag" style="list-style:none; padding-left: 0px;">
                             <li rel="Âm nhạc trong nước">Âm nhạc trong nước</li>
-                            <li rel="Âm nhạc quốc tế">Âm nhạc quốc tế </li>
+                            <li rel="Âm nhạc quốc tế">Âm nhạc quốc tế</li>
                           </ul>
                         </td>
                         <td>Âm nhạc quốc tế</td>
@@ -271,7 +262,8 @@
 
       })
 
-      $('td').click(function () {
+      $('td:not(:last-child)').click(function () {
+          window.location = $(this).data("");
         
       })
 
