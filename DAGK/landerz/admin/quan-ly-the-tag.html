@@ -131,7 +131,7 @@
                                         <span>Đổi mật khẩu</span>
                                       </a>
                                     </li>
-                                    <li><a href="Đăng nhập/index.html"><i class="fa fa-sign-out pull-right"></i>Thoát</a></li>
+                                    <li><a href="Đăng nhập/sign-in.html><i class="fa fa-sign-out pull-right"></i>Thoát</a></li>
                                   </ul>
                                 </li>
                   
@@ -149,6 +149,15 @@
                         <div class="title_left">
                             <h3><b>Quản lý Nhãn tag</b></h3>
                         </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                          <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Search for...">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button"><i
+                                          class="fas fa-search"></i></button>
+                              </span>
+                          </div>
+                      </div>
                     </div>
 
                     <div class="clearfix"></div>
@@ -175,15 +184,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" placeholder="Search for...">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-default" type="button"><i
-                                                                class="fas fa-search"></i></button>
-                                                    </span>
-                                                </div>
-                                            </div>
+                          
                                     <table class="table table-hover" id="table">
                                         <thead>
                                             <tr>
@@ -435,7 +436,7 @@
 
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Lưu</button>
+                                        <button type="button" class="btn btn-save" data-dismiss="modal">Lưu</button>
                                         <button type="button" class="btn btn-danger"
                                             data-dismiss="modal">Cancel</button>
                                     </div>
@@ -669,6 +670,15 @@
                     $("#txtCat").val(a);
                 });
             });
+             //chỉnh sửa nội dung dòng
+      $(document).ready(function () {
+        $("#myModal-rewrite").on('click', '.btn-save', function () {
+          var b = $("#txtCat").val();
+           var currentRow = $(this).closest("tr");
+
+          $("td:eq(1)").html(b);
+        });
+     });
         </script>
 
         <script>

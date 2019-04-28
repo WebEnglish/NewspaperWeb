@@ -131,7 +131,7 @@
                           <span>Đổi mật khẩu</span>
                         </a>
                       </li>
-                      <li><a href="Đăng nhập/index.html"><i class="fa fa-sign-out pull-right"></i>Thoát</a></li>
+                      <li><a href="Đăng nhập/sign-in.html"><i class="fa fa-sign-out pull-right"></i>Thoát</a></li>
                     </ul>
                   </li>
     
@@ -371,7 +371,7 @@
 
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Lưu</button>
+                    <button type="button" class="btn btn-save" data-dismiss="modal">Lưu</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                   </div>
 
@@ -603,6 +603,16 @@
           var a = col1;
            $("#txtCat").val(a);
          });
+        });
+
+         //chỉnh sửa nội dung dòng
+      $(document).ready(function () {
+        $("#myModal-rewrite").on('click', '.btn-save', function () {
+          var b = $("#txtCat").val();
+           var currentRow = $(this).closest("tr");
+
+          $("td:eq(1)").html(b);
+        });
      });
     </script>
 
@@ -615,9 +625,9 @@
                 var cell3 = row.insertCell(2);
                 var n = t.rows.length;
                 cell1.innerHTML = parseInt(n)-1;
-                cell2.innerHTML = "(trống)"
-                cell3.innerHTML = '<a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>' +
-                    '&nbsp;' + '<a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>';
+                cell2.innerHTML = null;
+                cell3.innerHTML = '<a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash-alt"></i></a>&nbsp;' +
+                   + '<a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>';
          }
     </script>
 
