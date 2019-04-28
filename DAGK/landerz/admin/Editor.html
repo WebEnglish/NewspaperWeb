@@ -235,7 +235,7 @@
                       <span>
                         <ul id="Tag">
                           <li><input type="checkbox"  value="Bóng đá trong nước">Bóng đá trong nước</li>
-                          <li><input type="checkbox" value="Tuyển sinh">Tuyển sinh</li>
+                          <li><input type="checkbox" class="abc" value="Tuyển sinh">Tuyển sinh</li>
                           <li><input type="checkbox" value="Bóng đá nước ngoài">Bóng đá nước ngoài</li>
                           <li><input type="checkbox" value="Giáo dục">Giáo dục</li>
                         </ul>
@@ -310,6 +310,7 @@
         }   
 
       })
+      $(".abc").attr('checked', true);
 
       $('td:not(:last-child)').click(function () {
           window.location = $(this).data("");
