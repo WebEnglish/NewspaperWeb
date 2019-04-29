@@ -32,7 +32,7 @@
   <script src="../ckeditor/ckeditor.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -49,29 +49,63 @@
 
   </div>
   <div class="LoginOut" style="height: 150px; display: flex;justify-content: space-between;">
-      <a href="index.html"><img src="../images/avtTest.jpg" style="margin-left: 60px; margin-top: -30px;width: 250px;"></a>
-  <span>
+    <a href="index.html"><img src="../images/avtTest.jpg"
+        style="margin-left: 60px; margin-top: -30px;width: 250px;"></a>
+    <span>
       <ul class="sign-in">
-              <li class="dropdown">
-                  <img class="small-avatar" src="..\images\blackpink.png">
-                  <a href="#">Username<span class="mx-2"></span></a>
-                  <div class="dropdown-content">
-                      <div style="padding-bottom: 10px">
-                          <img class="avatar" src="..\images\blackpink.png">
-                          <p class="text-center">Việt An</p>
-                      </div>
-                      <label class="text-center" href="#"> Thời hạn tài khoản còn:<br><u style="font-weight:800;">7
-                              ngày</u>.
-                      </label>
-                      <a href="UpdateInfor.html" style="font-weight:400">Chỉnh sửa thông tin</a>
-                      <a href="#" style="font-weight:400">Gia hạn tài khoản</a>
-                  </div>
-              </li>
-              <li class="dropdown"><a href="index.html">Đăng xuất</a>
-              </li>
-          </ul>
- </span>
-</div>
+        <li class="dropdown">
+          <img class="small-avatar" src="..\images\blackpink.png">
+          <a href="#">Username<span class="mx-2"></span></a>
+          <div class="dropdown-content">
+            <div style="padding-bottom: 10px">
+              <img class="avatar" src="..\images\blackpink.png">
+              <p class="text-center">Việt An</p>
+            </div>
+            <label class="text-center" href="#"> Thời hạn tài khoản còn:<br><u style="font-weight:800;">7
+                ngày</u>.
+            </label>
+            <a href="UpdateInfor2.html" style="font-weight:400">Chỉnh sửa thông tin</a>
+            <a href="#" style="font-weight:400">Gia hạn tài khoản</a>
+            <a href="" data-toggle="modal" data-target="#myModal3" style="font-weight:400">Đổi mật khẩu</a>
+            <a href="../index.html" style="font-weight:400">Đăng xuất</a>
+          </div>
+        </li>
+        <!-- <li class="dropdown"><a href="index.html">Đăng xuất</a>
+                  </li> -->
+      </ul>
+    </span>
+    <div class="modal fade" id="myModal3">
+      <div class="modal-dialog">
+        <div class="modal-content" style="font-weight:bold">
+          <div
+            style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Thay đổi mật khẩu</h4>
+          </div>
+          <div style="margin :10px 30px;">
+            <div style="display:flex; flex-direction:column">
+              <label style="width:100%;">Mật khẩu cũ: </label>
+              <input style="width:100%" type="password">
+            </div>
+            <br>
+            <div style="display:flex; flex-direction:column">
+              <label style="width:100%">Mật khẩu mới: </label>
+              <input style="width:100%" type="password">
+            </div>
+            <br>
+            <div style="display:flex; flex-direction:column">
+              <label style="width:100%">Nhập lại mật khẩu mới: </label>
+              <input style="width:100%" type="password">
+            </div>
+          </div>
+          <div class="modal-footer" style="justify-content: center;border-top: 0px">
+            <button type="button" style="border-radius: 7%" class="btn-danger" data-dismiss="modal">Thay đổi</button>
+            &nbsp;
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
@@ -87,31 +121,32 @@
         <div class="col-12 col-md-10 main-menu">
           <nav class="site-navigation position-relative text-center" role="navigation">
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="Viet-bai.html" class="nav-link"><b>Viết bài</b></a></li>
-                <li><a href="Bai-viet-da-xuat-ban.html" class="nav-link"><b>Bài viết đã xuất bản</b></a>
-                  <!-- <div class="dropdown-content">
+              <li><a href="Viet-bai.html" class="nav-link"><b>Viết bài</b></a></li>
+              <li><a href="Bai-viet-da-xuat-ban.html" class="nav-link"><b>Bài viết đã xuất bản</b></a>
+                <!-- <div class="dropdown-content">
                       <a href="#"><b>Nông sản</b></a>
                       <a href="#"><b>Hải sản</b></a>
                     </div> -->
-                </li>
-                <li><a href="Bai-viet-da-duyet.html" class="nav-link"><b>Bài viết đã duyệt</b></a>
-                  <!-- <div class="dropdown-content">
+              </li>
+              <li><a href="Bai-viet-da-duyet.html" class="nav-link"><b>Bài viết đã duyệt</b></a>
+                <!-- <div class="dropdown-content">
                       <a href="#"><b>Tin tức</b></a>
                       <a href="#"><b>Tuyển sinh</b></a>
                     </div> -->
-                </li>
-                <li><a href="Bai-viet-chua-duoc-duyet.html" class="nav-link"><b class="active">Bài viết chưa được duyệt</b></a>
-                  <!-- <div class="dropdown-content">
+              </li>
+              <li><a href="Bai-viet-chua-duoc-duyet.html" class="nav-link"><b class="active">Bài viết chưa được
+                    duyệt</b></a>
+                <!-- <div class="dropdown-content">
                       <a href="#"><b>Trong nước</b></a>
                       <a href="#"><b>Quốc tế</b></a>
                     </div> -->
-                </li>
-                <li><a href="Bai-viet-bi-tu-choi.html" class="nav-link"><b>Bài viết bị từ chối</b></a>
-                  <!-- <div class="dropdown-content">
+              </li>
+              <li><a href="Bai-viet-bi-tu-choi.html" class="nav-link"><b>Bài viết bị từ chối</b></a>
+                <!-- <div class="dropdown-content">
                       <a href="#"><b>Mặc gì</b></a>
                       <a href="#"><b>Làm đẹp</b></a>
                     </div> -->
-                </li>
+              </li>
               <!-- <li class="dropdown"><a href="#contact-section" class="nav-link"><b>Viết bài</b></a>
                    <div class="dropdown-content">
                     <a href="#"><b>Trong nước</b></a>
@@ -138,7 +173,7 @@
 
     </div>
   </header>
-<br>
+  <br>
   <div class="site-section">
     <div class="container">
       <div class="row mb-5">
@@ -166,28 +201,28 @@
               <td><i class="fas fa-tools"></i></td>
             </tr>
             <tr id="news-2" class="text-black" data-href="Chinh-sua-bai-chua-duoc-duyet.html">
-                <td><b>2</b></td>
-                <td><b>Ronaldo có tên trong danh sách đăng ký trận Ajax vs Juventus</b></td>
-                <td><b>14/04/2019 15:34:46 PM</b></td>
-                <td><b>Thể thao - Quốc tế</b></td>
-                <td><b>Chưa được duyệt</b></td>
-                <td><i class="fas fa-tools"></i></td>
+              <td><b>2</b></td>
+              <td><b>Ronaldo có tên trong danh sách đăng ký trận Ajax vs Juventus</b></td>
+              <td><b>14/04/2019 15:34:46 PM</b></td>
+              <td><b>Thể thao - Quốc tế</b></td>
+              <td><b>Chưa được duyệt</b></td>
+              <td><i class="fas fa-tools"></i></td>
             </tr>
             <tr id="news-3" class="text-black" data-href="Chinh-sua-bai-chua-duoc-duyet.html">
-                <td><b>3</b></td>
-                <td><b>Ronaldo có tên trong danh sách đăng ký trận Ajax vs Juventus</b></td>
-                <td><b>14/04/2019 15:34:46 PM</b></td>
-                <td><b>Thể thao - Quốc tế</b></td>
-                <td><b>Chưa được duyệt</b></td>
-                <td><i class="fas fa-tools"></i></td>
+              <td><b>3</b></td>
+              <td><b>Ronaldo có tên trong danh sách đăng ký trận Ajax vs Juventus</b></td>
+              <td><b>14/04/2019 15:34:46 PM</b></td>
+              <td><b>Thể thao - Quốc tế</b></td>
+              <td><b>Chưa được duyệt</b></td>
+              <td><i class="fas fa-tools"></i></td>
             </tr>
             <tr id="news-4" class="text-black" data-href="Chinh-sua-bai-chua-duoc-duyet.html">
-                <td><b>4</b></td>
-                <td><b>Ronaldo có tên trong danh sách đăng ký trận Ajax vs Juventus</b></td>
-                <td><b>14/04/2019 15:34:46 PM</b></td>
-                <td><b>Thể thao - Quốc tế</b></td>
-                <td><b>Chưa được duyệt</b></td>
-                <td><i class="fas fa-tools"></i></td>
+              <td><b>4</b></td>
+              <td><b>Ronaldo có tên trong danh sách đăng ký trận Ajax vs Juventus</b></td>
+              <td><b>14/04/2019 15:34:46 PM</b></td>
+              <td><b>Thể thao - Quốc tế</b></td>
+              <td><b>Chưa được duyệt</b></td>
+              <td><i class="fas fa-tools"></i></td>
             </tr>
           </tbody>
         </table>
@@ -195,14 +230,14 @@
     </div>
   </div>
   <div style="color:black !important">
-      <ul class="pagination modal-3">
-          <li><a href="#" class="prev">&laquo</a></li>
-          <li><a href="FashionMacGi.html" class="active">1</a></li>
-          <li> <a href="FashionMacGi.html">2</a></li>
-          <li> <a href="#">3</a></li>
-          <li> <a href="#">4</a></li>
-          <li><a href="#" class="next">&raquo;</a></li>
-      </ul>
+    <ul class="pagination modal-3">
+      <li><a href="#" class="prev">&laquo</a></li>
+      <li><a href="FashionMacGi.html" class="active">1</a></li>
+      <li> <a href="FashionMacGi.html">2</a></li>
+      <li> <a href="#">3</a></li>
+      <li> <a href="#">4</a></li>
+      <li><a href="#" class="next">&raquo;</a></li>
+    </ul>
   </div>
 
 
@@ -235,23 +270,23 @@
   </div>
   </div> <!-- .site-wrap -->
 
-  
+
   <script>
-      $(document).ready(function(){
-        $("#news-1").click(function(){
-          window.location = $(this).data("href");
+    $(document).ready(function () {
+      $("#news-1").click(function () {
+        window.location = $(this).data("href");
+      });
+      $("#news-2").click(function () {
+        window.location = $(this).data("href");
+      });
+      $("#news-3").click(function () {
+        window.location = $(this).data("href");
+      });
+      $("#news-4").click(function () {
+        window.location = $(this).data("href");
+      });
     });
-    $("#news-2").click(function(){
-          window.location = $(this).data("href");
-    });
-    $("#news-3").click(function(){
-          window.location = $(this).data("href");
-    });
-    $("#news-4").click(function(){
-          window.location = $(this).data("href");
-    });
-  });
-    </script>
+  </script>
 
   <script src="../js/jquery-3.3.1.min.js"></script>
   <script src="../js/jquery-migrate-3.0.1.min.js"></script>

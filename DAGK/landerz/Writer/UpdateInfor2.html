@@ -44,63 +44,68 @@
             </div>
             <div class="site-mobile-menu-body"></div>
         </div>
-        <div style="height: 150px; margin-top: px;display: flex;justify-content: space-between; padding-right:40px;margin-top: 10px; ">
-            <a href="index.html"><img src="../images/avtTest.jpg" style="margin-left: 60px; margin-top: -30px;width: 250px;"></a>
+        <div class="LoginOut" style="height: 140px; margin-top: px;display: flex;justify-content: space-between;">
+            <a href="index.html"><img src="../images/avtTest.jpg"
+                    style="margin-left: 60px; margin-top: -30px;width: 250px;"></a>
             <span>
-                <div class="LoginOut">
-                    <ul class="sign-in">
-                        <li class="dropdown">
-                            <a href="#"><i class="fas fa-user"></i>&nbsp; Username<span class="mx-2"></span></a>
-                            <div class="dropdown-content" style="z-index: 9999;">
-                                <div style="padding-bottom: 10px">
-                                    <img style="margin-left:65px; height: 60px; width: 60px; border-radius: 100%"
-                                        src="..\images\avt.jpg">
-                                </div>
-                                <label class="text-center" href="#">Thời hạn tài khoản còn:<br><u style="font-weight:800;">7
-                                        ngày</u>. </label>
-                                <a href="UpdateInfor.html" style="font-weight:400">Chỉnh sửa thông tin</a>
-                                <a href="#" style="font-weight:400">Gia hạn tài khoản</a>
-                                <a href="" data-toggle="modal" data-target="#myModal3"  style="font-weight:400">Đổi mật khẩu</a>
-                                <a href="../index.html" style="font-weight:400">Đăng xuất</a>
+                <ul class="sign-in">
+                    <li class="dropdown">
+                        <img class="small-avatar" src="..\images\blackpink.png">
+                        <a href="#">Username<span class="mx-2"></span></a>
+                        <div class="dropdown-content">
+                            <div style="padding-bottom: 10px">
+                                <img class="avatar" src="..\images\blackpink.png">
+                                <p class="text-center"> Việt An</p>
                             </div>
-                        </li>
-                        </li>
-                    </ul>
-                </div>
+                            <label class="text-center" href="#"> Thời hạn tài khoản còn:<br><u
+                                    style="font-weight:800;">7 ngày</u>.
+                            </label>
+                            <a href="../Doc_gia/UpdateInfor2.html" style="font-weight:400">Chỉnh sửa thông tin</a>
+                            <a href="#" style="font-weight:400">Gia hạn tài khoản</a>
+                            <a href="Viet-bai.html" style="font-weight:400">Viết bài</a>
+                            <a href="" data-toggle="modal" data-target="#myModal3" style="font-weight:400">Đổi mật
+                                khẩu</a>
+                            <a href="../index.html" style="font-weight:400">Đăng xuất</a>
+                        </div>
+                    </li>
+                    <!-- <li class="dropdown"><a href="index.html">Đăng xuất</a>
+                    </li> -->
+                </ul>
             </span>
-        </div>    
-        
-        <div class="modal fade" id="myModal3">
-            <div class="modal-dialog">
-                <div class="modal-content" style="font-weight:bold">
-                    <div style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Thay đổi mật khẩu</h4>
-                      </div>
-                      <div style="margin :10px 30px;" >
-                          <div style="display:flex; flex-direction:column">
-                            <label  style="width:100%;">Mật khẩu cũ: </label>
-                            <input  style="width:100%" type="password">
-                          </div>
-                          <br>
-                          <div style="display:flex; flex-direction:column">
-                              <label  style="width:100%">Mật khẩu mới: </label>
-                              <input  style="width:100%" type="password">
-                          </div>
-                          <br>
-                          <div style="display:flex; flex-direction:column">
-                              <label  style="width:100%">Nhập lại mật khẩu mới: </label>
-                              <input  style="width:100%" type="password">
-                          </div>                
-                      </div>
-                    <div class="modal-footer"  style="justify-content: center;border-top: 0px">
-                      <button type="button" style="border-radius: 7%" ;
-                      class="btn-danger" data-dismiss="modal">Thay đổi</button> &nbsp; 
+            <div class="modal fade" id="myModal3">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="font-weight:bold">
+                        <div
+                            style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Thay đổi mật khẩu</h4>
+                        </div>
+                        <div style="margin :10px 30px;">
+                            <div style="display:flex; flex-direction:column">
+                                <label style="width:100%;">Mật khẩu cũ: </label>
+                                <input style="width:100%" type="password">
+                            </div>
+                            <br>
+                            <div style="display:flex; flex-direction:column">
+                                <label style="width:100%">Mật khẩu mới: </label>
+                                <input style="width:100%" type="password">
+                            </div>
+                            <br>
+                            <div style="display:flex; flex-direction:column">
+                                <label style="width:100%">Nhập lại mật khẩu mới: </label>
+                                <input style="width:100%" type="password">
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="justify-content: center;border-top: 0px">
+                            <button type="button" style="border-radius: 7%" class="btn-danger" data-dismiss="modal">Thay
+                                đổi</button>
+                            &nbsp;
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="Hungscontainer">
             <h3 style="border-bottom: 1px solid gray">Cập nhật thông tin:</h3>
             <div style="margin-left: 130px;margin-top:20px;margin-bottom:20px; width:60%;">
@@ -130,14 +135,14 @@
                 </div>
                 <br>
                 <div>
-                     <button style="border-radius: 10px ;margin-left: 200px;width: 100px;" >Cập nhật</button>
+                    <button style="border-radius: 10px ;margin-left: 200px;width: 100px;">Cập nhật</button>
                 </div>
-                
-               
-            <br>
-                
-                
-                
+
+
+                <br>
+
+
+
             </div>
         </div>
     </div>
