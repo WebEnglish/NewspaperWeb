@@ -50,26 +50,23 @@
             <span>
                 <ul class="sign-in">
                     <li class="dropdown">
-                        <img class="small-avatar" src="..\images\blackpink.png">
-                        <a href="#">Username<span class="mx-2"></span></a>
-                        <div class="dropdown-content">
+                        <a href="#"><i class="fas fa-user"></i>&nbsp; Username<span class="mx-2"></span></a>
+                        <div class="dropdown-content" style="z-index: 9999;">
                             <div style="padding-bottom: 10px">
-                                <img class="avatar" src="..\images\blackpink.png">
-                                <p class="text-center"> Việt An</p>
+                                <img style="margin-left:65px; height: 60px; width: 60px; border-radius: 100%"
+                                    src="..\images\avt.jpg">
                             </div>
-                            <label class="text-center" href="#"> Thời hạn tài khoản còn:<br><u
-                                    style="font-weight:800;">7 ngày</u>.
+                            <label class="text-center" href="#">Thời hạn tài khoản còn:<br><u style="font-weight:800;">7
+                                    ngày</u>.
                             </label>
-                            <a href="UpdateInfor2.html" style="font-weight:400">Chỉnh sửa thông tin</a>
+                            <a href="UpdateInfor.html" style="font-weight:400">Chỉnh sửa thông tin</a>
                             <a href="Gia-han.html" style="font-weight:400">Gia hạn tài khoản</a>
-                            <a href="Viet-bai.html" style="font-weight:400">Viết bài</a>
                             <a href="" data-toggle="modal" data-target="#myModal3" style="font-weight:400">Đổi mật
                                 khẩu</a>
                             <a href="../index.html" style="font-weight:400">Đăng xuất</a>
                         </div>
                     </li>
-                    <!-- <li class="dropdown"><a href="index.html">Đăng xuất</a>
-                    </li> -->
+                    </li>
                 </ul>
             </span>
             <div class="modal fade" id="myModal3">
@@ -107,35 +104,47 @@
         </div>
 
         <div class="Hungscontainer">
-            <h3 style="border-bottom: 1px solid rgb(130, 189, 169);">Cập nhật thông tin:</h3>
+            <h3 style="border-bottom: 1px solid gray;">Gia hạn tài khoản:</h3>
             <div style="margin-left: 130px;margin-top:20px;margin-bottom:20px; width:60%;">
                 <div style="display: flex;justify-content: flex-end;">
-                    <label>Họ tên:</label>
+                    <label>Loại thẻ<span style="color:red">(*)</span>:</label>
                     &emsp;&emsp;
-                    <input style="border-radius: 25px;width: 400px; border: none; background-color: rgb(195, 236, 224); padding-left: 20px;" type="text">
+                    <span style="display: flex;flex-wrap: nowrap;">
+                        <span class="span-card"><input type="checkbox"><img class="card"
+                                src="https://vtcpay.vn/media2/upload/images/news/images/NGAN%20HANG.png"></span>
+                        <span class="span-card"><input type="checkbox"><img class="card"
+                                src="https://i0.wp.com/rocvn.com/wp-content/uploads/2018/10/visa-la-gi-mastercard-la-gi.png?fit=612%2C340&ssl=1"></span>
+                    </span>
                 </div>
                 <br>
                 <div style="display: flex;justify-content: flex-end;">
-                    <label>Bút danh:</label>
+                    <label>Tên chủ thẻ<span style="color:red">(*)</span>:</label>
                     &emsp;&emsp;
-                    <input style="border-radius: 25px;width: 400px; border: none; background-color: rgb(195, 236, 224); padding-left: 20px;" type="text">
+                    <input
+                        style="border-radius: 25px;width: 400px; border: none; background-color: rgb(195, 236, 224); padding-left: 20px;"
+                        type="text">
                 </div>
                 <br>
                 <div style="display: flex;justify-content: flex-end;">
-                    <label>Email:</label>
+                    <label>Số thẻ<span style="color:red">(*)</span>:</label>
                     &emsp;&emsp;
-                    <input style="border-radius: 25px;width: 400px; border: none; background-color: rgb(195, 236, 224); padding-left: 20px;" type="text">
+                    <input
+                        style="border-radius: 25px;width: 400px; border: none; background-color: rgb(195, 236, 224); padding-left: 20px;"
+                        type="text">
 
                 </div>
                 <br>
-                <div style="display: flex;justify-content: flex-end;">
-                    <label>Ngày sinh:</label>
+                <div style="display: flex;justify-content: flex-end; width: 560px;">
+                    <label>Ngày mở thẻ<span style="color:red">(*)</span>:</label>
                     &emsp;&emsp;
-                    <input style="border-radius: 25px;width: 400px; border: none; background-color: rgb(195, 236, 224); padding-left: 20px;" type="date">
+                    <input
+                        style="border-radius: 25px;width: 400px; border: none; background-color: rgb(195, 236, 224); padding-left: 20px;"
+                        type="date">
                 </div>
                 <br>
                 <div>
-                    <button style="border-radius: 10px ;margin-left: 50%;width: 100px; cursor: pointer;">Cập nhật</button>
+                    <button style="border-radius: 10px ;margin-left: 50%;width: 100px; cursor: pointer;">Xác
+                        nhận</button>
                 </div>
 
 

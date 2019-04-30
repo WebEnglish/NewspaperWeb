@@ -1937,7 +1937,7 @@ h1, h2, h3, h4, h5,
 
   .searchbar:hover > .search_input{
   padding: 0 10px;
-  width: 250px;
+  width: 200px;
   caret-color:red;
   transition: width 0.4s linear;
   }
@@ -2173,3 +2173,14 @@ p{
 
 /*hết Phân trang nè */
 
+.card{
+  width: 150px;
+  height: 100px;
+}
+
+.span-card{
+  display: flex;
+  flex-wrap: wrap;
+   position: relative;
+   width: 200px;
+}
