@@ -26,12 +26,11 @@
 }
 .Hungscontainer
 {
-    
     font-size: 100%;
-    margin-top:20px;
-    width:70%;
+    margin-top:100px;
+    width:75%;
     justify-content: flex-end;
-    margin-left:200px;
+    margin-left:150px;
     color:black;
     padding: 10px;
     box-shadow: 2px 2px 3px 3px rgb(109, 156, 136)
