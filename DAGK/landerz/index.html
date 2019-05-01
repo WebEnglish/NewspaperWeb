@@ -47,7 +47,7 @@
       <a href="index.html"><img src="./images/avtTest.jpg" style="margin-left: 60px; margin-top: -30px;width: 28%;"></a>
       <span>
         <ul class="sign-in" style="display: flex;justify-content: center">
-          <button data-toggle="modal" data-target="#myModal" style="border: 0px; background-color: transparent">
+          <button  data-toggle="modal" data-target="#myModal" style="border: 0px; background-color: transparent">
             <li class="dropdown"><a href="#"><b>Đăng nhập</b><span class="mx-2"></span></a>
             </li>
           </button>
@@ -55,6 +55,7 @@
             <li class="dropdown"><a href="#"><b>Đăng kí</b><span class="mx-2"></span></a>
             </li>
           </button>
+          
         </ul>
       </span>
 
@@ -82,7 +83,7 @@
           </div>
           <!-- Modal footer -->
           <div class="modal-footer" style="justify-content: center;border-top: 0px">
-            <button type="button" style="border-radius: 7%" ; background-image: linear-gradient(to bottom right,
+            <button id="login" type="button" style="border-radius: 7%" ; background-image: linear-gradient(to bottom right,
               rgb(209, 28, 28), rgb(233, 104, 18) /* Standard " class=" btn-danger" data-dismiss="modal">Đăng
               nhập</button> &nbsp;
           </div>
@@ -177,6 +178,7 @@
       </div>
     </div>
 
+    
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
@@ -240,7 +242,6 @@
         </div>
       </div>
     </header>
-
     <div class="site-section bg-light">
       <div class="container">
         <div class="row mb-5">
@@ -658,6 +659,9 @@
 
   </div> <!-- .site-wrap -->
 
+  
+  
+ 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -672,6 +676,24 @@
   <script src="js/jquery.fancybox.min.js"></script>
   <script src="js/jquery.sticky.js"></script>
   <script src="js/main.js"></script>
+
+  
+  <script>
+      $(document).ready(function(){
+        $("#login").click(function(){
+          var user = $("#TK").val();
+          var pass = $("#pass").val();
+          if(user == "user" && pass == "1")
+          {
+            $(location).attr('href', 'Doc_gia/index.html');
+          }
+          if(user =="writer" && pass =="1")
+          {
+            $(location).attr('href', 'Writer/index.html');
+          }
+        })
+      })
+    </script>
 
 </body>
 
