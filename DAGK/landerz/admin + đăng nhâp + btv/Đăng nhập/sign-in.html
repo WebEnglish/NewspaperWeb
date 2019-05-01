@@ -36,7 +36,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Nhập đúng email: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
+						<input class="input100" id="mail" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -44,7 +44,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Nhập mật khẩu">
-						<input class="input100" type="password" name="pass" placeholder="Mật khẩu">
+						<input class="input100" id="pass" type="password" name="pass" placeholder="Mật khẩu">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -52,7 +52,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button id="login" class="login100-form-btn">
 							Đăng nhập
 						</button>
 					</div>
@@ -151,6 +151,21 @@
 	<script >
 		$('.js-tilt').tilt({
 			scale: 1.1
+		})
+
+		$(document).ready(function(){
+			$("#login").click(function(){
+				var email = $("#mail").val();
+				var pass = $("#pass").val();
+				if(email == "admin" && pass == "1")
+				{
+					$(location).attr('href', '../index.html');
+				} 
+				if(email == "editor" && pass == "1")
+				{
+					$(location).attr('href', '../Biên tập viên/Editor.html');
+				}
+			})
 		})
 	</script>
 <!--===============================================================================================-->
