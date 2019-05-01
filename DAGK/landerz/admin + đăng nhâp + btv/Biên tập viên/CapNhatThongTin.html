@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Biên tập viên</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!--Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div role="main">
+                <div class="">
+                    <div style="display: flex; border-bottom: 1px solid white;justify-content: space-between ">
+
+                        <span style="width: 30%;">
+                            <div style="text-align: center; padding-top: 6px;">
+                                <a href="Editor.html"><h3 style="color:white;"><b>Biên tập viên</b></h3></a>
+                            </div>
+                        </span>
+                        <span style="width: 30%;">
+                            <div class="dropdown">
+                                <a class="btn btn-primary dropdown-toggle"
+                                    style="display:flex;justify-content:center;margin-top: 10px; border: 0px; background-color: transparent"
+                                    data-toggle="dropdown"><i class="fas fa-user-tie"></i>&nbsp;&nbsp; Việt An
+                                </a>
+                                <ul class="dropdown-menu" style="margin-left:150px;">
+                                    <li><a href="CapNhatThongTin.html">Cập nhật thông tin</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#myModal3">Thay đổi mật khẩu</a>
+                                    </li>
+                                    <li><a href="../Đăng nhập/sign-in.html">Đăng xuất</a></li>
+                                </ul>
+                            </div>
+                        </span>
+
+                    </div>
+                    
+                    <!--đổi pass-->
+                    <div class="modal fade" id="myModal3">
+                        <div class="modal-dialog">
+                            <div class="modal-content" style="font-weight:bold">
+                                <div
+                                    style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Thay đổi mật khẩu</h4>
+                                </div>
+                                <div style="margin :10px 30px;">
+                                    <div style="display:flex; flex-direction:column">
+                                        <label style="width:100%;">Mật khẩu cũ: </label>
+                                        <input style="width:100%" type="password">
+                                    </div>
+                                    <br>
+                                    <div style="display:flex; flex-direction:column">
+                                        <label style="width:100%">Mật khẩu mới: </label>
+                                        <input style="width:100%" type="password">
+                                    </div>
+                                    <br>
+                                    <div style="display:flex; flex-direction:column">
+                                        <label style="width:100%">Nhập lại mật khẩu mới: </label>
+                                        <input style="width:100%" type="password">
+                                    </div>
+                                </div>
+                                <div style="text-align: center; padding: 10px ; border-top: 0px">
+                                    <button type="button" style=" border-radius: 7%" ; class="btn-danger"
+                                        data-dismiss="modal">Thay đổi</button> &nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background-color: white; box-shadow: 2px 3px 3px 2p black; width:70%;color: black; margin: auto; margin-top: 80px;">
+                        <div style="padding: 20px; padding-top: 20px;padding-bottom: 40px">
+                            <h3 style="border-bottom: 1px solid black">Cập nhật thông tin</h3>
+                            <div style="width:50%; margin: auto;margin-top: 50px; display:flex;flex-direction:column;align-items: flex-end">
+                                <br>
+                                <div>
+                                    <label for="txtName">
+                                        <b>Họ & tên:</b>
+                                    </label>
+                                    &nbsp;&nbsp;
+                                    <input type="text" style=" border-radius: 10px;width:300px" name="txtName" id="txtName"
+                                        value="Nguyễn Thị Việt An">
+                                    <span class="red">(*)</span>
+                                    
+                                </div>
+                                <br>
+                                <div>
+                                    <label for="txtEmail">
+                                        <b>Email:</b>
+                                    </label>
+                                    &nbsp;&nbsp;
+                                    <input type="email" style="border-radius: 10px;width:300px" name="txtEmail" id="txtEmail"
+                                        value="anh.vy98@gmail.com">
+                                    <span class="red">(*)</span>
+                                </div>
+                                <br>
+                                <div>
+                                    <label for="txtDate">
+                                        <b>Ngày sinh: </b>
+                                    </label>
+                                    &nbsp;&nbsp;
+                                    <input type="date" style="border-radius: 10px;width:300px" name="txtDate" id="txtDate">
+                                    <span class="red">(*)</span>
+                                </div>
+                                <br>
+                               
+                            </div>
+                            <div style="display:flex; justify-content: center">
+                                <button style="width: 80px" class="btnsave">Lưu</button>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        var d = new Date();
+        document.getElementById("date").innerHTML = d;
+    </script>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+</body>
+
+</html>

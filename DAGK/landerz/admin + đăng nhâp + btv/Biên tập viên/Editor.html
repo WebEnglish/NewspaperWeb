@@ -34,12 +34,12 @@
     <div class="main_container">
       <div role="main">
         <div class="">
-          <div style="display: flex; justify-content: space-between ">
+          <div style="display: flex; justify-content: space-between ; border-bottom: 1px solid white">
 
             <span style="width: 30%;">
               <div style="text-align: center; padding-top: 6px;">
-                <h3><b>Biên tập viên</b></h3>
-              </div>
+                <a href="Editor.html"><h3 style="color:white;"><b>Biên tập viên</b></h3></a>
+                            </div>
             </span>
             <span style="width: 40%;">
               <div style="padding-top:13px;" class=" form-group  top_search">
@@ -60,8 +60,8 @@
                 <a class="btn btn-primary dropdown-toggle" style="display:flex;justify-content:center;margin-top: 10px; border: 0px; background-color: transparent" data-toggle="dropdown"><i class="fas fa-user-tie"></i>&nbsp;&nbsp; Việt An
                   </a>
                 <ul class="dropdown-menu" style="margin-left:150px;" >
-                  <li><a href="Chinh-sua-thong-tin-ca-nhan.html">Cập nhật thông tin</a></li>
-                  <li><a href="../Doi-mat-khau.html" >Thay đổi mật khẩu</a></li>
+                  <li><a href="CapNhatThongTin.html">Cập nhật thông tin</a></li>
+                  <li><a href="#" data-toggle="modal" data-target="#myModal3">Thay đổi mật khẩu</a></li>
                   <li><a href="../Đăng nhập/sign-in.html">Đăng xuất</a></li>
                 </ul>
               </div>
@@ -69,8 +69,39 @@
 
           </div>
            <!--đổi pass-->
+           <div class="modal fade" id="myModal3">
+            <div class="modal-dialog">
+                <div class="modal-content" style="font-weight:bold">
+                    <div style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thay đổi mật khẩu</h4>
+                      </div>
+                      <div style="margin :10px 30px;" >
+                          <div style="display:flex; flex-direction:column">
+                            <label  style="width:100%;">Mật khẩu cũ: </label>
+                            <input  style="width:100%" type="password">
+                          </div>
+                          <br>
+                          <div style="display:flex; flex-direction:column">
+                              <label  style="width:100%">Mật khẩu mới: </label>
+                              <input  style="width:100%" type="password">
+                          </div>
+                          <br>
+                          <div style="display:flex; flex-direction:column">
+                              <label  style="width:100%">Nhập lại mật khẩu mới: </label>
+                              <input  style="width:100%" type="password">
+                          </div>                
+                      </div>
+                    <div   style="text-align: center; padding: 10px ; border-top: 0px">
+                      <button type="button" style=" border-radius: 7%" ;
+                      class="btn-danger" data-dismiss="modal">Thay đổi</button> &nbsp; 
+                    </div>
+                </div>
+            </div>
+        </div>
     
-          <div class="row" style="padding-left:20px; padding-right: 20px;">
+    
+          <div class="row" style="padding-left:20px; padding-right: 20px; margin-top: 20px">
             <div class="clearfix"></div>
 
             <div class="col-md-12 col-sm-12 col-xs-12">
