@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin - Quản lý nhãn tag</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Bootstrap -->
+    <link href="./vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="./vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="./vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="./vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="./build/css/custom.min.css" rel="stylesheet">
+
+    <link href="./css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Báo Điện Tử</span></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                            <div class="profile_pic">
+                              <img src="images/user.png" alt="..." class="img-circle profile_img">
+                            </div>
+                            <div class="profile_info">
+                              <span>Welcome,</span>
+                              <h2>Việt An</h2>
+                            </div>
+                          </div>
+                          <!-- /menu profile quick info -->
+              
+                          <br />
+              
+                          <!-- sidebar menu -->
+                          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                              <div class="menu_section">
+                                <h3>Quản lý</h3>
+                                <ul class="nav side-menu">
+                                  <li><a href="index.html"><i class="fas fa-home"></i> Home</a>
+                                    <!-- <ul class="nav child_menu">
+                                        <li><a href="index.html">Dashboard</a></li>
+                                        <li><a href="index2.html">Dashboard2</a></li>
+                                        <li><a href="index3.html">Dashboard3</a></li>
+                                      </ul> -->
+                                  </li>
+                  
+                                  <li><a><i class="fas fa-table"></i> Quản lý &nbsp;<span class="fas fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                      <li><a href="quan-ly-bai-viet.html">Quản lý bài viết</a></li>
+                                      <li><a href="quan-ly-chuyen-muc.html">Quản lý chuyên mục</a></li>
+                                      <li><a href="quan-ly-the-tag.html">Quản lý thẻ tag</a></li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                      <a><i class="fas fa-users"></i> &nbsp Quản lý người dùng <span
+                                              class="fas fa-chevron-down"></span></a>
+                                      <ul class="nav child_menu">
+                                          <li><a href="quan-ly-nguoi-dung.html">Độc giả</a></li>
+                                          <li><a href="quan-ly-bien-tap-vien.html">Biên tập viên</a></li>
+                                          <li><a href="quan-ly-phong-vien.html">Phóng viên</a></li>
+                                      </ul>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          <!-- /sidebar menu -->
+              
+                          <!-- /menu footer buttons -->
+                          <!-- <div class="sidebar-footer hidden-small">
+                            <a data-toggle="tooltip" data-placement="top" title="Settings">
+                              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Lock">
+                              <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                            </a>
+                          </div> -->
+                          <!-- /menu footer buttons -->
+                        </div>
+                      </div>
+              
+                      <!-- top navigation -->
+                      <div class="top_nav">
+                          <div class="nav_menu">
+                            <nav>
+                              <div class="nav toggle">
+                                <a id="menu_toggle"><i class="fas fa-bars"></i></a>
+                              </div>
+                  
+                              <ul class="nav navbar-nav navbar-right">
+                                <li class="">
+                                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="images/user.png" alt="">Việt An
+                                    <span class=" fas fa-angle-down"></span>
+                                  </a>
+                                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="Chinh-sua-thong-tin-ca-nhan.html">Cập nhật thông tin</a></li>
+                                    <li>
+                                      <a href="Doi-mat-khau.html">
+                                        <span>Đổi mật khẩu</span>
+                                      </a>
+                                    </li>
+                                    <li><a href="Đăng nhập/sign-in.html"><i class="fas fa-sign-out-alt pull-right"></i>Thoát</a></li>
+                                  </ul>
+                                </li>
+                  
+                  
+                              </ul>
+                            </nav>
+                          </div>
+                        </div>
+            <!-- /top navigation -->
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3><b>Quản lý Nhãn tag</b></h3>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                          <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Search for...">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button"><i
+                                          class="fas fa-search"></i></button>
+                              </span>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Danh sách các nhãn tag</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li class="dropdown">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+                                                onclick="addRow()">
+                                                &nbsp;<i class="fas fa-plus-circle">Thêm</i>
+                                            </a>
+                                        </li>
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                          
+                                    <table class="table table-hover" id="table">
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Tên tag</th>
+                                                <th>Hành động</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td scope="row">1</td>
+                                                <td>Thể thao - Trong nước
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">2</td>
+                                                <td>Thể thao - Quốc tế
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">3</td>
+                                                <td>Thể thao
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">4</td>
+                                                <td>Âm nhạc - trong nước
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">5</td>
+                                                <td>Âm nhạc - Quốc tế
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">6</td>
+                                                <td>Âm nhạc
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">7</td>
+                                                <td>Fashion - Làm đẹp
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">8</td>
+                                                <td>Fashion - Mặc gì
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">9</td>
+                                                <td>Fashion
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">10</td>
+                                                <td>Kinh doanh - Nông sản
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">11</td>
+                                                <td>Kinh doanh - Hải sản
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">11</td>
+                                                <td>Kinh doanh
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">12</td>
+                                                <td>Giáo dục - Tin tức
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">13</td>
+                                                <td>Giáo dục - Tuyển sinh</td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">14</td>
+                                                <td>Giáo dục</td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><i
+                                                            class="fas fa-trash"></i></a>
+                                                    &nbsp;
+                                                    <a href="#" class="btnRewrite" data-toggle="modal"
+                                                        data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div>
+                                <ul class="pagination modal-3">
+                                    <li><a href="#">&laquo</a></li>
+                                    <li><a href="#" class="active">1</a></li>
+                                    <li><a href="#" class="next">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--delete-->
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
+                                    </div>
+
+                                    <!-- Modal body
+                  <div class="modal-body">
+                    
+                  </div> -->
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng
+                                            ý</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Delete-->
+
+                        <!-- rewrite-1 -->
+                        <div class="modal fade" id="myModal-rewrite">
+                            <div class="modal-dialog-rewrite">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title text-black">Bảng chỉnh sửa</h4>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <label for="txtTitle">
+                                            <b class="text-black" id="test">Tên chuyên mục:&nbsp;</b>
+                                            <input type="text" name="txtCat" id="txtCat" style="width:600px" value="">
+                                        </label>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-save" data-dismiss="modal">Lưu</button>
+                                        <button type="button" class="btn btn-danger"
+                                            data-dismiss="modal">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--rewrite-1 -->
+
+
+                        <!-- <div class="clearfix"></div>
+
+          
+                    </div>
+                </div>
+                <!-- /page content -->
+
+            </div>
+        </div>
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+
+        <script>
+            $(document).ready(function () {
+                $("#table").on('click', '.btnRewrite', function () {
+                    // get the current row
+                    var currentRow = $(this).closest("tr");
+
+                    var col1 = currentRow.find("td:eq(1)").text(); // get current row 3rd table cell  TD value
+                    var a = col1;
+                    $("#txtCat").val(a);
+                });
+            });
+             //chỉnh sửa nội dung dòng
+      $(document).ready(function () {
+        $("#myModal-rewrite").on('click', '.btn-save', function () {
+          var b = $("#txtCat").val();
+           var currentRow = $(this).closest("tr");
+
+          $("td:eq(1)").html(b);
+        });
+     });
+        </script>
+
+        <script>
+            function addRow() {
+                var t = document.getElementById("table");
+                var row = t.insertRow(t.rows.length);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var n = t.rows.length;
+                cell1.innerHTML = parseInt(n)-2;
+                cell2.innerHTML = "(trống)"
+                cell3.innerHTML = '<a href="#" data-toggle="modal" data-target="#myModal"><i class="fas fa-trash"></i></a>' +
+                    '&nbsp;' + '<a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i class="fas fa-pen"></i></a>';
+            }
+        </script>
+
+        <!-- jQuery -->
+        <script src="./vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="./vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="./vendors/nprogress/nprogress.js"></script>
+        <!-- iCheck -->
+        <script src="./vendors/iCheck/icheck.min.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="./build/js/custom.min.js"></script>
+</body>
+
+</html>
