@@ -10,6 +10,7 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname+'/public'));
+app.use(require('./middlewares/locals.mdw'));
   
 // app.use('/', require('./routes/admin/category.route'))
 // app.use('/pr/a', require('./routes/admin/category.route'))
@@ -21,9 +22,6 @@ app.get('/', function (req, res) {
 });  
 
 
-app.get('/tc', function (req, res) {
-    res.render('Home/Trangchu')
-});   
 
 app.listen(3000, () => {
   console.log('server is running at http://localhost:3000');
