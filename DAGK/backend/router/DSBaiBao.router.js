@@ -2,38 +2,64 @@ var express = require('express');
 var categoryModel = require('../model/DSBaiBao');
 var router = express.Router();
 
-router.get('/TrangChu', function (req, res) {
-    categoryModel.all().then(rows => {
-        res.render('Home/Trangchu',{
-          categories: rows
-        });
-      }).catch(err => {
-        console.log(err);
-        res.end('error occured.')
-      });
-}); 
+router.get('/home', function (req, res) {
+  categoryModel.all().then(rows => {
+    res.render('home', {
+      baibao: rows
+    });
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+});
 
+router.get('/:id', (req, res, next) => {
+  var id = req.params.id;
+  var page = req.query.page || 1;
+  if (page < 1) page = 1;
 
-// // router.get('/a', (req, res) => {
+  var limit = 6;
+  var offset = (page - 1) * limit;
 
-// //   categoryModel.menu().then(rows => {
-// //       res.render('a');
-// //        //console.log(res.locals.lcCategories);
+  Promise.all([
+    categoryModel.pageByCat(id, limit, offset),
+    categoryModel.countByCat(id),
+  ]).then(([rows, count_rows]) => {
 
-// //       // for (const c of res.locals.lcCategories) {
-// //       //   if (c.CatID === +id) {
-// //       //     c.isActive = true;
-// //       //   }
-// //       // }
+    for (const c of res.locals.ChuyenMuc) {
+      if (c.idChuyenMuc === +id) {
+        c.isActive = true;
+      }
+    }
 
-// //       // res.render('', {
-// //       //   products: rows
-     
-// //     }).catch(err => {
-// //       console.log(err);
-// //       res.end('error occured.')
-// //     });
+    var total = count_rows[0].total;
+    var nPages = Math.floor(total / limit);
+    if (total % limit > 0) nPages++;
+    var pages = [];
+    for (i = 1; i <= nPages; i++) {
+      var obj = { value: i, active: i === +page };
+      pages.push(obj);
+    }
+
+    res.render('dsbaibao-theo-chuyenmuc', {
+      //tagbycat: rows,
+      bycat: rows,
+      pages
+    });
+
+  }).catch(next);
+})
+
+// router.get('/:id', (req, res, next) => {
+//   var id = req.params.id;
+//   categoryModel.tagByCat(id)
+//     .then(rows => {
+//       // console.log(res.locals.lcCategories);
+
+//       res.render('dsbaibao-theo-chuyenmuc', {
+//         tagbycat: rows
+//       });
+//     }).catch(next);
 // })
-
 
 module.exports = router;
