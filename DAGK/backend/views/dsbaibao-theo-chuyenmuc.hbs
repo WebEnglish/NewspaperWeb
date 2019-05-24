@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-12 text-center">
-                <h2 class="section-title mb-3" style="font-size:30px">Nông sản</h2>
+                {{#each bycat}}
+                    <h2 class="section-title mb-3" style="font-size:30px">{{TenChuyenMuc}}</h2>
+                {{/each}}
             </div>
         </div>
 
@@ -26,7 +28,7 @@
         </div>
         <div>
             <label style="font-size:15px; color: red; font-weight: 700"><i class="fas fa-key"></i>&nbsp;Từ khoá:
-            {{#each tagbycat}}
+            {{#each tag}}
                 <a href="#" class="tag_item" style="font-size: 15px; font-weight: 700; background-color: rgb(210, 223, 223)">#{{tenTag}}</a>
             {{/each}}
             </label>

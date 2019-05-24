@@ -10,7 +10,7 @@ module.exports = {
   },
 
   allByCat: id =>{
-    return db.load(`SELECT bb.*, ( SELECT tv.Hoten FROM thanhvien AS tv WHERE bb.TacGia = tv.idThanhVien ) AS TenTacGia, cm.TenCM as TenChuyenMuc FROM baibao AS bb JOIN chuyenmuc AS cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE ChuyenMuc = ${id}`);
+    return db.load(`SELECT cm.TenCM as TenChuyenMuc FROM chuyenmuc AS cm WHERE ChuyenMuc = ${id}`);
   }, 
 
   pageByCat: (idCM, limit, offset) => {
@@ -21,7 +21,7 @@ module.exports = {
     return db.load(`select count(*) as total from baibao where ChuyenMuc = ${idCM}`);
   },
 
-  tagByCat: idCM => {
+  tag: idCM => {
     return db.load(`SELECT nt.tenTag FROM tag_chuyenmuc as tcm JOIN nhantag as nt on tcm.idTag = nt.idTag WHERE tcm.idChuyenMuc = ${idCM}`);
   }
 }

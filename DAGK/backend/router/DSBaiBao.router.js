@@ -13,19 +13,33 @@ router.get('/home', function (req, res) {
   });
 });
 
-router.get('/:id', (req, res, next) => {
-  var id = req.params.id;
+router.get('/', function (req, res) {
+  categoryModel.all().then(rows => {
+    res.render('home', {
+      baibao: rows
+    });
+  }).catch(err => {
+    console.log(err);
+    res.end('error occured.')
+  });
+});
+
+router.get('/:idCM',   (req, res, next) => {
+  var id = req.params.idCM;
+
   var page = req.query.page || 1;
+  // console.log("vô nè");
   if (page < 1) page = 1;
 
   var limit = 6;
   var offset = (page - 1) * limit;
-
   Promise.all([
     categoryModel.pageByCat(id, limit, offset),
     categoryModel.countByCat(id),
-  ]).then(([rows, count_rows]) => {
+    categoryModel.tag(id)
+  ]).then(([rows, count_rows, valueTag]) => {
 
+    // console.log("tag nè: " + JSON.stringify(valueTag))
     for (const c of res.locals.ChuyenMuc) {
       if (c.idChuyenMuc === +id) {
         c.isActive = true;
@@ -42,24 +56,27 @@ router.get('/:id', (req, res, next) => {
     }
 
     res.render('dsbaibao-theo-chuyenmuc', {
-      //tagbycat: rows,
       bycat: rows,
-      pages
+      pages,
+      tag: valueTag
     });
 
   }).catch(next);
-})
+});
 
-// router.get('/:id', (req, res, next) => {
-//   var id = req.params.id;
-//   categoryModel.tagByCat(id)
+// router.get('/:idCM', (req, res) => {
+//   var id = req.params.idCM;
+//   categoryModel.tag(id)
 //     .then(rows => {
 //       // console.log(res.locals.lcCategories);
 
 //       res.render('dsbaibao-theo-chuyenmuc', {
-//         tagbycat: rows
+//         tag: rows
 //       });
-//     }).catch(next);
-// })
+//     }).catch(err => {
+//       console.log(err);
+//       res.end('error occured.')
+//     });
+// });
 
 module.exports = router;
