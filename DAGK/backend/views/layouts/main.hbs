@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Báo Điện Tử TH16 &mdash; News </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+
+
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="/css/aos.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/hung.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <div class="site-wrap" id="home-section">
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <div
+            style="height: 50px; display: flex;justify-content: space-between; padding-right:40px;margin-top: 10px; margin-left: 20px ">
+            <a href="home"><img src="./images/avtTest.jpg" style="margin-left: 60px; margin-top: -30px;width: 28%;"></a>
+            <span>
+                <ul class="sign-in" style="display: flex;justify-content: center">
+                    <button data-toggle="modal" data-target="#myModal"
+                        style="border: 0px; background-color: transparent">
+                        <li class="dropdown"><a href="#"><b>Đăng nhập</b><span class="mx-2"></span></a>
+                        </li>
+                    </button>
+                    <button data-toggle="modal" data-target="#myModal1"
+                        style="border: 0px; background-color: transparent">
+                        <li class="dropdown"><a href="#"><b>Đăng kí</b><span class="mx-2"></span></a>
+                        </li>
+                    </button>
+
+                </ul>
+            </span>
+
+        </div>
+        <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+            <div class="container">
+                <div class="row justify-content-center">
+
+                    <div class="col-6 col-md-6 col-xl-2  d-block d-lg-none">
+                        <h1 class="mb-0 site-logo"><a href="home" class="text-black mb-0"><b>Báo Điện Tử
+                                    HungAn</b></a></h1>
+                    </div>
+
+                    <!-- menu -->
+                    <div class="col-12 col-md-10 main-menu">
+                        <nav class="site-navigation position-relative text-center" role="navigation">
+                            <ul class="site-menu main-menu js-clone-nv mr-auto d-none d-lg-block">
+                                <li><a href="home" class="nav-link"><b>Trang chủ</b></a></li>
+                                {{#each ChuyenMuc}}
+                                <li class="dropdown"><a href="" class="nav-link {{#if isActive}}active{{/if}}"><b>{{TenCM}}</b></a>
+                                    <div class="dropdown-content">
+                                        <a href="{{idChuyenMuc}}"><b>{{TenCM}}</b></a>
+                                    </div>
+                                </li>
+                                {{/each}}
+                                {{!-- <li class="dropdown"><a href="#feature-section" class="nav-link"><b>Kinh doanh</b></a>
+                                    <div class="dropdown-content">
+                                        <a href="/ns"><b>Nông sản</b></a>
+                                        <a href="/hs"><b>Hải sản</b></a>
+                                    </div>
+                                </li>
+                                <li class="dropdown"><a href="#education-section" class="nav-link"><b>Giáo dục</b></a>
+                                    <div class="dropdown-content">
+                                        <a href="TinGiaoDuc.html"><b>Tin tức</b></a>
+                                        <a href="TinTuyenSinh.html"><b>Tuyển sinh</b></a>
+                                    </div>
+                                </li>
+                                <li class="dropdown"><a href="#music-section" class="nav-link"><b>Âm nhạc</b></a>
+                                    <div class="dropdown-content">
+                                        <a href="AmNhacTrongNuoc.html"><b>Trong nước</b></a>
+                                        <a href="AmNhacNuocNgoai.html"><b>Quốc tế</b></a>
+                                    </div>
+                                </li>
+                                <li class="dropdown"><a href="#fashion-section" class="nav-link"><b>Fashion</b></a>
+                                    <div class="dropdown-content">
+                                        <a href="FashionMacGi.html"><b>Mặc gì</b></a>
+                                        <a href="FashionLamDep.html"><b>Làm đẹp</b></a>
+                                    </div>
+                                </li>
+                                <li class="dropdown"><a href="#contact-section" class="nav-link"><b>Thể thao</b></a>
+                                    <div class="dropdown-content">
+                                        <a href="BongDaTrongNuoc.html"><b>Trong nước</b></a>
+                                        <a href="BongDaNuocNgoai.html"><b>Quốc tế</b></a>
+                                    </div>
+                                </li> --}}
+                                <li>
+                                    <div class="search-container h-100">
+                                        <div class="d-flex justify-content-center h-100">
+                                            <div class="searchbar">
+                                                <input class="search_input" type="text" name="" placeholder="Search...">
+                                                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-6 col-md-6 d-inline-block d-lg-none ml-md-0"><a href="#"
+                            class="site-menu-toggle js-menu-toggle text-black float-right"><span
+                                class="icon-menu h3"></span></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        {{{body}}}
+
+
+        <div class="footer py-5 border-top text-center">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <p class="mb-0">
+                            <a href="#" class="p-3"><span class="icon-facebook"></span></a>
+                            <a href="#" class="p-3"><span class="icon-twitter"></span></a>
+                            <a href="#" class="p-3"><span class="icon-instagram"></span></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="mb-0">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
+                            template is made with
+                            <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                                target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="/js/jquery-3.3.1.min.js"></script>
+        <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+        <script src="/js/jquery-ui.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/owl.carousel.min.js"></script>
+        <script src="/js/jquery.stellar.min.js"></script>
+        <script src="/js/jquery.countdown.min.js"></script>
+        <script src="/js/bootstrap-datepicker.min.js"></script>
+        <script src="/js/jquery.easing.1.3.js"></script>
+        <script src="/js/aos.js"></script>
+        <script src="/js/jquery.fancybox.min.js"></script>
+        <script src="/js/jquery.sticky.js"></script>
+        <script src="/js/main.js"></script>
+
+</body>
+
+</html>
