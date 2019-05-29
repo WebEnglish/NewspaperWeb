@@ -15,41 +15,19 @@
                 </ol>
 
                 <!-- Wrapper for slides -->
+                
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="images\bts.png" alt="Los Angeles" class="img-top">
+                    {{#each carousel}}
+                    <div class="carousel-item {{#if isActive}}active{{/if}}">
+                        <img src="{{AnhDaiDien}}" alt="Los Angeles" class="img-top">
                         <div class="carousel-caption">
-                            <h4><a href="VanToanToaSang.html" class="text-white"><b>MV mới của BTS phá kỉ lục của
-                                        BLACKPINK <br>
-                                        trở thành MV có
-                                        nhiều lướt xem nhất</b></a></h4>
-                            <p>Chuyên mục: Âm nhạc</p>
+                            <h4><a href="VanToanToaSang.html" class="text-white"><b>{{TenBaiBao}}</b></a></h4>
+                            <p>Chuyên mục: {{ChuyenMuc}}</p>&bullet;<p>Ngày đăng: {{NgayDang}}</p>&bullet;<p>Tác giả: {{TacGia}}</p>
                         </div>
                     </div>
-
-                    <div class="carousel-item">
-                        <img src="http://www.xaluan.com/images/news/Image/2019/04/27/15cc4200f0f4be.img.jpg"
-                            alt="Chicago" class="img-top">
-                        <div class="carousel-caption">
-                            <h3><a href="VanToanToaSang.html" class="text-white"><b>Văn Toàn tỏa sáng, HAGL <br>đánh bại
-                                        Quảng
-                                        Ninh trong cuộc rượt
-                                        đuổi<br> nghẹt thở</b></a></h3>
-                            <p>Chuyên mục: Thể thao</p>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <img src="http://img.f8.bdpcdn.net/Assets/Media/2019/04/22/26/pogba.jpg" class="img-top">
-                        <div class="carousel-caption">
-                            <h3><a href="VanToanToaSang.html" class="text-white"><b>M.U 2-1 West Ham: Cú đúp penalty
-                                        của<br> Pogba
-                                        cứu rỗi Quỷ
-                                        đỏ</b></a></h3>
-                            <p>Chuyên mục: Bóng đá</p>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
+                
 
                 <!-- Left and right controls -->
                 <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
@@ -74,7 +52,7 @@
                 <h2 class="section-title mb-3">Bài viết được xem nhiều nhất</h2>
             </div>
             <div class="row align-items-stretch">
-                {{#each this.baibao}}
+                {{#each this.top10}}
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
                     <div class="unit-4 d-block">
                         <div class="unit-4-icon mb-3">
@@ -82,7 +60,7 @@
                         </div>
                         <div>
                             <h3><a href="" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
-                            <p><a href="">{{tenchuyenmuc}}</a><span class="mx-2">&bullet;</span>
+                            <p><a href="">{{tenCM}}</a><span class="mx-2">&bullet;</span>
                                 {{format NgayDang}}</p>
                             <p><a href="">Xem tiếp...</a></p>
                         </div>
@@ -104,7 +82,7 @@
                 <h2 class="section-title mb-3">Bài viết mới nhất</h2>
             </div>
             <div class="row align-items-stretch">
-                {{#each this.baibao}}
+                {{#each this.newest}}
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
                     <div class="unit-4 d-block">
                         <div class="unit-4-icon mb-3">
@@ -112,8 +90,8 @@
                         </div>
                         <div>
                             <h3><a href="" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
-                            <p><a href="">{{tenchuyenmuc}}</a><span class="mx-2">&bullet;</span>
-                                {{format NgayDang}}</p>
+                            <p><a href="">{{tenCM}}</a><span class="mx-2">&bullet;</span>
+                                {{format NgayDang}}</p>&bullet;
                             <p><a href="">Xem tiếp...</a></p>
                         </div>
                     </div>
@@ -159,77 +137,6 @@
                         </div>
                     </div>
                 </span>
-
-                <span style="width: 50%">
-                    <div class="title-chuyen-muc">
-                        <h3 class="text-center">Thể thao Quốc tế </h3>
-                    </div>
-                    <div class="" data-aos="fade-up">
-                        <div class="unit-4 d-block">
-                            <div class="unit-4-icon mb-3">
-                                <img style="height: 350px;" src="images\liv1.jpg" class="most-img">
-                            </div>
-                            <div>
-                                <h3><a href="VanToanToaSang.html" class="text-black"><b>Tâm lý của Liverpool hay đôi
-                                            chân của Man City
-                                            sẽ định đoạt ngai
-                                            vàng Premier League?</b></a></h3>
-                                <p><a href="BongDaNuocNgoai.html">Thể thao - Quốc tế</a><span
-                                        class="mx-2">&bullet;</span>
-                                    14/04/2019</p>
-                                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </span>
-
-                <span style="width: 50%">
-                    <div class="title-chuyen-muc">
-                        <h3 class="text-center">Thể thao trong nước</h3>
-                    </div>
-                    <div data-aos="fade-up">
-                        <div class="unit-4 d-block">
-                            <div class="unit-4-icon mb-3">
-                                <img style="height: 350px;" style="height: 350px;" src="images\vt1.jpg"
-                                    class="most-img">
-                            </div>
-                            <div>
-                                <h3><a href="VanToanToaSang.html" class="text-black"><b>Văn Toàn tỏa sáng, HAGL đánh bại
-                                            Quảng Ninh
-                                            trong cuộc rượt đuổi
-                                            nghẹt thở</b></a></h3>
-                                <p><a href="BongDaTrongNuoc.html">Thể thao - Trong nước</a><span
-                                        class="mx-2">&bullet;</span>
-                                    14/04/2019</p>
-                                <p><a href="VanToanToaSang.html">Xem tiếp...</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </span>
-
-                <span style="width: 50%">
-                    <div class="title-chuyen-muc">
-                        <h3 class="text-center">Fashion Làm đẹp</h3>
-                    </div>
-                    <div data-aos="fade-up">
-                        <div class="unit-4 d-block">
-                            <div class="unit-4-icon mb-3">
-                                <img style="height: 350px;" src="images\toc.jpg" class="most-img">
-                            </div>
-                            <div>
-                                <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>Vừa xinh trẻ lại mát lành
-                                            còn giảm mụn
-                                            đáng kể: Đây chính là
-                                            kiểu tóc giúp chị em sống sót trong mùa hè tới</b></a></h3>
-                                <p><a href="FashionLamDep.html">Fashion - Làm đẹp</a><span class="mx-2">&bullet;</span>
-                                    14/04/2019</p>
-                                <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </span>
-
-
             </div>
         </div>
     </div>
