@@ -23,6 +23,23 @@ module.exports = {
 
   tag: idCM => {
     return db.load(`SELECT nt.tenTag FROM tag_chuyenmuc as tcm JOIN nhantag as nt on tcm.idTag = nt.idTag WHERE tcm.idChuyenMuc = ${idCM}`);
+  },
+
+  carousel: ()=>{
+    return db.load(`SELECT * FROM baibao ORDER BY luotXem DESC LIMIT 3`);
+  },
+
+  t10mostview:()=>{
+    return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc ORDER BY bb.luotxem DESC LIMIT 10`);
+  },
+
+  newest: ()=>{
+    return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc ORDER BY bb.ngaydang DESC LIMIT 10`);
+  },
+
+  mostandnewest: () => {
+    
   }
 }
+
 

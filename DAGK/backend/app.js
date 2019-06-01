@@ -9,7 +9,7 @@ app.engine('hbs', exphbs({
   defaultLayout: 'main.hbs',
   helpers: {
     format: val => {
-      return moment(val).format("MMM Do YY");
+      return moment(val).subtract(10, 'days').calendar();
     }
   }
 }));
@@ -24,7 +24,11 @@ app.use(require('./middlewares/locals.mdw'));
 app.use('/', require('./router/DSBaiBao.router'))
 app.get('/', function (req, res) {
     res.render('home')
-});  
+});
+
+// app.get('/', function (req, res) {
+//   res.render('home')
+// });
 
 
 app.listen(3000, () => {

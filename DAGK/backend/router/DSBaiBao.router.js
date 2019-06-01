@@ -3,25 +3,27 @@ var categoryModel = require('../model/DSBaiBao');
 var router = express.Router();
 
 router.get('/home', function (req, res) {
-  categoryModel.all().then(rows => {
+  Promise.all([
+    categoryModel.t10mostview(),
+    categoryModel.newest()
+  ]).then(([rows, rows1]) => {
     res.render('home', {
-      baibao: rows
+      top10: rows,
+      newest: rows1
     });
-  }).catch(err => {
-    console.log(err);
-    res.end('error occured.')
-  });
+  }).catch(next);
 });
 
-router.get('/', function (req, res) {
-  categoryModel.all().then(rows => {
+router.get('/', function (req, res,next) {
+  Promise.all([
+    categoryModel.t10mostview(),
+    categoryModel.newest()
+  ]).then(([rows, rows1]) => {
     res.render('home', {
-      baibao: rows
+      top10: rows,
+      newest: rows1
     });
-  }).catch(err => {
-    console.log(err);
-    res.end('error occured.')
-  });
+  }).catch(next);
 });
 
 router.get('/:idCM',   (req, res, next) => {
@@ -64,14 +66,13 @@ router.get('/:idCM',   (req, res, next) => {
   }).catch(next);
 });
 
-// router.get('/:idCM', (req, res) => {
-//   var id = req.params.idCM;
-//   categoryModel.tag(id)
+// router.get('/', (req, res) => {
+//   categoryModel.newest()
 //     .then(rows => {
 //       // console.log(res.locals.lcCategories);
 
-//       res.render('dsbaibao-theo-chuyenmuc', {
-//         tag: rows
+//       res.render('home', {
+//         newest: rows
 //       });
 //     }).catch(err => {
 //       console.log(err);
