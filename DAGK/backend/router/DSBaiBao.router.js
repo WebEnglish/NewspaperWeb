@@ -36,10 +36,11 @@ router.get('/:idCM',   (req, res, next) => {
   var limit = 6;
   var offset = (page - 1) * limit;
   Promise.all([
+    categoryModel.allByCat(id),
     categoryModel.pageByCat(id, limit, offset),
     categoryModel.countByCat(id),
     categoryModel.tag(id)
-  ]).then(([rows, count_rows, valueTag]) => {
+  ]).then(([cate, rows, count_rows, valueTag]) => {
 
     // console.log("tag nè: " + JSON.stringify(valueTag))
     for (const c of res.locals.ChuyenMuc) {
@@ -58,6 +59,7 @@ router.get('/:idCM',   (req, res, next) => {
     }
 
     res.render('dsbaibao-theo-chuyenmuc', {
+      cat: cate,
       bycat: rows,
       pages,
       tag: valueTag
