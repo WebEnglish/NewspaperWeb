@@ -2,7 +2,7 @@ var express = require('express');
 var categoryModel = require('../model/DSBaiBao');
 var router = express.Router();
 
-router.get('/home', function (req, res) {
+router.get('/home', function (req, res,next) {
   Promise.all([
     categoryModel.t10mostview(),
     categoryModel.newest()
@@ -66,7 +66,7 @@ router.get('/:idCM',   (req, res, next) => {
   }).catch(next);
 });
 
-// router.get('/', (req, res) => {
+// router.get('/0', (req, res) => {
 //   categoryModel.newest()
 //     .then(rows => {
 //       // console.log(res.locals.lcCategories);
