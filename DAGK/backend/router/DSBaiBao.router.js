@@ -2,12 +2,14 @@ var express = require('express');
 var categoryModel = require('../model/DSBaiBao');
 var router = express.Router();
 
-router.get('/home', function (req, res) {
+router.get('/home', function (req, res,next) {
   Promise.all([
+    categoryModel.all(),
     categoryModel.t10mostview(),
     categoryModel.newest()
-  ]).then(([rows, rows1]) => {
+  ]).then(([row, rows, rows1]) => {
     res.render('home', {
+      carousels: row,
       top10: rows,
       newest: rows1
     });
@@ -16,10 +18,17 @@ router.get('/home', function (req, res) {
 
 router.get('/', function (req, res,next) {
   Promise.all([
+    categoryModel.all(),
     categoryModel.t10mostview(),
     categoryModel.newest()
-  ]).then(([rows, rows1]) => {
+  ]).then(([row, rows, rows1]) => {
+
+    // for (const c of res.obj.carousels) {
+    //     c.isActive = true;
+    // }
+
     res.render('home', {
+      carousels: row,
       top10: rows,
       newest: rows1
     });
@@ -36,10 +45,11 @@ router.get('/:idCM',   (req, res, next) => {
   var limit = 6;
   var offset = (page - 1) * limit;
   Promise.all([
+    categoryModel.allByCat(id),
     categoryModel.pageByCat(id, limit, offset),
     categoryModel.countByCat(id),
     categoryModel.tag(id)
-  ]).then(([rows, count_rows, valueTag]) => {
+  ]).then(([cate, rows, count_rows, valueTag]) => {
 
     // console.log("tag nè: " + JSON.stringify(valueTag))
     for (const c of res.locals.ChuyenMuc) {
@@ -58,6 +68,7 @@ router.get('/:idCM',   (req, res, next) => {
     }
 
     res.render('dsbaibao-theo-chuyenmuc', {
+      cat: cate,
       bycat: rows,
       pages,
       tag: valueTag
@@ -66,7 +77,7 @@ router.get('/:idCM',   (req, res, next) => {
   }).catch(next);
 });
 
-// router.get('/', (req, res) => {
+// router.get('/0', (req, res) => {
 //   categoryModel.newest()
 //     .then(rows => {
 //       // console.log(res.locals.lcCategories);
@@ -79,5 +90,7 @@ router.get('/:idCM',   (req, res, next) => {
 //       res.end('error occured.')
 //     });
 // });
+
+
 
 module.exports = router;

@@ -1,8 +1,9 @@
 <div class="site-section" id="blog-section">
     <div class="container">
+       
         <div class="row mb-5">
             <div class="col-12 text-center">
-                {{#each bycat}}
+                {{#each cat}}
                     <h2 class="section-title mb-3" style="font-size:30px">{{TenChuyenMuc}}</h2>
                 {{/each}}
             </div>
@@ -14,18 +15,20 @@
                 <div class="h-entry">
                     <a href=""><img style="width: 100%; height: 250px;" src="{{AnhDaiDien}}" alt="{{TenBaiBao}}"
                             class="img-fluid"></a>
-                    <h2><a href="">{{TenBaiBao}}</a></h2>
+                    <h2><a href="/{{ChuyenMuc}}/{{idBaiBao}}">{{TenBaiBao}}</a></h2>
                     <div class="meta mb-4">
                         <a href="">{{TenTacGia}}</a>
                         <span class="mx-2">&bullet;</span>{{format NgayDang}}<span class="mx-2">&bullet;</span>
-                        <a href="">{{TenChuyenMuc}}</a>
+                        <a href="{{ChuyenMuc}}">{{TenChuyenMuc}}</a>
                     </div>
                     <p>{{NoiDungTomTat}}</p>
-                    <p><a href="VanToanToaSang.html">Tiếp tục xem...</a></p>
+                    <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Tiếp tục xem...</a></p>
                 </div>
             </div>
-            {{/each}}
+             {{/each}}
         </div>
+       
+
         <div>
             <label style="font-size:15px; color: red; font-weight: 700"><i class="fas fa-key"></i>&nbsp;Từ khoá:
             {{#each tag}}
