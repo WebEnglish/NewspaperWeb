@@ -23,7 +23,7 @@
                         <img src="{{AnhDaiDien}}" alt="Los Angeles" class="img-top">
                         <div class="carousel-caption">
                             <h4><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-white"><b>{{TenBaiBao}}</b></a></h4>
-                            <p>Chuyên mục: {{ChuyenMuc}}</p>&bullet;<p>Ngày đăng: {{NgayDang}}</p>
+                            <p>Chuyên mục: <a href="/{{ChuyenMuc}}">{{TenChuyenMuc}}</a></p>&bullet;<p>Ngày đăng: {{NgayDang}}</p>
                         </div>
                     </div>
                     {{/if}}
@@ -92,7 +92,7 @@
                         </div>
                         <div>
                             <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
-                            <p><a href="{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
+                            <p><a href="/{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
                                 {{format NgayDang}}</p>
                             <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
                         </div>
