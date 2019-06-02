@@ -17,14 +17,16 @@
                 <!-- Wrapper for slides -->
                 
                 <div class="carousel-inner">
-                    {{#each carousel}}
-                    <div class="carousel-item {{#if isActive}}active{{/if}}">
+                    {{#each this.carousels}}
+                    {{#if active}}
+                    <div class="carousel-item active">
                         <img src="{{AnhDaiDien}}" alt="Los Angeles" class="img-top">
                         <div class="carousel-caption">
-                            <h4><a href="VanToanToaSang.html" class="text-white"><b>{{TenBaiBao}}</b></a></h4>
-                            <p>Chuyên mục: {{ChuyenMuc}}</p>&bullet;<p>Ngày đăng: {{NgayDang}}</p>&bullet;<p>Tác giả: {{TacGia}}</p>
+                            <h4><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-white"><b>{{TenBaiBao}}</b></a></h4>
+                            <p>Chuyên mục: {{ChuyenMuc}}</p>&bullet;<p>Ngày đăng: {{NgayDang}}</p>
                         </div>
                     </div>
+                    {{/if}}
                     {{/each}}
                 </div>
                 
@@ -59,10 +61,10 @@
                             <img src="{{AnhDaiDien}}" alt="{{TenBaiBao}}" class="most-img">
                         </div>
                         <div>
-                            <h3><a href="" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
-                            <p><a href="">{{tenCM}}</a><span class="mx-2">&bullet;</span>
+                            <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
+                            <p><a href="{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
                                 {{format NgayDang}}</p>
-                            <p><a href="">Xem tiếp...</a></p>
+                            <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
                         </div>
                     </div>
 
@@ -89,10 +91,10 @@
                             <img src="{{AnhDaiDien}}" class="most-img">
                         </div>
                         <div>
-                            <h3><a href="" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
-                            <p><a href="">{{tenCM}}</a><span class="mx-2">&bullet;</span>
+                            <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
+                            <p><a href="{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
                                 {{format NgayDang}}</p>
-                            <p><a href="">Xem tiếp...</a></p>
+                            <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
                         </div>
                     </div>
 

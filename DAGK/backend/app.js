@@ -26,6 +26,7 @@ app.get('/', function (req, res) {
     res.render('home')
 });
 
+app.use('/:idCM', require('./router/baibaochitiet'))
 // app.get('/home', function (req, res) {
 //   res.render('home')
 // });

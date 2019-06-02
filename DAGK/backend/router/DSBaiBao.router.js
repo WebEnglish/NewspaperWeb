@@ -4,10 +4,12 @@ var router = express.Router();
 
 router.get('/home', function (req, res,next) {
   Promise.all([
+    categoryModel.all(),
     categoryModel.t10mostview(),
     categoryModel.newest()
-  ]).then(([rows, rows1]) => {
+  ]).then(([row, rows, rows1]) => {
     res.render('home', {
+      carousels: row,
       top10: rows,
       newest: rows1
     });
@@ -16,10 +18,17 @@ router.get('/home', function (req, res,next) {
 
 router.get('/', function (req, res,next) {
   Promise.all([
+    categoryModel.all(),
     categoryModel.t10mostview(),
     categoryModel.newest()
-  ]).then(([rows, rows1]) => {
+  ]).then(([row, rows, rows1]) => {
+
+    // for (const c of res.obj.carousels) {
+    //     c.isActive = true;
+    // }
+
     res.render('home', {
+      carousels: row,
       top10: rows,
       newest: rows1
     });
@@ -81,5 +90,7 @@ router.get('/:idCM',   (req, res, next) => {
 //       res.end('error occured.')
 //     });
 // });
+
+
 
 module.exports = router;
