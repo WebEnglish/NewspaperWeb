@@ -1,0 +1,121 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+{{/section}}
+
+
+{{#section 'js'}}
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+  $(function () {
+    
+    $('#registerForm').validate({
+      rules: {
+        email: {
+          required: true,
+          email: true
+        },
+        username: {
+          required: true,
+        },
+        password: {
+          required: true,
+          minlength: 6
+        },
+        confirm: {
+          required: true,
+          equalTo: $('[name="password"]')
+        },
+        dob: {
+          required: true
+        },
+        btncheck: {
+          required: true
+        }
+      },
+      messages: {
+        email: {
+          required: 'Nhập chính xác địa chỉ email.',
+          email: 'Nhập chính xác địa chỉ email.'
+        },
+        username: {
+          required: 'Nhập tên.',
+        },
+        password: {
+          required: 'Yêu cầu nhập password.',
+          minlength: 'Mật khẩu của bạn ít nhất 6 kí tự.'
+        },
+        confirm: {
+          required: 'Nhập lại Password .',
+          equalTo: 'Password không giống nhau.'
+        },
+        dob: {
+          required: 'Nhập ngày sinh.'
+        },
+        btncheck: {
+          required: 'hãy đồng ý.'
+        }
+      },
+      errorElement: 'small',
+      errorClass: 'help-block text-danger',
+      highlight: function (e) {
+        $(e).removeClass('is-valid').addClass('is-invalid');
+      },
+      unhighlight: function (e) {
+        $(e).removeClass('is-invalid').addClass('is-valid');
+      }
+
+    });
+  })
+</script>
+{{/section}}
+
+<form novalidate action="" method="POST" id="registerForm">
+  <div style="padding-top:100px" class="container col-md-5 text-black">
+    <div class="shadow mb-5 bg-white rounded ">
+      <div
+        style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+        <h4>Thông tin đăng kí</h4>
+      </div>
+      <div style="margin :10px 30px">
+        <div style="display:flex; flex-direction:column">
+          <label for="ten" style="width:100%;">Email: </label>
+          <input id="ten" name="email" class="form-control" style="margin-top:-10px;width:100%" type="email" autofocus>
+        </div>
+        <br>
+        <div style="display:flex; flex-direction:column">
+          <label for="txtUsername">Username</label>
+          <input type="text" class="form-control" style="margin-top:-10px" id="txtUsername" name="username">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="txtdate">Date of birth</label>
+          <input type="date" class="form-control" id="txtdate" name="dob">
+        </div>
+        {{!-- <div style="display:flex; flex-direction:column">
+          <label for="txtdate" style="width:100%;">Ngày sinh: </label>
+          <input id="txtdate" type="text" class="form-control" style="margin-top:-10px; width:100%" name="dob">
+        </div> --}}
+        <br>
+        <div style="display:flex; flex-direction:column">
+          <label for="pass" style="width:100%">Mật khẩu: </label>
+          <input id="pass" type="password" style="margin-top:-10px;width:100%" class="form-control" name="password">
+        </div>
+        <br>
+        <div style="display:flex; flex-direction:column">
+          <label for="Confirm" style="width:100%">Nhập lại mật khẩu: </label>
+          <input type="password" class="form-control" id="Confirm" style="margin-top:-10px;width:100%" name="confirm">
+        </div>
+
+      </div>
+      <div class="text-center " style="justify-content: center;padding-top:10px;border-top: 0px">
+        <button type="submit" style=" width:140px;border-radius: 7%;cursor: pointer;" class="mb-3 btn-danger">Đăng
+          kí</button>
+      </div>
+
+    </div>
+
+  </div>
+</form>
