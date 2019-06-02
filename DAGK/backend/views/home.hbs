@@ -1,0 +1,145 @@
+<div class="site-section bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h6 class="section-title mb-3">Bài viết nổi bật trong tuần</h6>
+            </div>
+        </div>
+        <div class="container">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                
+                <div class="carousel-inner">
+                    {{#each this.carousels}}
+                    {{#if active}}
+                    <div class="carousel-item active">
+                        <img src="{{AnhDaiDien}}" alt="Los Angeles" class="img-top">
+                        <div class="carousel-caption">
+                            <h4><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-white"><b>{{TenBaiBao}}</b></a></h4>
+                            <p>Chuyên mục: {{ChuyenMuc}}</p>&bullet;<p>Ngày đăng: {{NgayDang}}</p>
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{/each}}
+                </div>
+                
+
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- //bài viết được xem nhiều nhất -->
+<div class="site-section-sm">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="section-title mb-3">Bài viết được xem nhiều nhất</h2>
+            </div>
+            <div class="row align-items-stretch">
+                {{#each this.top10}}
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+                    <div class="unit-4 d-block">
+                        <div class="unit-4-icon mb-3">
+                            <img src="{{AnhDaiDien}}" alt="{{TenBaiBao}}" class="most-img">
+                        </div>
+                        <div>
+                            <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
+                            <p><a href="{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
+                                {{format NgayDang}}</p>
+                            <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
+                        </div>
+                    </div>
+
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<!-- //bài viết mới nhất -->
+<div class="site-section-sm">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="section-title mb-3">Bài viết mới nhất</h2>
+            </div>
+            <div class="row align-items-stretch">
+                {{#each this.newest}}
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+                    <div class="unit-4 d-block">
+                        <div class="unit-4-icon mb-3">
+                            <img src="{{AnhDaiDien}}" class="most-img">
+                        </div>
+                        <div>
+                            <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
+                            <p><a href="{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
+                                {{format NgayDang}}</p>
+                            <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
+                        </div>
+                    </div>
+
+                </div>
+                {{/each}}
+
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<!-- top 10 chuyên mục -->
+<div class="site-section-sm">
+    <div class="container">
+        <div class="row mb-5">
+
+            <div class="col-12 text-center">
+                <h2 class="section-title mb-3">Top 10 chuyên mục được ưa thích</h2>
+            </div>
+
+            <div class="row align-items-stretch">
+                <span style="width: 50%">
+                    <div class="title-chuyen-muc">
+                        <h3 class="text-center">Âm nhạc Quốc tế</h3>
+                    </div>
+                    <div class="" data-aos="fade-up">
+                        <div class="unit-4 d-block">
+                            <div class="unit-4-icon mb-3">
+                                <img style="height: 350px;" src="images\bts.jpg" class="most-img">
+                            </div>
+                            <div>
+                                <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>MV mới của BTS phá kỉ lục
+                                            của BLACKPINK
+                                            trở thành MV có nhiều
+                                            lướt xem nhất</b></a></h3>
+                                <p><a href="AmNhacNuocNgoai.html">Âm nhạc - Quốc tế</a><span
+                                        class="mx-2">&bullet;</span> 14/04/2019
+                                </p>
+                                <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
