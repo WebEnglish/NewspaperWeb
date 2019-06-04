@@ -18,11 +18,12 @@ router.get('/home', function (req, res, next) {
       topview1: row3,
       layout: './main'
     });
-  }).catch(next);
+   }).catch(next);
 });
 
-router.get('/', function (req, res, next) {
-  Promise.all([
+
+router.get('/', function (req, res,next) {
+  Promise.all([ 
     categoryModel.all(),
     categoryModel.t10mostview(),
     categoryModel.newest(),

@@ -9,6 +9,11 @@ var exphbs  = require('express-handlebars');
 
 
 var app = express();
+var morgan = require('morgan');
+
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.urlencoded());
 
 //require('./middlewares/view-engine')(app);
 require('./middlewares/passport')(app);
