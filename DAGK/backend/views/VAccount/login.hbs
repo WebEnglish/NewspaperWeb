@@ -1,0 +1,49 @@
+<div style="padding-top:100px" class="container col-md-5 text-black">
+	<div class="shadow mb-5 bg-white rounded ">
+		{{#if err_message}}
+		{{!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			{{err_message}}
+		</div> --}}
+		<script>
+			alert(err_message);		
+		</script>
+		{{/if}}
+		<form action="/account/login" method="POST">
+			<div
+				style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+				<h4 class="modal-title">Thông tin đăng nhập</h4>
+			</div>
+			<br>
+			<div style="margin :10px 30px">
+				<div style="display:flex; flex-direction:row">
+					<label for="TK" class="text-center mt-2 text-black"  style="width:20%;margin-auto">Email: </label> &nbsp;
+					<input id="TK" class="form-control" style=" width:80%" name="username" placeholder="lchung@gmail.com"
+						type="text">
+				</div>
+				<br>
+				<div style="display:flex; flex-direction:row">
+					<label for="pass" class="text-center mt-2 text-black" style="width:20%">Mật khẩu: </label> &nbsp;
+					<input id="pass" name="password" placeholder="password" class="form-control" style="width:80%"
+						type="password">
+				</div>
+			</div>
+			<!-- Modal footer -->
+			<div class="modal-footer" style="justify-content: center;border-top: 0px">
+				<button type="submit" style="border-radius: 7%; cursor: pointer;" class=" btn-danger"
+					data-dismiss="modal">Đăng
+					nhập</button> &nbsp;
+			</div>
+			<div style="display:flex ;justify-content: space-around ; margin-bottom: 20px">
+				<button style="border: 0px; background-color: transparent;cursor: pointer;"><u>Quên mật
+						khẩu</u></button>
+
+				<a style="border: 0px; cursor: pointer; background-color: transparent" href="/account/register"><u>Đăng
+						kí</u>
+				</a>
+			</div>
+		</form>
+	</div>
+</div>

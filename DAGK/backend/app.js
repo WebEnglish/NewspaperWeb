@@ -1,28 +1,16 @@
 var express = require('express');
-var exphbs  = require('express-handlebars');
-var moment = require('moment');
-var hbs_sections = require('express-handlebars-sections')
-
-
+var bodyParser = require('body-parser')
 var app = express();
 
-app.engine('hbs', exphbs({
-  layoutsDir: 'views/layouts',
-  defaultLayout: 'main.hbs',
-  helpers: {
-    format: val => {
-      return moment(val).subtract(10, 'days').calendar();
-    },
-    section: hbs_sections() 
-  }
-}));
-app.set('view engine', 'hbs');
+require('./middlewares/view-engine')(app);
+require('./middlewares/passport')(app);
+require('./middlewares/session')(app);
+
+//app.use(require('./middlewares/view-engine'))
 app.use(express.static(__dirname+'/public'));
 app.use(require('./middlewares/locals.mdw'));
-  
-// app.use('/', require('./routes/admin/category.route'))
-// app.use('/pr/a', require('./routes/admin/category.route'))
-//  app.use('/', require('./routes/SanPham'))
+app.use(bodyParser());
+
 app.use('/account', require('./router/account'))
 app.use('/', require('./router/DSBaiBao.router'))
 app.get('/', function (req, res) {
