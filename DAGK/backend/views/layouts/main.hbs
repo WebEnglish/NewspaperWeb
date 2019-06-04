@@ -50,19 +50,45 @@
                 <ul class="sign-in" style="display: flex;justify-content: center">
                     <button data-toggle="modal" data-target="#myModal"
                         style="border: 0px; background-color: transparent">
-                        <li class="dropdown"><a href="#"><b>Đăng nhập</b><span class="mx-2"></span></a>
+                        <li class="dropdown"><a href="/account/login"><b>Đăng nhập</b><span class="mx-2"></span></a>
                         </li>
                     </button>
-                    <button data-toggle="modal" data-target="#myModal1"
+                    <button 
                         style="border: 0px; background-color: transparent">
-                        <li class="dropdown"><a href="/account/register"><b>Đăng kí</b><span class="mx-2"></span></a>
+                        <li><a href="/account/register"><b>Đăng kí</b><span class="mx-2"></span></a>
                         </li>
                     </button>
 
                 </ul>
             </span>
-
         </div>
+        
+
+        {{!-- <!--Modal Quên mật khẩu-->
+        <div class="modal fade" id="myModal3">
+            <div class="modal-dialog">
+                <div class="modal-content" style="font-weight:bold; height:300px">
+                    <div
+                        style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+                        <button type="button" class="close" data-dismiss="modal" style="cursor: pointer;">&times;</button>
+                        <h4 class="modal-title">Quên mật khẩu</h4>
+                    </div>
+                    <div style="margin :10px 30px;">
+                        <div style="display:flex; flex-direction:column">
+                            <label for="mail" style="width:100%;">Email: </label> 
+                            <input id="mail" style="border-radius:10px;width:100%" type="email">
+                            <p style="margin-top: 0px;color:red">Hãy dùng email thật của bạn để nhận mật khẩu mới</p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer" style="justify-content: center;border-top: 0px">
+                        <button type="button" style="border-radius: 7%;cursor: pointer;"class=" btn-danger"
+                            data-dismiss="modal">Gửi</button>
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div> --}}
         <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
             <div class="container">
