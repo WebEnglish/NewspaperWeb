@@ -23,7 +23,7 @@
                         <img src="{{AnhDaiDien}}" alt="Los Angeles" class="img-top">
                         <div class="carousel-caption">
                             <h4><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-white"><b>{{TenBaiBao}}</b></a></h4>
-                            <p>Chuyên mục: {{ChuyenMuc}}</p>&bullet;<p>Ngày đăng: {{NgayDang}}</p>
+                            <p>Chuyên mục: <a href="/{{ChuyenMuc}}">{{TenChuyenMuc}}</a></p>&bullet;<p>Ngày đăng: {{format NgayDang}}</p>
                         </div>
                     </div>
                     {{/if}}
@@ -58,7 +58,7 @@
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
                     <div class="unit-4 d-block">
                         <div class="unit-4-icon mb-3">
-                            <img src="{{AnhDaiDien}}" alt="{{TenBaiBao}}" class="most-img">
+                            <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img src="{{AnhDaiDien}}" class="most-img" alt="{{TenBaiBao}}"></a>
                         </div>
                         <div>
                             <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
@@ -88,11 +88,11 @@
                 <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
                     <div class="unit-4 d-block">
                         <div class="unit-4-icon mb-3">
-                            <img src="{{AnhDaiDien}}" class="most-img">
+                            <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img src="{{AnhDaiDien}}" alt="{{TenBaiBao}}" class="most-img"></a>
                         </div>
                         <div>
                             <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
-                            <p><a href="{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
+                            <p><a href="/{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
                                 {{format NgayDang}}</p>
                             <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
                         </div>
@@ -118,26 +118,28 @@
 
             <div class="row align-items-stretch">
                 <span style="width: 50%">
+                    {{#each topcat}}
                     <div class="title-chuyen-muc">
-                        <h3 class="text-center">Âm nhạc Quốc tế</h3>
+                        <a href="/{{ChuyenMuc}}"><h3 class="text-center">{{TenCM}}</h3></a>
                     </div>
+                    {{/each}}
                     <div class="" data-aos="fade-up">
                         <div class="unit-4 d-block">
+                            {{#each topview1}}
                             <div class="unit-4-icon mb-3">
-                                <img style="height: 350px;" src="images\bts.jpg" class="most-img">
+                                <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img style="height: 350px;" src="{{AnhDaiDien}}" class="most-img"></a>
                             </div>
                             <div>
-                                <h3><a href="NhanManh_QuanJeans.html" class="text-black"><b>MV mới của BTS phá kỉ lục
-                                            của BLACKPINK
-                                            trở thành MV có nhiều
-                                            lướt xem nhất</b></a></h3>
-                                <p><a href="AmNhacNuocNgoai.html">Âm nhạc - Quốc tế</a><span
-                                        class="mx-2">&bullet;</span> 14/04/2019
+                                <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
+                                <p><a href="/{{ChuyenMuc}}">{{TenCM}}</a><span
+                                        class="mx-2">&bullet;</span> {{NgayDang}}
                                 </p>
-                                <p><a href="NhanManh_QuanJeans.html">Xem tiếp...</a></p>
+                                <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
                             </div>
+                            {{/each}}
                         </div>
                     </div>
+                    
                 </span>
             </div>
         </div>

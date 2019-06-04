@@ -19,7 +19,7 @@ module.exports = {
   },
 
   pageByCat: (idCM, limit, offset) => {
-    return db.load(`SELECT bb.*, ( SELECT tv.Hoten FROM thanhvien AS tv WHERE bb.TacGia = tv.idThanhVien ) AS TenTacGia, cm.TenCM as TenChuyenMuc FROM baibao AS bb JOIN chuyenmuc AS cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE ChuyenMuc = ${idCM} limit ${limit} offset ${offset}`);
+    return db.load(`SELECT bb.*, ( SELECT tv.Hoten FROM thanhvien AS tv WHERE bb.TacGia = tv.idThanhVien ) AS TenTacGia, cm.TenCM as TenChuyenMuc FROM baibao AS bb JOIN chuyenmuc AS cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE ChuyenMuc = ${idCM} ORDER BY bb.NgayDang DESC limit ${limit} offset ${offset}`);
   },
 
   countByCat: idCM => {
@@ -42,12 +42,28 @@ module.exports = {
     return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc ORDER BY bb.ngaydang DESC LIMIT 10`);
   },
 
-  mostandnewest: () => {
-
+  topCat: () => {
+    return db.load(`SELECT DISTINCT cm.TenCM, cm.idChuyenMuc FROM baibao as bb, chuyenmuc AS cm WHERE bb.ChuyenMuc = cm.idChuyenMuc ORDER BY bb.luotXem DESC LIMIT 10`);
   }, 
+
+  top1view: () => {
+    return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc ORDER BY bb.luotxem DESC LIMIT 1`)
+  },
 
   newsdetail: (idBB) => {
     return db.load(`SELECT bb.*, cm.TenCM, tv.HoTen FROM baibao as bb, chuyenmuc as cm, thanhvien AS tv WHERE bb.idBaiBao= ${idBB} AND cm.idChuyenMuc = bb.ChuyenMuc AND tv.idThanhVien = bb.TacGia`);
+  },
+
+  newstag: (idBB) => {
+    return db.load(`SELECT tag.tenTag, bb.TenBaiBao, bb.ChuyenMuc, cm.TenCM FROM tag_baibao AS tbb, nhantag AS tag, baibao as bb, chuyenmuc AS cm WHERE bb.idBaiBao = ${idBB} AND bb.idBaiBao = tbb.idBaiBao AND tbb.idTag = tag.idTag AND bb.ChuyenMuc = cm.idChuyenMuc`);
+  }, 
+
+  comment: (idBB) => {
+    return db.load(`SELECT bl.*, tv.HoTen FROM binhluan AS bl, thanhvien AS tv, baibao AS bb WHERE bb.idBaiBao = ${idBB} AND bb.idBaiBao = bl.BaiBao AND bl.NguoiBL = tv.idThanhVien`);
+  },
+
+  relate: (idBB) => {
+    return db.load(`SELECT bb2.* FROM baibao AS bb1, baibao AS bb2 WHERE bb1.ChuyenMuc = bb2.ChuyenMuc AND bb1.idBaiBao = ${idBB} AND bb1.idBaiBao != bb2.idBaiBao ORDER BY bb2.NgayDang DESC LIMIT 5 OFFSET 0`);
   }
 }
 
