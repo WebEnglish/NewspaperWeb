@@ -1,6 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser')
 var app = express();
+var morgan = require('morgan');
+
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.urlencoded());
 
 require('./middlewares/view-engine')(app);
 require('./middlewares/passport')(app);

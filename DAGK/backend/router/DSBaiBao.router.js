@@ -17,11 +17,11 @@ router.get('/home', function (req, res,next) {
       topcat: row2,
       topview1: row3
     });
-  }).catch(next);
+   }).catch(next);
 });
 
 router.get('/', function (req, res,next) {
-  Promise.all([
+  Promise.all([ 
     categoryModel.all(),
     categoryModel.t10mostview(),
     categoryModel.newest(),

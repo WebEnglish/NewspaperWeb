@@ -1,3 +1,4 @@
+
 <div class="site-section" id="blog-section">
     <div class="container">
         <div class="row mb-5">
@@ -57,18 +58,18 @@
 
                     </div>
                     <div class="mt-5 col-9">
-                        <div style="padding:30px;" class="shadow-lg">
+                        <form action="" method="POST">
+                            <div style="padding:30px;" class="shadow-lg form-group">
                             <p class="text-black" style="font-size: 30px; "><b>BÌNH LUẬN</b></p>
                             <hr>
                             <span style="display:flex; flex-direction:row;">
                                 {{!-- <img style="margin-right: 10px"
                                             src="https://tophinhanhdep.com/wp-content/uploads/2017/07/avatar-dep-de-thuong.jpg"
                                             height="35px"> --}}
-                                <input style="width: 90%; height: 70px; padding: 5px 3px; border-bottom: 0px;"
-                                    type="text" id="text" placeholder="Bình luận mới ...">
-                                <input
-                                    style=" width: 70px; height:40px !important; margin-top:0px;margin-left: 10px; text-align: center;cursor: pointer;"
-                                    type="button" id="post" value="Gửi">
+                                <input style="width: 100%;" class="col-md-9 ml-4"
+                                    type="text" id="txtcomment" name="comment" placeholder="Bình luận mới ...">
+                                <button class="ml-5 mt-3 btn-dang"
+                                    type="submit" id="post">Đăng</button>
 
                             </span>
 
@@ -92,6 +93,7 @@
 
                             </ul>
                         </div>
+                        </form>
 
                     </div>
                 </div>
