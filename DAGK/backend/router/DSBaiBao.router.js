@@ -6,12 +6,16 @@ router.get('/home', function (req, res,next) {
   Promise.all([
     categoryModel.all(),
     categoryModel.t10mostview(),
-    categoryModel.newest()
-  ]).then(([row, rows, rows1]) => {
+    categoryModel.newest(),
+    categoryModel.topCat(),
+    categoryModel.top1view()
+  ]).then(([row, rows, rows1, row2, row3]) => {
     res.render('home', {
       carousels: row,
       top10: rows,
-      newest: rows1
+      newest: rows1,
+      topcat: row2,
+      topview1: row3
     });
   }).catch(next);
 });
@@ -20,8 +24,10 @@ router.get('/', function (req, res,next) {
   Promise.all([
     categoryModel.all(),
     categoryModel.t10mostview(),
-    categoryModel.newest()
-  ]).then(([row, rows, rows1]) => {
+    categoryModel.newest(),
+    categoryModel.topCat(),
+    categoryModel.top1view()
+  ]).then(([row, rows, rows1, row2, row3]) => {
 
     // for (const c of res.obj.carousels) {
     //     c.isActive = true;
@@ -30,7 +36,9 @@ router.get('/', function (req, res,next) {
     res.render('home', {
       carousels: row,
       top10: rows,
-      newest: rows1
+      newest: rows1,
+      topcat: row2,
+      topview1: row3
     });
   }).catch(next);
 });

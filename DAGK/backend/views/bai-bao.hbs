@@ -2,34 +2,34 @@
     <div class="container">
         <div class="row mb-5">
 
-            <div>
-            {{#each detail}}
-                <img src="{{AnhDaiDien}}" alt="Image" class="img-fluid" style=" width: 100%;">
+            <div class="col-md-12">
+                {{#each detail}}
+                <img src="{{AnhDaiDien}}" alt="Image" class="img-fluid col-md-12">
                 <h2 class="section-title" style="font-size: 30px; padding-bottom: 0px;">{{TenBaiBao}}</h2>
-
                 <hr>
-                <div class="meta mb-4"><a href="/{{ChuyenMuc}}">{{TenChuyenMuc}}</a> <span
-                        class="mx-2">&bullet;</span>{{NgayDang}}<span class="mx-2">&bullet;</span> {{TenTacGia}}
+                <div class="meta mb-4"><a href="/{{ChuyenMuc}}">{{TenCM}}</a> <span
+                        class="mx-2">&bullet;</span>{{format NgayDang}}<span class="mx-2">&bullet;</span> {{TenTacGia}}
                     <hr>
                     <div style="display:flex; flex-direction:row; justify-content: space-between">
-                        <div style="width: 70%">
-                            <div style=" box-shadow: 2px 2px 3px 3px gray " class="text-black">
+                        <div class="blog-content col-md-9">
+                            <div class="text-black shadow-lg ">
                                 <div style="padding: 30px;">
-                                    <p style="font-weight: 800">{{NoiDungTomTat}}</p>
+                                    <p style="font-weight: 800"><b>{{{NoiDungTomTat}}}</b></p>
                                     <br>
 
-                                    <p>{{NoiDung}}
-                                    </p>
-            {{/each}}
+                                    <div>{{{NoiDung}}}
+                                    </div>
+                                    {{/each}}
                                     <br>
                                     <label style="font-size:15px; color: red; font-weight: 700"><i
-                                            class="fas fa-key"></i>&nbsp;Từ khoá: <a href="BongDaTrongNuoc.html"
-                                            class="tag_item"
-                                            style="font-size: 15px; font-weight: 700; background-color: rgb(210, 223, 223)">#Bóng
-                                            đá trong nước</a>
-                                        &nbsp;&nbsp;<a href="BongDaNuocNgoai.html" class="tag_item"
-                                            style="font-size: 15px; font-weight: 700; background-color: rgb(210, 223, 223)">#Bóng
-                                            đá ngoài nước</a>
+                                            class="fas fa-key"></i>&nbsp;Từ khoá:
+                                        {{#each tagnews}}
+                                        <a href="/{{ChuyenMuc}}" class="tag_item"
+                                            style="font-size: 15px; font-weight: 700; background-color: rgb(210, 223, 223)">
+                                            #{{tenTag}}
+                                        </a>
+                                        {{/each}}
+                                        &nbsp;&nbsp;
                                     </label>
 
 
@@ -37,125 +37,65 @@
 
 
                             </div>
-                            <!---->
-                            {{!-- <br><br><br>
-                            <div>
-                                <div style="box-shadow: 2px 2px 3px 3px gray ; padding:30px;">
-                                    <span style="display:flex; flex-direction:row;">
-                                        <img style="margin-right: 10px"
-                                            src="https://tophinhanhdep.com/wp-content/uploads/2017/07/avatar-dep-de-thuong.jpg"
-                                            height="35px">
-                                        <input style="width: 90%; padding: 5px 3px; border-bottom: 0px;" type="text"
-                                            id="text" placeholder="Bình luận mới ...">
-                                        <input
-                                            style=" width: 70px; margin-top:0px;margin-left: 10px; text-align: center;cursor: pointer;"
-                                            type="button" id="post" value="Gửi">
-
-                                    </span>
-                                    <hr>
-                                    <ul>
-                                        <li style="list-style-type:circle;">
-                                            <div style=" height: 30px; display: flex ;flex-direction:row">
-                                                <p style="font-weight:800">Nguyễn văn A</p>
-                                                <p style="margin-left: 30px;">16 giờ trước.</p>
-                                            </div>
-                                            <p style="margin-top: 0px;"> Sau đây là lời bình của Nguyễn Văn A
-                                                bình
-                                                luận
-                                                16
-                                                giờ trước..... </p>
-                                        </li>
-                                        <li style="list-style-type: circle;">
-                                            <div style="height: 30px; display: flex ;flex-direction:row">
-                                                <p style="font-weight:800">Nguyễn văn B</p>
-                                                <p style="margin-left: 30px;">1 ngày trước.</p>
-                                            </div>
-                                            <p> Sau đây là lời bình của Nguyễn Văn B bình luận 1 ngày trước.....
-                                            </p>
-                                        </li>
-
-
-                                    </ul>
-                                </div>
-
-                            </div> --}}
-
                         </div>
-
-                        {{!-- <div style="width: 25%">
+                        <!---->
+                        <br><br><br>
+                        <div style="width: 25%" class="col-md-3">
                             <div class="div-big">
                                 <h4 style=" border-left: 3px solid red; font-weight: bold; color: black">Bài
                                     viết liên quan</h4>
                                 <div style="padding: 10px;">
-                                    <a href="VanToanToaSang.html"> <img style="max-width: 100%; height: auto;"
-                                            src="https://static.tintuc.com.vn/images/ver3/2019/04/21/quang-hai-yemen.jpg">
-                                        <p class="text-small">U22 Việt Nam lên hạt giống số 3</p>
+                                    {{#each relatebb}}
+                                    <a href="/{{ChuyenMuc}}/{{idBaiBao}}"> <img style="max-width: 100%; height: auto;"
+                                            src="{{AnhDaiDien}}">
+                                        <p class="text-small">{{TenBaiBao}}</p>
                                     </a>
-                                </div>
-
-                                <div class="div-small">
-                                    <a href="VanToanToaSang.html"><img class="img-small"
-                                            src="https://static.tintuc.com.vn/images/ver3/2019/04/22/1555936762144-van-toan-1-zing.jpg">
-                                    </a>
-
-                                    <a href="VanToanToaSang.html">
-                                        <p class="text-small"> Văn Toản - Hai lần thắng phạt đền </p>
-                                    </a>
-
-                                </div>
-                                <div class="div-small">
-                                    <a href="VanToanToaSang.html"><img class="img-small"
-                                            src="https://static.tintuc.com.vn/images/ver3/2019/04/22/1555921305418-mu.jpg">
-                                    </a>
-
-                                    <a href="VanToanToaSang.html">
-                                        <p class="text-small">MU đang có một đội hình vứt đi</p>
-                                    </a>
-
+                                    {{/each}}
                                 </div>
                             </div>
+                        </div>
 
-                            <br><br>
+                    </div>
+                    <div class="mt-5 col-9">
+                        <div style="padding:30px;" class="shadow-lg">
+                            <p class="text-black" style="font-size: 30px; "><b>BÌNH LUẬN</b></p>
+                            <hr>
+                            <span style="display:flex; flex-direction:row;">
+                                {{!-- <img style="margin-right: 10px"
+                                            src="https://tophinhanhdep.com/wp-content/uploads/2017/07/avatar-dep-de-thuong.jpg"
+                                            height="35px"> --}}
+                                <input style="width: 90%; height: 70px; padding: 5px 3px; border-bottom: 0px;"
+                                    type="text" id="text" placeholder="Bình luận mới ...">
+                                <input
+                                    style=" width: 70px; height:40px !important; margin-top:0px;margin-left: 10px; text-align: center;cursor: pointer;"
+                                    type="button" id="post" value="Gửi">
 
-                            <div class="div-big">
-                                <h4 style=" border-left: 3px solid red; font-weight: bold; color: black">Top xem
-                                    nhiều nhất</h4>
-                                <div style="padding: 10px;">
-                                    <a href="VanToanToaSang.html"> <img style="max-width: 100%; height: auto;"
-                                            src="https://static.tintuc.com.vn/images/ver3/2019/04/21/quang-hai-yemen.jpg">
-                                        <p class="text-small">U22 Việt Nam lên hạt giống số 3</p>
-                                    </a>
-                                </div>
+                            </span>
 
-                                <div class="div-small">
-                                    <a href="VanToanToaSang.html"><img class="img-small"
-                                            src="https://static.tintuc.com.vn/images/ver3/2019/04/22/1555936762144-van-toan-1-zing.jpg">
-                                    </a>
+                            <ul style="list-style: none" class="mt-4 pr-5">
+                                {{#each cmt}}
+                                <li>
+                                    <div class="d-flex flex-nowrap col-md-12">
+                                        <img src="https://img2.thuthuatphanmem.vn/uploads/2018/12/01/hinh-ve-de-thuong_114054803.jpg"
+                                            alt="" style="width: 50px; height:50px">
+                                        <div class="ml-4">
+                                            <div style=" height: 30px; display: flex ;flex-direction:row">
+                                                <p style="font-weight:800">{{HoTen}}</p>
+                                                <p style="margin-left: 30px;">{{format NgayDang}}</p>
+                                            </div>
+                                            <p style="margin-top: 0px;"> {{NoiDung}} </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr>
+                                {{/each}}
 
-                                    <a href="VanToanToaSang.html">
-                                        <p class="text-small"> Văn Toản - Hai lần thắng phạt đền </p>
-                                    </a>
-
-                                </div>
-                                <div class="div-small">
-                                    <a href="VanToanToaSang.html"><img class="img-small"
-                                            src="https://static.tintuc.com.vn/images/ver3/2019/04/22/1555921305418-mu.jpg">
-                                    </a>
-
-                                    <a href="VanToanToaSang.html">
-                                        <p class="text-small">MU đang có một đội hình vứt đi</p>
-                                    </a>
-
-                                </div>
-                            </div>
-
-
-                        </div> --}}
+                            </ul>
+                        </div>
 
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
