@@ -64,6 +64,10 @@ module.exports = {
 
   relate: (idBB) => {
     return db.load(`SELECT bb2.* FROM baibao AS bb1, baibao AS bb2 WHERE bb1.ChuyenMuc = bb2.ChuyenMuc AND bb1.idBaiBao = ${idBB} AND bb1.idBaiBao != bb2.idBaiBao ORDER BY bb2.NgayDang DESC LIMIT 5 OFFSET 0`);
+  },
+
+  addComment: entity => {
+    return db.add(`binhluan`,entity);
   }
 }
 
