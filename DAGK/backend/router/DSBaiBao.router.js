@@ -2,7 +2,7 @@ var express = require('express');
 var categoryModel = require('../model/DSBaiBao');
 var router = express.Router();
 
-router.get('/home', function (req, res,next) {
+router.get('/home', function (req, res, next) {
   Promise.all([
     categoryModel.all(),
     categoryModel.t10mostview(),
@@ -10,17 +10,18 @@ router.get('/home', function (req, res,next) {
     categoryModel.topCat(),
     categoryModel.top1view()
   ]).then(([row, rows, rows1, row2, row3]) => {
-    res.render('home', {
+    res.render('home.hbs', {
       carousels: row,
       top10: rows,
       newest: rows1,
       topcat: row2,
-      topview1: row3
+      topview1: row3,
+      layout: './main'
     });
   }).catch(next);
 });
 
-router.get('/', function (req, res,next) {
+router.get('/', function (req, res, next) {
   Promise.all([
     categoryModel.all(),
     categoryModel.t10mostview(),
@@ -33,17 +34,18 @@ router.get('/', function (req, res,next) {
     //     c.isActive = true;
     // }
 
-    res.render('home', {
+    res.render('home.hbs', {
       carousels: row,
       top10: rows,
       newest: rows1,
       topcat: row2,
-      topview1: row3
+      topview1: row3,
+      layout: './main'
     });
   }).catch(next);
 });
 
-router.get('/:idCM',   (req, res, next) => {
+router.get('/:idCM', (req, res, next) => {
   var id = req.params.idCM;
 
   var page = req.query.page || 1;
@@ -75,11 +77,12 @@ router.get('/:idCM',   (req, res, next) => {
       pages.push(obj);
     }
 
-    res.render('dsbaibao-theo-chuyenmuc', {
+    res.render('dsbaibao-theo-chuyenmuc.hbs', {
       cat: cate,
       bycat: rows,
       pages,
-      tag: valueTag
+      tag: valueTag,
+      layout: './main'
     });
 
   }).catch(next);
@@ -98,6 +101,9 @@ router.get('/:idCM',   (req, res, next) => {
 //       res.end('error occured.')
 //     });
 // });
+
+
+
 
 
 
