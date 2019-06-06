@@ -35,7 +35,6 @@ router.post('/:idBB', function (req, res, next) {
     NguoiBL: 1
   }
 
-
   Promise.all([
     baibaoModal.newsdetail(id),
     baibaoModal.newstag(id),
@@ -50,6 +49,7 @@ router.post('/:idBB', function (req, res, next) {
       console.log(err);
       res.end('error occured!')
     });
+
 });
 
 module.exports = router;
