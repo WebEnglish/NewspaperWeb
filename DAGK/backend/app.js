@@ -33,8 +33,11 @@ app.set('view engine', 'hbs');
 app.use(require('./middlewares/auth-mdw'));
 app.use(express.static(__dirname+'/public'));
 app.use(require('./middlewares/locals.mdw'));
+app.use(require('./middlewares/writer.mdw'));
 app.use(bodyParser());
 
+
+app.use('/writing', require('./router/writer'))
 app.use('/admin', require('./router/admin/admin-router'))
 app.use('/admin/QuanLiChuyenMuc', require('./router/admin/cate-router'))
 

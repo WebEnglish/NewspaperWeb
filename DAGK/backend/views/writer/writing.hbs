@@ -1,0 +1,145 @@
+{{#section 'js'}}
+<script
+    src="https://cdn.tiny.cloud/1/c3n6lu13jap2ehdz800xbmrmucezhjkqbjyfs2ps60jbgn4z/tinymce/5/tinymce.min.js"></script>
+<script>
+    $(function () {
+        tinymce.init({
+            selector: '#txtEditor',
+            height: 600,
+            menubar: false,
+            plugins: 'paste image link autolink lists table media',
+            toolbar: [
+                'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright',
+                'forecolor backcolor',
+                'table link image media',
+            ]
+        });
+    })
+</script>
+
+<script>
+    function Choose() {
+        var choose = document.getElementById("txtChoose");
+        var chosen = document.getElementById("txtChosen");
+        var options = choose.children;
+        var tmp = [];
+
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+                tmp.push(options[i]);
+            }
+        }
+
+        for (var i = 0; i < tmp.length; i++) {
+            chosen.appendChild(tmp[i]);
+        }
+
+        for (var i = 0; i < chosen.length; i++) {
+            chosen[i].selected = false;
+        }
+    }
+
+    function Unchoose() {
+        var choose = document.getElementById("txtChosen");
+        var chosen = document.getElementById("txtChoose");
+        var options = choose.children;
+        var tmp = [];
+
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+                tmp.push(options[i]);
+            }
+        }
+
+        for (var i = 0; i < tmp.length; i++) {
+            chosen.appendChild(tmp[i]);
+        }
+
+        for (var i = 0; i < chosen.length; i++) {
+            chosen[i].selected = false;
+        }
+    }
+</script>
+{{/section}}
+<div class="site-section">
+    <div class="big-title text-center mt-3 text-black">
+        <h3><b>Đăng bài viết</b></h3>
+    </div>
+    <form method="POST" name="frmMain">
+        <div class="col-md-12" style="padding-left: 20%">
+            <div class="d-flex flex-wrap col-md-12 mb-3">
+                <span class="col-lg-2">
+                    <label for="txtTitle">
+                        <b class="text-black">Tiêu đề bài báo:&nbsp;</b>
+                    </label>
+                </span>
+                <div class="col-md-9">
+                    <input type="text" name="txtTitle" id="txtTitle" style="width:565px">
+                </div>
+            </div>
+
+            <div class=" d-flex flex-wrap col-md-12">
+                <span class="col-md-2">
+                    <label for="txtSummary">
+                        <b class="text-black">Tóm tắt:&nbsp;</b>
+                    </label>
+                </span>
+                <div class="col-md-9">
+                    <textarea name="summary" id="txtsummary" rows="4" cols="60"></textarea>
+                    {{!-- <input type="text" name="txtSummary" id="txtSummary" style="width:500px; height: 100px"> --}}
+                </div>
+            </div>
+
+            <div class=" d-flex flex-wrap col-md-12">
+                <span class="col-md-2">
+                    <label for="">
+                        <b class="text-black">Ảnh đại diện:&nbsp;</b>
+                    </label>
+                </span>
+                <div class="col-md-9">
+                    <input name="img" id="txtLinkimg" rows="1" cols="60" type="text"></input>
+                    {{!-- <input type="text" name="txtSummary" id="txtSummary" style="width:500px; height: 100px"> --}}
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="body-for-writing">
+            <textarea name="editor" id="txtEditor" rows="10" cols="80">
+        </textarea>
+        </div>
+        <div class="div-tong">
+            <span class="cbx-option">
+                <p>Chọn chuyên mục: &nbsp;</p>
+                <select class="choose-cbx" name="optTenCM">
+                    {{#each cat}}
+                    <option value="{{idChuyenMuc}}" type="text">{{TenCM}}</option>
+                    {{/each}}
+                </select>
+            </span>
+            <div class="txt-tag">
+                <span class="cbx-option-mul">
+                    <p>Chọn thẻ tag: &nbsp;</p>
+                    <select class="choose-mul-cbx" multiple="multiple" id="txtChoose" name="choose">
+                        {{#each tag}}
+                        <option value="{{idTag}}">{{tenTag}}</option>
+                        {{/each}}
+                    </select>
+                </span>
+                <span class="Button">
+                    <input type="button" id="btnChoose" onclick="Choose()" value=">">
+                    <input type="button" id="btnUnchoose" onclick="Unchoose()" value="<">
+                </span>
+                <span class="ChosenSubject">
+                    <select multiple="multiple" id="txtChosen" name="txtChosen" style="width:250px; height:200px">
+                    </select>
+                </span>
+            </div>
+        </div>
+
+        <div class="btn-btn">
+            <button class="btn" type="submit"><b>Đăng bài</b></button>
+        </div>
+    </form>
+
+</div>
