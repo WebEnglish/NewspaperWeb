@@ -42,16 +42,14 @@ router.post('/:idBB', function (req, res, next) {
     baibaoModal.relate(id),
     baibaoModal.addComment(entity)
   ])
-    .then(([row, row1, row2, row3]) => {
-      res.render('bai-bao', {
-        detail: row,
-        tagnews: row1,
-        cmt: row2,
-        relatebb: row3,
-        layout: './main'
-      });
+    .then( n => {
+      res.redirect('back');
     })
-    .catch(next);
+    .catch(err => {
+      console.log(err);
+      res.end('error occured!')
+    });
+
 });
 
 module.exports = router;
