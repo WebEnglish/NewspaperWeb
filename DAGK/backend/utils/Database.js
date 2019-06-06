@@ -31,6 +31,7 @@ module.exports = {
       var sql = `insert into ${tableName} set ?`;
       var connection = createConnection();
       connection.connect();
+      
       connection.query(sql, entity, (error, value) => {
         if (error) {
           reject(error);

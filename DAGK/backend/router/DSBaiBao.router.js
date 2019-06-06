@@ -2,6 +2,28 @@ var express = require('express');
 var categoryModel = require('../model/DSBaiBao');
 var router = express.Router();
 
+
+// router.get('/av', (req, res, next) => {
+//   res.render('./main-layout',{layout: false} );
+// })
+
+// router.get('/a/v/a/a', (req, res, next) => {
+//   res.render('abc.hbs'
+//   ,{layout: './main-layout' });
+// })
+
+// router.get('/a/vv', (req, res, next) => {
+//   res.render('abc.hbs'
+//   ,{layout: './main' });
+// })
+
+
+// router.get('/g/v', (req, res, next) => {
+//   res.render('abc.hbs', {
+//     layout: './main'
+//   });
+// })
+
 router.get('/home', function (req, res, next) {
   Promise.all([
     categoryModel.all(),
@@ -20,6 +42,7 @@ router.get('/home', function (req, res, next) {
     });
   }).catch(next);
 });
+
 
 router.get('/', function (req, res, next) {
   Promise.all([
@@ -101,9 +124,6 @@ router.get('/:idCM', (req, res, next) => {
 //       res.end('error occured.')
 //     });
 // });
-
-
-
 
 
 

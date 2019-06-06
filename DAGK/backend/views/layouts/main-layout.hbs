@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Chào mừng! | </title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- Bootstrap -->
+  <link href="/advendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="/advendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="/advendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- bootstrap-daterangepicker -->
+  <link href="/advendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="/adbuild/css/custom.min.css" rel="stylesheet">
+  <link href="/adcss/style.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Báo điện tử</span></a>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <!-- menu profile quick info -->
+          <div class="profile clearfix">
+            <div class="profile_pic">
+              <img src="/adimages/user.png" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+              <span>Welcome,</span>
+              <h2>Việt An</h2>
+            </div>
+          </div>
+          <!-- /menu profile quick info -->
+
+          <br />
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <h3>Quản lý</h3>
+              <ul class="nav side-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a>
+                  <!-- <ul class="nav child_menu">
+                          <li><a href="index.html">Dashboard</a></li>
+                          <li><a href="index2.html">Dashboard2</a></li>
+                          <li><a href="index3.html">Dashboard3</a></li>
+                        </ul> -->
+                </li>
+
+                <li><a><i class="fas fa-table"></i> Quản lý &nbsp;<span class="fas fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="quan-ly-bai-viet.html">Quản lý bài viết</a></li>
+                    <li><a href="/admin/QuanLiChuyenMuc">Quản lý chuyên mục</a></li>
+                    <li><a href="quan-ly-the-tag.html">Quản lý thẻ tag</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a><i class="fas fa-users"></i> &nbsp Quản lý người dùng <span class="fas fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="quan-ly-nguoi-dung.html">Độc giả</a></li>
+                    <li><a href="quan-ly-bien-tap-vien.html">Biên tập viên</a></li>
+                    <li><a href="quan-ly-phong-vien.html">Phóng viên</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- top navigation -->
+      <div class="top_nav">
+        <div class="nav_menu">
+          <nav>
+            <div class="nav toggle">
+              <a id="menu_toggle"><i class="fas fa-bars"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="">
+                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="BT_admin/images/user.png" alt="">Việt An
+                  <span class=" fas fa-angle-down"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                  <li><a href="Chinh-sua-thong-tin-ca-nhan.html">Cập nhật thông tin</a></li>
+                  <li>
+                    <a href="Doi-mat-khau.html">
+                      <span>Đổi mật khẩu</span>
+                    </a>
+                  </li>
+                  <li><a href="Đăng nhập/sign-in.html"><i class="fas fa-sign-out-alt pull-right"></i>Thoát</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="right_col" role="main">
+        {{{body}}}
+      </div>
+
+      
+
+      <!-- jQuery -->
+      <script src="/advendors/jquery/dist/jquery.min.js"></script>
+      <!-- Bootstrap -->
+      <script src="/advendors/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- FastClick -->
+      <script src="/advendors/fastclick/lib/fastclick.js"></script>
+      <!-- NProgress -->
+      <script src="/advendors/nprogress/nprogress.js"></script>
+      <!-- Chart.js -->
+      <script src="/advendors/Chart.js/dist/Chart.min.js"></script>
+      <!-- jQuery Sparklines -->
+      <script src="/advendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+      <!-- Flot -->
+      <script src="/advendors/Flot/jquery.flot.js"></script>
+      <script src="/advendors/Flot/jquery.flot.pie.js"></script>
+      <script src="/advendors/Flot/jquery.flot.time.js"></script>
+      <script src="/advendors/Flot/jquery.flot.stack.js"></script>
+      <script src="/advendors/Flot/jquery.flot.resize.js"></script>
+      <script src="/advendors/iCheck/icheck.min.js"></script>
+
+      <!-- Flot plugins -->
+      <script src="/advendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+      <script src="/advendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+      <script src="/advendors/flot.curvedlines/curvedLines.js"></script>
+      <!-- DateJS -->
+      <script src="/advendors/DateJS/build/date.js"></script>
+      <!-- bootstrap-daterangepicker -->
+      <script src="/advendors/moment/min/moment.min.js"></script>
+      <script src="/advendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+      <!-- Custom Theme Scripts -->
+      <script src="/adbuild/js/custom.min.js"></script>
+</body>
+
+</html>
