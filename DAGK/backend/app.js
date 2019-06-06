@@ -33,9 +33,10 @@ app.set('view engine', 'hbs');
 //app.use(require('./middlewares/view-engine'))
 app.use(express.static(__dirname+'/public'));
 app.use(require('./middlewares/locals.mdw'));
+app.use(require('./middlewares/writer.mdw'));
 app.use(bodyParser());
 
-
+app.use('/writing', require('./router/writer'))
 app.use('/account', require('./router/account'))
 app.use('/', require('./router/DSBaiBao.router'))
 
