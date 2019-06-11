@@ -16,11 +16,12 @@ app.use(express.urlencoded());
 //require('./middlewares/view-engine')(app);
 require('./middlewares/passport')(app);
 require('./middlewares/session')(app);
+require('./middlewares/upload')(app);
 
 app.engine('.hbs', exphbs({extname: '.hbs',
         helpers: {
         format: val => {
-          return moment(val).subtract(10, 'days').calendar();
+          return moment(val).format('L');
         },
         section: hbs_sections() 
   }}));

@@ -13,9 +13,8 @@
             theme: 'fa',
             dropZoneEnabled: false,
             allowedFileExtensions: ['png', 'jpg', 'gif'],
-            uploadUrl: '/writing',
-            uploadAsync: true,
-            autoOrientImage: true,
+            uploadUrl: '/upload',
+            uploadAsync: false,
         });
     })
 </script>
@@ -27,58 +26,14 @@
             selector: '#txtEditor',
             height: 600,
             menubar: false,
-            plugins: 'paste image link autolink lists checklist table media code',
+            plugins: 'paste image link autolink lists checklist table media',
             toolbar: [
                 'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright',
                 'forecolor backcolor',
-                'table link image media','checklist', 'code'
+                'table link image media', 'checklist'
             ]
         });
     })
-</script>
-
-<script>
-    function Choose() {
-        var choose = document.getElementById("txtChoose");
-        var chosen = document.getElementById("txtChosen");
-        var options = choose.children;
-        var tmp = [];
-
-        for (var i = 0; i < options.length; i++) {
-            if (options[i].selected) {
-                tmp.push(options[i]);
-            }
-        }
-
-        for (var i = 0; i < tmp.length; i++) {
-            chosen.appendChild(tmp[i]);
-        }
-
-        for (var i = 0; i < chosen.length; i++) {
-            chosen[i].selected = false;
-        }
-    }
-
-    function Unchoose() {
-        var choose = document.getElementById("txtChosen");
-        var chosen = document.getElementById("txtChoose");
-        var options = choose.children;
-        var tmp = [];
-
-        for (var i = 0; i < options.length; i++) {
-            if (options[i].selected) {
-                tmp.push(options[i]);
-            }
-        }
-
-        for (var i = 0; i < tmp.length; i++) {
-            chosen.appendChild(tmp[i]);
-        }
-
-        for (var i = 0; i < chosen.length; i++) {
-            chosen[i].selected = false;
-        }
-    }
 </script>
 <script>
     function ShowImg() {
@@ -105,14 +60,31 @@
             a.style.display = 'none'
         }
     }
+
+</script>
+<script>
+    $(document).ready(function () {
+        $("#sua-hinh").click(function () {
+            $(this).hide();
+            $("#btnsUpload").show();
+        });
+        $("#Img1").click(function(){
+            $("#abcd").show();
+            $("#dcba").hide();
+        });
+        $("#LinkImg1").click(function(){
+            $("#abcd").hide();
+            $("#dcba").show();
+        });
+    }); 
 </script>
 {{/section}}
 <div class="site-section">
     <div class="big-title text-center text-black">
-        <h3><b>Đăng bài viết</b></h3>
+        <h3><b>Chỉnh sửa bài viết</b></h3>
     </div>
     <div class="col-md-12">
-        <form method="POST" name="frmMain">
+        <form method="GET" name="frmMain">
             <div class="col-md-12" style="padding-left: 10%">
                 <div class="d-flex flex-wrap col-md-12 mb-3">
                     <span class="col-lg-2">
@@ -120,8 +92,10 @@
                             <b class="text-black">Tiêu đề bài báo:&nbsp;</b>
                         </label>
                     </span>
+                    {{#each Rewrite}}
                     <div class="col-md-9">
-                        <input class="form-control" type="text" name="txtTitle" id="txtTitle" style="width:825px">
+                        <input class="form-control" type="text" name="txtTitle" id="txtTitle" style="width:850px"
+                            value="{{TenBaiBao}}">
                     </div>
                 </div>
 
@@ -132,34 +106,42 @@
                         </label>
                     </span>
                     <div class="col-md-9">
-                        <textarea class="form-control" name="summary" id="txtsummary" rows="4" cols="60"></textarea>
-                        {{!-- <input type="text" name="txtSummary" id="txtSummary" style="width:500px; height: 100px"> --}}
+                        <textarea class="form-control" name="summary" id="txtsummary" rows="4"
+                            cols="60">{{NoiDungTomTat}}</textarea>
                     </div>
                 </div>
 
                 <div class=" d-flex flex-wrap col-md-12">
-                    <span class="col-md-2">
+                    <span class="col-md-2 ">
                         <label for="">
                             <b class="text-black">Ảnh đại diện:&nbsp;</b>
                         </label>
                     </span>
-                    <div class="col-md-5 ">
-                        <button class="btn btn-upload-file" name="btnImg" id="Img" onclick="ShowImg()">
-                            <b>Upload File</b>
-                        </button>
-                        &nbsp; hoặc &nbsp;
-                        <button class="btn btn-upload-file" name="btnLinkImg" id="LinkImg" onclick="ShowImg2()">
-                            <b>Upload Link File</b>
-                        </button>
+                    <div class="col-md-9">
+                        <div style="display: block" id="sua-hinh">
+                            <img src="{{AnhDaiDien}}"
+                                alt="" style="width: 350px; height:250px"><br>
+                            <p class="btn mt-3 btn-hover" id="sua-hinh"><b><i class="far fa-edit"></i> Sửa hình</b></p>
+                        </div>
+
+                        <div class="col-md-9" style="display: none" id="btnsUpload">
+                            <p class="btn btn-upload-file" name="btnImg" id="Img1">
+                                <b>Upload File</b>
+                            </p>
+                            &nbsp; hoặc &nbsp;
+                            <p class="btn btn-upload-file" name="btnLinkImg" id="LinkImg1">
+                                <b>Upload Link File</b>
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 mt-3">
-                    <div class="col-md-12" style="padding-left:18%; padding-right:10%; display:none" id="abc">
+                    <div class="col-md-12" style="padding-left:18%; padding-right:10%; display:none" id="abcd">
                         <div class="col-md-5 file-loading">
                             <input class="form-control" name="img" id="txtImg" type="file"></input>
                         </div>
                     </div>
-                    <div class=" col-md-12" style="padding-left:17%; padding-right:10%; display:none" id="cba">
+                    <div class=" col-md-12" style="padding-left:17%; padding-right:10%; display:none" id="dcba">
                         <span class="col-md-2">
                             <label for="">
                                 <b class="text-black">Dẫn đường link ảnh:&nbsp;</b>
@@ -172,20 +154,20 @@
                     </div>
                 </div>
             </div>
-
             <br>
             <div class="body-for-writing">
-                <textarea name="editor" id="txtEditor" rows="10" cols="80"></textarea>
+                <textarea name="editor" id="txtEditor" rows="10" cols="80">{{{NoiDung}}}</textarea>
             </div>
+            {{/each}}
             <div class="div-tong d-flex flex-nowrap">
-                <div class="select-CM col-md-4">
+                <span class="select-CM col-md-4">
                     <label class="col-md-6">Chọn chuyên mục: &nbsp;</label>
                     <select class="choose-cbx form-control" name="optTenCM">
                         {{#each cat}}
-                        <option value="{{idChuyenMuc}}" type="text">{{TenCM}}</option>
+                        <option {{#if isSelected}} selected {{/if}} value="{{idChuyenMuc}}">{{TenCM}}</option>
                         {{/each}}
                     </select>
-                </div>
+                </span>
                 <div class="col-md-6">
                     <label>Chọn thẻ tag: &nbsp;</label>
                     <div class="txt-tag">
@@ -210,11 +192,9 @@
                     </div>
                 </div>
             </div>
-
             <div class="text-center mt-5 ">
-                <button class="btn btn-btn" type="submit"><b>Đăng bài</b></button>
+                <button class="btn btn-btn" type="submit"><b>Lưu bài sửa</b></button>
             </div>
         </form>
     </div>
-
 </div>

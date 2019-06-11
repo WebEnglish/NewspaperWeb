@@ -19,47 +19,49 @@ router.get('/', (req, res, next) => {
 
 router.get('/:idTT', (req, res, next) => {
   var id = req.params.idTT;
+  var page = req.query.page || 1;
+  var flat = false;
+  if (page < 1) page = 1;
 
-  // var page = req.query.page || 1;
-  // // console.log("vô nè");
-  // if (page < 1) page = 1;
-
-  // var limit = 6;
-  // var offset = (page - 1) * limit;
+  var limit = 6;
+  var offset = (page - 1) * limit;
   Promise.all([
-    writerModal.category(),
-    writerModal.tag()
-  ]).then(([row, row1, row2]) => {
+    writerModal.status(id),
+    writerModal.baiviet(id, limit, offset),
+    writerModal.countByCat(id)
+  ])
 
-    // console.log("tag nè: " + JSON.stringify(valueTag))
-    for (const c of res.locals.Action) {
-      if (c.idTrangThai === +id) {
-        c.isActive = true;
+    .then(([row1, row2, count_rows]) => {
+
+      // console.log("tag nè: " + JSON.stringify(valueTag))
+      for (const c of res.locals.Action) {
+        if (c.idTrangThai === +id) {
+          c.isActive = true;
+        }
       }
-    }
 
-    // var total = count_rows[0].total;
-    // var nPages = Math.floor(total / limit);
-    // if (total % limit > 0) nPages++;
-    // var pages = [];
-    // for (i = 1; i <= nPages; i++) {
-    //   var obj = { value: i, active: i === +page };
-    //   pages.push(obj);
-    // }
+      var total = count_rows[0].total;
+      var nPages = Math.floor(total / limit);
+      if (total % limit > 0) nPages++;
+      var pages = [];
+      for (i = 1; i <= nPages; i++) {
+        var obj = { value: i, active: i === +page };
+        pages.push(obj);
+      }
 
-    if (id == 5) {
-      res.render('writer/writing.hbs', {
-        cat: row,
-        tag: row1,
-        layout: '../writer/main',
-      })
-    }
-    else {
+      for (const d of row2) {
+        if (d.TrangThai === +1 || d.TrangThai === +2) {
+          d.flat = true;
+        }
+      }
       res.render('writer/dsbaiviet', {
+        trangthai: row1,
+        Baiviet: row2,
+        pages,
         layout: '../writer/main'
       })
-    }
-  }).catch(next);
+
+    }).catch(next);
 });
 
 router.post('/', (req, res, next) => {
@@ -74,11 +76,11 @@ router.post('/', (req, res, next) => {
     AnhDaiDien: req.body.img,
     premium: 1,
     luotXem: 0,
-    ChuyenMuc: req.body.optTenCM
+    ChuyenMuc: req.body.optTenCM,
   }
 
   var entity2 = {
-    idTag: req.body.choose
+  
   }
 
   Promise.all([
@@ -87,7 +89,6 @@ router.post('/', (req, res, next) => {
     writerModal.addNews(entity)
   ]).
     then(([row, row1, row2]) => {
-      console.log(entity2);
       res.render('writer/writing.hbs', {
         cat: row,
         tag: row1,
@@ -98,8 +99,29 @@ router.post('/', (req, res, next) => {
         })
 
     })
+})
 
+router.get('/rewrite/:idBB', (req, res, next) => {
+  var id = req.params.idBB;
+  Promise.all([
+    writerModal.rewrite(id),
+    writerModal.category(),
+    writerModal.tag()
+  ]).then(([row, row1, row2]) => {
 
+    for (const c of row1) {
+      if(c.idChuyenMuc === +row[0].ChuyenMuc){
+        c.isSelected = true;
+      }
+    }
+
+    res.render('writer/rewrite.hbs', {
+      Rewrite: row,
+      cat: row1,
+      tag: row2,
+      layout: '../writer/main'
+    });
+  }).catch(next);
 })
 
 module.exports = router;

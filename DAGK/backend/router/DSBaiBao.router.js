@@ -1,28 +1,8 @@
 var express = require('express');
 var categoryModel = require('../model/DSBaiBao');
+var writerModal = require('../model/Forwriter');
 var router = express.Router();
 
-
-// router.get('/av', (req, res, next) => {
-//   res.render('./main-layout',{layout: false} );
-// })
-
-// router.get('/a/v/a/a', (req, res, next) => {
-//   res.render('abc.hbs'
-//   ,{layout: './main-layout' });
-// })
-
-// router.get('/a/vv', (req, res, next) => {
-//   res.render('abc.hbs'
-//   ,{layout: './main' });
-// })
-
-
-// router.get('/g/v', (req, res, next) => {
-//   res.render('abc.hbs', {
-//     layout: './main'
-//   });
-// })
 
 router.get('/home', function (req, res, next) {
   Promise.all([
@@ -111,19 +91,18 @@ router.get('/:idCM', (req, res, next) => {
   }).catch(next);
 });
 
-// router.get('/0', (req, res) => {
-//   categoryModel.newest()
-//     .then(rows => {
-//       // console.log(res.locals.lcCategories);
-
-//       res.render('home', {
-//         newest: rows
-//       });
-//     }).catch(err => {
-//       console.log(err);
-//       res.end('error occured.')
-//     });
-// });
+router.get('/writing', (req, res, next) => {
+  Promise.all([
+    writerModal.category(),
+    writerModal.tag()
+  ]).then(([row, row1, row2]) => {
+    res.render('writer/writing.hbs', {
+      cat: row,
+      tag: row1,
+      layout: '../writer/main'
+    });
+  });
+})
 
 
 
