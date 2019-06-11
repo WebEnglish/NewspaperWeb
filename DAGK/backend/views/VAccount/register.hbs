@@ -41,8 +41,6 @@
           required: true,
           equalTo: $('[name="password"]')
         }
-        
-
       },
       messages: {
         email: {
@@ -66,8 +64,9 @@
         }
 
       },
+
       errorElement: 'small',
-      errorClass: 'help-block text-danger',
+      errorClass: 'col help-block text-danger',
       highlight: function (e) {
         $(e).removeClass('is-valid').addClass('is-invalid');
       },
@@ -79,7 +78,6 @@
   })
 </script>
 {{/section}}
-
 <form novalidate action="" method="POST" id="registerForm">
   <div style="padding-top:100px" class="container col-md-5 text-black">
     <div class="shadow mb-5 bg-white rounded ">
@@ -100,7 +98,7 @@
         <br>
         <div class="form-group">
           <label for="txtdate">Ngày sinh</label>
-          <input type="text" class="form-control" id="txtdate" name="dob">
+          <input type= "text" class="form-control" id="txtdate" name="dob">
         </div>
        
         <br>
@@ -117,7 +115,8 @@
       </div>
       <div class="text-center " style="justify-content: center;padding-top:10px;border-top: 0px">
         <button type="submit" style=" width:140px;border-radius: 7%;cursor: pointer;" class="mb-3 btn-danger">Đăng
-          kí</button>
+          kí
+          </button>
       </div>
 
     </div>
