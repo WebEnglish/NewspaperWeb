@@ -76,6 +76,7 @@ h1, h2, h3, h4, h5,
     -webkit-box-shadow: none !important;
     box-shadow: none !important; }
   .btn.btn-primary {
+    margin-left: 10px;
     border-width: 2px;
     background: #00d2b5;
     border-color: #00d2b5;
@@ -83,9 +84,7 @@ h1, h2, h3, h4, h5,
     -webkit-box-shadow: 0 4px 20px -5px rgba(0, 210, 181, 0.4);
     box-shadow: 0 4px 20px -5px rgba(0, 210, 181, 0.4); }
     .btn.btn-primary:hover {
-      background: transparent;
-      border-color: #00d2b5;
-      color: #000; }
+      background: #2fc4b0;}
 
 .line-height-1 {
   line-height: 1 !important; }
@@ -1964,17 +1963,6 @@ h1, h2, h3, h4, h5,
    height: 100%;;
  }
 
- .btn{
-   margin-left: 45%;
-   margin-top: 1%;
-   background-image: linear-gradient(to right, #00d2b5, #399e91);
-   box-shadow: 2px 2px 1px 1px #777;
- }
-
- .btn:hover{
-   color: white;
- }
-
  
  .btn-save:hover, .btn-out:hover{
    transition: 0.1s;
@@ -2000,17 +1988,13 @@ h1, h2, h3, h4, h5,
 }
 
 .choose-cbx{
-  height: 100%;
-  box-shadow: 5px 2px 0px 0px #8d8d8d;
+  height: 10% !important;
+  width: 60%;
 }
 
-.choose-mul-cbx{
-  height: 100% !important;
-  box-shadow: 5px 2px 0px 0px #8d8d8d;
-}
-
-.cbx-option-mul{
-  height: 200px;
+.select-CM{
+  height: 20%;
+  margin-left: 10%;
 }
 
 .txt-tag{
@@ -2019,10 +2003,7 @@ h1, h2, h3, h4, h5,
 }
 
 .div-tong{
-  display: flex;
-  flex-wrap: nowrap;
-  margin: auto;
-  width: 80%;
+ width: 100%;
   margin-top: 25px;
 }
 
@@ -2051,9 +2032,6 @@ h1, h2, h3, h4, h5,
   margin-top: 40px;
 }
 
-#txtChosen{
-  box-shadow: 5px 3px 0px 0px #8d8d8d;
-}
 
 .list-table, .them-bai{
   margin: auto;
@@ -2095,8 +2073,36 @@ td{
 }
 
  .btn-btn{
-   margin-bottom: 100px;
+   background-color: rgb(121, 241, 225);
+   color: white;
  }
+
+.btn-upload-file, .btn-edit{
+  background-color: #00D2B5;
+   color: white;
+}
+
+.btn-hover{
+  margin-left:12%;
+   color: #00D2B5;
+   border: 1px solid #00D2B5;
+}
+
+.btn-hover:hover{
+  margin-left:12%;
+  color: rgb(16, 148, 130);
+  border: 1px solid rgb(16, 148, 130);
+}
+
+.btn-upload-file:hover, .btn-edit:hover{
+  background-color: rgb(97, 212, 197);
+}
+
+ .btn-btn:hover{
+  box-shadow: 0px 2px 15px 0px #5db3a7 !important;
+  background-color: #00d2b5;
+  color: white;
+}
  
 .Node
 {
