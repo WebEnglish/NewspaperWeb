@@ -49,60 +49,84 @@
                     style="margin-left: 60px; margin-top: -30px;width: 28%;"></a>
             <span>
                 <ul class="sign-in" style="display: flex;justify-content: center">
-                    <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" id="navbarDropdown"><i class="fas fa-user"></i>&nbsp;
-                        Hi <b>{{authUser.HoTen}}</b> 
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/account/profile">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            Profile
+                    {{#if isAuthenticated}}
+                    <form id="frmSignout" action="/account/logout" method="POST">
+
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" id="navbarDropdown"><i
+                                class="fas fa-user"></i>&nbsp;
+                            <b>{{authUser.HoTen}}</b>
                         </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" >
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
-                            Sign Out
-                        </a>
-                    </div>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/account/profile">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#myModal3">
+                                <i class="fas fa-exchange-alt"></i>
+                                Đổi mật khẩu
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="javascript: $('#frmSignout').submit();">
+                                <i class="fas fa-sign-out-alt"></i></i>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </form>
+
+                    {{else}}
                     <button data-toggle="modal" data-target="#myModal"
                         style="border: 0px; background-color: transparent">
                         <li class="dropdown"><a href="/account/login"><b>Đăng nhập</b><span class="mx-1"></span></a>
                         </li>
                     </button>
+
                     <button style="border: 0px; background-color: transparent">
                         <li><a href="/account/register"><b>Đăng kí</b><span></span></a>
                         </li>
                     </button>
+                    {{/if}}
                 </ul>
+
             </span>
         </div>
 
 
-        {{!-- <!--Modal Quên mật khẩu-->
+
+        <!--Modal Đổi mật khẩu-->
         <div class="modal fade" id="myModal3">
             <div class="modal-dialog">
-                <div class="modal-content" style="font-weight:bold; height:300px">
+                <div class="modal-content" style="font-weight:bold">
                     <div
                         style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
-                        <button type="button" class="close" data-dismiss="modal" style="cursor: pointer;">&times;</button>
-                        <h4 class="modal-title">Quên mật khẩu</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Thay đổi mật khẩu</h4>
                     </div>
                     <div style="margin :10px 30px;">
                         <div style="display:flex; flex-direction:column">
-                            <label for="mail" style="width:100%;">Email: </label> 
-                            <input id="mail" style="border-radius:10px;width:100%" type="email">
-                            <p style="margin-top: 0px;color:red">Hãy dùng email thật của bạn để nhận mật khẩu mới</p>
+                            <label style="width:100%;">Mật khẩu cũ: </label>
+                            <input style=" border-radius: 10px; width:100%" type="password">
                         </div>
-
+                        <br>
+                        <div style="display:flex; flex-direction:column">
+                            <label style="width:100%">Mật khẩu mới: </label>
+                            <input style="border-radius: 10px;width:100%" type="password">
+                        </div>
+                        <br>
+                        <div style="display:flex; flex-direction:column">
+                            <label style="width:100%">Nhập lại mật khẩu mới: </label>
+                            <input style="border-radius: 10px;width:100%" type="password">
+                        </div>
                     </div>
                     <div class="modal-footer" style="justify-content: center;border-top: 0px">
-                        <button type="button" style="border-radius: 7%;cursor: pointer;"class=" btn-danger"
-                            data-dismiss="modal">Gửi</button>
+                        <button type="button" style="border-radius: 7%" class="btn-danger" data-dismiss="modal">Thay
+                            đổi</button>
                         &nbsp;
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
         <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
             <div class="container">
@@ -130,7 +154,7 @@
 
                                 </li>
                                 {{/each}}
-                               
+
                                 <li>
                                     <div class="search-container h-100">
                                         <div class="d-flex justify-content-center h-100">

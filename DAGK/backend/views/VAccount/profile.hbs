@@ -1,0 +1,51 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+{{/section}}
+
+
+{{#section 'js'}}
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(function () {
+        $('#txtdate').datetimepicker({
+            format: 'd/m/Y',
+            timepicker: false,
+            mask: true,
+        });
+    })
+</script>
+{{/section}}
+
+
+<div class="Hungscontainer">
+    <h3 style="border-bottom: 1px solid rgb(130, 189, 169);">Cập nhật thông tin:</h3>
+    <div style="margin-left: 200px;margin-top:30px;margin-bottom:20px; ">
+        <div class="form-group  col-md-12" >
+            <label class="col-md-3">Họ tên:</label>
+            <input class="col-md-8" style=" width: 400px;padding-left: 20px;" type="text" value="{{authUser.HoTen}}">
+        </div>
+        <div class="form-group col-md-12">
+            <label class="col-md-3">Email:</label>
+            <input class="col-md-8" style="width: 400px;  padding-left: 20px;" type="text">
+        </div>
+        <div {{#if isWriter }} class="form-group col-md-12 d-none" {{/if}}  >
+            <label class="col-md-3">Hạn dùng:</label>
+            <input class="col-md-8" style=" width: 400px;padding-left: 20px;" type="text">
+        </div>
+        <div {{#if isUser}} class="form-group col-md-12 d-none " {{/if}}  >
+            <label class="col-md-3">Bút danh:</label>
+            <input class="col-md-8" style=" width: 400px;" type="text">
+        </div>
+        <div class="col-md-12 form-group ">
+            <label class="col-md-3">Ngày sinh:</label>            
+            <input clss="col-md-8" style="width: 400px; padding-left: 20px;" id="txtdate" type="text">
+        </div>
+        <div>
+            <button style="border-radius: 10px ;margin-left: 50%;width: 100px; cursor: pointer;">Cập nhật</button>
+        </div>
+        <br>
+    </div>
+</div>

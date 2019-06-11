@@ -81,6 +81,10 @@ thead{
   float: right;
 }
 
+.btna{
+  float: left !important;
+}
+
 .btn-save{
  background-color: #D9534F;
  color: white;

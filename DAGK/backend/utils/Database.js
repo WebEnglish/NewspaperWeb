@@ -41,7 +41,7 @@ module.exports = {
         connection.end();
       });
     });
-  },
+  }, 
 
   update: (tableName, idField, entity) => {
     return new Promise((resolve, reject) => {
