@@ -7,7 +7,7 @@ module.exports = {
 
   menu: () => {
     // return db.load(`select * from chuyenmuc where LoaiCM = 0`);
-    return db.load(`SELECT bang1.idChuyenMuc as idcon1, bang1.TenCM as con1, bang2.TenCM AS con2, bang2.idChuyenMuc AS idcon2,bang2.LoaiCM, cm3.TenCM FROM (SELECT TenCM, LoaiCM, idChuyenMuc FROM chuyenmuc WHERE LoaiCM != 0 GROUP BY LoaiCM) AS bang1, (SELECT cm.TenCM, cm.LoaiCM, cm.idChuyenMuc FROM chuyenmuc as cm WHERE cm.LoaiCM != 0) as bang2, chuyenmuc as cm3 WHERE bang2.TenCM != bang1.TenCM AND bang1.LoaiCM = bang2.LoaiCM AND bang2.LoaiCM = cm3.idChuyenMuc`);
+    return db.load(`SELECT bang1.idChuyenMuc as idcon1, bang1.TenCM as con1, bang2.TenCM AS con2, bang2.idChuyenMuc AS idcon2,bang2.LoaiCM, cm3.TenCM FROM (SELECT TenCM, LoaiCM, idChuyenMuc FROM chuyenmuc WHERE LoaiCM != 0 AND Xoa = 0 GROUP BY LoaiCM) AS bang1, (SELECT cm.TenCM, cm.LoaiCM, cm.idChuyenMuc FROM chuyenmuc as cm WHERE cm.LoaiCM != 0 AND cm.Xoa = 0) as bang2, chuyenmuc as cm3 WHERE bang2.TenCM != bang1.TenCM AND bang1.LoaiCM = bang2.LoaiCM AND bang2.LoaiCM = cm3.idChuyenMuc`);
   },
 
   // dropdown: () => {
@@ -15,19 +15,19 @@ module.exports = {
   // },
 
   allByCat: id => {
-    return db.load(`SELECT DISTINCT cm.TenCM as TenChuyenMuc FROM chuyenmuc AS cm JOIN baibao as bb ON bb.ChuyenMuc = cm.idChuyenMuc WHERE ChuyenMuc =  ${id}`);
+    return db.load(`SELECT DISTINCT cm.TenCM as TenChuyenMuc FROM chuyenmuc AS cm JOIN baibao as bb ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.ChuyenMuc =  ${id} AND bb.Xoa =0 AND cm.Xoa =0`);
   },
 
   pageByCat: (idCM, limit, offset) => {
-    return db.load(`SELECT bb.*, ( SELECT tv.Hoten FROM thanhvien AS tv WHERE bb.TacGia = tv.idThanhVien ) AS TenTacGia, cm.TenCM as TenChuyenMuc FROM baibao AS bb JOIN chuyenmuc AS cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE ChuyenMuc = ${idCM} AND bb.TrangThai = 1 ORDER BY bb.NgayDang DESC limit ${limit} offset ${offset}`);
+    return db.load(`SELECT bb.*, ( SELECT tv.Hoten FROM thanhvien AS tv WHERE bb.TacGia = tv.idThanhVien ) AS TenTacGia, cm.TenCM as TenChuyenMuc FROM baibao AS bb JOIN chuyenmuc AS cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.ChuyenMuc = ${idCM} AND bb.TrangThai = 1 AND bb.Xoa=0 AND cm.Xoa=0 ORDER BY bb.NgayDang DESC limit ${limit} offset ${offset}`);
   },
 
   countByCat: idCM => {
-    return db.load(`select count(*) as total from baibao where ChuyenMuc = ${idCM}`);
+    return db.load(`select count(*) as total from baibao where ChuyenMuc = ${idCM} AND Xoa =0`);
   },
 
   tag: idCM => {
-    return db.load(`SELECT nt.tenTag FROM tag_chuyenmuc as tcm JOIN nhantag as nt on tcm.idTag = nt.idTag WHERE tcm.idChuyenMuc = ${idCM}`);
+    return db.load(`SELECT nt.tenTag FROM tag_chuyenmuc as tcm JOIN nhantag as nt on tcm.idTag = nt.idTag WHERE tcm.idChuyenMuc = ${idCM} AND nt.Xoa=0`);
   },
 
   // carousel: () => {
@@ -35,19 +35,19 @@ module.exports = {
   // },
 
   t10mostview: () => {
-    return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.TrangThai =1 ORDER BY bb.luotxem DESC LIMIT 10`);
+    return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.TrangThai =1 AND bb.Xoa =0 AND cm.Xoa=0 ORDER BY bb.luotxem DESC LIMIT 10`);
   },
 
   newest: () => {
-    return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.TrangThai =1 ORDER BY bb.ngaydang DESC LIMIT 10`);
+    return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.TrangThai =1 AND bb.Xoa =0 AND cm.Xoa=0 ORDER BY bb.ngaydang DESC LIMIT 10`);
   },
 
   topCat: () => {
-    return db.load(`SELECT DISTINCT cm.TenCM, cm.idChuyenMuc FROM baibao as bb, chuyenmuc AS cm WHERE bb.ChuyenMuc = cm.idChuyenMuc ORDER BY bb.luotXem DESC LIMIT 10`);
+    return db.load(`SELECT DISTINCT cm.TenCM, cm.idChuyenMuc FROM baibao as bb, chuyenmuc AS cm WHERE bb.ChuyenMuc = cm.idChuyenMuc AND bb.Xoa =0 AND cm.Xoa=0 ORDER BY bb.luotXem DESC LIMIT 10`);
   }, 
 
   top1view: () => {
-    return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.TrangThai =1 ORDER BY bb.luotxem DESC LIMIT 1`)
+    return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.TrangThai =1 AND bb.Xoa =0 AND cm.Xoa=0 ORDER BY bb.luotxem DESC LIMIT 1`)
   },
 
   newsdetail: (idBB) => {
