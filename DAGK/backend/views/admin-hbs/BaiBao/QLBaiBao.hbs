@@ -1,7 +1,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3><b>Quản lý người dùng</b></h3>
+            <h3><b>Quản lý bài viết</b></h3>
         </div>
 
         <div class="title_right">
@@ -19,15 +19,19 @@
     <div class="clearfix"></div>
 
     <div class="row">
+
+
         <div class="clearfix"></div>
+
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Danh sách writer</h2>
+                    <h2>Danh sách các bài viết</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li class="dropdown">
-                            <a href="/admin/QuanLiTaiKhoan/writer/Add" role="button">
-                                &nbsp;<i class="fas fa-plus-circle">Thêm thành viên</i></a>
+                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                                &nbsp;<i class="fas fa-plus-circle"></i></a>
+
                         </li>
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -39,44 +43,30 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Họ & tên</th>
-                                <th>Email</th>
-                                <th>Ngày sinh</th>
-                                <th>Bút danh</th>
-                                {{!-- <th>Ngày tạo</th>
-                                <th>Ngày hết hạn</th>
-                                <th>Hiện trạng tài khoản</th>
-                                <th>Trạng thái</th> --}}
-                                {{!-- <th>Gia hạn</th> --}}
+                                <th style="width:700px">Tên bài viết</th>
+                                <th>Ngày đăng</th>
+                                <th>Trạng thái</th>
                                 <th>Hành động</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            {{#each this.docgia}}
+                            {{#each this.dsBaiBao}}
                             <tr>
-                                <td><b>{{stt}}</b></td>
-                                <td>{{HoTen}}</td>
-                                <td>{{Email}}</td>
-                                <td>{{format NgaySinh}}</td>
-                                <td>{{ButDanh}}</td>
-                                {{!-- <td>14/04/2019 19:00:20 PM</td>
-                                <td>20/04/2019 23:55:00 PM</td>
-                                <td>Đã hết hạn</td> --}}
-                                {{!-- <td>Đã yêu cầu gia hạn</td> --}}
-                                {{!-- <td>
-                                    <button class="btn">Gia
-                                        hạn</button>
-                                </td> --}}
+                                <th>{{stt}}</th>
+                                <td>{{TenBaiBao}}</td>
+                                <td>{{format NgayDang}}</td>
+                                <td>{{tenTrangThai}}</td> 
                                 <td>
-                                    <a href="/admin/QuanLiTaiKhoan/writer/edit/{{idThanhVien}}"><i
-                                            class="fas fa-eye"></i></a>
+                                    <a href=""><i class="fas fa-eye"></i></a>
                                     &nbsp;
-                                    <a href="/admin/QuanLiTaiKhoan/writer/delete/{{idThanhVien}}"><i
+                                    <a href="/admin/QuanLiBaiBao/delete/{{idBaiBao}}"><i
                                             class="fas fa-trash-alt"></i></a>
                                     &nbsp;
                                 </td>
                             </tr>
                             {{/each}}
+
                         </tbody>
                     </table>
                 </div>
@@ -90,7 +80,7 @@
             </div>
         </div>
 
-        {{!-- <!--delete-->
+        <!--delete-->
         <div class="modal fade" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -108,8 +98,7 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng
-                            ý</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
                     </div>
 
@@ -118,59 +107,31 @@
         </div>
         <!--Delete-->
 
-        <!-- giahan -->
-        <div class="modal fade" id="myModal-giahan">
-            <div class="modal-dialog-giahan">
+        <!-- rewrite-1 -->
+        <div class="modal fade" id="myModal-rewrite">
+            <div class="modal-dialog-rewrite">
                 <div class="modal-content">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title text-black">Gia hạn đến:</h4>
+                        <h4 class="modal-title text-black">Bảng chỉnh sửa</h4>
                     </div>
 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <input type="date" name="date" id="GiahanDate">
+                        <label for="txtTitle">
+                            <b class="text-black">Tiêu đề bài báo:&nbsp;</b>
+                            <input type="text" name="txtTitle" id="txtTitle" style="width:600px" value="">
+                        </label>
                     </div>
-
-                    <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng
-                            ý</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!--giahan -->
-
-        <!-- myModal-detail -->
-        <div class="modal fade" id="myModal-detail">
-            <div class="modal-dialog-detail">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title text-black">Thông tin chi tiết</h4>
-                    </div>
-
-                    <!-- Modal body -->
-                    <!--  -->
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng
-                                            ý</button> -->
+                        <button type="button" class="btn btn-save" data-dismiss="modal">Lưu</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                     </div>
 
                 </div>
             </div>
         </div>
-        <!-- /detail --> --}}
     </div>
 </div>
-<!-- /page content -->

@@ -29,7 +29,7 @@
         },
         dob: {
           required: true,
-        
+
         },
         confirm: {
           required: true,
@@ -55,7 +55,7 @@
         },
         dob: {
           required: 'Nhập ngày sinh.'
-        
+
         }
 
       },
@@ -102,6 +102,17 @@
           <label for="butdanh">Bút danh</label>
           <input type="text" class="form-control" style="margin-top:-10px" id="butdanh" name="butdanh">
         </div>
+       
+        {{/if}}
+         </br>
+        {{#if iseditor }}
+        <label></label>
+        <select id="allSelect" name="CMQuanLi" style="margin-left: 30px; height: 30px; width:200px">
+          <option id="selectAllCM">Chọn chuyên mục quản lí</option>
+          {{#each this.chuyenMuc}}
+          <option value="{{idChuyenMuc}}">{{TenCM}}</option>
+          {{/each}}
+        </select>
         {{/if}}
         <br>
         <div class="form-group">

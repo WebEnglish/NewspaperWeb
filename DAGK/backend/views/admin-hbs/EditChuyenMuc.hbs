@@ -46,17 +46,7 @@
                 <input autofocus type="text" name="tencm" style="height:30px; width:200px" class=" col-md-6" value="{{this.catec.TenCM}}"
                     placeholder="Tên chuyên mục...">
             </div>
-            <div class=''>
-                <div class="col-md-12" style="margin-top:20px">
-                    <label class="col-md-2">Người quản lí:</label>
-                    <span class=" col-md-6" style="padding-left: 30px">
-                        <select name="manager" style="height:30px; width:200px">
-                        {{#each this.member}}
-                        <option {{#if isSelected}} selected {{/if}} value="{{idThanhVien}}">{{HoTen}}</option>
-                        {{/each}}
-                    </select>
-                    </span>
-                </div>
+            <div>
                 <div {{#if kiemtra}} hidden {{/if}}  class="col-md-6" style="margin-top:20px">
                     <label class="col-md-4">Loại chuyên mục:</label>
                     <span class=" col-md-6" style="padding-left: 31px">
