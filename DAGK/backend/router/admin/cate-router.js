@@ -7,19 +7,8 @@ var router = express.Router();
 router.post('/', (req, res, next) => {
     var lcmCap1 = req.body.LCMCap1;
     if (isNaN(lcmCap1)) {
-        Promise.all([
-            userCate.CMCap1(),
-            userCate.getallnamebyid()
-        ]).then(([cate1, cate2]) => {
-            res.render('admin-hbs/QLChuyenMuc', {
-                cap1: cate1,
-                cap2: cate2,
-                layout: './main-layout',
-            });
-        }).catch(err => {
-            console.log(err);
-            res.end('error occured.')
-        });
+       res.redirect('/admin/QuanLiChuyenMuc');
+        
     }
     else {
         Promise.all([
@@ -30,6 +19,13 @@ router.post('/', (req, res, next) => {
                 if (c.idChuyenMuc === +lcmCap1) {
                     c.isSelected = true;
                 }
+            }
+            var dem = 0;
+            var i = 0;
+            for (const c of cate2) {
+                dem += 1;
+                cate2[i].stt = dem;
+                i += 1;
             }
             res.render('admin-hbs/QLChuyenMuc', {
                 cap1: cate1,
@@ -56,11 +52,9 @@ router.get('/delete/:id', (req, res) => {
 
 router.get('/add', (req, res) => {
     Promise.all([
-        MemberModel.all(),
         userCate.CMCap1()
-    ]).then(([ten, loai]) => {
+    ]).then(([loai]) => {
         res.render('admin-hbs/AddChuyenMuc', {
-            member: ten,
             cate: loai,
             layout: './main-layout'
         });
@@ -73,7 +67,6 @@ router.post('/add', (req, res) => {
     if (a.check1 === "on") {
         var entity = {
             TenCM: req.body.tencm,
-            NguoiQuanLyCM: req.body.manager,
             LoaiCM: 0,
             Xoa: 0
         }
@@ -87,7 +80,6 @@ router.post('/add', (req, res) => {
     else {
         var entity = {
             TenCM: req.body.tencm,
-            NguoiQuanLyCM: req.body.manager,
             LoaiCM: req.body.cate,
             Xoa: 0
         }
@@ -116,19 +108,12 @@ router.get('/edit/:ida', (req, res) => {
         }
         if (check === 0) {
             Promise.all([
-                userCate.allNguoiQuanLi(),
                 userCate.getCateC1(id),
                 userCate.CMCap1(),
-                userCate.NguoiQuanLi(id),
                 userCate.singleCap2(id)
 
-            ]).then(([rows1, rows2, rows3, rows4, rows5]) => {
-                for (const a of rows1) {
-                    if (a.idThanhVien === +rows4[0].idThanhVien) {
-                        a.isSelected = true;
-                       
-                    }
-                }
+            ]).then(([rows2, rows3, rows5]) => {
+                
                 for (const b of rows3) {
                     if (b.idChuyenMuc === +rows2[0].idChuyenMuc) {
                         b.isSelec = true;
@@ -137,7 +122,6 @@ router.get('/edit/:ida', (req, res) => {
                 var kiemTra = false;
                 res.render('admin-hbs/EditChuyenMuc', {
                     kiemtra: kiemTra,
-                    member: rows1,
                     allCate: rows3,
                     catec: rows5[0],
                     layout: './main-layout'
@@ -150,22 +134,12 @@ router.get('/edit/:ida', (req, res) => {
         }
         else {
             Promise.all([
-                userCate.allNguoiQuanLi(),
-                userCate.NguoiQuanLi(id),
                 userCate.singleCap1(id)
 
-            ]).then(([rows1, rows2, rows3]) => {
-                for (const a of rows1) {
-                    if (a.idThanhVien === +rows2[0].idThanhVien) {
-                        a.isSelected = true;
-                        
-                    }
-                }
+            ]).then(([rows3]) => {
                 var kiemTra = true;
                 res.render('admin-hbs/EditChuyenMuc', {
                     kiemtra: kiemTra,
-                    
-                    member: rows1,
                     catec: rows3[0],
                     layout: './main-layout'
 
@@ -195,7 +169,6 @@ router.post('/update', (req, res, next) => {
     var entity = {
         idChuyenMuc: temp.id,
         TenCM: temp.tencm,
-        NguoiQuanLyCM: temp.manager,
         LoaiCM: temp.cate
     }
     userCate.update(entity).then(id => {
