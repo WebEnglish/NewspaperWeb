@@ -23,7 +23,7 @@ require('./middlewares/upload')(app);
 app.engine('.hbs', exphbs({extname: '.hbs',
         helpers: {
         format: val => {
-          return moment(val).format('L');
+          return moment(val).format('DD/MM/YYYY');
         },
         section: hbs_sections() 
   }}));
