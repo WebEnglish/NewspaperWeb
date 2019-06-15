@@ -60,17 +60,7 @@
                 <input type="checkbox" name="check1" id="cha">Chuyên mục cha
             </div>
             <span id="Noidung">
-                <div>
-                    <input autofocus type="text" id="TenCM" name="tencm" class="form-control ml-0" style="width:800px"
-                        placeholder="Tên chuyên mục...">
-                </div>
-                <div class='d-flex flex-nowrap' style="margin-left: 30px; margin-top:20px">
-                    <label>Người quản lí:</label>
-                    <select name="manager" style="height:30px; width:200px">
-                        {{#each this.member }}
-                        <option value="{{idThanhVien}}">{{HoTen}}</option>
-                        {{/each}}
-                    </select>
+                <div class='d-flex flex-nowrap' style="margin-left: -70px; margin-bottom:20px">
                     <span id="LoaiChuyenMuc">
                         <label style="margin-left:100px">Loại chuyên mục:</label>
                         <select name="cate" style="height:30px; width:200px">
@@ -78,9 +68,14 @@
                             <option value="{{idChuyenMuc}}">{{TenCM}}</option>
                             {{/each}}
                         </select>
-
                     </span>
                 </div>
+                <div class="mt-2">
+
+                    <input autofocus type="text" id="TenCM" name="tencm" class="form-control ml-0" style="width:800px"
+                        placeholder="Tên chuyên mục...">
+                </div>
+
 
                 <div style="margin-left:30px; margin-top:30px">
                     <a class="btn btna" href="/admin/QuanLiChuyenMuc"

@@ -42,6 +42,7 @@ app.use(bodyParser());
 
 app.use('/writing', require('./router/writer'))
 app.use('/admin', require('./router/admin/admin-router'))
+app.use('/admin/QuanLiBaiBao', require('./router/admin/BaiBao-router'))
 app.use('/admin/QuanLiTaiKhoan', require('./router/admin/QLTaiKhoan'))
 app.use('/admin/QuanLiChuyenMuc', require('./router/admin/cate-router'))
 app.use('/admin/QuanLiTheTag', require('./router/admin/tag-router'))

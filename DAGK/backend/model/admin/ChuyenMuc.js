@@ -9,7 +9,7 @@ module.exports = {
     return db.load(`select * from chuyenmuc where idChuyenMuc = ${id} and Xoa = 0`);
   },
   LocCM: id  =>{
-    return db.load(`SELECT cm.*,tv.HoTen ,cm1.TenCM as TenC1 FROM chuyenmuc as cm,chuyenmuc as cm1, thanhvien as tv WHERE cm.LoaiCM = ${id} and cm.Xoa = 0 and cm.LoaiCM != 0 and cm.NguoiQuanLyCM = tv.idThanhVien and cm.LoaiCM = cm1.idChuyenMuc `);
+    return db.load(`SELECT cm.*,cm1.TenCM as TenC1 FROM chuyenmuc as cm,chuyenmuc as cm1 WHERE cm.LoaiCM = ${id} and cm.Xoa = 0 and cm.LoaiCM != 0 and cm.LoaiCM = cm1.idChuyenMuc `);
   },
 
   allNguoiQuanLi: () => {
@@ -17,7 +17,7 @@ module.exports = {
   },
 
   getallnamebyid: () =>{
-    return db.load('SELECT cm.*,tv.HoTen,cm1.TenCM as TenC1 FROM chuyenmuc as cm, thanhvien as tv, chuyenmuc as cm1 WHERE cm.NguoiQuanLyCM = tv.idThanhVien and cm.LoaiCM != 0 and cm.xoa = 0 and cm.LoaiCM = cm1.idChuyenMuc');
+    return db.load('SELECT cm.*,cm1.TenCM as TenC1 FROM chuyenmuc as cm, chuyenmuc as cm1 WHERE cm.LoaiCM != 0 and cm.xoa = 0 and cm.LoaiCM = cm1.idChuyenMuc');
   },
 
   getCateC1 : id => {
