@@ -1,107 +1,159 @@
-<div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3><b>Quản lý Chuyên mục</b></h3>
-        </div>
-        <div class="title_right">
-            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for..."></input>
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><i class="fas fa-search"></i></button>
-                    </span>
+{{#section 'js'}}
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("select").change(function () {
+            if ($('#selectAllCM').is(":selected")
+            {
+                $('#Edit').hide();
+            })
+            else {
+            $('#Edit').show();
+            }
+        })
+    })
+</script>
+<script>
+    $(document).ready(function(){
+        $('#allSelect').change(function(){
+            $('#formSelect').submit();
+        })
+    })
+</script>
+
+{{/section}}
+
+
+
+<div>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="page-title">
+            <div class="title_left">
+                <h3><b>Quản lý Chuyên mục</b></h3>
+            </div>
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for..."></input>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fas fa-search"></i></button>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="row">
         <div class="clearfix"></div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Danh sách các chuyên mục</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" onclick="addRow()">
-                                &nbsp;<i class="fas fa-plus-circle">Thêm</i></a>
-                        </li>
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
+        <div class="row">
+            <div class="clearfix"></div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Danh sách các chuyên mục</h2>
+                        <form action="/admin/QuanLiChuyenMuc" id="formSelect" method="POST">
+                            <select id="allSelect" name="LCMCap1" style="margin-left: 30px; height: 30px; width:200px">
+                                <option id="selectAllCM">Tất cả chuyên mục</option>
+                                {{#each this.cap1 }}
+                                <option {{#if isSelected}} selected {{/if}} value="{{idChuyenMuc}}">{{TenCM}}</option>
+                                {{/each}}
+                            </select>
+                            <button name="Edit" style="height: 30px;"
+                                  formaction="/admin/QuanLiChuyenMuc/editC1"><a>Chỉnh sửa</a></button>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li class="dropdown">
+                                    <a href="/admin/QuanLiChuyenMuc/add" role="button">
+                                        &nbsp;<i class="fas fa-plus-circle">Thêm</i></a>
+                                </li>
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </form>
+
+                    </div>
+                    <div class="x_content">
+                        <table class="table table-hover" id="table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên chuyên mục</th>
+                                    <th>Người quản lí</th>
+                                    <th>Loại chuyên mục</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each this.cap2 }}
+                                <tr>
+                                    <td>{{stt}}</td>
+                                    <td>{{TenCM}}</td>
+                                    <td>{{HoTen}}</td>
+                                    <td>{{TenC1}}</td>
+                                    <td>
+                                        <a href="/admin/QuanLiChuyenMuc/delete/{{idChuyenMuc}}" role="button"><i
+                                                class="fas fa-trash"></i></a>&nbsp;
+                                        <a href="/admin/QuanLiChuyenMuc/edit/{{idChuyenMuc}}" role="button"><i
+                                                class="fas fa-pen"></i></a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <ul class="pagination modal-3">
+                        <li><a href="#">&laquo</a></li>
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#" class="next">&raquo;</a></li>
                     </ul>
-                    <div class="clearfix"></div>
                 </div>
-                <div class="x_content">
-                    <table class="table table-hover" id="table">
-                        <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Tên chuyên mục</th>
-                                <th>Hành động</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each this.cate }}
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>{{TenCM}}</td>
-                                <td><a href="/admin/QuanLiChuyenMuc/delete/{{idChuyenMuc}}" role="button"><i
-                                            class="fas fa-trash"></i></a>&nbsp;
-                                    <a href="#" class="btnRewrite" data-toggle="modal" data-target="#myModal-rewrite"><i
-                                            class="fas fa-pen"></i></a>
-                                </td>
-                            </tr>
-                            {{/each}}
+            </div>
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div>
-                <ul class="pagination modal-3">
-                    <li><a href="#">&laquo</a></li>
-                    <li><a href="#" class="active">1</a></li>
-                    <li><a href="#" class="next">&raquo;</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="myModal-rewrite">
-            <div class="modal-dialog-rewrite">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title text-black">Bảng chỉnh sửa</h4>
-                    </div>
-                    <form method="POST" action="/admin/QuanLiChuyenMuc/update">
-                        <div class="modal-body">
-                            <label for="txtTitle">
-                                <b class="text-black" id="test">Tên chuyên mục:&nbsp;</b>
-                                <input type="text" name="txtCat" id="txtCat" style="width:600px" value=""></input>
-                            </label>
+            <!--Model Thông báo xoá và chỉnh sửa-->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-save" data-dismiss="modal">Lưu</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
                         </div>
-
-                    </form>
+                    </div>
                 </div>
             </div>
+            <div class="modal fade" id="myModal-rewrite">
+                <div class="modal-dialog-rewrite">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title text-black">Bảng chỉnh sửa</h4>
+                        </div>
+                        <form method="POST" action="/admin/QuanLiChuyenMuc/update">
+                            <div class="modal-body">
+                                <label for="txtTitle">
+                                    <b class="text-black" id="test">Tên chuyên mục:&nbsp;</b>
+                                    <input type="text" name="txtCat" id="txtCat" style="width:600px" value=""></input>
+                                </label>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-save" data-dismiss="modal">Lưu</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
+
 </div>

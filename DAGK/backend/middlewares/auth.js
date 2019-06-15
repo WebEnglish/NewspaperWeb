@@ -1,5 +1,5 @@
 module.exports = (req, res, next) =>{
-    if(!req.email){
+    if(!req.user){
         res.redirect('/account/login');
     } else next();
 }

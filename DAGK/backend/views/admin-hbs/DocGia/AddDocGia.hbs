@@ -10,13 +10,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 <script>
   $(function () {
-
-    $('#txtdate').datetimepicker({
-      format: 'd/m/Y',
-      timepicker: false,
-      mask: true,
-    });
-
     $('#registerForm').validate({
       rules: {
         email: {
@@ -28,14 +21,15 @@
         },
         fullName: {
           required: true,
-          
+
         },
         password: {
           required: true,
           minlength: 6
         },
         dob: {
-          required: true
+          required: true,
+        
         },
         confirm: {
           required: true,
@@ -61,6 +55,7 @@
         },
         dob: {
           required: 'Nhập ngày sinh.'
+        
         }
 
       },
@@ -76,6 +71,12 @@
 
     });
   })
+
+  $('#txtdate').datetimepicker({
+    format: 'd/m/Y',
+    timepicker: false,
+    mask: true,
+  });
 </script>
 {{/section}}
 <form novalidate action="" method="POST" id="registerForm">
@@ -95,12 +96,19 @@
           <label for="txtUsername">Họ và tên</label>
           <input type="text" class="form-control" style="margin-top:-10px" id="txtUsername" name="fullName">
         </div>
+        {{#if writer}}
+        <br>
+        <div style="display:flex; flex-direction:column">
+          <label for="butdanh">Bút danh</label>
+          <input type="text" class="form-control" style="margin-top:-10px" id="butdanh" name="butdanh">
+        </div>
+        {{/if}}
         <br>
         <div class="form-group">
           <label for="txtdate">Ngày sinh</label>
-          <input type= "text" class="form-control" id="txtdate" name="dob">
+          <input type="text" class="form-control" id="txtdate" name="dob">
         </div>
-       
+
         <br>
         <div style="display:flex; flex-direction:column">
           <label for="pass" style="width:100%">Mật khẩu: </label>
@@ -114,12 +122,12 @@
 
       </div>
       <div class="text-center " style="justify-content: center;padding-top:10px;border-top: 0px">
-        <button type="submit" style=" width:140px;border-radius: 7%;cursor: pointer;" class="mb-3 btn-danger">Đăng
-          kí
-          </button>
+        <button type="submit" style=" width:140px;border-radius: 7%;cursor: pointer;" class="mb-3 btn-danger">Thêm tài
+          khoản
+        </button>
       </div>
 
     </div>
 
   </div>
-</form>   
+</form>

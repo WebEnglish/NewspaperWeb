@@ -1,0 +1,128 @@
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="page-title">
+        <div class="title_left">
+            <h3><b>Quản lý Nhãn tag</b></h3>
+        </div>
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fas fa-search"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Danh sách các nhãn tag</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li class="dropdown">
+                            <a href="/admin/QuanLiTheTag/addTag" role="button">
+                                &nbsp;<i class="fas fa-plus-circle">Thêm</i></a>
+                        </li>
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table table-hover" id="table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên tag</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each this.listTag}}
+                            <tr>
+                                <td>{{stt}}</td>
+                                <td>{{tenTag}}</td>
+                                <td>
+                                    <a href="/admin/QuanLiTheTag/delete/{{idTag}}" ><i
+                                            class="fas fa-trash"></i></a>
+                                    &nbsp;
+                                    <a href="/admin/QuanLiTheTag/Edit/{{idTag}}" class="btnRewrite"><i
+                                            class="fas fa-pen"></i></a>
+                                </td>
+
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <ul class="pagination modal-3">
+                    <li><a href="#">&laquo</a></li>
+                    <li><a href="#" class="active">1</a></li>
+                    <li><a href="#" class="next">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--delete-->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng
+                            ý</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--Delete-->
+
+        <!-- rewrite-1 -->
+        <div class="modal fade" id="myModal-rewrite">
+            <div class="modal-dialog-rewrite">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title text-black">Bảng chỉnh sửa</h4>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <label for="txtTitle">
+                            <b class="text-black" id="test">Tên chuyên mục:&nbsp;</b>
+                            <input type="text" name="txtCat" id="txtCat" style="width:600px" value="">
+                        </label>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-save" data-dismiss="modal">Lưu</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--rewrite-1 -->
+    </div>
+</div>

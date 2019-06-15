@@ -26,8 +26,7 @@
   <link href="/adcss/style.css" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
+  {{{_sections.css}}}
 </head>
 
 <body class="nav-md">
@@ -40,8 +39,6 @@
           </div>
 
           <div class="clearfix"></div>
-
-          <!-- menu profile quick info -->
           <div class="profile clearfix">
             <div class="profile_pic">
               <img src="/adimages/user.png" alt="..." class="img-circle profile_img">
@@ -51,42 +48,35 @@
               <h2>Việt An</h2>
             </div>
           </div>
-          <!-- /menu profile quick info -->
 
           <br />
-
-          <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
               <h3>Quản lý</h3>
               <ul class="nav side-menu">
                 <li><a href="index.html"><i class="fas fa-home"></i> Home</a>
-                  <!-- <ul class="nav child_menu">
-                          <li><a href="index.html">Dashboard</a></li>
-                          <li><a href="index2.html">Dashboard2</a></li>
-                          <li><a href="index3.html">Dashboard3</a></li>
-                        </ul> -->
+
                 </li>
 
                 <li><a><i class="fas fa-table"></i> Quản lý &nbsp;<span class="fas fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="quan-ly-bai-viet.html">Quản lý bài viết</a></li>
                     <li><a href="/admin/QuanLiChuyenMuc">Quản lý chuyên mục</a></li>
-                    <li><a href="quan-ly-the-tag.html">Quản lý thẻ tag</a></li>
+                    <li><a href="/admin/QuanLiTheTag">Quản lý thẻ tag</a></li>
                   </ul>
                 </li>
                 <li>
-                  <a><i class="fas fa-users"></i> &nbsp Quản lý người dùng <span class="fas fa-chevron-down"></span></a>
+                  <a><i class="fas fa-users"></i>&nbsp Quản lý người dùng <span class="fas fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="quan-ly-nguoi-dung.html">Độc giả</a></li>
-                    <li><a href="quan-ly-bien-tap-vien.html">Biên tập viên</a></li>
-                    <li><a href="quan-ly-phong-vien.html">Phóng viên</a></li>
+                    <li><a href="/admin/QuanLiTaiKhoan/DocGia">Độc giả</a></li>
+                    <li><a href="/admin/QuanLiTaiKhoan/editor">Biên tập viên</a></li>
+                    <li><a href="/admin/QuanLiTaiKhoan/writer">Phóng viên</a></li>
                   </ul>
                 </li>
               </ul>
             </div>
           </div>
-          
+
         </div>
       </div>
 
@@ -122,41 +112,47 @@
       <div class="right_col" role="main">
         {{{body}}}
       </div>
+    </div>
+  </div>
+  <footer>
+    <div class="pull-right">
+      Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+    </div>
+    <div class="clearfix"></div>
+  </footer>
+  <!-- jQuery -->
+  <script src="/advendors/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="/advendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- FastClick -->
+  <script src="/advendors/fastclick/lib/fastclick.js"></script>
+  <!-- NProgress -->
+  <script src="/advendors/nprogress/nprogress.js"></script>
+  <!-- Chart.js -->
+  <script src="/advendors/Chart.js/dist/Chart.min.js"></script>
+  <!-- jQuery Sparklines -->
+  <script src="/advendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+  <!-- Flot -->
+  <script src="/advendors/Flot/jquery.flot.js"></script>
+  <script src="/advendors/Flot/jquery.flot.pie.js"></script>
+  <script src="/advendors/Flot/jquery.flot.time.js"></script>
+  <script src="/advendors/Flot/jquery.flot.stack.js"></script>
+  <script src="/advendors/Flot/jquery.flot.resize.js"></script>
+  <script src="/advendors/iCheck/icheck.min.js"></script>
+  <!-- Flot plugins -->
+  <script src="/advendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+  <script src="/advendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+  <script src="/advendors/flot.curvedlines/curvedLines.js"></script>
+  <!-- DateJS -->
+  <script src="/advendors/DateJS/build/date.js"></script>
+  <!-- bootstrap-daterangepicker -->
+  <script src="/advendors/moment/min/moment.min.js"></script>
+  <script src="/advendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-      
+  <!-- Custom Theme Scripts -->
+  <script src="/adbuild/js/custom.min.js"></script>
+  {{{_sections.js}}}
 
-      <!-- jQuery -->
-      <script src="/advendors/jquery/dist/jquery.min.js"></script>
-      <!-- Bootstrap -->
-      <script src="/advendors/bootstrap/dist/js/bootstrap.min.js"></script>
-      <!-- FastClick -->
-      <script src="/advendors/fastclick/lib/fastclick.js"></script>
-      <!-- NProgress -->
-      <script src="/advendors/nprogress/nprogress.js"></script>
-      <!-- Chart.js -->
-      <script src="/advendors/Chart.js/dist/Chart.min.js"></script>
-      <!-- jQuery Sparklines -->
-      <script src="/advendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-      <!-- Flot -->
-      <script src="/advendors/Flot/jquery.flot.js"></script>
-      <script src="/advendors/Flot/jquery.flot.pie.js"></script>
-      <script src="/advendors/Flot/jquery.flot.time.js"></script>
-      <script src="/advendors/Flot/jquery.flot.stack.js"></script>
-      <script src="/advendors/Flot/jquery.flot.resize.js"></script>
-      <script src="/advendors/iCheck/icheck.min.js"></script>
-
-      <!-- Flot plugins -->
-      <script src="/advendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-      <script src="/advendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-      <script src="/advendors/flot.curvedlines/curvedLines.js"></script>
-      <!-- DateJS -->
-      <script src="/advendors/DateJS/build/date.js"></script>
-      <!-- bootstrap-daterangepicker -->
-      <script src="/advendors/moment/min/moment.min.js"></script>
-      <script src="/advendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
-      <!-- Custom Theme Scripts -->
-      <script src="/adbuild/js/custom.min.js"></script>
 </body>
 
 </html>
