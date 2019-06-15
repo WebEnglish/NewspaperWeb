@@ -36,7 +36,7 @@ router.post('/register', (req, res, next) => {
     //var entity = req.body;
     var todays = new Date();
     var die = new Date();
-    die.setDate(die.getDate() + 30);
+    die.setDate(die.getDate() + 7);
     //var die = setDate(todays.getDate() + numDays);
 
     var hash = bcrypt.hashSync(req.body.password, saltRounds);

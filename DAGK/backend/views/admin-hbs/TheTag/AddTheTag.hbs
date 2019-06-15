@@ -1,6 +1,56 @@
-<form method="POST" >
+{{#section 'css'}}
+{{/section}}
+
+
+{{#section 'js'}}
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(function () {
+        $('#formAdd').validate({
+            rules: {
+                TenTag: {
+                    required: true,
+                    remote: {
+                        url: '/isValidate'
+                    }
+                }
+            },
+            messages: {
+                TenTag: {
+                    required: 'Nhập chính xác nhãn tag!'
+                }
+            },
+            errorElement: 'p',
+            errorClass: 'text-danger',
+            highlight: function (e) {
+                $(e).removeClass('is-valid').addClass('is-invalid');
+            },
+            unhighlight: function (e) {
+                $(e).removeClass('is-invalid').addClass('is-valid');
+            }
+
+        })
+    })
+</script>
+{{/section}}
+
+
+{{#if this.check}}
+<form id="formAdd" method="POST">
     <h1>Thêm thẻ tag </h1>
     <input name="TenTag" type="text">
-    <button type="submit" >Thêm</button>
+    <button type="submit">Thêm</button>
+    <button><a href="/admin/QuanLiTheTag">Quay lại</a></button>
 
 </form>
+{{else}}
+<form id="formAdd" method="POST" action="/admin/QuanLiTheTag/edit">
+    <h1>Chỉnh sửa thẻ tag </h1>
+    <input name="id" readonly value="{{this.tag.idTag}}">
+    <input name="TenTag" value="{{this.tag.tenTag}}" type="text">
+    <button type="submit">Lưu lại</button>
+    <button><a href="/admin/QuanLiTheTag">Quay lại</a></button>
+</form>
+{{/if}}
