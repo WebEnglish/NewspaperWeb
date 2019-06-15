@@ -1,0 +1,113 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+{{/section}}
+
+
+{{#section 'js'}}
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(function () {
+        $('#date').datetimepicker({
+            format: 'd/m/Y',
+            timepicker: false,
+            mask: true,
+        });
+    })
+    $(function () {
+        $('#datex').datetimepicker({
+            format: 'd/m/Y',
+            timepicker: false,
+            mask: true,
+        });
+    })
+    $(function () {
+        $('#datexx').datetimepicker({
+            format: 'd/m/Y',
+            timepicker: false,
+            mask: true,
+        });
+    })
+</script>
+
+{{/section}}
+{{#if isdocgia}}
+<form action="/admin/QuanLiTaiKhoan/DocGia/edit/{{this.docgia.idThanhVien}}" method="POST">
+{{/if}}
+{{#if iswriter}}
+<form action="/admin/QuanLiTaiKhoan/writer/edit/{{this.docgia.idThanhVien}}" method="POST">
+{{/if}}
+{{#if iseditor}}
+<form action="/admin/QuanLiTaiKhoan/editor/edit/{{this.docgia.idThanhVien}}" method="POST">
+{{/if}}
+    <div>       
+        <div class=" m-5 shadow p-3 bg-gray rounded text-black">
+            <h1>Chỉnh sửa tài khoản</h1>
+            <div class="col-md-12 mt-4">
+                <label class="col-md-2 ">Họ Tên:</label>
+                <input class="col-md-5" placeholder="Nhập họ tên" name="ten" type="text" value="{{this.docgia.HoTen}}">
+            </div>
+             {{#if iswriter}}
+            <div class="col-md-12 mt-4" style="margin-top:15px">
+                <label class="col-md-2 ">Bút danh:</label>
+                <input class="col-md-5" placeholder="Nhập bút danh" name="butdanh" type="text" value="{{this.docgia.ButDanh}}">
+            </div>
+            {{/if}}
+            <div class="col-md-12 mt-3" style="margin-top:15px">
+                <label class="col-md-2">Email:</label>
+                <input class="col-md-5" type="text" name="email" value="{{this.docgia.Email}}">
+            </div>
+           
+            <div class="col-md-12 mt-3" style="margin-top:15px">
+                <label class="col-md-2">Ngày sinh:</label>
+                <input class="col-md-5" type="text" id="date" name="date" value=" {{format this.docgia.NgaySinh}}">
+            </div>
+            {{#if isdocgia}}
+            <div class="col-md-12 mt-3" style="margin-top:15px">
+                <label class="col-md-2">Ngày kích hoạt:</label>
+                <input class="col-md-5" type="text"  readonly name="dateKh" value=" {{format this.docgia.NgayKichHoat}}">
+            </div>
+            <div class="col-md-12 mt-3" style="margin-top:15px">
+                <label class="col-md-2">Ngày hết hạn:</label>
+                <input class="col-md-5" type="text" readonly name="dateHh" value=" {{format this.docgia.NgayHetHan}}">
+            </div>
+            {{/if}}
+
+            <div class="col-md-12 ml-5" style="margin-top:20px" style="margin-top:15px">
+                {{#if isdocgia}}
+                <a class="btn btna" href="/admin/QuanLiTaiKhoan/DocGia"
+                    style="margin-left:none !important;height:35px;background-color:#2A3F54; color:floralwhite; width:100px"
+                    type="button" id="Quaylai"><i class="fa fa-backward" aria-hidden="true">&nbsp;</i>Quay lại</a>
+                {{/if}}
+                {{#if iswriter}}
+                <a class="btn btna" href="/admin/QuanLiTaiKhoan/writer"
+                    style="margin-left:none !important;height:35px;background-color:#2A3F54; color:floralwhite; width:100px"
+                    type="button" id="Quaylai"><i class="fa fa-backward" aria-hidden="true">&nbsp;</i>Quay lại</a>
+                {{/if}}
+                {{#if iseditor}}
+                <a class="btn btna" href="/admin/QuanLiTaiKhoan/editor"
+                    style="margin-left:none !important;height:35px;background-color:#2A3F54; color:floralwhite; width:100px"
+                    type="button" id="Quaylai"><i class="fa fa-backward" aria-hidden="true">&nbsp;</i>Quay lại</a>
+                {{/if}}
+                <button class="btn btna btn-primary"
+                    style="height:35px;background-color:#2A3F54; color:floralwhite; width:100px" type="submit"
+                    id="Them">
+                    <i class="fa fa-check" aria-hidden="true">&nbsp;</i>Lưu lại</button>
+                {{#if iseditor}}
+                <a class="btn btna" href="#"
+                    style="margin-left:none !important;height:35px;background-color:#2A3F54; color:floralwhite; width:200px"
+                    type="button" >Quản lí chuyên mục</a>
+                {{/if}}
+                {{#if isdocgia}}
+                <button class="btn btna btn-primary"
+                    style="height:35px;background-color:#2A3F54; color:floralwhite; width:150px" type="submit"
+                    id="Them">
+                    <i class="fa fa-check" aria-hidden="true">&nbsp;</i>Gia hạn tài khoản</button>
+                {{/if}}
+            </div>
+        </div>
+
+    </div>
+</form>

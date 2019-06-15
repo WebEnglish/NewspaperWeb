@@ -4,7 +4,7 @@ var nhanTag = require('../../model/admin/TheTag');
 var router = express.Router();
 
 router.get('/', (req, res, next) => {
-    res.render('abc', {
+    res.render('admin-hbs/TrangChuAdmin', {
         layout: './main-layout'
     });
 })
