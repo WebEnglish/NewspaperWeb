@@ -1,6 +1,7 @@
 var db = require('../../utils/Database');
 
 module.exports = {
+
   all: () => {
     return db.load('select * from baibao where Xoa = 0');
   },

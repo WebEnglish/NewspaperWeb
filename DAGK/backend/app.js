@@ -53,7 +53,7 @@ app.use('/account', require('./router/account'))
 app.use('/', require('./router/DSBaiBao.router'))
 
 
-app.use('/:idCM', require('./router/baibaochitiet'))
+//app.use('/:idCM', require('./router/baibaochitiet'))
 // app.get('/home', function (req, res) {
 //   res.render('home')
 // });
