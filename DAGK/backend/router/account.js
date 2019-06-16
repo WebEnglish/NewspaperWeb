@@ -80,7 +80,12 @@ router.post('/login', (req, res, next) => {
             if (err) {
                 return next(err);
             }
-            return res.redirect('/');
+            if (req.user.PhanHe == 4) {
+                return res.redirect('/admin')
+            }
+            else {
+                return res.redirect('/');
+            }
         });
     })(req, res, next);
 
@@ -95,23 +100,123 @@ router.post('/logout', (req, res, next) => {
     res.redirect('/account/login')
 })
 
-router.get('/profile', (req, res, next) => {
-    var isWriter = false;
-    var isEditor = false;
-    var isUser = false;
-    switch (req.user.PhanHe) {
-        case 1: isUser = true; break;
-        case 2: isWriter = true; break;
-        case 3: isEditor = true; break;
-    }
-    res.render('VAccount/profile', {
-        user: req.user,
-        isWriter: isWriter,
-        isEditor: isEditor,
-        isUser: isUser,
-        layout: './main'
-    })
+router.get('/logout', (req, res, next) => {
+    req.logOut();
+    res.redirect('/account/login')
 })
+
+router.get('/profile', (req, res, next) => {
+    if (req.user.PhanHe == 4) {
+        res.render('VAccount/profile', {
+            layout: './main-layout'
+        })
+    }
+    else {
+        var isWriter = false;
+        var isEditor = false;
+        var isUser = false;
+        switch (req.user.PhanHe) {
+            case 1: isUser = true; break;
+            case 2: isWriter = true; break;
+            case 3: isEditor = true; break;
+        }
+        res.render('VAccount/profile', {
+            user: req.user,
+            isWriter: isWriter,
+            isEditor: isEditor,
+            isUser: isUser,
+            layout: './main'
+        })
+    }
+
+})
+
+router.post('/profile', (req, res, next) => {
+    var infor = req.body;
+    var dob = moment(infor.dob, 'DD/MM/YYYY').format('YYYY/MM/DD')
+    var entity = {
+        idThanhVien: req.user.idThanhVien,
+        HoTen: infor.HoTen,
+        Email: infor.Email,
+        ButDanh: infor.ButDanh,
+        NgaySinh: dob
+    }
+    req.user.NgaySinh = infor.dob;
+    req.user.ButDanh = infor.ButDanh;
+    req.user.HoTen = infor.HoTen;
+    req.user.Email = infor.Email;
+    userModel.updatetk(entity);
+    if (req.user.PhanHe == 4) {
+        res.redirect('/admin');
+    }
+    else {
+        res.redirect('/');
+    }
+
+})
+
+router.get('/doimatkhau', (req, res) => {
+
+    if (req.user.PhanHe == 4) {
+        res.render('VAccount/DoiMatKhau', {
+            layout: './main-layout'
+        })
+    }
+    else {
+        res.render('VAccount/DoiMatKhau', {
+            layout: './main'
+        })
+    }
+
+})
+
+router.post('/doimatkhau', (req, res, next) => {
+
+    var idtk = req.user.idThanhVien;
+    var infor = req.body;
+    var ret = bcrypt.compareSync(infor.oldPass, req.user.MatKhau);
+    if (ret) {
+        var hash = bcrypt.hashSync(infor.newPass, 10);
+        var dungPass = true;
+        var entity = {
+            idThanhVien: idtk,
+            MatKhau: hash
+        }
+        req.user.MatKhau = hash;
+        userModel.updatetk(entity);
+        if (req.user.PhanHe == 4) {
+            res.render('VAccount/DoiMatKhau', {
+                dungPass: dungPass,
+                layout: './main-layout'
+            })
+        } else {
+            res.render('VAccount/DoiMatKhau', {
+                dungPass: dungPass,
+                layout: './main'
+            })
+        }
+
+    }
+    else {
+        if (req.user.PhanHe == 4) {
+            var saiPass = true;
+            res.render('VAccount/DoiMatKhau', {
+                saiPass: saiPass,
+                layout: './main-layout'
+            })
+        }
+        else {
+            var saiPass = true;
+            res.render('VAccount/DoiMatKhau', {
+                saiPass: saiPass,
+                layout: './main'
+            })
+        }
+    }
+
+
+})
+
 
 // router.post('/send', function(req, res, next) {
 //     var transporter =  nodemailer.createTransport({ // config mail server
