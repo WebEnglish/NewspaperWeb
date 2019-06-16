@@ -20,6 +20,25 @@ router.get('/home', function (req, res, next) {
         c.IsActive = true;
       }
     }
+
+    for(const d of rows){
+      if(d.Premium == 1){
+        d.isPremium = true;
+      }
+    }
+
+    for(const e of rows1){
+      if(e.Premium == 1){
+        e.isPremium = true;
+      }
+    }
+
+    for(const f of row2){
+      if(f.Premium == 1){
+        f.isPremium = true;
+      }
+    }
+
     res.render('home.hbs', {
       carousels: row,
       top10: rows,
@@ -44,6 +63,24 @@ router.get('/', function (req, res, next) {
     for (const c of row) {
       if (c.idBaiBao === row[0].idBaiBao) {
         c.IsActive = true;
+      }
+    }
+
+    for(const d of rows){
+      if(d.Premium == 1){
+        d.isPremium = true;
+      }
+    }
+
+    for(const e of rows1){
+      if(e.Premium == 1){
+        e.isPremium = true;
+      }
+    }
+
+    for(const f of row2){
+      if(f.Premium == 1){
+        f.isPremium = true;
       }
     }
 
@@ -82,7 +119,7 @@ router.get('/:idCM', (req, res, next) => {
       }
     }
 
-    for(const d of cate){
+    for(const d of rows2){
       if(d.Premium == 1){
         d.isPremium = true;
       }
@@ -148,6 +185,13 @@ router.get("/tag/:idTag", (req, res, next) => {
         pages.push(obj);
       }
 
+      for(const d of row3){
+        if(d.Premium == 1){
+          d.isPremium = true;
+        }
+      }
+
+
       res.render('dsbaibao-theo-tag.hbs', {
         Bytag: row,
         pages,
@@ -175,6 +219,12 @@ router.get('/:idCM/:idBB', function (req, res) {
       }
     }
 
+    for(const d of row){
+      if(d.Premium == 1){
+        d.isPremium = true;
+      }
+    }
+
     res.render('bai-bao', {
       detail: row,
       tagnews: row1,
@@ -192,20 +242,16 @@ router.post('/:idCM/:idBB', function (req, res, next) {
   //console.log(req.body);
   var datetime = new Date();
   var id = req.params.idBB;
+  var idcm = req.params.idCM;
   var entity = {
     NoiDung: req.body.comment,
     BaiBao: id,
     NgayDang: datetime,
-    NguoiBL: 1
+    NguoiBL: req.user.idThanhVien
   }
 
-  Promise.all([
-    baibaoModal.newsdetail(id),
-    baibaoModal.newstag(id),
-    baibaoModal.comment(id),
-    baibaoModal.relate(id),
+
     baibaoModal.addComment(entity)
-  ])
     .then( n => {
       res.redirect('back');
     })
