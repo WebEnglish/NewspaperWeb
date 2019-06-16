@@ -82,7 +82,15 @@ thead{
 }
 
 .btna{
-  float: left !important;
+  height:35px;
+  background-color:#D9534F;
+   color:white; 
+  width:100px;
+}
+
+.btna:hover{
+  background-color:rgb(223, 39, 32);
+  color:white; 
 }
 
 .btn-save{

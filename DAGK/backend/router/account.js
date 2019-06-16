@@ -106,12 +106,12 @@ router.get('/logout', (req, res, next) => {
 })
 
 router.get('/profile', (req, res, next) => {
-    if (req.user.PhanHe == 4) {
-        res.render('VAccount/profile', {
-            layout: './main-layout'
-        })
-    }
-    else {
+    // if (req.user.PhanHe == 4) {
+    //     res.render('VAccount/profile', {
+    //         layout: './main-layout'
+    //     })
+    // }
+    // else {
         var isWriter = false;
         var isEditor = false;
         var isUser = false;
@@ -127,7 +127,7 @@ router.get('/profile', (req, res, next) => {
             isUser: isUser,
             layout: './main'
         })
-    }
+    // }
 
 })
 
@@ -146,27 +146,27 @@ router.post('/profile', (req, res, next) => {
     req.user.HoTen = infor.HoTen;
     req.user.Email = infor.Email;
     userModel.updatetk(entity);
-    if (req.user.PhanHe == 4) {
-        res.redirect('/admin');
-    }
-    else {
+    // if (req.user.PhanHe == 4) {
+    //     res.redirect('/admin');
+    // }
+    // else {
         res.redirect('/');
-    }
+    // }
 
 })
 
 router.get('/doimatkhau', (req, res) => {
 
-    if (req.user.PhanHe == 4) {
-        res.render('VAccount/DoiMatKhau', {
-            layout: './main-layout'
-        })
-    }
-    else {
+    // if (req.user.PhanHe == 4) {
+    //     res.render('VAccount/DoiMatKhau', {
+    //         layout: './main-layout'
+    //     })
+    // }
+    // else {
         res.render('VAccount/DoiMatKhau', {
             layout: './main'
         })
-    }
+    // }
 
 })
 
@@ -184,34 +184,34 @@ router.post('/doimatkhau', (req, res, next) => {
         }
         req.user.MatKhau = hash;
         userModel.updatetk(entity);
-        if (req.user.PhanHe == 4) {
-            res.render('VAccount/DoiMatKhau', {
-                dungPass: dungPass,
-                layout: './main-layout'
-            })
-        } else {
+        // if (req.user.PhanHe == 4) {
+        //     res.render('VAccount/DoiMatKhau', {
+        //         dungPass: dungPass,
+        //         layout: './main-layout'
+        //     })
+        // } else {
             res.render('VAccount/DoiMatKhau', {
                 dungPass: dungPass,
                 layout: './main'
             })
-        }
+        // }
 
     }
     else {
-        if (req.user.PhanHe == 4) {
-            var saiPass = true;
-            res.render('VAccount/DoiMatKhau', {
-                saiPass: saiPass,
-                layout: './main-layout'
-            })
-        }
-        else {
+        // if (req.user.PhanHe == 4) {
+        //     var saiPass = true;
+        //     res.render('VAccount/DoiMatKhau', {
+        //         saiPass: saiPass,
+        //         layout: './main-layout'
+        //     })
+        // }
+        // else {
             var saiPass = true;
             res.render('VAccount/DoiMatKhau', {
                 saiPass: saiPass,
                 layout: './main'
             })
-        }
+        // }
     }
 
 

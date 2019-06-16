@@ -26,6 +26,7 @@
   <link href="/adcss/style.css" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
   {{{_sections.css}}}
 </head>
 
@@ -35,7 +36,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>Báo điện tử</span></a>
+            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Báo điện tử</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -45,7 +46,7 @@
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>{{authUser.HoTen}}</h2>
+              <h2>Việt An</h2>
             </div>
           </div>
 
@@ -83,32 +84,30 @@
       <!-- top navigation -->
       <div class="top_nav">
         <div class="nav_menu">
-          <form id="frmSignout" action="/account/logout" method="POST">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fas fa-bars"></i></a>
-              </div>
+          <nav>
+            <div class="nav toggle">
+              <a id="menu_toggle"><i class="fas fa-bars"></i></a>
+            </div>
 
-              <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
-                    aria-expanded="false">
-                    <img src="BT_admin/images/user.png" alt="">{{authUser.HoTen}}
-                    <span class=" fas fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="/account/profile">Cập nhật thông tin</a></li>
-                    <li>
-                      <a <a href="/account/doimatkhau" >
-                        <span>Đổi mật khẩu</span>
-                      </a>
-                    </li>
-                    <li><a href="/account/logout"><i class="fas fa-sign-out-alt pull-right"></i>Đăng xuất</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="">
+                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="BT_admin/images/user.png" alt="">Việt An
+                  <span class=" fas fa-angle-down"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                  <li><a href="Chinh-sua-thong-tin-ca-nhan.html">Cập nhật thông tin</a></li>
+                  <li>
+                    <a href="Doi-mat-khau.html">
+                      <span>Đổi mật khẩu</span>
+                    </a>
+                  </li>
+                  <li><a href="Đăng nhập/sign-in.html"><i class="fas fa-sign-out-alt pull-right"></i>Thoát</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
       <div class="right_col" role="main">

@@ -19,16 +19,43 @@
         });
     })
 </script>
+<script
+    src="https://cdn.tiny.cloud/1/c3n6lu13jap2ehdz800xbmrmucezhjkqbjyfs2ps60jbgn4z/tinymce/5/tinymce.min.js"></script>
+<script>
+    $(function () {
+        tinymce.init({
+            selector: '#exampleInputEmail',
+            height: 600,
+            menubar: false,
+            plugins: 'paste image link autolink lists checklist table media code',
+            toolbar: [
+                'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright',
+                'forecolor backcolor',
+                'table link image media', 'checklist', 'code'
+            ]
+        });
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        $("#sua-hinh").click(function () {
+            $("#abcd").hide();
+            $("#dcba").show();
+        });
+    }); 
+</script>
 {{/section}}
 
 
-<div>
+<div class="bg-white">
     <Form method="POST">
         <h1>Chỉnh sửa bài báo</h1>
-        <div class="col-md-12">
-            <div class="form-group col-md-6">
+        <hr>
+        <div class="">
+            <div class="col-md-6">
                 <label for="ten">Chuyên mục</label>
-                <select name="ChuyenMuc">
+                <select name="ChuyenMuc" class="form-control"
+                    style="margin-left: 30px; height: 35px; width:200px; border-radius:10px">
                     {{#each this.chuyenmuc}}
                     <option {{#if isSelec}} selected {{/if}} value="{{idChuyenMuc}}">{{TenCM}}</option>
                     {{/each}}
@@ -37,57 +64,70 @@
             <div class="form-group col-md-6">
                 <label for="ten">Tác giả</label>
                 <input type="text" name="TacGia" value="{{this.baibao.HoTen}}" readonly class="form-control"
-                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tác giả">
+                    id="exampleInputEmail1" aria-describedby="emailHelp" style="border-radius:10px; width: 74%">
             </div>
         </div>
-        <div class="form-group">
-            <label for="ten">Tên bài báo</label>
-            <input type="text" name="TenBaiBao" value="{{this.baibao.TenBaiBao}}" class="form-control" id="ten"
-                aria-describedby="emailHelp" placeholder="">
-        </div>
-        <div class="form-group">
+        <div class="form-group col-md-6" style="margin-top: 10px">
             <label for="date">Ngày đăng</label>
             <input type="text" name="NgayDang" value="{{format this.baibao.NgayDang}}" class="form-control" id="date"
-                aria-describedby="emailHelp" placeholder="">
+                aria-describedby="emailHelp" placeholder="" style="border-radius:10px; width: 38%">
         </div>
-        {{#if isChoDuyet}}
-        <div class="form-group">
+        {{!-- {{#if isChoDuyet}} --}}
+        <div class="form-group col-md-3" style="margin-top: 10px">
             <label for="tt">Trạng thái</label>
-            <select name="TrangThai">
+            <select name="TrangThai" class="form-control"
+                style="margin-left: 30px; height: 35px; width:200px; border-radius:10px">
                 <option value="3">Chưa được duyệt</option>
                 <option value="1">Đã xuất bản</option>
             </select>
         </div>
+        {{!-- {{/if}} --}}
 
-        {{/if}}
-        <div class="form-group">
-            <label for="exampleInputEmail1">Nội dung</label>
-            <input type="text" name="NoiDung" value="{{this.baibao.NoiDung}}" class="form-control"
-                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Nội dung tóm tắt</label>
-            <input type="text" name="NDTT" value="{{this.baibao.NoiDungTomTat}}" class="form-control"
-                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Ảnh đại diện</label>
-            <input type="text" name="avatar" value={{{this.baibao.AnhDaiDien}}} class="form-control"
-                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Fremium</label>
-            <select name="premium">
+        <div class="form-group col-md-2" style="margin-top: 10px">
+            <label for="exampleInputEmail1">Premium</label>
+            <select name="premium" class="form-control"
+                style="margin-left: 30px; height: 35px; width:70%; border-radius:10px">
                 <option {{#if Co}} selected {{/if}} value="1">Có</option>
                 <option {{#if Khong}} selected {{/if}} value="0">Không</option>
             </select>
         </div>
-        <div class="col-md-12" style="margin-top:20px">
+
+        <div class="form-group col-md-12" style="margin-top: 10px">
+            <label for="ten">Tên bài báo</label>
+            <input type="text" name="TenBaiBao" value="{{this.baibao.TenBaiBao}}" class="form-control" id="ten"
+                aria-describedby="emailHelp" placeholder="" style="border-radius:10px; width: 95%">
+        </div>
+        <div class="form-group col-md-12" style="display: flex; flex-wrap: nowrap; margin-top: 10px">
+            <label for="exampleInputEmail1">Ảnh đại diện</label>
+            <div class="col-md-9">
+                <div style="display: block" id="abcd">
+                    <img src="{{this.baibao.AnhDaiDien}}" alt="" style="width: 350px; height:250px"><br>
+                    <p class="btn mt-3 btn-hover" id="sua-hinh" style="margin-right: 555px"><b><i class="far fa-edit"></i> Sửa hình</b></p>
+                </div>
+                <div style="display:none" id="dcba">
+                    <input type="text" name="avatar" value={{{this.baibao.AnhDaiDien}}} class="form-control"
+                        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder=""
+                        style="border-radius:10px; width: 100%;">
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group col-md-12" style="margin-top: 10px">
+            <label for="exampleInputEmail1">Nội dung tóm tắt</label>
+            <textarea type="text" name="NDTT" value="" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="" cols="5"
+                style="border-radius:10px; width: 95%; height:100px; margin-left:30px">{{this.baibao.NoiDungTomTat}}</textarea>
+        </div>
+        <div class="form-group col-md-12" style="margin-top: 10px">
+            <label for="exampleInputEmail">Nội dung</label>
+            <textarea type="text" name="NoiDung" value="" class="form-control" id="exampleInputEmail"
+                aria-describedby="emailHelp" placeholder="" style="">
+                {{this.baibao.NoiDung}}</textarea>
+        </div>
+        <div class="col-md-12" style="margin-top:20px; display:flex; justify-content:space-between">
             <a class="btn btna" href="/admin/QuanLiBaiBao"
-                style="margin-left:none !important;height:35px;background-color:#2A3F54; color:floralwhite; width:100px"
                 type="button" id="Quaylai"><i class="fa fa-backward" aria-hidden="true">&nbsp;</i>Quay lại</a>
-            <button class="btn btna btn-primary"
-                style="height:35px;background-color:#2A3F54; color:floralwhite; width:100px" type="submit" id="Lưu lại">
+            <button class="btn btna" type="submit" id="Lưu lại">
                 <i class="fa fa-check" aria-hidden="true">&nbsp;</i>Lưu lại</button>
         </div>
     </Form>
