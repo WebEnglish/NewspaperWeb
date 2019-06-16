@@ -104,14 +104,11 @@ router.post('/edit/:id',(req,res) =>{
             Premium: temp.premium,
             Xoa: 0,        
         }
-    }
 
-   
+    }   
     BBModel.update(entity);
     res.redirect('/admin/QuanLiBaiBao');
 })
- 
-
 
 
 

@@ -39,7 +39,7 @@ app.use(require('./middlewares/locals.mdw'));
 app.use(require('./middlewares/writer.mdw'));
 app.use(bodyParser());
 
-
+app.use('/editor', require('./router/Editor'))
 app.use('/writing', require('./router/writer'))
 app.use('/admin', require('./router/admin/admin-router'))
 app.use('/admin/QuanLiBaiBao', require('./router/admin/BaiBao-router'))

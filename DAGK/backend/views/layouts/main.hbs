@@ -62,8 +62,32 @@
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 Profile
                             </a>
+                            
+                            {{#if isvietbai}}
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" data-toggle="modal" data-target="#myModal3">
+                            <a class="dropdown-item" href="/writing">
+                                <i class="fas fa-signature"></i>
+                                Viết bài
+                            </a>
+                            {{/if}}
+                            {{#if iseditor}}
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/editor">
+                                <i class="fas fa-edit"></i>
+                                Biên tập viên
+                            </a>
+                            {{/if}}
+                            {{#if isAdmin}}
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/admin">
+                                <i class="fas fa-tasks"></i>
+                                Quản lí website
+                            </a>
+                            {{/if}}
+                            
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/account/doimatkhau">
                                 <i class="fas fa-exchange-alt"></i>
                                 Đổi mật khẩu
                             </a>
@@ -95,38 +119,8 @@
 
 
         <!--Modal Đổi mật khẩu-->
-        <div class="modal fade" id="myModal3">
-            <div class="modal-dialog">
-                <div class="modal-content" style="font-weight:bold">
-                    <div
-                        style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Thay đổi mật khẩu</h4>
-                    </div>
-                    <div style="margin :10px 30px;">
-                        <div style="display:flex; flex-direction:column">
-                            <label style="width:100%;">Mật khẩu cũ: </label>
-                            <input style=" border-radius: 10px; width:100%" type="password">
-                        </div>
-                        <br>
-                        <div style="display:flex; flex-direction:column">
-                            <label style="width:100%">Mật khẩu mới: </label>
-                            <input style="border-radius: 10px;width:100%" type="password">
-                        </div>
-                        <br>
-                        <div style="display:flex; flex-direction:column">
-                            <label style="width:100%">Nhập lại mật khẩu mới: </label>
-                            <input style="border-radius: 10px;width:100%" type="password">
-                        </div>
-                    </div>
-                    <div class="modal-footer" style="justify-content: center;border-top: 0px">
-                        <button type="button" style="border-radius: 7%" class="btn-danger" data-dismiss="modal">Thay
-                            đổi</button>
-                        &nbsp;
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
         <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
             <div class="container">
