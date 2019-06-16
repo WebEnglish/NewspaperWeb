@@ -1873,9 +1873,13 @@ h1, h2, h3, h4, h5,
   -moz-window-shadow: 5%;
 }
 
-.carousel-caption{
+.caption{
   color: white;
   background-color: #000;
+  width: 90%;
+  margin: auto;
+  height: 100px;
+  padding-bottom: 15%;
 }
 
 .most-img{

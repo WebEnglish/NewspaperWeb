@@ -7,18 +7,7 @@
 {{#section 'js'}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/fa/theme.min.js"></script>
-<script>
-    $(function () {
-        $('#txtImg').fileinput({
-            theme: 'fa',
-            dropZoneEnabled: false,
-            allowedFileExtensions: ['png', 'jpg', 'gif'],
-            uploadUrl: '/writing',
-            uploadAsync: true,
-            autoOrientImage: true,
-        });
-    })
-</script>
+
 <script
     src="https://cdn.tiny.cloud/1/c3n6lu13jap2ehdz800xbmrmucezhjkqbjyfs2ps60jbgn4z/tinymce/5/tinymce.min.js"></script>
 <script>
@@ -111,7 +100,7 @@
     <div class="big-title text-center text-black">
         <h3><b>Đăng bài viết</b></h3>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-12 mt-5">
         <form method="POST" name="frmMain">
             <div class="col-md-12" style="padding-left: 10%">
                 <div class="d-flex flex-wrap col-md-12 mb-3">
@@ -143,17 +132,12 @@
                             <b class="text-black">Ảnh đại diện:&nbsp;</b>
                         </label>
                     </span>
-                    <div class="col-md-5 ">
-                        <button class="btn btn-upload-file" name="btnImg" id="Img" onclick="ShowImg()">
-                            <b>Upload File</b>
-                        </button>
-                        &nbsp; hoặc &nbsp;
-                        <button class="btn btn-upload-file" name="btnLinkImg" id="LinkImg" onclick="ShowImg2()">
-                            <b>Upload Link File</b>
-                        </button>
+                    <div class="col-md-9">
+                        <input class="form-control" name="img" id="txtLinkimg" type="text"
+                                style="width:830px;"></input>
                     </div>
                 </div>
-                <div class="col-12 mt-3">
+                {{!-- <div class="col-12 mt-3">
                     <div class="col-md-12" style="padding-left:18%; padding-right:10%; display:none" id="abc">
                         <div class="col-md-5 file-loading">
                             <input class="form-control" name="img" id="txtImg" type="file"></input>
@@ -170,7 +154,7 @@
                                 style="width:500px;"></input>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <br>

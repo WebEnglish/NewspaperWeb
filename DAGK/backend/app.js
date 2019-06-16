@@ -33,8 +33,10 @@ app.set('view engine', 'hbs');
 
 //app.use(require('./middlewares/view-engine'))
 
-app.use(require('./middlewares/auth-mdw'));
 app.use(express.static(__dirname+'/public'));
+
+app.use(require('./middlewares/auth-mdw'));
+
 app.use(require('./middlewares/locals.mdw'));
 app.use(require('./middlewares/writer.mdw'));
 app.use(bodyParser());
