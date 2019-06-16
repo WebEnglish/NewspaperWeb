@@ -124,8 +124,10 @@
             </div>
 
             <div class="row align-items-stretch">
-                {{#each topcat}}
+                
+               {{#each topcat}}
                 <span style="width: 50%">
+                     
                     <div class="title-chuyen-muc">
                         <a href="/{{ChuyenMuc}}">
                             <h3 class="text-center">{{TenCM}}</h3>
@@ -148,6 +150,7 @@
                     </div>
                 </span>
                  {{/each}}
+
             </div>
         </div>
     </div>
@@ -227,17 +230,18 @@
             </div>
 
             <div class="row align-items-stretch">
+			{{#each topcat}}
                 <span style="width: 50%">
-                    {{#each topcat}}
+                    
                     <div class="title-chuyen-muc">
                         <a href="/{{ChuyenMuc}}">
                             <h3 class="text-center">{{TenCM}}</h3>
                         </a>
                     </div>
-                    {{/each}}
+                    
                     <div class="" data-aos="fade-up">
                         <div class="unit-4 d-block">
-                            {{#each topview1}}
+                            
                             <div class="unit-4-icon mb-3">
                                 <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img style="height: 350px;" src="{{AnhDaiDien}}"
                                         class="most-img"></a>
@@ -250,11 +254,12 @@
                                 </p>
                                 <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
                             </div>
-                            {{/each}}
+                          
                         </div>
                     </div>
 
                 </span>
+				{{/each}}
             </div>
         </div>
     </div>
