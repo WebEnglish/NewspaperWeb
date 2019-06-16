@@ -51,18 +51,6 @@ router.get('/QuanLiTheTag', (req,res, next) => {
   
 })
 
-router.get('/account/edit',(req,res)=>{
-    var a = 2;
-    res.render('VAccount/profile', {
-        layout: './main-layout'
-    })
-})
-
-router.get('/account/editPass',(req,res)=>{
-    res.render('VAccount/DoiMatKhau', {
-        layout: './main-layout'
-    })
-})
 
 
 module.exports = router;
