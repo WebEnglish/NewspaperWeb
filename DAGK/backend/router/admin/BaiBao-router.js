@@ -1,6 +1,8 @@
 var express = require('express');
 var userCate = require('../../model/admin/ChuyenMuc');
 var BBModel = require('../../model/admin/QLBaiBao');
+var CMModel = require('../../model/admin/ChuyenMuc');
+var moment = require('moment');
 var router = express.Router();
 
 router.get('/', (req, res) => {
@@ -28,6 +30,81 @@ router.get('/delete/:id', (req, res) => {
         idBaiBao: id,
         Xoa: 1,
     }
+    BBModel.update(entity);
+    res.redirect('/admin/QuanLiBaiBao');
+})
+
+router.get('/edit/:id', (req, res) => {
+    var id = req.params.id;
+    BBModel.GetSingleTT(id).then(row => {
+        CMModel.CMCap2().then(row2 =>{
+            for (const b of row2) {
+                if (b.idChuyenMuc === +row[0].ChuyenMuc) {
+                    b.isSelec = true;
+                }
+            }
+            var Co = false;
+            var Khong = false;
+            if(row[0].Premium == 1)
+            {
+                Co = true;
+            }
+            if(row[0].Premium == 0)
+            {
+                Khong = true;
+            }
+            var isChoDuyet = false;
+            if(row[0].TrangThai == 3)
+            {   
+                isChoDuyet = true;
+            }
+            res.render('admin-hbs/BaiBao/EditBaiBao', {
+                isChoDuyet: isChoDuyet,
+                Co:Co,
+                Khong:Khong,
+                chuyenmuc: row2,
+                baibao: row[0],
+                layout: './main-layout'
+            });
+        })
+        
+    })
+    
+})
+
+router.post('/edit/:id',(req,res) =>{
+    var id = req.params.id;
+    var temp = req.body;
+    var date = moment(temp.NgayDang, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    
+    if(temp.TrangThai == null)
+    {
+        var entity = {
+            idBaiBao: id,
+            TenBaiBao : temp.TenBaiBao,
+            ChuyenMuc: temp.ChuyenMuc,
+            NgayDang : date,
+            NoiDung : temp.NoiDung,
+            NoiDungTomTat: temp.NDTT,
+            AnhDaiDien: temp.avatar,
+            Premium: temp.premium,
+            Xoa: 0,        
+        }
+    }
+    else {
+        var entity = {
+            idBaiBao: id,
+            TenBaiBao : temp.TenBaiBao,
+            ChuyenMuc: temp.ChuyenMuc,
+            NgayDang : date,
+            TrangThai: temp.TrangThai,
+            NoiDung : temp.NoiDung,
+            NoiDungTomTat: temp.NDTT,
+            AnhDaiDien: temp.avatar,
+            Premium: temp.premium,
+            Xoa: 0,        
+        }
+    }   
     BBModel.update(entity);
     res.redirect('/admin/QuanLiBaiBao');
 })
