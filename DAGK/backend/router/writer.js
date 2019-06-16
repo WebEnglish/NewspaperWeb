@@ -1,6 +1,7 @@
 var express = require('express');
 var writerModal = require('../model/Forwriter');
 var router = express.Router();
+var moment = require('moment');
 var alert = require('alert-node');;
 
 router.get('/', (req, res, next) => {
@@ -122,6 +123,29 @@ router.get('/rewrite/:idBB', (req, res, next) => {
       layout: '../writer/main'
     });
   }).catch(next);
+})
+
+router.post('/rewrite/:idBB', (req, res, next) => {
+  var id = req.params.idBB;
+  var datetime = new Date();
+  var dob = moment(datetime, 'DD/MM/YYYY').format('YYYY-MM-DD');
+  var entity = {
+    idBaiBao: id,
+    TenBaiBao: req.body.txtTitle,
+    NoiDungTomTat: req.body.summary,
+    NoiDung: req.body.editor,
+    NgayDang: dob,
+    TacGia: 4,
+    TrangThai: 3,
+    AnhDaiDien: req.body.img,
+    premium: 1,
+    luotXem: 0,
+    ChuyenMuc: req.body.optTenCM,
+  }
+
+  writerModal.update(entity).then(id=>{
+    res.redirect('/writing/3');
+  })
 })
 
 module.exports = router;

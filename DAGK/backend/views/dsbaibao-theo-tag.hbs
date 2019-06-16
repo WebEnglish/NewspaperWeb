@@ -3,38 +3,40 @@
 
         <div class="row mb-5">
             <div class="col-12 text-center">
-                {{#each cat}}
-                <h2 class="section-title mb-3" style="font-size:30px">{{TenChuyenMuc}}</h2>
-                {{/each}}
+                <h2 class="section-title mb-3" style="font-size:30px">BÀI BÁO</h2>
             </div>
         </div>
 
         {{#if isAuthenticated}}
-        <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="h-entry">
-                <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img style="width: 100%; height: 250px;" src="{{AnhDaiDien}}"
-                        alt="{{TenBaiBao}}" class="img-fluid"></a>
-                <h2><a href="/{{ChuyenMuc}}/{{idBaiBao}}">{{TenBaiBao}}</a></h2>
-                <div class="meta mb-4">
-                    <a href="">{{TenTacGia}}</a>
-                    <span class="mx-2">&bullet;</span>{{format NgayDang}}<span class="mx-2">&bullet;</span>
-                    <a href="/{{ChuyenMuc}}">{{TenChuyenMuc}}</a>
-                </div>
-                <p>{{{NoiDungTomTat}}}</p>
-                <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Tiếp tục xem...</a></p>
-            </div>
-        </div>
-        {{else}}
         <div class="row">
-            {{#each bycat2}}
+            {{#each Bytag2}}
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
                 <div class="h-entry">
                     <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img style="width: 100%; height: 250px;" src="{{AnhDaiDien}}"
                             alt="{{TenBaiBao}}" class="img-fluid"></a>
                     <h2><a href="/{{ChuyenMuc}}/{{idBaiBao}}">{{TenBaiBao}}</a></h2>
-                    {{#if isPremium}}<span class="text-black" style="background-color: rgb(192, 192, 192)">Premium</span>{{/if}}
+                     {{#if isPremium}}<span class="text-black" style="background-color: rgb(192, 192, 192)">Premium</span>{{/if}}
                     <div class="meta mb-4">
-                        <a href="">{{TenTacGia}}</a>
+                        <a href="">{{HoTen}}</a>
+                        <span class="mx-2">&bullet;</span>{{format NgayDang}}<span class="mx-2">&bullet;</span>
+                        <a href="/{{ChuyenMuc}}">{{TenChuyenMuc}}</a>
+                    </div>
+                    <p>{{{NoiDungTomTat}}}</p>
+                    <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Tiếp tục xem...</a></p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="row">
+            {{#each Bytag}}
+            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+                <div class="h-entry">
+                    <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img style="width: 100%; height: 250px;" src="{{AnhDaiDien}}"
+                            alt="{{TenBaiBao}}" class="img-fluid"></a>
+                    <h2><a href="/{{ChuyenMuc}}/{{idBaiBao}}">{{TenBaiBao}}</a></h2>
+                    <div class="meta mb-4">
+                        <a href="">{{HoTen}}</a>
                         <span class="mx-2">&bullet;</span>{{format NgayDang}}<span class="mx-2">&bullet;</span>
                         <a href="/{{ChuyenMuc}}">{{TenChuyenMuc}}</a>
                     </div>
@@ -49,9 +51,10 @@
 
         <div>
             <label style="font-size:15px; color: red; font-weight: 700"><i class="fas fa-key"></i>&nbsp;Từ khoá:
-                {{#each tag}}
+                {{#each Tagbytag}}
                 <a href="/tag/{{idTag}}" class="tag_item"
                     style="font-size: 15px; font-weight: 700; background-color: rgb(210, 223, 223)">#{{tenTag}}</a>
+                &nbsp;
                 {{/each}}
             </label>
 

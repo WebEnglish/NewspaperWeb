@@ -11,6 +11,13 @@ router.get('/:idBB', function (req, res) {
     baibaoModal.comment(id),
     baibaoModal.relate(id)
   ]).then(([row, row1, row2, row3]) => {
+    
+    for (const c of res.locals.ChuyenMuc) {
+      if (c.idcon1 === +id || c.idcon2 === +id) {
+        c.isActive = true;
+      }
+    }
+
     res.render('bai-bao', {
       detail: row,
       tagnews: row1,

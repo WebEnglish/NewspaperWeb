@@ -32,4 +32,8 @@ module.exports = {
   rewrite: idBB => {
     return db.load(`SELECT bb.*, cm.TenCM FROM baibao AS bb, chuyenmuc AS cm WHERE bb.idBaiBao=${idBB} AND bb.ChuyenMuc = cm.idChuyenMuc`);
   },
+
+  update: entity =>{
+    return db.update('baibao', 'idBaiBao', entity);
+  }
 }
