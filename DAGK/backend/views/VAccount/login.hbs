@@ -8,38 +8,38 @@
 			{{err_message}}
 		</div>
 		{{/if}}
-		<form action="/account/login" method="POST">
+		<form action="/account/login" method="POST" style="height: 350px">
 			<div
-				style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+				style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(2, 139, 121));color: white; font-weight: bold;">
 				<h4 class="modal-title">Thông tin đăng nhập</h4>
 			</div>
 			<br>
-			<div style="margin :10px 30px">
-				<div class="form-group" style="display:flex; flex-direction:row">
-					<label for="TK" class="text-center mt-2 text-black"  style="width:20%;margin-auto">Email: </label> &nbsp;
-					<input id="TK" class="form-control" style=" width:80%" name="email" placeholder="lchung@gmail.com"
+			<div class="mr-4">
+				<div class="form-group col-md-12" style="display:flex; flex-direction:row">
+					<span class="col-md-3 d-flex justify-content-end">
+						<label for="TK" class="text-center mt-2 text-black"  >Email: </label>
+					</span>
+					<input id="TK" class="form-control col-md-9"  name="email" placeholder="lchung@gmail.com"
 						type="text">
 				</div>
 				<br>
-				<div class="form-group" style="display:flex; flex-direction:row">
-					<label for="pass" class="text-center mt-2 text-black" style="width:20%">Mật khẩu: </label> &nbsp;
-					<input id="pass" name="password" placeholder="password" class="form-control" style="width:80%"
+				<div class="form-group col-md-12" style="display:flex; flex-direction:row">
+					<span class="col-md-3 d-flex justify-content-end">
+						<label for="pass" class="text-center mt-2 text-black">Mật khẩu: </label>
+					</span>
+					<input id="pass" name="password" placeholder="password" class="form-control col-md-9"
 						type="password">
 				</div>
 			</div>
 			<!-- Modal footer -->
 			<div class="modal-footer" style="justify-content: center;border-top: 0px">
-				<button type="submit" style="border-radius: 7%; cursor: pointer;" class=" btn-danger"
+				<button type="submit" style="border-radius: 10px; cursor: pointer;" class="btn btn-danger"
 					data-dismiss="modal">Đăng
 					nhập</button> &nbsp;
 			</div>
-			<div style="display:flex ;justify-content: space-around ; margin-bottom: 20px">
-				<button style="border: 0px; background-color: transparent;cursor: pointer;"><u>Quên mật
-						khẩu</u></button>
-
-				<a style="border: 0px; cursor: pointer; background-color: transparent" href="/account/register"><u>Đăng
-						kí</u>
-				</a>
+			<div class="mb-5 mr-3 d-flex justify-content-end">
+				<a href="" style="border: 0px; background-color: transparent;cursor: pointer;"><u>Quên mật
+						khẩu? </u></a>
 			</div>
 		</form>
 	</div>

@@ -1,7 +1,6 @@
 <div class="site-section" id="blog-section">
     <div class="container">
         <div class="row mb-5">
-
             <div class="col-md-12">
                 {{#if isAuthenticated}}
                 {{#each detail}}
@@ -58,6 +57,7 @@
                                 </a>
                                 {{/each}}
                             </div>
+
                         </div>
                     </div>
 
@@ -132,8 +132,6 @@
 
 
                             </div>
-
-
                         </div>
                     </div>
                     <!---->
@@ -177,7 +175,8 @@
                                         <div class="ml-4">
                                             <div style=" height: 30px; display: flex ;flex-direction:row">
                                                 <p style="font-weight:800">{{HoTen}}</p>
-                                                <p style="margin-left: 30px;">{{format NgayDang}}</p>
+                                      <p style="margin-left: 30px;">{{format NgayDang}}</p>
+                                 
                                             </div>
                                             <p style="margin-top: 0px;"> {{NoiDung}} </p>
                                         </div>

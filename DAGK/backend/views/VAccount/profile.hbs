@@ -22,29 +22,34 @@
 
 <div class="Hungscontainer">
     <h3 style="border-bottom: 1px solid rgb(130, 189, 169);">Cập nhật thông tin:</h3>
-    <div style="margin-left: 200px;margin-top:30px;margin-bottom:20px; ">
-        <div class="form-group  col-md-12" >
-            <label class="col-md-3">Họ tên:</label>
-            <input class="col-md-8" style=" width: 400px;padding-left: 20px;" type="text" value="{{authUser.HoTen}}">
+    <div class="container col-md-12 mt-4" style="margin-left: 10%">
+        <div class="form-group col-md-12 d-flex flex-nowrap" >
+            <span class="col-md-2 d-flex justify-content-start">
+                <label >Họ tên:</label>
+            </span>
+            <input class="col-md-7 form-control" style="width: 400px;" type="text" value="{{authUser.HoTen}}">
         </div>
-        <div class="form-group col-md-12">
-            <label class="col-md-3">Email:</label>
-            <input class="col-md-8" style="width: 400px;  padding-left: 20px;" type="text">
+        <div class="form-group col-md-12 d-flex flex-nowrap">
+            <label class="col-md-2 d-flex justify-content-start">Email:</label>
+            <input class="col-md-7 form-control" style="width: 400px;" type="text">
         </div>
-        <div {{#if isWriter }} class="form-group col-md-12 d-none" {{/if}}  >
-            <label class="col-md-3">Hạn dùng:</label>
-            <input class="col-md-8" style=" width: 400px;padding-left: 20px;" type="text">
+        <div class="form-group col-md-12  d-flex flex-nowrap">
+            <label class="col-md-2 d-flex justify-content-start">Ngày sinh:</label>            
+            <input class="col-md-3 form-control" style="width: 100px" id="txtdate" type="text">
         </div>
-        <div {{#if isUser}} class="form-group col-md-12 d-none " {{/if}}  >
-            <label class="col-md-3">Bút danh:</label>
-            <input class="col-md-8" style=" width: 400px;" type="text">
+       
+        <div class="form-group col-md-12 d-flex flex-nowrap" >
+            <label class="col-md-2 d-flex justify-content-start">Hạn dùng:</label>
+            <input class="col-md-3 form-control" style=" width: 400px;" type="text">
         </div>
-        <div class="col-md-12 form-group ">
-            <label class="col-md-3">Ngày sinh:</label>            
-            <input clss="col-md-8" style="width: 400px; padding-left: 20px;" id="txtdate" type="text">
+        {{#if isWriter}}
+        <div class="form-group col-md-12 d-flex flex-nowrap "  >
+            <label class="col-md-2 d-flex justify-content-start">Bút danh:</label>
+            <input class="col-md-7 form-control" style=" width: 400px;" type="text">
         </div>
+        {{/if}} 
         <div>
-            <button style="border-radius: 10px ;margin-left: 50%;width: 100px; cursor: pointer;">Cập nhật</button>
+            <button class="btn btn-update mt-3" type="submit">Cập nhật</button>
         </div>
         <br>
     </div>

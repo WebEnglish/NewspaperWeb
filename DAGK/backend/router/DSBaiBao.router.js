@@ -12,7 +12,6 @@ router.get('/home', function (req, res, next) {
     categoryModel.newest(),
     categoryModel.topCat(),
     categoryModel.top1view(),
-    categoryModel.newestForCat()
   ]).then(([row, rows, rows1, row2, row3]) => {
 
     for (const c of row) {
@@ -110,7 +109,7 @@ router.get('/:idCM', (req, res, next) => {
     categoryModel.pageByCat2(id, limit, offset),
     categoryModel.countByCat(id),
     categoryModel.tag(id)
-  ]).then(([cate, rows,rows2, count_rows, valueTag]) => {
+  ]).then(([cate, rows, rows2, count_rows, valueTag]) => {
 
     // console.log("tag nè: " + JSON.stringify(valueTag))
     for (const c of res.locals.ChuyenMuc) {
@@ -204,7 +203,7 @@ router.get("/tag/:idTag", (req, res, next) => {
 
 router.get('/:idCM/:idBB', function (req, res) {
   var id = req.params.idBB;
- var idcm = req.params.idCM;
+  var idcm = req.params.idCM;
 
   Promise.all([
     baibaoModal.newsdetail(id),
@@ -212,7 +211,7 @@ router.get('/:idCM/:idBB', function (req, res) {
     baibaoModal.comment(id),
     baibaoModal.relate(id)
   ]).then(([row, row1, row2, row3]) => {
-    
+
     for (const c of res.locals.ChuyenMuc) {
       if (c.idcon1 === +idcm || c.idcon2 === +idcm) {
         c.isActive = true;

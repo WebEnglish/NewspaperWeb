@@ -55,38 +55,38 @@
 <div>
     <div>
         <h1>Thêm chuyên mục</h1>
+        <hr>
         <form method="POST" id="formAdd" action="">
-            <div style="height: 40px">
-                <input type="checkbox" name="check1" id="cha">Chuyên mục cha
+            <div class="mb-5 col-md-5">
+                <input type="checkbox" name="check1" id="cha"> Click vào đây nếu thêm chuyên mục cha
             </div>
-            <span id="Noidung">
-                <div class='d-flex flex-nowrap' style="margin-left: -70px; margin-bottom:20px">
-                    <span id="LoaiChuyenMuc">
-                        <label style="margin-left:100px">Loại chuyên mục:</label>
-                        <select name="cate" style="height:30px; width:200px">
-                            {{#each this.cate}}
-                            <option value="{{idChuyenMuc}}">{{TenCM}}</option>
-                            {{/each}}
-                        </select>
+            <div id="Noidung">
+                <div id="LoaiChuyenMuc" class="col-md-5" style="margin-bottom: 20px">
+                    <span class="col-md-4">
+                        <label>Loại chuyên mục:</label>
                     </span>
+                    <select name="cate" style="height: 35px; width:150px; border-radius:10px">
+                        {{#each this.cate}}
+                        <option value="{{idChuyenMuc}}">{{TenCM}}</option>
+                        {{/each}}
+                    </select>
                 </div>
-                <div class="mt-2">
+            </div>
+            <div class="mt-2 col-md-12" style="display: flex; flex-wrap: nowrap; margin-left:50px">
+                <input autofocus type="text" id="TenCM" name="tencm" class="form-control"
+                    style="width:500px; border-radius:10px; margin-right:15px" placeholder="Tên chuyên mục mới...">
+                <button class="btn btna btn-primary"
+                    style="height:35px;background-color:#2A3F54; color:floralwhite; width:100px" type="submit"
+                    id="Them">
+                    <i class="fa fa-check" aria-hidden="true">&nbsp;</i>Thêm</button>
+            </div>
 
-                    <input autofocus type="text" id="TenCM" name="tencm" class="form-control ml-0" style="width:800px"
-                        placeholder="Tên chuyên mục...">
-                </div>
 
-
-                <div style="margin-left:30px; margin-top:30px">
-                    <a class="btn btna" href="/admin/QuanLiChuyenMuc"
-                        style="margin-left:none !important;height:35px;background-color:#2A3F54; color:floralwhite; width:100px"
-                        type="button" id="Quaylai"><i class="fa fa-backward" aria-hidden="true">&nbsp;</i>Quay lại</a>
-                    <button class="btn btna btn-primary"
-                        style="height:35px;background-color:#2A3F54; color:floralwhite; width:100px" type="submit"
-                        id="Them">
-                        <i class="fa fa-check" aria-hidden="true">&nbsp;</i>Thêm</button>
-
-                </div>
+            <div style="">
+                <a class="btn btna" href="/admin/QuanLiChuyenMuc"
+                    style="margin-right:1000px;height:35px;background-color:#2A3F54; color:floralwhite; width:100px; margin-top:30px"
+                    type="button" id="Quaylai"><i class="fa fa-backward" aria-hidden="true">&nbsp;</i>Quay lại</a>
+            </div>
             </span>
 
         </form>
