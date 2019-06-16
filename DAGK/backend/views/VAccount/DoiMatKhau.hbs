@@ -1,0 +1,88 @@
+{{#section 'js'}}
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+  $(function () {
+    $('#formDoiMK').validate({
+      rules: {
+        oldPass: {
+          required : true
+        },
+        newPass: {
+          required: true,
+          minlength: 6
+        },
+        confirm: {
+          required: true,
+          equalTo: $('[name="newPass"]')
+        }
+      },
+      messages: {
+        oldPass: {
+          required: '&emsp;&emsp;&emsp;Nhập mật khẩu cũ'
+        },
+        newPass: {
+          required: '&emsp;&emsp;&emsp;Yêu cầu nhập password.',
+          minlength: '&emsp;&emsp;&emsp;Mật khẩu của bạn ít nhất 6 kí tự.'
+        },
+        confirm: {
+          required: '&emsp;&emsp;&emsp;Nhập lại Password.',
+          equalTo: '&emsp;&emsp;&emsp;Password không giống nhau.'
+        }
+
+      },
+
+      errorElement: 'small',
+      errorClass: 'col help-block text-danger',
+      highlight: function (e) {
+        $(e).removeClass('is-valid').addClass('is-invalid');
+      },
+      unhighlight: function (e) {
+        $(e).removeClass('is-invalid').addClass('is-valid');
+      }
+
+    });
+  })
+</script>
+{{/section}}
+
+<Form method="POST" id="formDoiMK" action="/account/doimatkhau">
+    <div class="col-md-7" style=";margin-left: 300px; margin-top: 100px">
+        <div class="shadow p-3 m-5 bg-white rounded">
+            <div style="font-weight:bold">
+                <div
+                    style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
+                    <h4 class="modal-title">Thay đổi mật khẩu</h4>
+                </div>
+                <div style="margin :10px 30px;">
+                    <div style="display:flex; flex-direction:column">
+                        <label style="width:100%;">Mật khẩu cũ: </label>
+                        <input name="oldPass" style=" border-radius: 10px; width:100%" type="password">
+                    </div>
+                    <br>
+                    <div style="display:flex; flex-direction:column">
+                        <label style="width:100%">Mật khẩu mới: </label>
+                        <input name="newPass" style="border-radius: 10px;width:100%" type="password">
+                    </div>
+                    <br>
+                    <div style="display:flex; flex-direction:column">
+                        <label style="width:100%">Nhập lại mật khẩu mới: </label>
+                        <input name="confirm" style="border-radius: 10px;width:100%" type="password">
+                    </div>
+                </div>
+                <div class="modal-footer" style="justify-content: center;border-top: 0px">
+                    <button type="submit" style="border-radius: 7%" class="btn-danger" data-dismiss="modal">Thay
+                        đổi</button>
+                    &nbsp;
+                </div>
+                {{#if saiPass}}
+                <label>Mật khẩu cũ không chính xác</label>
+                {{/if}}
+                {{#if dungPass}}
+                <label for="">Thay đổi mật khẩu thành công</label>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</Form>

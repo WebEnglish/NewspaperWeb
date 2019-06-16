@@ -5,7 +5,7 @@
                 <h6 class="section-title mb-3">Bài viết nổi bật trong tuần</h6>
             </div>
         </div>
-        <div class="container">
+        <div class="">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -18,15 +18,13 @@
                 
                 <div class="carousel-inner">
                     {{#each this.carousels}}
-                    {{#if active}}
-                    <div class="carousel-item active">
-                        <img src="{{AnhDaiDien}}" alt="Los Angeles" class="img-top">
-                        <div class="carousel-caption">
+                    <div class="carousel-item {{#if IsActive}} active {{/if}}">
+                        <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img src="{{AnhDaiDien}}" alt="Los Angeles" class="img-top"></a>
+                        <div class="caption col-md-12 text-center pt-3">
                             <h4><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-white"><b>{{TenBaiBao}}</b></a></h4>
-                            <p>Chuyên mục: <a href="/{{ChuyenMuc}}">{{TenChuyenMuc}}</a></p>&bullet;<p>Ngày đăng: {{format NgayDang}}</p>
+                            <p>Chuyên mục: <a href="/{{ChuyenMuc}}">{{tenchuyenmuc}}</a> &nbsp; &bullet; &nbsp; Ngày đăng: {{format NgayDang}}</p>
                         </div>
                     </div>
-                    {{/if}}
                     {{/each}}
                 </div>
                 

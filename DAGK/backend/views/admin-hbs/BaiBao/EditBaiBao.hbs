@@ -1,0 +1,94 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+{{/section}}
+
+
+{{#section 'js'}}
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+<script>
+    $(function () {
+
+        $('#date').datetimepicker({
+            format: 'd/m/Y',
+            timepicker: false,
+            mask: true,
+        });
+    })
+</script>
+{{/section}}
+
+
+<div>
+    <Form method="POST">
+        <h1>Chỉnh sửa bài báo</h1>
+        <div class="col-md-12">
+            <div class="form-group col-md-6">
+                <label for="ten">Chuyên mục</label>
+                <select name="ChuyenMuc">
+                    {{#each this.chuyenmuc}}
+                    <option {{#if isSelec}} selected {{/if}} value="{{idChuyenMuc}}">{{TenCM}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="ten">Tác giả</label>
+                <input type="text" name="TacGia" value="{{this.baibao.HoTen}}" readonly class="form-control"
+                    id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tác giả">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ten">Tên bài báo</label>
+            <input type="text" name="TenBaiBao" value="{{this.baibao.TenBaiBao}}" class="form-control" id="ten"
+                aria-describedby="emailHelp" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="date">Ngày đăng</label>
+            <input type="text" name="NgayDang" value="{{format this.baibao.NgayDang}}" class="form-control" id="date"
+                aria-describedby="emailHelp" placeholder="">
+        </div>
+        {{#if isChoDuyet}}
+        <div class="form-group">
+            <label for="tt">Trạng thái</label>
+            <select name="TrangThai">
+                <option value="3">Chưa được duyệt</option>
+                <option value="1">Đã xuất bản</option>
+            </select>
+        </div>
+
+        {{/if}}
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nội dung</label>
+            <input type="text" name="NoiDung" value="{{this.baibao.NoiDung}}" class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nội dung tóm tắt</label>
+            <input type="text" name="NDTT" value="{{this.baibao.NoiDungTomTat}}" class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Ảnh đại diện</label>
+            <input type="text" name="avatar" value={{{this.baibao.AnhDaiDien}}} class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Fremium</label>
+            <select name="premium">
+                <option {{#if Co}} selected {{/if}} value="1">Có</option>
+                <option {{#if Khong}} selected {{/if}} value="0">Không</option>
+            </select>
+        </div>
+        <div class="col-md-12" style="margin-top:20px">
+            <a class="btn btna" href="/admin/QuanLiBaiBao"
+                style="margin-left:none !important;height:35px;background-color:#2A3F54; color:floralwhite; width:100px"
+                type="button" id="Quaylai"><i class="fa fa-backward" aria-hidden="true">&nbsp;</i>Quay lại</a>
+            <button class="btn btna btn-primary"
+                style="height:35px;background-color:#2A3F54; color:floralwhite; width:100px" type="submit" id="Lưu lại">
+                <i class="fa fa-check" aria-hidden="true">&nbsp;</i>Lưu lại</button>
+        </div>
+    </Form>
+</div>

@@ -23,7 +23,7 @@ require('./middlewares/upload')(app);
 app.engine('.hbs', exphbs({extname: '.hbs',
         helpers: {
         format: val => {
-          return moment(val).format('L');
+          return moment(val).format('DD/MM/YYYY');
         },
         section: hbs_sections() 
   }}));
@@ -33,13 +33,15 @@ app.set('view engine', 'hbs');
 
 //app.use(require('./middlewares/view-engine'))
 
-app.use(require('./middlewares/auth-mdw'));
 app.use(express.static(__dirname+'/public'));
+
+app.use(require('./middlewares/auth-mdw'));
+
 app.use(require('./middlewares/locals.mdw'));
 app.use(require('./middlewares/writer.mdw'));
 app.use(bodyParser());
 
-
+app.use('/editor', require('./router/Editor'))
 app.use('/writing', require('./router/writer'))
 app.use('/admin', require('./router/admin/admin-router'))
 app.use('/admin/QuanLiBaiBao', require('./router/admin/BaiBao-router'))

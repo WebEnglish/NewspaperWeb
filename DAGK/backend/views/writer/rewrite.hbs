@@ -65,14 +65,6 @@
 <script>
     $(document).ready(function () {
         $("#sua-hinh").click(function () {
-            $(this).hide();
-            $("#btnsUpload").show();
-        });
-        $("#Img1").click(function(){
-            $("#abcd").show();
-            $("#dcba").hide();
-        });
-        $("#LinkImg1").click(function(){
             $("#abcd").hide();
             $("#dcba").show();
         });
@@ -84,7 +76,7 @@
         <h3><b>Chỉnh sửa bài viết</b></h3>
     </div>
     <div class="col-md-12">
-        <form method="GET" name="frmMain">
+        <form method="POST" name="frmMain">
             <div class="col-md-12" style="padding-left: 10%">
                 <div class="d-flex flex-wrap col-md-12 mb-3">
                     <span class="col-lg-2">
@@ -94,7 +86,7 @@
                     </span>
                     {{#each Rewrite}}
                     <div class="col-md-9">
-                        <input class="form-control" type="text" name="txtTitle" id="txtTitle" style="width:850px"
+                        <input class="form-control" type="text" name="txtTitle" id="txtTitle" style="width:830px"
                             value="{{TenBaiBao}}">
                     </div>
                 </div>
@@ -106,7 +98,7 @@
                         </label>
                     </span>
                     <div class="col-md-9">
-                        <textarea class="form-control" name="summary" id="txtsummary" rows="4"
+                        <textarea class="form-control" name="summary" id="txtsummary" rows="5"
                             cols="60">{{NoiDungTomTat}}</textarea>
                     </div>
                 </div>
@@ -118,38 +110,13 @@
                         </label>
                     </span>
                     <div class="col-md-9">
-                        <div style="display: block" id="sua-hinh">
-                            <img src="{{AnhDaiDien}}"
-                                alt="" style="width: 350px; height:250px"><br>
+                        <div style="display: block" id="abcd">
+                            <img src="{{AnhDaiDien}}" alt="" style="width: 350px; height:250px"><br>
                             <p class="btn mt-3 btn-hover" id="sua-hinh"><b><i class="far fa-edit"></i> Sửa hình</b></p>
                         </div>
-
-                        <div class="col-md-9" style="display: none" id="btnsUpload">
-                            <p class="btn btn-upload-file" name="btnImg" id="Img1">
-                                <b>Upload File</b>
-                            </p>
-                            &nbsp; hoặc &nbsp;
-                            <p class="btn btn-upload-file" name="btnLinkImg" id="LinkImg1">
-                                <b>Upload Link File</b>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 mt-3">
-                    <div class="col-md-12" style="padding-left:18%; padding-right:10%; display:none" id="abcd">
-                        <div class="col-md-5 file-loading">
-                            <input class="form-control" name="img" id="txtImg" type="file"></input>
-                        </div>
-                    </div>
-                    <div class=" col-md-12" style="padding-left:17%; padding-right:10%; display:none" id="dcba">
-                        <span class="col-md-2">
-                            <label for="">
-                                <b class="text-black">Dẫn đường link ảnh:&nbsp;</b>
-                            </label>
-                        </span>
-                        <div class="col-md-10">
+                        <div style="display:none" id="dcba">
                             <input class="form-control" name="img" id="txtLinkimg" type="text"
-                                style="width:500px;"></input>
+                                style="width:830px;"></input>
                         </div>
                     </div>
                 </div>
