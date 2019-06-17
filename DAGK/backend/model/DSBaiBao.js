@@ -19,11 +19,11 @@ module.exports = {
   },
 
   pageByCat: (idCM, limit, offset) => {
-    return db.load(`SELECT bb.*, ( SELECT tv.Hoten FROM thanhvien AS tv WHERE bb.TacGia = tv.idThanhVien ) AS TenTacGia, cm.TenCM as TenChuyenMuc FROM baibao AS bb JOIN chuyenmuc AS cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.ChuyenMuc = ${idCM} AND bb.TrangThai = 1 AND bb.Xoa=0 AND cm.Xoa=0 ORDER BY bb.NgayDang DESC limit ${limit} offset ${offset}`);
+    return db.load(`SELECT bb.*, ( SELECT tv.ButDanh FROM thanhvien AS tv WHERE bb.TacGia = tv.idThanhVien ) as ButDanh, cm.TenCM as TenChuyenMuc FROM baibao AS bb JOIN chuyenmuc AS cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.ChuyenMuc = ${idCM} AND bb.TrangThai = 1 AND bb.Xoa=0 AND cm.Xoa=0 ORDER BY bb.NgayDang DESC limit ${limit} offset ${offset}`);
   },
 
   pageByCat2: (idCM, limit, offset) => {
-    return db.load(`SELECT bb.*, ( SELECT tv.Hoten FROM thanhvien AS tv WHERE bb.TacGia = tv.idThanhVien ) AS TenTacGia, cm.TenCM as TenChuyenMuc FROM baibao AS bb JOIN chuyenmuc AS cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.ChuyenMuc = ${idCM} AND bb.TrangThai = 1 AND bb.Xoa=0 AND cm.Xoa=0 ORDER BY bb.Premium DESC limit ${limit} offset ${offset} `);
+    return db.load(`SELECT bb.*, ( SELECT tv.ButDanh FROM thanhvien AS tv WHERE bb.TacGia = tv.idThanhVien ) as ButDanh, cm.TenCM as TenChuyenMuc FROM baibao AS bb JOIN chuyenmuc AS cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.ChuyenMuc = ${idCM} AND bb.TrangThai = 1 AND bb.Xoa=0 AND cm.Xoa=0 ORDER BY bb.Premium DESC limit ${limit} offset ${offset} `);
   },
 
   countByCat: idCM => {
@@ -35,11 +35,11 @@ module.exports = {
   },
 
   byTag: (idTag, limit, offset) => {
-    return db.load(`SELECT bb.*, nt.*, tv.HoTen FROM tag_baibao as tbb, nhantag as nt, baibao AS bb, thanhvien AS tv WHERE tbb.idTag = ${idTag} AND tbb.idBaiBao = bb.idBaiBao AND tbb.idTag = nt.idTag AND tv.idThanhVien = bb.TacGia AND bb.Xoa =0 AND nt.Xoa =0 AND bb.TrangThai =1 ORDER BY bb.NgayDang DESC LIMIT ${limit} OFFSET ${offset}`)
+    return db.load(`SELECT bb.*, nt.*, tv.HoTen, tv.ButDanh, cm.TenCM FROM tag_baibao as tbb, nhantag as nt, baibao AS bb, thanhvien AS tv, chuyenmuc as cm WHERE tbb.idTag = ${idTag} AND tbb.idBaiBao = bb.idBaiBao AND tbb.idTag = nt.idTag AND tv.idThanhVien = bb.TacGia AND bb.ChuyenMuc=cm.idChuyenMuc AND cm.Xoa=0 AND bb.Xoa =0 AND nt.Xoa =0 AND bb.TrangThai =1 ORDER BY bb.NgayDang DESC LIMIT ${limit} OFFSET ${offset}`)
   },
 
   byTag2: (idTag, limit, offset) => {
-    return db.load(`SELECT bb.*, nt.*, tv.HoTen FROM tag_baibao as tbb, nhantag as nt, baibao AS bb, thanhvien AS tv WHERE tbb.idTag = ${idTag} AND tbb.idBaiBao = bb.idBaiBao AND tbb.idTag = nt.idTag AND tv.idThanhVien = bb.TacGia AND bb.Xoa =0 AND nt.Xoa =0 AND bb.TrangThai =1 ORDER BY bb.Premium DESC LIMIT ${limit} OFFSET ${offset}`)
+    return db.load(`SELECT bb.*, nt.*, tv.HoTen, tv.ButDanh FROM tag_baibao as tbb, nhantag as nt, baibao AS bb, thanhvien AS tv, chuyenmuc as cm WHERE tbb.idTag = ${idTag} AND tbb.idBaiBao = bb.idBaiBao AND tbb.idTag = nt.idTag AND tv.idThanhVien = bb.TacGia AND bb.ChuyenMuc=cm.idChuyenMuc AND cm.Xoa=0 AND bb.Xoa =0 AND nt.Xoa =0 AND bb.TrangThai =1 ORDER BY bb.Premium DESC LIMIT ${limit} OFFSET ${offset}`)
   },
 
   tagByTag: idTag => {
@@ -67,7 +67,7 @@ module.exports = {
   },
 
   newsdetail: (idBB) => {
-    return db.load(`SELECT bb.*, cm.TenCM, tv.HoTen FROM baibao as bb, chuyenmuc as cm, thanhvien AS tv WHERE bb.idBaiBao= ${idBB} AND cm.idChuyenMuc = bb.ChuyenMuc AND tv.idThanhVien = bb.TacGia`);
+    return db.load(`SELECT bb.*, cm.TenCM, tv.HoTen, tv.ButDanh FROM baibao as bb, chuyenmuc as cm, thanhvien AS tv WHERE bb.idBaiBao= ${idBB} AND cm.idChuyenMuc = bb.ChuyenMuc AND tv.idThanhVien = bb.TacGia`);
   },
 
   newstag: (idBB) => {

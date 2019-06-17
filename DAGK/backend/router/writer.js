@@ -26,6 +26,11 @@ router.get('/:idTT', (req, res, next) => {
 
   var limit = 6;
   var offset = (page - 1) * limit;
+
+  if (id == 4) {
+    var isTC = true;
+  }
+
   Promise.all([
     writerModal.status(id),
     writerModal.baiviet(id, limit, offset),
@@ -55,7 +60,23 @@ router.get('/:idTT', (req, res, next) => {
           d.flat = true;
         }
       }
+
+      for (const e of row2) {
+        if (e.TrangThai == 4) {
+          e.isTC = true;
+        }
+      }
+
+      var dem = 0;
+      var i = 0;
+      for (const c of row2) {
+        dem += 1;
+        row2[i].stt = dem;
+        i += 1;
+      }
+
       res.render('writer/dsbaiviet', {
+        isTC: isTC,
         trangthai: row1,
         Baiviet: row2,
         pages,
@@ -80,19 +101,19 @@ router.post('/', (req, res, next) => {
     ChuyenMuc: req.body.optTenCM,
   }
 
-  var entity2 = {
-  
-  }
-
   Promise.all([
     writerModal.category(),
     writerModal.tag(),
     writerModal.addNews(entity)
   ]).
     then(([row, row1, row2]) => {
+      if(row2!=0){
+        isSuccess=true;
+      }
       res.render('writer/writing.hbs', {
         cat: row,
         tag: row1,
+        isSuccess: isSuccess,
         layout: '../writer/main'
       })
         .catch(err => {
@@ -111,7 +132,7 @@ router.get('/rewrite/:idBB', (req, res, next) => {
   ]).then(([row, row1, row2]) => {
 
     for (const c of row1) {
-      if(c.idChuyenMuc === +row[0].ChuyenMuc){
+      if (c.idChuyenMuc === +row[0].ChuyenMuc) {
         c.isSelected = true;
       }
     }
@@ -143,7 +164,7 @@ router.post('/rewrite/:idBB', (req, res, next) => {
     ChuyenMuc: req.body.optTenCM,
   }
 
-  writerModal.update(entity).then(id=>{
+  writerModal.update(entity).then(id => {
     res.redirect('/writing/3');
   })
 })

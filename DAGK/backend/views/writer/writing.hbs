@@ -20,7 +20,7 @@
             toolbar: [
                 'undo redo | bold italic underline strikethrough | numlist bullist | alignleft aligncenter alignright',
                 'forecolor backcolor',
-                'table link image media','checklist', 'code'
+                'table link image media', 'checklist', 'code'
             ]
         });
     })
@@ -100,6 +100,11 @@
     <div class="big-title text-center text-black">
         <h3><b>Đăng bài viết</b></h3>
     </div>
+    {{#if isSuccess}}
+    <div class="text-center mt-4" style="color: red">
+        <h4>Đăng bài thành công!</h4>
+    </div>
+    {{/if}}
     <div class="col-md-12 mt-5">
         <form method="POST" name="frmMain">
             <div class="col-md-12" style="padding-left: 10%">
@@ -133,8 +138,7 @@
                         </label>
                     </span>
                     <div class="col-md-9">
-                        <input class="form-control" name="img" id="txtLinkimg" type="text"
-                                style="width:830px;"></input>
+                        <input class="form-control" name="img" id="txtLinkimg" type="text" style="width:830px;"></input>
                     </div>
                 </div>
                 {{!-- <div class="col-12 mt-3">

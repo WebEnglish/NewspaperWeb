@@ -20,7 +20,7 @@
                     {{#if isPremium}}<span class="text-black"
                         style="background-color: rgb(192, 192, 192)">Premium</span>{{/if}}
                     <div class="meta mb-4">
-                        <a href="">{{TenTacGia}}</a>
+                        <a href="">{{ButDanh}}</a>
                         <span class="mx-2">&bullet;</span>{{format NgayDang}}<span class="mx-2">&bullet;</span>
                         <a href="/{{ChuyenMuc}}">{{TenChuyenMuc}}</a>
                     </div>
@@ -40,9 +40,11 @@
                             alt="{{TenBaiBao}}" class="img-fluid"></a>
                     <h2><a href="/{{ChuyenMuc}}/{{idBaiBao}}">{{TenBaiBao}}</a></h2>
                     <div class="meta mb-4">
-                        <a href="">{{TenTacGia}}</a>
-                        <span class="mx-2">&bullet;</span>{{format NgayDang}}<span class="mx-2">&bullet;</span>
                         <a href="/{{ChuyenMuc}}">{{TenChuyenMuc}}</a>
+                        <span class="mx-2">&bullet;</span>
+                        <a>{{ButDanh}}</a>
+                        <span class="mx-2">&bullet;</span>{{format NgayDang}}
+                        
                     </div>
                     <p>{{{NoiDungTomTat}}}</p>
                     <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Tiếp tục xem...</a></p>

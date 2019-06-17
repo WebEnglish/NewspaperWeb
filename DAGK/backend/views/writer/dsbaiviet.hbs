@@ -15,17 +15,23 @@
                         <td>Ngày đăng</td>
                         <td>Chuyên mục</td>
                         <td>Trạng thái</td>
+                        {{#if isTC}}
+                        <td>Lý do</td>
+                        {{/if}}
                         <td>Chỉnh sửa bài</td>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each Baiviet}}
                     <tr id="news1" data-href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black">
-                        <td><b>1</b></td>
+                        <td><b>{{stt}}</b></td>
                         <td><b>{{TenBaiBao}}</b></td>
                         <td><b>{{format NgayDang}}</b></td>
                         <td><b>{{TenCM}}</b></td>
                         <td><b>{{trangthai}}</b></td>
+                        {{#if this.isTC}}
+                        <td><b>{{LyDoTuChoi}}</b></td>
+                        {{/if}}
                         <td>
                             <b>
                                 {{#if flat}}
