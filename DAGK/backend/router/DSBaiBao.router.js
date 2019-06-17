@@ -1,9 +1,11 @@
-var express = require('express');
 
+
+var express = require('express');
 var categoryModel = require('../model/DSBaiBao');
 var writerModal = require('../model/Forwriter');
 var baibaoModal = require('../model/DSBaiBao');
 var router = express.Router();
+
 
 router.get('/home', function (req, res, next) {
   Promise.all([
@@ -12,7 +14,6 @@ router.get('/home', function (req, res, next) {
     categoryModel.newest(),
     categoryModel.topCat(),
     categoryModel.top1view(),
-    categoryModel.newestForCat()
   ]).then(([row, rows, rows1, row2, row3]) => {
 
     for (const c of row) {
@@ -20,6 +21,25 @@ router.get('/home', function (req, res, next) {
         c.IsActive = true;
       }
     }
+
+    for(const d of rows){
+      if(d.Premium == 1){
+        d.isPremium = true;
+      }
+    }
+
+    for(const e of rows1){
+      if(e.Premium == 1){
+        e.isPremium = true;
+      }
+    }
+
+    for(const f of row2){
+      if(f.Premium == 1){
+        f.isPremium = true;
+      }
+    }
+
     res.render('home.hbs', {
       carousels: row,
       top10: rows,
@@ -44,6 +64,24 @@ router.get('/', function (req, res, next) {
     for (const c of row) {
       if (c.idBaiBao === row[0].idBaiBao) {
         c.IsActive = true;
+      }
+    }
+
+    for(const d of rows){
+      if(d.Premium == 1){
+        d.isPremium = true;
+      }
+    }
+
+    for(const e of rows1){
+      if(e.Premium == 1){
+        e.isPremium = true;
+      }
+    }
+
+    for(const f of row2){
+      if(f.Premium == 1){
+        f.isPremium = true;
       }
     }
 
@@ -73,7 +111,7 @@ router.get('/:idCM', (req, res, next) => {
     categoryModel.pageByCat2(id, limit, offset),
     categoryModel.countByCat(id),
     categoryModel.tag(id)
-  ]).then(([cate, rows,rows2, count_rows, valueTag]) => {
+  ]).then(([cate, rows, rows2, count_rows, valueTag]) => {
 
     // console.log("tag nè: " + JSON.stringify(valueTag))
     for (const c of res.locals.ChuyenMuc) {
@@ -82,7 +120,7 @@ router.get('/:idCM', (req, res, next) => {
       }
     }
 
-    for(const d of cate){
+    for(const d of rows2){
       if(d.Premium == 1){
         d.isPremium = true;
       }
@@ -148,6 +186,13 @@ router.get("/tag/:idTag", (req, res, next) => {
         pages.push(obj);
       }
 
+      for(const d of row3){
+        if(d.Premium == 1){
+          d.isPremium = true;
+        }
+      }
+
+
       res.render('dsbaibao-theo-tag.hbs', {
         Bytag: row,
         pages,
@@ -160,7 +205,7 @@ router.get("/tag/:idTag", (req, res, next) => {
 
 router.get('/:idCM/:idBB', function (req, res) {
   var id = req.params.idBB;
- var idcm = req.params.idCM;
+  var idcm = req.params.idCM;
 
   Promise.all([
     baibaoModal.newsdetail(id),
@@ -168,10 +213,16 @@ router.get('/:idCM/:idBB', function (req, res) {
     baibaoModal.comment(id),
     baibaoModal.relate(id)
   ]).then(([row, row1, row2, row3]) => {
-    
+
     for (const c of res.locals.ChuyenMuc) {
       if (c.idcon1 === +idcm || c.idcon2 === +idcm) {
         c.isActive = true;
+      }
+    }
+
+    for(const d of row){
+      if(d.Premium == 1){
+        d.isPremium = true;
       }
     }
 
@@ -192,20 +243,16 @@ router.post('/:idCM/:idBB', function (req, res, next) {
   //console.log(req.body);
   var datetime = new Date();
   var id = req.params.idBB;
+  var idcm = req.params.idCM;
   var entity = {
     NoiDung: req.body.comment,
     BaiBao: id,
     NgayDang: datetime,
-    NguoiBL: 1
+    NguoiBL: req.user.idThanhVien
   }
 
-  Promise.all([
-    baibaoModal.newsdetail(id),
-    baibaoModal.newstag(id),
-    baibaoModal.comment(id),
-    baibaoModal.relate(id),
+
     baibaoModal.addComment(entity)
-  ])
     .then( n => {
       res.redirect('back');
     })
@@ -226,7 +273,5 @@ router.post('/:id', (req, res) => {
   writerModal.update(entity);
   res.redirect('/editor')
 });
-
-
 
 module.exports = router;

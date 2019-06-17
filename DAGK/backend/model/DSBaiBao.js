@@ -35,11 +35,11 @@ module.exports = {
   },
 
   byTag: (idTag, limit, offset) => {
-    return db.load(`SELECT bb.*, nt.*, tv.HoTen FROM tag_baibao as tbb, nhantag as nt, baibao AS bb, thanhvien AS tv WHERE tbb.idTag = ${idTag} AND tbb.idBaiBao = bb.idBaiBao AND tbb.idTag = nt.idTag AND tv.idThanhVien = bb.TacGia AND bb.Xoa =0 AND nt.Xoa =0 ORDER BY bb.NgayDang DESC LIMIT ${limit} OFFSET ${offset}`)
+    return db.load(`SELECT bb.*, nt.*, tv.HoTen FROM tag_baibao as tbb, nhantag as nt, baibao AS bb, thanhvien AS tv WHERE tbb.idTag = ${idTag} AND tbb.idBaiBao = bb.idBaiBao AND tbb.idTag = nt.idTag AND tv.idThanhVien = bb.TacGia AND bb.Xoa =0 AND nt.Xoa =0 AND bb.TrangThai =1 ORDER BY bb.NgayDang DESC LIMIT ${limit} OFFSET ${offset}`)
   },
 
   byTag2: (idTag, limit, offset) => {
-    return db.load(`SELECT bb.*, nt.*, tv.HoTen FROM tag_baibao as tbb, nhantag as nt, baibao AS bb, thanhvien AS tv WHERE tbb.idTag = ${idTag} AND tbb.idBaiBao = bb.idBaiBao AND tbb.idTag = nt.idTag AND tv.idThanhVien = bb.TacGia AND bb.Xoa =0 AND nt.Xoa =0 ORDER BY bb.Premium DESC LIMIT ${limit} OFFSET ${offset}`)
+    return db.load(`SELECT bb.*, nt.*, tv.HoTen FROM tag_baibao as tbb, nhantag as nt, baibao AS bb, thanhvien AS tv WHERE tbb.idTag = ${idTag} AND tbb.idBaiBao = bb.idBaiBao AND tbb.idTag = nt.idTag AND tv.idThanhVien = bb.TacGia AND bb.Xoa =0 AND nt.Xoa =0 AND bb.TrangThai =1 ORDER BY bb.Premium DESC LIMIT ${limit} OFFSET ${offset}`)
   },
 
   tagByTag: idTag => {
@@ -59,11 +59,7 @@ module.exports = {
   },
 
   topCat: () => {
-    return db.load(`SELECT DISTINCT cm.TenCM, cm.idChuyenMuc FROM baibao as bb, chuyenmuc AS cm WHERE bb.ChuyenMuc = cm.idChuyenMuc AND bb.Xoa =0 AND cm.Xoa=0 ORDER BY bb.luotXem DESC LIMIT 10`);
-  },
-
-  newestForCat: () => {
-    return db.load(`SELECT bb.*, cm.tenCM FROM baibao as bb JOIN chuyenmuc as cm ON bb.ChuyenMuc = cm.idChuyenMuc WHERE bb.TrangThai =1 AND bb.Xoa =0 AND cm.Xoa=0 ORDER BY bb.ngaydang DESC`);
+    return db.load(`SELECT bb.*, cm.TenCM, tv.HoTen FROM baibao AS bb, chuyenmuc AS cm, thanhvien AS tv WHERE bb.ChuyenMuc = cm.idChuyenMuc AND bb.TacGia = tv.idThanhVien AND bb.TrangThai =1 AND bb.Xoa =0 GROUP BY bb.ChuyenMuc HAVING MAX(bb.NgayDang) ORDER BY bb.luotXem DESC LIMIT 10`);
   },
 
   top1view: () => {
@@ -71,7 +67,7 @@ module.exports = {
   },
 
   newsdetail: (idBB) => {
-    return db.load(`SELECT bb.*, cm.TenCM, tv.HoTen FROM baibao as bb, chuyenmuc as cm, thanhvien AS tv WHERE bb.idBaiBao= ${idBB} AND cm.idChuyenMuc = bb.ChuyenMuc AND tv.idThanhVien = bb.TacGia AND bb.TrangThai =1`);
+    return db.load(`SELECT bb.*, cm.TenCM, tv.HoTen FROM baibao as bb, chuyenmuc as cm, thanhvien AS tv WHERE bb.idBaiBao= ${idBB} AND cm.idChuyenMuc = bb.ChuyenMuc AND tv.idThanhVien = bb.TacGia`);
   },
 
   newstag: (idBB) => {

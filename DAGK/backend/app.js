@@ -23,7 +23,7 @@ require('./middlewares/upload')(app);
 app.engine('.hbs', exphbs({extname: '.hbs',
         helpers: {
         format: val => {
-          return moment(val).format('DD/MM/YYYY');
+          return moment(val).format('L');
         },
         section: hbs_sections() 
   }}));
@@ -41,7 +41,7 @@ app.use(require('./middlewares/locals.mdw'));
 app.use(require('./middlewares/writer.mdw'));
 app.use(bodyParser());
 
-app.use('/editor', require('./router/Editor'))
+
 app.use('/writing', require('./router/writer'))
 app.use('/admin', require('./router/admin/admin-router'))
 app.use('/admin/QuanLiBaiBao', require('./router/admin/BaiBao-router'))
@@ -53,7 +53,7 @@ app.use('/account', require('./router/account'))
 app.use('/', require('./router/DSBaiBao.router'))
 
 
-app.use('/:idCM', require('./router/baibaochitiet'))
+//app.use('/:idCM', require('./router/baibaochitiet'))
 // app.get('/home', function (req, res) {
 //   res.render('home')
 // });

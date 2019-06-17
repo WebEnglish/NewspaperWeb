@@ -4,7 +4,9 @@ var db = require('../utils/Database');
 module.exports = {
   all: () => {
     return db.load('select * from thanhvien');
-  },  
+  },
+
+  
 
   single: id => {
     return db.load(`select * from thanhvien where idThanhVien = ${id}`);
@@ -23,11 +25,6 @@ module.exports = {
     delete entity.idThanhVien;
     return db.update('thanhvien', 'idThanhVien', entity, id);
   },
-
-  updatetk: entity => {
-    return db.update('thanhvien', 'idThanhVien', entity);
-  },
-
 
   delete: id => {
     return db.delete('thanhvien', 'idThanhVien', id);

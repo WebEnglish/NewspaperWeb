@@ -2081,7 +2081,7 @@ td{
    color: white;
  }
 
-.btn-upload-file, .btn-edit{
+.btn-upload-file, .btn-edit, .btn-update{
   background-color: #00D2B5;
    color: white;
 }
@@ -2107,7 +2107,14 @@ td{
   background-color: #00d2b5;
   color: white;
 }
- 
+.btn-update{
+margin-left:34%;
+}
+
+.btn-update:hover{
+  color: rgb(255, 255, 255);
+  background-color: #00ae96;
+}
 .Node
 {
   text-align: center; 
