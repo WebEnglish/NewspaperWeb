@@ -25,8 +25,12 @@ module.exports = {
     delete entity.idThanhVien;
     return db.update('thanhvien', 'idThanhVien', entity, id);
   },
-
+  updatetk: entity => {
+    return db.update('thanhvien', 'idThanhVien', entity);
+  },
   delete: id => {
     return db.delete('thanhvien', 'idThanhVien', id);
   }
+
+
 };

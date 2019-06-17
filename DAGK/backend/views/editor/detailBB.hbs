@@ -6,8 +6,7 @@
         tinymce.init({
             readonly: true,
             selector: '#Noidung',
-            
-            height: 400,
+            height: 600,
             menubar: false,
 
         });
@@ -15,13 +14,93 @@
 </script>
 {{/section}}
 
-
-<div style="margin-top:100px" class="text-black">
-    <div class="col-md-12 text-black text-center">
-        <h3>Thông tin bài báo</h3>
+<div class="site-section">
+    <div class="big-title text-center text-black">
+        <h3><b>Thông Tin Bài Viết</b></h3>
     </div>
-    <div class="col-md-12 mt-3" class="form-group">
-        <label class="col-md-2" for="">Tên bài báo</label>
+    <div class="col-md-12 mt-5">
+        <form method="get" name="frmMain">
+            <div class="col-md-12" style="padding-left: 10%">
+                <div class="d-flex flex-wrap col-md-12 mb-3">
+                    <span class="col-lg-2">
+                        <label for="txtTitle">
+                            <b class="text-black">Tiêu đề bài báo:&nbsp;</b>
+                        </label>
+                    </span>
+                    <div class="col-md-9">
+                        <textarea class="form-control" type="text"
+                            style="width:825px">{{this.NoiDung.TenBaiBao}}</textarea>
+                    </div>
+                </div>
+
+                <div class=" d-flex flex-wrap col-md-12 mb-3">
+                    <span class="col-md-2">
+                        <label>
+                            <b class="text-black">Tóm tắt:&nbsp;</b>
+                        </label>
+                    </span>
+                    <div class="col-md-9">
+                        <textarea class="form-control" rows="4" cols="60">{{this.NoiDung.NoiDungTomTat}}</textarea>
+                        {{!-- <input type="text" name="txtSummary" id="txtSummary" style="width:500px; height: 100px"> --}}
+                    </div>
+                </div>
+
+                <div class=" d-flex flex-wrap col-md-12 mb-3">
+                    <span class="col-md-2">
+                        <label for="">
+                            <b class="text-black">Ảnh đại diện:&nbsp;</b>
+                        </label>
+                    </span>
+                    <div class="col-md-9">
+                        <div style="display: block" id="abcd">
+                            <img src="{{this.NoiDung.AnhDaiDien}}" alt="" style="width: 350px; height:250px"><br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" d-flex flex-wrap col-md-12 mb-3">
+                    <span class="col-md-2">
+                        <label>
+                            <b class="text-black">Chuyên mục:&nbsp;</b>
+                        </label>
+                    </span>
+                    <div class="col-md-5">
+                        <input class="form-control" value="{{this.NoiDung.TenCM}}">
+                    </div>
+                </div>
+
+                <div class=" d-flex flex-wrap col-md-12 mb-3">
+                    <span class="col-md-2">
+                        <label>
+                            <b class="text-black">Tác giả:&nbsp;</b>
+                        </label>
+                    </span>
+                    <div class="col-md-5">
+                        <input class="form-control" value="{{this.NoiDung.HoTen}}">
+                    </div>
+                </div>
+
+            </div>
+
+            <br>
+            <div class="body-for-writing">
+                <textarea id="Noidung" rows="10" cols="80">{{{this.NoiDung.NoiDung}}}</textarea>
+            </div>
+        </form>
+        <div class="col-md-12" style="font-size:20px;margin-top:40px">
+            <a href="/editor"  class="btn btn-btn"><i
+                    class="fa fa-backward text-black" aria-hidden="true">&nbsp;&nbsp;</i><b class="text-black"
+                    style="border-bottom: 1 solid black ">Quay lại</b></a>
+        </div>
+    </div>
+</div>
+
+{{!-- <div style="margin-top:100px" class="text-black">
+    <div class="col-md-12 text-black text-center">
+        <h3><b>Thông tin bài báo</b></h3>
+    </div>
+    <div class="col-md-12 mt-3 form-group">
+        <label class="col-md-2" for="">Tiêu đề bài báo:</label>
         <textarea readonly class="col-md-9" type="email" class="form-control"> {{this.NoiDung.TenBaiBao}}</textarea>
     </div>
     <div class="col-md-12 mt-3" class="form-group">
@@ -39,9 +118,11 @@
         <input readonly class="col-md-2" style="height: 35px" value="{{this.NoiDung.HoTen}}">
     </div>
     <div class="col-md-11 mt-3 ml-5">
-        
+
         <textarea class="col-md-9" id="Noidung">{{{this.NoiDung.NoiDung}}}</textarea>
     </div>
     <div class="col-md-12" style="font-size:20px;margin-top:40px">
-        <a href="/editor" style="margin-left:none !important;height:35px; width:100px"><i class="fa fa-backward text-black" aria-hidden="true">&nbsp;&nbsp;</i><b class="text-black" style="border-bottom: 1 solid black ">Quay lại</b></a>
-    </div>
+        <a href="/editor" style="margin-left:none !important;height:35px; width:100px"><i
+                class="fa fa-backward text-black" aria-hidden="true">&nbsp;&nbsp;</i><b class="text-black"
+                style="border-bottom: 1 solid black ">Quay lại</b></a>
+    </div> --}}

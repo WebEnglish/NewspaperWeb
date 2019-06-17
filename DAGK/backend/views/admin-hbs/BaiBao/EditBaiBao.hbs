@@ -72,7 +72,7 @@
             <input type="text" name="NgayDang" value="{{format this.baibao.NgayDang}}" class="form-control" id="date"
                 aria-describedby="emailHelp" placeholder="" style="border-radius:10px; width: 38%">
         </div>
-        {{!-- {{#if isChoDuyet}} --}}
+        {{#if isChoDuyet}}
         <div class="form-group col-md-3" style="margin-top: 10px">
             <label for="tt">Trạng thái</label>
             <select name="TrangThai" class="form-control"
@@ -81,7 +81,7 @@
                 <option value="1">Đã xuất bản</option>
             </select>
         </div>
-        {{!-- {{/if}} --}}
+        {{/if}}
 
         <div class="form-group col-md-2" style="margin-top: 10px">
             <label for="exampleInputEmail1">Premium</label>

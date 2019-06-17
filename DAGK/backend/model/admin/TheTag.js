@@ -13,7 +13,7 @@ module.exports = {
     return db.load(`select * from nhantag where idTag = '${id}' and Xoa = 0`);
   },
   update: entity => {
-    return db.update('nhanTag', 'idTag', entity);
+    return db.update('nhantag', 'idTag', entity);
   },
 
 }

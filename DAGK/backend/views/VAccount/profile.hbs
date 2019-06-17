@@ -20,37 +20,45 @@
 {{/section}}
 
 
-<div class="Hungscontainer">
-    <h3 style="border-bottom: 1px solid rgb(130, 189, 169);">Cập nhật thông tin:</h3>
-    <div class="container col-md-12 mt-4" style="margin-left: 10%">
-        <div class="form-group col-md-12 d-flex flex-nowrap" >
-            <span class="col-md-2 d-flex justify-content-start">
-                <label >Họ tên:</label>
-            </span>
-            <input class="col-md-7 form-control" style="width: 400px;" type="text" value="{{authUser.HoTen}}">
+<Form method="post">
+    <div class="Hungscontainer">
+        <h3 style="border-bottom: 1px solid rgb(130, 189, 169);">Cập nhật thông tin:</h3>
+        <div class="container col-md-12 mt-4" style="margin-left: 10%">
+            <div class="form-group col-md-12 d-flex flex-nowrap">
+                <span class="col-md-2 d-flex justify-content-start">
+                    <label>Họ tên:</label>
+                </span>
+                <input name="HoTen" class="col-md-7 form-control" style="width: 400px;" type="text"
+                    value="{{authUser.HoTen}}">
+            </div>
+            <div class="form-group col-md-12 d-flex flex-nowrap">
+                <label class="col-md-2 d-flex justify-content-start">Email:</label>
+                <input name="Email" class="col-md-7 form-control" value="{{authUser.Email}}" style="width: 400px;"
+                    type="text">
+            </div>
+            {{#if isWriter}}
+            <div class="form-group col-md-12 d-flex flex-nowrap">
+                <label class="col-md-2 d-flex justify-content-start">Bút danh:</label>
+                <input name="ButDanh" class="col-md-7 form-control" style="width: 400px;" value="{{authUser.ButDanh}}"
+                    type="text">
+            </div>
+            {{/if}}
+            <div class="form-group col-md-12  d-flex flex-nowrap">
+                <label class="col-md-2 d-flex justify-content-start">Ngày sinh:</label>
+                <input class="col-md-3 form-control" style="width: 100px" name="dob" id="txtdate" type="text"
+                    value="{{dob}}">
+            </div>
+            {{#if isUser }}
+            <div class="form-group col-md-12 d-flex flex-nowrap">
+                <label class="col-md-2 d-flex justify-content-start">Hạn dùng:</label>
+                <input readonly class="col-md-3 form-control" style=" width: 400px;" value="{{this.hanDung}}"
+                    type="text">
+            </div>
+            {{/if}}
+            <div>
+                <button class="btn btn-update mt-3" type="submit">Cập nhật</button>
+            </div>
+            <br>
         </div>
-        <div class="form-group col-md-12 d-flex flex-nowrap">
-            <label class="col-md-2 d-flex justify-content-start">Email:</label>
-            <input class="col-md-7 form-control" style="width: 400px;" type="text">
-        </div>
-        <div class="form-group col-md-12  d-flex flex-nowrap">
-            <label class="col-md-2 d-flex justify-content-start">Ngày sinh:</label>            
-            <input class="col-md-3 form-control" style="width: 100px" id="txtdate" type="text">
-        </div>
-       
-        <div class="form-group col-md-12 d-flex flex-nowrap" >
-            <label class="col-md-2 d-flex justify-content-start">Hạn dùng:</label>
-            <input class="col-md-3 form-control" style=" width: 400px;" type="text">
-        </div>
-        {{#if isWriter}}
-        <div class="form-group col-md-12 d-flex flex-nowrap "  >
-            <label class="col-md-2 d-flex justify-content-start">Bút danh:</label>
-            <input class="col-md-7 form-control" style=" width: 400px;" type="text">
-        </div>
-        {{/if}} 
-        <div>
-            <button class="btn btn-update mt-3" type="submit">Cập nhật</button>
-        </div>
-        <br>
     </div>
-</div>
+</Form>

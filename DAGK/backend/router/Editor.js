@@ -38,7 +38,7 @@ router.post('/:id', (req, res) => {
     var entity = {
       idBaiBao : id,
       NgayXuatBan: dob,
-      TrangThai : 1,
+      TrangThai : 2,
     }
     writerModal.update(entity);
     res.redirect('/editor')

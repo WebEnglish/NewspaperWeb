@@ -115,6 +115,18 @@ router.get('/profile', (req, res, next) => {
         var isWriter = false;
         var isEditor = false;
         var isUser = false;
+        var currentDay = new Date();
+        var day  = moment(currentDay).format('YYYY/MM/DD');
+        var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
+        if(nhh < day)
+        {
+            var hanDung = 'Đã hết hạn'            
+        }
+        else 
+        {
+            var hanDung = moment(req.user.NgayHetHan).format('DD/MM/YYYY');
+        }
+        var dob = moment(req.user.NgaySinh).format('DD/MM/YYYY')
         switch (req.user.PhanHe) {
             case 1: isUser = true; break;
             case 2: isWriter = true; break;
@@ -122,8 +134,10 @@ router.get('/profile', (req, res, next) => {
         }
         res.render('VAccount/profile', {
             user: req.user,
+            dob:dob,        
             isWriter: isWriter,
             isEditor: isEditor,
+            hanDung: hanDung,
             isUser: isUser,
             layout: './main'
         })
@@ -216,7 +230,6 @@ router.post('/doimatkhau', (req, res, next) => {
 
 
 })
-
 
 // router.post('/send', function(req, res, next) {
 //     var transporter =  nodemailer.createTransport({ // config mail server
