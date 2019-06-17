@@ -39,7 +39,7 @@ module.exports = {
   },
 
   byTag2: (idTag, limit, offset) => {
-    return db.load(`SELECT bb.*, nt.*, tv.HoTen FROM tag_baibao as tbb, nhantag as nt, baibao AS bb, thanhvien AS tv WHERE tbb.idTag = ${idTag} AND tbb.idBaiBao = bb.idBaiBao AND tbb.idTag = nt.idTag AND tv.idThanhVien = bb.TacGia AND bb.Xoa =0 AND nt.Xoa =0 ORDER BY bb.Premium DESC LIMIT ${limit} OFFSET ${offset}`)
+    return db.load(`SELECT bb.*, nt.*, tv.HoTen FROM tag_baibao as tbb, nhantag as nt, baibao AS bb, thanhvien AS tv WHERE tbb.idTag = ${idTag} AND tbb.idBaiBao = bb.idBaiBao AND tbb.idTag = nt.idTag AND tv.idThanhVien = bb.TacGia AND bb.Xoa =0 AND nt.Xoa =0 AND bb.TrangThai =1 ORDER BY bb.Premium DESC LIMIT ${limit} OFFSET ${offset}`)
   },
 
   tagByTag: idTag => {
