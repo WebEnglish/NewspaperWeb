@@ -1,6 +1,6 @@
 <div class="site-section" id="blog-section">
     <div class="container">
-        <div class="row mb-5">
+        <div class="row mb-5 mt-5">
             <div class="col-md-12">
                 {{#if isAuthenticated}}
                 {{#each detail}}
@@ -22,7 +22,7 @@
                                 <p style="font-weight: 800"><b>{{{NoiDungTomTat}}}</b></p>
                                 <br>
 
-                                <div class="col-md-9">{{{NoiDung}}}
+                                <div>{{{NoiDung}}}
                                 </div>
                                 {{/each}}
                                 <br>
@@ -45,7 +45,7 @@
                     </div>
                     <!---->
                     <br><br><br>
-                    <div style="width: 25%" class="col-md-3">
+                    <div style="width: 100%; position:relative; margin-left:15px;">
                         <div class="div-big">
                             <h4 style=" border-left: 3px solid red; font-weight: bold; color: black">Bài
                                 viết liên quan</h4>
@@ -57,13 +57,12 @@
                                 </a>
                                 {{/each}}
                             </div>
-
                         </div>
                     </div>
 
                 </div>
                 
-                <div class="mt-5 col-9">
+                <div class="mt-5 col-md-10">
                     <form method="POST">
                         <div style="padding:30px;" class="shadow-lg form-group">
                             <p class="text-black" style="font-size: 30px; "><b>BÌNH LUẬN</b></p>
@@ -72,9 +71,9 @@
                                 {{!-- <img style="margin-right: 10px"
                                             src="https://tophinhanhdep.com/wp-content/uploads/2017/07/avatar-dep-de-thuong.jpg"
                                             height="35px"> --}}
-                                <input style="width: 100%;" class="col-md-9 ml-4" type="text" id="txtcomment"
+                                <input style="width: 100%;height:100px" class="col-md-9 ml-4 form-control" type="text" id="txtcomment"
                                     name="comment" placeholder="Nhập bình luận tại đây ...">
-                                <button class="ml-5 mt-3 btn-dang" type="submit" id="post">Đăng</button>
+                                <button class="ml-3 mt-4 btn-dang" type="submit" id="post">Đăng</button>
 
                             </span>
                             <ul style="list-style: none" class="mt-4 pr-5">
@@ -136,7 +135,7 @@
                     </div>
                     <!---->
                     <br><br><br>
-                    <div style="width: 25%" class="col-md-3">
+                    <div style="width: 100%; position:relative; margin-left:15px;">
                         <div class="div-big">
                             <h4 style=" border-left: 3px solid red; font-weight: bold; color: black">Bài
                                 viết liên quan</h4>
@@ -152,7 +151,7 @@
                     </div>
 
                 </div>
-                <div class="mt-5 col-9">
+                <div class="mt-5 col-md-10">
                     <form method="POST">
                         <div style="padding:30px;" class="shadow-lg form-group">
                             <p class="text-black" style="font-size: 30px; "><b>BÌNH LUẬN</b></p>

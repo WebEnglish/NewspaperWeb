@@ -2108,7 +2108,7 @@ td{
   color: white;
 }
 .btn-update{
-margin-left:34%;
+margin-left:32%;
 }
 
 .btn-update:hover{
@@ -2203,10 +2203,34 @@ p{
 }
 
 .btn-dang{
-  cursor: pointer; height: 40px; width:100px; border-radius:5%; background-color:rgb(89, 226, 226); border:none; color:white;
+  cursor: pointer; 
+  height: 40px;
+   width:100px; 
+   border-radius:10px;
+    background-color:rgb(89, 226, 226);
+     border:none; 
+     color:white;
 }
 
 .btn-dang:hover{
-  background-color: #00b199;
-  box-shadow: 0px 2px 10px 2px #00c5ab;
+  background-color: #07d3c8;
+  box-shadow: 0px 0px 9px 3px #46f9ff;
+}
+
+.abc{
+box-shadow: 0px 6px 7px 0px rgb(238, 238, 238);
+}
+
+.an-shadow{
+  box-shadow: 0px 5px 10px 1px rgb(128, 209, 196);
+}
+
+.an-btn{
+  background-color: #00D2B5;
+  color: white;
+}
+
+.an-btn:hover{
+  background-color: rgb(0, 182, 158);
+  color: white;
 }

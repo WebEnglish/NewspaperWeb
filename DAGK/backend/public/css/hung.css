@@ -17,7 +17,7 @@
 .div-big{
     padding: 20px; 
     text-align: center;
-    box-shadow: 2px 2px 3px 3px gray
+    box-shadow: 0px 5px 10px 1px rgb(219, 219, 219);
 }
 .div-small{
     display: flex;

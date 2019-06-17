@@ -20,6 +20,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/:idTT', (req, res, next) => {
   var id = req.params.idTT;
+  var idtg = req.user.idThanhVien;
   var page = req.query.page || 1;
   var flat = false;
   if (page < 1) page = 1;
@@ -33,7 +34,7 @@ router.get('/:idTT', (req, res, next) => {
 
   Promise.all([
     writerModal.status(id),
-    writerModal.baiviet(id, limit, offset),
+    writerModal.baiviet(id,idtg, limit, offset),
     writerModal.countByCat(id)
   ])
 

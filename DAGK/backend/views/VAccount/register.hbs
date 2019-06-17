@@ -80,10 +80,10 @@
 {{/section}}
 <form novalidate action="" method="POST" id="registerForm">
   <div style="padding-top:100px" class="container col-md-5 text-black">
-    <div class="shadow mb-5 bg-white rounded ">
+    <div class="an-shadow mb-5 bg-white rounded pl-3 pr-3">
       <div
-        style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(74, 143, 134));color: white; font-weight: bold;">
-        <h4>Thông tin đăng kí</h4>
+        style="height: 50px; padding: 10px;text-align: center;  border-bottom:1px solid rgb(31, 211, 166); color: rgb(0, 0, 0); font-weight: bold;">
+        <h4 style="color: rgb(0, 68, 57)"><b>Đăng Kí</b></h4>
       </div>
       <div style="margin :10px 30px">
         <div style="display:flex; flex-direction:column">
@@ -92,12 +92,12 @@
         </div>
         <br>
         <div style="display:flex; flex-direction:column">
-          <label for="txtUsername">Họ và tên</label>
+          <label for="txtUsername">Họ và tên:</label>
           <input type="text" class="form-control" style="margin-top:-10px" id="txtUsername" name="fullName">
         </div>
         <br>
         <div class="form-group">
-          <label for="txtdate">Ngày sinh</label>
+          <label for="txtdate">Ngày sinh:</label>
           <input type= "text" class="form-control" id="txtdate" name="dob">
         </div>
        
@@ -114,7 +114,7 @@
 
       </div>
       <div class="text-center " style="justify-content: center;padding-top:10px;border-top: 0px">
-        <button type="submit" style="cursor: pointer;" class="mb-3 btn btn-danger">Đăng
+        <button type="submit" style="cursor: pointer;" class="mb-3 btn an-btn">Đăng
           kí
           </button>
       </div>

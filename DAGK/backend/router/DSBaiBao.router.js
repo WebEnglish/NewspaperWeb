@@ -1,9 +1,8 @@
-
-
 var express = require('express');
 var categoryModel = require('../model/DSBaiBao');
 var writerModal = require('../model/Forwriter');
 var baibaoModal = require('../model/DSBaiBao');
+var moment = require('moment');
 var router = express.Router();
 
 
@@ -22,21 +21,32 @@ router.get('/home', function (req, res, next) {
       }
     }
 
-    for(const d of rows){
-      if(d.Premium == 1){
-        d.isPremium = true;
+    var currentDay = new Date();
+    var day = moment(currentDay).format('YYYY/MM/DD');
+    var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
+
+    for (const d of rows) {
+      if (d.Premium == 1) {
+        if (nhh > day) {
+          d.isPremium = true;
+        }
+
       }
     }
 
-    for(const e of rows1){
-      if(e.Premium == 1){
-        e.isPremium = true;
+    for (const e of rows1) {
+      if (e.Premium == 1) {
+        if (nhh > day) {
+          e.isPremium = true;
+        }
       }
     }
 
-    for(const f of row2){
-      if(f.Premium == 1){
-        f.isPremium = true;
+    for (const f of row2) {
+      if (f.Premium == 1) {
+        if (nhh > day) {
+          f.isPremium = true;
+        }
       }
     }
 
@@ -67,21 +77,21 @@ router.get('/', function (req, res, next) {
       }
     }
 
-    for(const d of rows){
-      if(d.Premium == 1){
-        d.isPremium = true;
+    for (const d of rows) {
+      if (d.Premium == 1) {       
+          d.isPremium = true;
       }
     }
 
-    for(const e of rows1){
-      if(e.Premium == 1){
-        e.isPremium = true;
+    for (const e of rows1) {
+      if (e.Premium == 1) {
+          e.isPremium = true;
       }
     }
 
-    for(const f of row2){
-      if(f.Premium == 1){
-        f.isPremium = true;
+    for (const f of row2) {
+      if (f.Premium == 1) {
+          f.isPremium = true;
       }
     }
 
@@ -119,10 +129,15 @@ router.get('/:idCM', (req, res, next) => {
         c.isActive = true;
       }
     }
+    var currentDay = new Date();
+    var day = moment(currentDay).format('YYYY/MM/DD');
+    var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
 
-    for(const d of rows2){
-      if(d.Premium == 1){
-        d.isPremium = true;
+    for (const d of rows2) {
+      if (d.Premium == 1) {
+        if (nhh > day) {
+          d.isPremium = true;
+        }
       }
     }
 
@@ -186,9 +201,15 @@ router.get("/tag/:idTag", (req, res, next) => {
         pages.push(obj);
       }
 
-      for(const d of row3){
-        if(d.Premium == 1){
-          d.isPremium = true;
+      var currentDay = new Date();
+      var day = moment(currentDay).format('YYYY/MM/DD');
+      var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
+
+      for (const d of row3) {
+        if (d.Premium == 1) {
+          if (nhh > day) {
+            d.isPremium = true;
+          }
         }
       }
 
@@ -220,9 +241,15 @@ router.get('/:idCM/:idBB', function (req, res) {
       }
     }
 
-    for(const d of row){
-      if(d.Premium == 1){
-        d.isPremium = true;
+    var currentDay = new Date();
+    var day = moment(currentDay).format('YYYY/MM/DD');
+    var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
+
+    for (const d of row) {
+      if (d.Premium == 1) {
+        if (nhh > day) {
+          d.isPremium = true;
+        }
       }
     }
 
@@ -252,8 +279,8 @@ router.post('/:idCM/:idBB', function (req, res, next) {
   }
 
 
-    baibaoModal.addComment(entity)
-    .then( n => {
+  baibaoModal.addComment(entity)
+    .then(n => {
       res.redirect('back');
     })
     .catch(err => {
@@ -266,9 +293,9 @@ router.post('/:idCM/:idBB', function (req, res, next) {
 router.post('/:id', (req, res) => {
   var id = req.params.id;
   var entity = {
-    idBaiBao : id,
+    idBaiBao: id,
     LyDoTuChoi: req.body.lido,
-    TrangThai : 4,
+    TrangThai: 4,
   }
   writerModal.update(entity);
   res.redirect('/editor')

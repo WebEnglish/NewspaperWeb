@@ -84,7 +84,7 @@ router.post('/login', (req, res, next) => {
                 return res.redirect('/admin')
             }
             else {
-                return res.redirect('/');
+                return res.redirect('/home');
             }
         });
     })(req, res, next);

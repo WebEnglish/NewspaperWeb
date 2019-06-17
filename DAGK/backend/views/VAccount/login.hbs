@@ -1,5 +1,5 @@
 <div style="padding-top:100px" class="container col-md-5 text-black">
-	<div class="shadow mb-5 bg-white rounded ">
+	<div class="an-shadow mb-5 bg-white rounded ">
 		{{#if err_message}}
 		<div class="alert alert-warning alert-dismissible fade show" role="alert">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -8,10 +8,10 @@
 			{{err_message}}
 		</div>
 		{{/if}}
-		<form action="/account/login" method="POST" style="height: 350px">
+		<form action="/account/login" method="POST" style="height: 350px" class="pl-3 pr-3">
 			<div
-				style="height: 50px; padding: 10px;text-align: center; background-image: linear-gradient(to bottom right,#00D2B5,rgb(2, 139, 121));color: white; font-weight: bold;">
-				<h4 class="modal-title">Thông tin đăng nhập</h4>
+				style="height: 50px; padding: 10px;text-align: center; border-bottom:1px solid rgb(31, 211, 166); color: rgb(0, 0, 0); font-weight: bold;">
+				<h4 class="modal-title" style="color: rgb(0, 68, 57)"><b>Đăng Nhập</b></h4>
 			</div>
 			<br>
 			<div class="mr-4">
@@ -33,7 +33,7 @@
 			</div>
 			<!-- Modal footer -->
 			<div class="modal-footer" style="justify-content: center;border-top: 0px">
-				<button type="submit" style="border-radius: 10px; cursor: pointer;" class="btn btn-danger"
+				<button type="submit" style="border-radius: 20px; cursor: pointer;" class="btn an-btn"
 					data-dismiss="modal">Đăng
 					nhập</button> &nbsp;
 			</div>
