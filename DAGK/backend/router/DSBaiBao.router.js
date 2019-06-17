@@ -1,9 +1,9 @@
 var express = require('express');
+
 var categoryModel = require('../model/DSBaiBao');
 var writerModal = require('../model/Forwriter');
 var baibaoModal = require('../model/DSBaiBao');
 var router = express.Router();
-
 
 router.get('/home', function (req, res, next) {
   Promise.all([
@@ -216,6 +216,16 @@ router.post('/:idCM/:idBB', function (req, res, next) {
 
 });
 
+router.post('/:id', (req, res) => {
+  var id = req.params.id;
+  var entity = {
+    idBaiBao : id,
+    LyDoTuChoi: req.body.lido,
+    TrangThai : 4,
+  }
+  writerModal.update(entity);
+  res.redirect('/editor')
+});
 
 
 

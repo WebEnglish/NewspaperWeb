@@ -1,0 +1,62 @@
+{{#section 'css'}}
+{{/section}}
+
+{{#section 'js'}}
+
+
+
+{{/section}}
+
+<div class="main_container">
+    <div class="shadow p-3 mb-5 m-5 bg-white rounded">
+        <div role="main">
+            <div class="row" style="padding-left:20px; padding-right: 20px; margin-top: 20px">
+                <div class="clearfix"></div>
+                <div class="col-md-11 m-5">
+                    <div class="x_panel">
+                        <div style="margin-bottom:40px" class="col-md-12 text-center text-black">
+                            <h2>Danh sách các bài viết đã xử lí</h2>
+                        </div>
+                        <div  class="x_content">
+                            <table id="table" class="table table-hover text-left">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">STT</th>
+                                        <th class="text-center">Tên bài viết</th>
+                                        <th class="text-center" style="width:135px">Ngày đăng</th>
+                                        <th class="text-center" style="width:135px">Chuyên mục</th>
+                                        <th class="text-center" style="width:135px">Trạng thái</th>                                        
+                                        {{!-- <th class="text-center">Option</th> --}}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each this.BaiBao}}
+                                    <tr>
+                                        <th scope="row">{{stt}}</th>
+                                        <td id="name">{{TenBaiBao}}</td>
+                                        <td> {{format NgayDang}}</td>
+                                        <td>{{TenCM}}</td>
+                                        <td>{{tenTrangThai}}</td>
+                                        {{!-- <td style="display:flex; flex-direction:row; justify-content: space-around">
+                                            <a href="/editor/detail/{{idBaiBao}}"
+                                                style=" cursor: pointer;border: none; background-color: transparent"><i
+                                                    class="fas fa-eye text-black"></i></a>
+                                            <button value="{{idBaiBao}}"
+                                                style="border: none; background-color: transparent" id="btn"
+                                                class="btnSelect" data-toggle="modal" data-target="#myModal"><i
+                                                    class="fas fa-user-check"></i></button>
+                                            <button value="{{idBaiBao}}" onclick="myFunction()"
+                                                style="border: none; background-color: transparent" data-toggle="modal"
+                                                data-target="#myModal1"><i class="fas fa-user-times"></i></button>
+                                        </td> --}}
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
