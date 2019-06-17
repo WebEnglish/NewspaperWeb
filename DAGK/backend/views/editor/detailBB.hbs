@@ -1,0 +1,47 @@
+{{#section 'js'}}
+<script
+    src="https://cdn.tiny.cloud/1/c3n6lu13jap2ehdz800xbmrmucezhjkqbjyfs2ps60jbgn4z/tinymce/5/tinymce.min.js"></script>
+<script>
+    $(function () {
+        tinymce.init({
+            readonly: true,
+            selector: '#Noidung',
+            
+            height: 400,
+            menubar: false,
+
+        });
+    })
+</script>
+{{/section}}
+
+
+<div style="margin-top:100px" class="text-black">
+    <div class="col-md-12 text-black text-center">
+        <h3>Thông tin bài báo</h3>
+    </div>
+    <div class="col-md-12 mt-3" class="form-group">
+        <label class="col-md-2" for="">Tên bài báo</label>
+        <textarea readonly class="col-md-9" type="email" class="form-control"> {{this.NoiDung.TenBaiBao}}</textarea>
+    </div>
+    <div class="col-md-12 mt-3" class="form-group">
+        <label class="col-md-2" for="">Nội dung tóm tắt</label>
+        <textarea readonly class="col-md-9" type="email" class="form-control"
+            value=""> {{this.NoiDung.NoiDungTomTat}}</textarea>
+    </div>
+
+    <div class="col-md-12 mt-3" class="form-group">
+        <label class="col-md-2" for="">Chuyên mục</label>
+        <input readonly class="col-md-2" type="text" value="{{this.NoiDung.TenCM}}">
+    </div>
+    <div class="col-md-12 mt-3" class="form-group">
+        <label class="col-md-2" for="">Tác giả:</label>
+        <input readonly class="col-md-2" style="height: 35px" value="{{this.NoiDung.HoTen}}">
+    </div>
+    <div class="col-md-11 mt-3 ml-5">
+        
+        <textarea class="col-md-9" id="Noidung">{{{this.NoiDung.NoiDung}}}</textarea>
+    </div>
+    <div class="col-md-12" style="font-size:20px;margin-top:40px">
+        <a href="/editor" style="margin-left:none !important;height:35px; width:100px"><i class="fa fa-backward text-black" aria-hidden="true">&nbsp;&nbsp;</i><b class="text-black" style="border-bottom: 1 solid black ">Quay lại</b></a>
+    </div>

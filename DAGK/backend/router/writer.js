@@ -88,6 +88,7 @@ router.get('/:idTT', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   var datetime = new Date();
+  var temp = req.body;
   var entity = {
     TenBaiBao: req.body.txtTitle,
     NoiDungTomTat: req.body.summary,
