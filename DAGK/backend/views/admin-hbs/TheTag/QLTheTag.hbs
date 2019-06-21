@@ -1,3 +1,12 @@
+{{#section 'js'}}
+<script>
+    $("button").click(function () {
+        var a = $(this).val();
+        $('#FormDelete').attr('action', '/admin/QuanLiTheTag/delete/' + a);
+    })
+</script>
+{{/section}}
+
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <div class="page-title">
         <div class="title_left">
@@ -50,11 +59,14 @@
                                 <td>{{stt}}</td>
                                 <td>{{tenTag}}</td>
                                 <td>
-                                    <a href="/admin/QuanLiTheTag/delete/{{idTag}}" ><i
-                                            class="fas fa-trash"></i></a>
-                                    &nbsp;
+
                                     <a href="/admin/QuanLiTheTag/Edit/{{idTag}}" class="btnRewrite"><i
                                             class="fas fa-pen"></i></a>
+                                    &nbsp;
+                                    <button style="background: none" value="{{idTag}}"
+                                        data-toggle="modal" data-target="#delModal"><i
+                                            class="fas fa-trash-alt"></i></button>
+                                    
                                 </td>
 
                             </tr>
@@ -73,26 +85,23 @@
         </div>
 
         <!--delete-->
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
+        <form method="POST" id="FormDelete">
+            <div class="modal fade" id="delModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a  href="javascript: $('#FormDelete').submit()" class="btn btn-danger">Đồng ý</a>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                        </div>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
                     </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng
-                            ý</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
-                    </div>
-
                 </div>
             </div>
-        </div>
+        </form>
         <!--Delete-->
 
         <!-- rewrite-1 -->

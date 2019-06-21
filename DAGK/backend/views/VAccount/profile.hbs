@@ -46,13 +46,16 @@
             <div class="form-group col-md-12  d-flex flex-nowrap">
                 <label class="col-md-2 d-flex justify-content-start">Ngày sinh:</label>
                 <input class="col-md-3 form-control" style="width: 100px" name="dob" id="txtdate" type="text"
-                    value="{{dob}}">
+                    value="{{format dob}}">
             </div>
             {{#if isUser }}
             <div class="form-group col-md-12 d-flex flex-nowrap">
                 <label class="col-md-2 d-flex justify-content-start">Hạn dùng:</label>
                 <input readonly class="col-md-3 form-control" style=" width: 400px;" value="{{this.hanDung}}"
                     type="text">
+                {{#if this.hethan}}
+                <a href="/account/giahan" class="btn" >Gia hạn</a>
+                {{/if}}
             </div>
             {{/if}}
             <div class="text-center" style="margin-right: 217px">

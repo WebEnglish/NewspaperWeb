@@ -15,5 +15,8 @@ module.exports = {
   update: entity => {
     return db.update('nhantag', 'idTag', entity);
   },
+  getTagbyName : tag => {
+    return db.load(`select * from nhantag where tenTag = '${tag}' and Xoa = 0`);
+  }
 
 }

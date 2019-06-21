@@ -1,3 +1,13 @@
+{{#section 'js'}}
+<script>
+    $("button").click(function () {
+        var a = $(this).val();
+        $('#FormDelete').attr('action', '/admin/QuanLiBaiBao/delete/' + a);
+    })
+
+</script>
+{{/section}}
+
 <div class="">
     <div class="page-title">
         <div class="title_left">
@@ -28,11 +38,7 @@
                 <div class="x_title">
                     <h2>Danh sách các bài viết</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-                                &nbsp;<i class="fas fa-plus-circle"></i></a>
-
-                        </li>
+                        
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                     </ul>
@@ -60,8 +66,9 @@
                                 <td>
                                     <a href="/admin/QuanLiBaiBao/edit/{{idBaiBao}}"><i class="fas fa-eye"></i></a>
                                     &nbsp;
-                                    <a href="/admin/QuanLiBaiBao/delete/{{idBaiBao}}"><i
-                                            class="fas fa-trash-alt"></i></a>
+                                    <button style="background: none" value="{{idBaiBao}}"
+                                        data-toggle="modal" data-target="#delModal"><i
+                                            class="fas fa-trash-alt"></i></button>
                                     &nbsp;
                                 </td>
                             </tr>
@@ -87,30 +94,24 @@
         </div>
 
         <!--delete-->
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
+        <form method="POST" id="FormDelete">
+            <div class="modal fade" id="delModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a  href="javascript: $('#FormDelete').submit()" class="btn btn-danger">Đồng ý</a>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                        </div>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
                     </div>
-
-                    <!-- Modal body
-                  <div class="modal-body">
-                    
-                  </div> -->
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
-                    </div>
-
                 </div>
             </div>
-        </div>
+        </form>
+
         <!--Delete-->
 
         <!-- rewrite-1 -->

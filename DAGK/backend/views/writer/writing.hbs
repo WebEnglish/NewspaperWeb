@@ -10,6 +10,55 @@
 
 <script
     src="https://cdn.tiny.cloud/1/c3n6lu13jap2ehdz800xbmrmucezhjkqbjyfs2ps60jbgn4z/tinymce/5/tinymce.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+    $(function () {
+        $('#registerForm').validate({
+            rules: {
+                txtTitle: {
+                    required: true,
+                },
+                summary: {
+                    required: true,
+
+                },
+                img: {
+                    required: true,
+                },
+                editor: {
+                    required: true,
+                },
+
+            },
+            messages: {
+                txtTitle: {
+                    required: 'Nhập chính xác tiêu đề bài báo',
+
+                },
+                summary: {
+                    required: 'Nhập chính xác nội dung tóm tắt',
+                },
+                img: {
+                    required: 'Nhập chính xác ảnh bài báo',
+
+                },
+                editor: {
+                    required: 'Nhập chính xác nôi dung bài báo.',
+                }
+
+            },
+            errorElement: 'small',
+            errorClass: 'col help-block text-danger',
+            highlight: function (e) {
+                $(e).removeClass('is-valid').addClass('is-invalid');
+            },
+            unhighlight: function (e) {
+                $(e).removeClass('is-invalid').addClass('is-valid');
+            }
+
+        });
+    })
+</script>
 <script>
     $(function () {
         tinymce.init({
@@ -25,7 +74,6 @@
         });
     })
 </script>
-
 <script>
     function Choose() {
         var choose = document.getElementById("txtChoose");
@@ -95,6 +143,21 @@
         }
     }
 </script>
+
+<script>
+
+    $('#DangBai').click(function () {
+        var values = $('#txtChosen').val();
+        var x = document.getElementById('txtChosen');
+        var list = "";
+        for (var i = 0; i < x.options.length; i++) {
+            if (true)
+                list += '/' + x.options[i].value
+        }
+        $('#listTag').val(list);
+    })
+
+</script>
 {{/section}}
 <div class="site-section mt-4">
     <div class="container an-shadow pt-4">
@@ -108,7 +171,7 @@
         </div>
         {{/if}}
         <div class="col-md-12 mt-5">
-            <form method="POST" name="frmMain">
+            <form novalidate method="POST" id="registerForm" name="frmMain">
                 <div class="col-md-12">
                     <div class="d-flex flex-wrap col-md-12 mb-3">
                         <span class="col-lg-2">
@@ -128,7 +191,8 @@
                             </label>
                         </span>
                         <div class="col-md-9">
-                            <textarea class="form-control" style="width:820px" name="summary" id="txtsummary" rows="4" cols="66"></textarea>
+                            <textarea class="form-control" style="width:820px" name="summary" id="txtsummary" rows="4"
+                                cols="66"></textarea>
                             {{!-- <input type="text" name="txtSummary" id="txtSummary" style="width:500px; height: 100px"> --}}
                         </div>
                     </div>
@@ -163,7 +227,6 @@
                         <label>Chọn thẻ tag: &nbsp;</label>
                         <div class="txt-tag">
                             <div class="cbx-option-mul ">
-
                                 <select class="form-control" multiple="multiple" id="txtChoose" name="choose"
                                     style="width:250px; height:200px">
                                     {{#each tag}}
@@ -176,16 +239,19 @@
                                 <input type="button" id="btnUnchoose" onclick="Unchoose()" value="<">
                             </div>
                             <div>
-                                <select class="form-control" multiple="multiple" id="txtChosen" name="txtChosen"
+                                <select class="form-control" multiple="multiple" id="txtChosen" name="chosen"
                                     style="width:250px; height:200px">
                                 </select>
                             </div>
+                            <br>
+                            <input hidden name="listTag" id="listTag">
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center mt-5 ">
-                    <button class="btn btn-danger mb-5" type="submit"><b>Đăng bài</b></button>
+                    <button class="
+                    btn btn-danger mb-5" id="DangBai" type="submit"><b>Đăng bài</b></button>
                 </div>
             </form>
         </div>

@@ -1,25 +1,65 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+{{/section}}
+
+
+{{#section 'js'}}
+<script <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script>
+	$(function () {
+		$('#formGet').validate({
+			rules: {
+				email: {
+					required: true,
+					email: true,
+				}
+			},
+			messages: {
+				email: {
+					required: 'Nhập chính xác địa chỉ email.',
+					email: 'Nhập chính xác địa chỉ email.',
+				},
+			},
+			errorElement: 'small',
+			errorClass: 'col help-block text-danger',
+			highlight: function (e) {
+				$(e).removeClass('is-valid').addClass('is-invalid');
+			},
+			unhighlight: function (e) {
+				$(e).removeClass('is-invalid').addClass('is-valid');
+			}
+
+		});
+	})
+</script>
+{{/section}}
 <div style="padding-top:100px" class="container col-md-5 text-black">
 	<div class="an-shadow mb-5 bg-white rounded ">
-		{{#if err_message}}
+		{{!-- {{#if err_message}}
 		<div class="alert alert-warning alert-dismissible fade show" role="alert">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
 			{{err_message}}
 		</div>
-		{{/if}}
+		{{/if}} --}}
 		<form action="/account/login" method="POST" style="height: 350px" class="pl-3 pr-3">
 			<div
 				style="height: 50px; padding: 10px;text-align: center; border-bottom:1px solid rgb(31, 211, 166); color: rgb(0, 0, 0); font-weight: bold;">
 				<h4 class="modal-title" style="color: rgb(0, 68, 57)"><b>Đăng Nhập</b></h4>
 			</div>
+			{{#if err_message}}
+			<label style="color: red"> *{{err_message}}
+			</label>
+			{{/if}}
 			<br>
 			<div class="mr-4">
 				<div class="form-group col-md-12" style="display:flex; flex-direction:row">
 					<span class="col-md-3 d-flex justify-content-end">
-						<label for="TK" class="text-center mt-2 text-black"  >Email: </label>
+						<label for="TK" class="text-center mt-2 text-black">Email: </label>
 					</span>
-					<input id="TK" class="form-control col-md-9"  name="email" placeholder="lchung@gmail.com"
+					<input id="TK" class="form-control col-md-9" name="email" placeholder="lchung@gmail.com"
 						type="text">
 				</div>
 				<br>
@@ -37,9 +77,49 @@
 					data-dismiss="modal">Đăng
 					nhập</button> &nbsp;
 			</div>
-			<div class="mb-5 mr-3 d-flex justify-content-end">
-				<a href="" style="border: 0px; background-color: transparent;cursor: pointer;"><u>Quên mật
+
+			<div class="mb-5 ">
+
+				<a style="border: 0px;margin-left:40px;  background-color: transparent;cursor: pointer; color:rgb(31, 211, 166) "
+					data-toggle="modal" data-target="#ChangePass"><u>Quên mật
 						khẩu? </u></a>
+				<a href="/account/register"
+					style="float:right;border: 0px;margin-right:90px ; background-color: transparent;cursor: pointer;"><u>Đăng
+						kí </u></a>
+			</div>
+		</form>
+
+		<form id="formGet" method="POST" action="/account/QuenMatKhau">
+			<div class="modal fade" id="ChangePass" style="margin:auto;width:500px" tabindex="-1" role="dialog"
+				aria-labelledby="signupModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title text-black" id="signinModalLabel"><b>Quên mật khẩu</b></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body p-5">
+							<div class="form-group row">
+								<div class="col-md-12 ">
+									<label style="color:red">Gửi email để lấy lại mật khẩu</label>
+									<input type="text" name="email" class="form-control border"
+										placeholder="Nhập Email">
+									<div class="col-md-6" style="color: rgb(252, 69, 69)">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group row justify-content-center">
+							<div class="col-md-10" style="margin-left:70px">
+								<button type="submit" class="btn btn-block btn-primary text-white py-3 px-5"
+									style="width:400px "><a>Gửi</a></button>
+							</div>
+						</div>
+
+					</div>
+				</div>
 			</div>
 		</form>
 	</div>

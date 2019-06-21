@@ -13,7 +13,7 @@ module.exports = function (app) {
   }, (email, password, done) => {
     userModel.singleByUserName(email).then(rows => {
       if(rows.length === 0){
-        return done (null, false, { message: 'Invalid email!!'})
+        return done (null, false, { message: 'Tài khoản không chính xác, vui lòng kiểm tra lại!'})
       }
 
       var user = rows[0];
@@ -22,7 +22,7 @@ module.exports = function (app) {
       if(ret){
         return done(null,user);
       }
-      return done (null, false, { message: 'Invalid pass!!'})
+      return done (null, false, { message: 'Tài khoản không chính xác, vui lòng kiểm tra lại!'})
       
     }).catch(err => {
       return done(err,false); 

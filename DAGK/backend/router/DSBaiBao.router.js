@@ -5,160 +5,343 @@ var baibaoModal = require('../model/DSBaiBao');
 var moment = require('moment');
 var router = express.Router();
 
+router.post('/search', (req, res, next) => {
+  var txtSearch = req.body.searchInput;
+  var nht = new Date();
+  var ngayHT = moment(nht).format('YYYY/MM/DD');
+  var page = req.query.page || 1;
+  if (page < 1) page = 1;
+  var limit = 10;
+  var offset = (page - 1) * limit;
+
+  if (req.user) {
+    var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
+    if (nhh > ngayHT || req.user.PhanHe == 2 || req.user.PhanHe == 3 || req.user.PhanHe == 4 ) {
+      //Hết hạn
+     baibaoModal.searchCTK(txtSearch, limit,offset).then(row => {
+        var total = row.length;
+        var nPages = Math.floor(total / limit);
+        if (total % limit > 0) nPages++;
+        var pages = [];
+        for (i = 1; i <= nPages; i++) {
+          var obj = { value: i, active: i === +page };
+          pages.push(obj);
+        }
+        var tontai = false;
+        if (row.length != 0) {
+          tontai = true;
+          res.render('ketquatimkiem', {
+            isExsist: tontai,
+            bycat2: row,
+            pages,
+            layout: './main'
+          });
+        }
+        else {
+          res.render('ketquatimkiem', {
+            layout: './main'
+          });
+        }
+      })
+    }
+    else {
+      //Còn hạn 
+      baibaoModal.searchKTK(txtSearch, limit,offset).then(row => {
+        var total = row.length;
+        var nPages = Math.floor(total / limit);
+        if (total % limit > 0) nPages++;
+        var pages = [];
+        for (i = 1; i <= nPages; i++) {
+          var obj = { value: i, active: i === +page };
+          pages.push(obj);
+        }
+        var tontai = false;
+        if (row.length != 0) {
+          tontai = true;
+          res.render('ketquatimkiem', {
+            isExsist: tontai,
+            bycat2: row,
+            pages,
+            layout: './main'
+          });
+        }
+        else {
+          res.render('ketquatimkiem', {
+            layout: './main'
+          });
+        }
+      })
+      
+    }
+
+  }
+  else {
+    Promise.all([
+      baibaoModal.searchKTK(txtSearch, limit,offset),
+      baibaoModal.countsearchKTK(txtSearch)
+    ])
+    .then(([row, count_rows]) => {
+      var total =count_rows[0].total;
+      var nPages = Math.floor(total / limit);
+      if (total % limit > 0) nPages++;
+      var pages = [];
+      for (i = 1; i <= nPages; i++) {
+        var obj = { value: i, active: i === +page };
+        pages.push(obj);
+      }
+      var tontai = false;
+      if (row.length != 0) {
+        tontai = true;
+        res.render('ketquatimkiem', {
+          isExsist: tontai,
+          bycat2: row,
+          pages,
+          layout: './main'
+        });
+      }
+      else {
+        res.render('ketquatimkiem', {
+          layout: './main'
+        });
+      }
+    }).catch(next);
+
+  }
+
+})
 
 router.get('/home', function (req, res, next) {
+  categoryModel.getAllBaiBao().then(AllList => {
+    var day = new Date();
+    var NgayHienTai = moment(day).format('YYYY/MM/DD');
+    var i = 0;
+    for (const x of AllList) {
+      var nxb = moment(AllList[i].NgayXuatBan).format('YYYY/MM/DD');
+      if (nxb <= NgayHienTai && AllList[i].TrangThai == 2) {
+        var entity = {
+          idBaiBao: AllList[i].idBaiBao,
+          TrangThai: 1
+        }
+        categoryModel.updateBaiBao(entity);
+      }
+      i += 1;
+    }
+  })
+
   Promise.all([
     categoryModel.all(),
     categoryModel.t10mostview(),
     categoryModel.newest(),
     categoryModel.topCat(),
     categoryModel.top1view(),
-  ]).then(([row, rows, rows1, row2, row3]) => {
-
-    for (const c of row) {
-      if (c.idBaiBao === row[0].idBaiBao) {
-        c.IsActive = true;
-      }
-    }
-
-    var currentDay = new Date();
-    var day = moment(currentDay).format('YYYY/MM/DD');
-    var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
-
-    for (const d of rows) {
-      if (d.Premium == 1) {
-        if (nhh > day) {
-          d.isPremium = true;
-        }
-
-      }
-    }
-
-    for (const e of rows1) {
-      if (e.Premium == 1) {
-        if (nhh > day) {
-          e.isPremium = true;
+    categoryModel.t10mostview2(),
+    categoryModel.newest2(),
+    categoryModel.topCat2(),
+  ]).then(([row, rows, rows1, row2, row3, row4, row5, row6]) => {
+    if (!req.user) {
+      for (const c of row) {
+        if (c.idBaiBao === row[0].idBaiBao) {
+          c.IsActive = true;
         }
       }
+      res.render('home.hbs', {
+        carousels: row,
+        top10: rows,
+        newest: rows1,
+        topcat: row2,
+        topview1: row3,
+        layout: './main'
+      });
     }
-
-    for (const f of row2) {
-      if (f.Premium == 1) {
-        if (nhh > day) {
-          f.isPremium = true;
+    else {
+      var currentDay = new Date();
+      var day = moment(currentDay).format('YYYY/MM/DD');
+      var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
+      if (nhh > day || req.user.PhanHe == 2 || req.user.PhanHe == 3 || req.user.PhanHe == 4) {
+        for (const c of row) {
+          if (c.idBaiBao === row[0].idBaiBao) {
+            c.IsActive = true;
+          }
         }
+        res.render('home.hbs', {
+          carousels: row,
+          top10: row4,
+          newest: row5,
+          topcat: row6,
+          layout: './main'
+        });
+      }
+      else {
+        for (const c of row) {
+          if (c.idBaiBao === row[0].idBaiBao) {
+            c.IsActive = true;
+          }
+        }
+        res.render('home.hbs', {
+          carousels: row,
+          top10: rows,
+          newest: rows1,
+          topcat: row2,
+          topview1: row3,
+          layout: './main'
+        });
       }
     }
-
-    res.render('home.hbs', {
-      carousels: row,
-      top10: rows,
-      newest: rows1,
-      topcat: row2,
-      topview1: row3,
-      layout: './main'
-    });
   }).catch(next);
 });
 
 
 router.get('/', function (req, res, next) {
+
+  categoryModel.getAllBaiBao().then(AllList => {
+    var day = new Date();
+    var NgayHienTai = moment(day).format('YYYY/MM/DD');
+    var i = 0;
+    for (const x of AllList) {
+      var nxb = moment(AllList[i].NgayXuatBan).format('YYYY/MM/DD');
+      if (nxb <= NgayHienTai && AllList[i].TrangThai == 2) {
+        var entity = {
+          idBaiBao: AllList[i].idBaiBao,
+          TrangThai: 1
+        }
+        categoryModel.updateBaiBao(entity);
+      }
+      i += 1;
+    }
+  })
   Promise.all([
     categoryModel.all(),
     categoryModel.t10mostview(),
     categoryModel.newest(),
     categoryModel.topCat(),
-    categoryModel.top1view()
-  ]).then(([row, rows, rows1, row2, row3]) => {
+    categoryModel.top1view(),
+    categoryModel.t10mostview2(),
+    categoryModel.newest2(),
+    categoryModel.topCat2(),
+  ]).then(([row, rows, rows1, row2, row3, row4, row5, row6]) => {
 
-    for (const c of row) {
-      if (c.idBaiBao === row[0].idBaiBao) {
-        c.IsActive = true;
+    if (!req.user) {
+      for (const c of row) {
+        if (c.idBaiBao === row[0].idBaiBao) {
+          c.IsActive = true;
+        }
+      }
+      res.render('home.hbs', {
+        carousels: row,
+        top10: rows,
+        newest: rows1,
+        topcat: row2,
+        topview1: row3,
+        layout: './main'
+      });
+    }
+    else {
+      var currentDay = new Date();
+      var day = moment(currentDay).format('YYYY/MM/DD');
+      var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
+      if (nhh > day || req.user.PhanHe == 2 || req.user.PhanHe == 3 || req.user.PhanHe == 4) {
+        for (const c of row) {
+          if (c.idBaiBao === row[0].idBaiBao) {
+            c.IsActive = true;
+          }
+        }
+        res.render('home.hbs', {
+          carousels: row,
+          top10: row4,
+          newest: row5,
+          topcat: row6,
+          layout: './main'
+        });
+      }
+      else {
+        for (const c of row) {
+          if (c.idBaiBao === row[0].idBaiBao) {
+            c.IsActive = true;
+          }
+        }
+        res.render('home.hbs', {
+          carousels: row,
+          top10: rows,
+          newest: rows1,
+          topcat: row2,
+          topview1: row3,
+          layout: './main'
+        });
       }
     }
 
-    for (const d of rows) {
-      if (d.Premium == 1) {       
-          d.isPremium = true;
-      }
-    }
-
-    for (const e of rows1) {
-      if (e.Premium == 1) {
-          e.isPremium = true;
-      }
-    }
-
-    for (const f of row2) {
-      if (f.Premium == 1) {
-          f.isPremium = true;
-      }
-    }
-
-    res.render('home.hbs', {
-      carousels: row,
-      top10: rows,
-      newest: rows1,
-      topcat: row2,
-      topview1: row3,
-      layout: './main'
-    });
   }).catch(next);
 });
 
 router.get('/:idCM', (req, res, next) => {
   var id = req.params.idCM;
-
   var page = req.query.page || 1;
   if (page < 1) page = 1;
-
   var limit = 6;
   var offset = (page - 1) * limit;
-
   Promise.all([
     categoryModel.allByCat(id),
     categoryModel.pageByCat(id, limit, offset),
     categoryModel.pageByCat2(id, limit, offset),
     categoryModel.countByCat(id),
+    categoryModel.countByCatnoPre(id),
     categoryModel.tag(id)
-  ]).then(([cate, rows, rows2, count_rows, valueTag]) => {
-
-    // console.log("tag nè: " + JSON.stringify(valueTag))
+  ]).then(([cate, rows, rows2, count_rows, count_rows1, valueTag]) => {
     for (const c of res.locals.ChuyenMuc) {
       if (c.idcon1 === +id || c.idcon2 === +id) {
         c.isActive = true;
       }
     }
-    var currentDay = new Date();
-    var day = moment(currentDay).format('YYYY/MM/DD');
-    var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
 
-    for (const d of rows2) {
-      if (d.Premium == 1) {
-        if (nhh > day) {
-          d.isPremium = true;
-        }
+
+    if (!req.user) {
+      var total = count_rows[0].total;
+      var nPages = Math.floor(total / limit);
+      if (total % limit > 0) nPages++;
+      var pages = [];
+      for (i = 1; i <= nPages; i++) {
+        var obj = { value: i, active: i === +page };
+        pages.push(obj);
+      }
+      res.render('dsbaibao-theo-chuyenmuc.hbs', {
+        cat: cate,
+        bycat: rows,
+        pages,
+        tag: valueTag,
+        layout: './main'
+      });
+    }
+    else {
+      var total = count_rows1[0].total;
+      var nPages = Math.floor(total / limit);
+      if (total % limit > 0) nPages++;
+      var pages = [];
+      for (i = 1; i <= nPages; i++) {
+        var obj = { value: i, active: i === +page };
+        pages.push(obj);
+      }
+      var currentDay = new Date();
+      var day = moment(currentDay).format('YYYY/MM/DD');
+      var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
+      if (nhh > day || (req.user.PhanHe == 2 || req.user.PhanHe == 3 || req.user.PhanHe == 4)) {//còn hạn
+        res.render('dsbaibao-theo-chuyenmuc.hbs', {
+          cat: cate,
+          bycat: rows2,
+          pages,
+          tag: valueTag,
+          layout: './main'
+        });
+      }
+      else if (nhh < day) { //Hết hạn
+        res.render('dsbaibao-theo-chuyenmuc.hbs', {
+          cat: cate,
+          bycat: rows,
+          pages,
+          tag: valueTag,
+          layout: './main'
+        });
       }
     }
-
-    var total = count_rows[0].total;
-    var nPages = Math.floor(total / limit);
-    if (total % limit > 0) nPages++;
-    var pages = [];
-    for (i = 1; i <= nPages; i++) {
-      var obj = { value: i, active: i === +page };
-      pages.push(obj);
-    }
-
-    res.render('dsbaibao-theo-chuyenmuc.hbs', {
-      cat: cate,
-      bycat: rows,
-      bycat2: rows2,
-      pages,
-      tag: valueTag,
-      layout: './main'
-    });
-
   }).catch(next);
 });
 
@@ -188,40 +371,68 @@ router.get("/tag/:idTag", (req, res, next) => {
     categoryModel.byTag(id, limit, offset),
     categoryModel.countByTag(id),
     categoryModel.tagByTag(id),
-    categoryModel.byTag2(id, limit, offset)
+    categoryModel.byTag2(id, limit, offset),
+    categoryModel.countByTag2(id),
   ])
-    .then(([row, count_rows, row2, row3]) => {
+    .then(([row, count_rows, row2, row3, count_rows2]) => {
 
-      var total = count_rows[0].total;
-      var nPages = Math.floor(total / limit);
-      if (total % limit > 0) nPages++;
-      var pages = [];
-      for (i = 1; i <= nPages; i++) {
-        var obj = { value: i, active: i === +page };
-        pages.push(obj);
+      if(!req.user){
+        var total = count_rows[0].total;
+        var nPages = Math.floor(total / limit);
+        if (total % limit > 0) nPages++;
+        var pages = [];
+        for (i = 1; i <= nPages; i++) {
+          var obj = { value: i, active: i === +page };
+          pages.push(obj);
+        }
+
+        res.render('dsbaibao-theo-tag.hbs', {
+          Bytag: row,
+          pages,
+          Tagbytag: row2,
+          layout: './main'
+        })
       }
+      else{
+        var total = count_rows2[0].total;
+        var nPages = Math.floor(total / limit);
+        if (total % limit > 0) nPages++;
+        var pages = [];
+        for (i = 1; i <= nPages; i++) {
+          var obj = { value: i, active: i === +page };
+          pages.push(obj);
+        }
 
-      var currentDay = new Date();
-      var day = moment(currentDay).format('YYYY/MM/DD');
-      var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
-
-      for (const d of row3) {
-        if (d.Premium == 1) {
-          if (nhh > day) {
-            d.isPremium = true;
-          }
+        var currentDay = new Date();
+        var day = moment(currentDay).format('YYYY/MM/DD');
+        var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
+        if (nhh > day || (req.user.PhanHe == 2 || req.user.PhanHe == 3 || req.user.PhanHe == 4)) {//còn hạn
+          res.render('dsbaibao-theo-tag.hbs', {
+            Bytag: row3,
+            pages,
+            Tagbytag: row2,
+            layout: './main'
+          })
+        }
+        else if (nhh < day) { //Hết hạn
+          res.render('dsbaibao-theo-chuyenmuc.hbs', {
+            cat: cate,
+            bycat: rows,
+            pages,
+            tag: valueTag,
+            layout: './main'
+          });
         }
       }
-
-
-      res.render('dsbaibao-theo-tag.hbs', {
-        Bytag: row,
-        pages,
-        Tagbytag: row2,
-        Bytag2: row3,
-        layout: './main'
-      }).catch(next);
-    })
+        // var total = count_rows[0].total;
+        // var nPages = Math.floor(total / limit);
+        // if (total % limit > 0) nPages++;
+        // var pages = [];
+        // for (i = 1; i <= nPages; i++) {
+        //   var obj = { value: i, active: i === +page };
+        //   pages.push(obj);
+        // }
+    }).catch(next);
 })
 
 router.get('/:idCM/:idBB', function (req, res) {
@@ -232,8 +443,9 @@ router.get('/:idCM/:idBB', function (req, res) {
     baibaoModal.newsdetail(id),
     baibaoModal.newstag(id),
     baibaoModal.comment(id),
-    baibaoModal.relate(id)
-  ]).then(([row, row1, row2, row3]) => {
+    baibaoModal.relate(id),
+    baibaoModal.relate2(id)
+  ]).then(([row, row1, row2, row3, row4]) => {
 
     for (const c of res.locals.ChuyenMuc) {
       if (c.idcon1 === +idcm || c.idcon2 === +idcm) {
@@ -241,25 +453,39 @@ router.get('/:idCM/:idBB', function (req, res) {
       }
     }
 
-    var currentDay = new Date();
-    var day = moment(currentDay).format('YYYY/MM/DD');
-    var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
-
-    for (const d of row) {
-      if (d.Premium == 1) {
-        if (nhh > day) {
-          d.isPremium = true;
-        }
-      }
+    if (!req.user) {
+      res.render('bai-bao', {
+        detail: row,
+        tagnews: row1,
+        cmt: row2,
+        relatebb: row3,
+        layout: './main'
+      });
     }
+    else {
+      var currentDay = new Date();
+      var day = moment(currentDay).format('YYYY/MM/DD');
+      var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
 
-    res.render('bai-bao', {
-      detail: row,
-      tagnews: row1,
-      cmt: row2,
-      relatebb: row3,
-      layout: './main'
-    });
+     if(nhh > day || (req.user.PhanHe == 2 || req.user.PhanHe == 3 || req.user.PhanHe == 4)){
+      res.render('bai-bao', {
+        detail: row,
+        tagnews: row1,
+        cmt: row2,
+        relatebb: row4,
+        layout: './main'
+      });
+     }
+     else{
+      res.render('bai-bao', {
+        detail: row,
+        tagnews: row1,
+        cmt: row2,
+        relatebb: row3,
+        layout: './main'
+      });
+     }
+    }
   }).catch(err => {
     console.log(err);
     res.end('error occured!')
@@ -300,5 +526,7 @@ router.post('/:id', (req, res) => {
   writerModal.update(entity);
   res.redirect('/editor')
 });
+
+
 
 module.exports = router;

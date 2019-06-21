@@ -13,7 +13,7 @@ module.exports = {
   },
 
   singleByUserName: email => {
-    return db.load(`select * from thanhvien where Email = '${email}'`);
+    return db.load(`select * from thanhvien where Email = '${email}' and Xoa = 0`);
   },
 
   add: entity => {
@@ -30,7 +30,6 @@ module.exports = {
   },
   delete: id => {
     return db.delete('thanhvien', 'idThanhVien', id);
-  }
-
+  },
 
 };

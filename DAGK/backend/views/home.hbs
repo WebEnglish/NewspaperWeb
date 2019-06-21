@@ -25,6 +25,8 @@
                             <h4><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-white"><b>{{TenBaiBao}}</b></a></h4>
                             <p>Chuyên mục: <a href="/{{ChuyenMuc}}">{{tenchuyenmuc}}</a> &nbsp; &bullet; &nbsp; Ngày
                                 đăng: {{format NgayDang}}</p>
+                            {{#if Premium}}<span class="text-black"
+                                style="background-color: rgb(192, 192, 192)">Premium</span>{{/if}}
                         </div>
                     </div>
                     {{/each}}
@@ -46,7 +48,6 @@
 </div>
 </div>
 
-{{#if isAuthenticated}}
 <!-- //bài viết được xem nhiều nhất -->
 <div class="site-section-sm">
     <div class="container">
@@ -66,7 +67,7 @@
                             <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
                             <p><a href="/{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
                                 {{format NgayDang}} <span class="mx-2"></span>
-                                {{#if isPremium}}<span class="text-black"
+                                {{#if Premium}}<span class="text-black"
                                     style="background-color: rgb(192, 192, 192)">Premium</span>{{/if}} </p>
                             <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
                         </div>
@@ -99,7 +100,7 @@
                             <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
                             <p><a href="/{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
                                 {{format NgayDang}} <span class="mx-2"></span>
-                                {{#if isPremium}}<span class="text-black"
+                                {{#if Premium}}<span class="text-black"
                                     style="background-color: rgb(192, 192, 192)">Premium</span>{{/if}} </p>
                             <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
                         </div>
@@ -122,7 +123,7 @@
                 <h2 class="section-title mb-5" style="font-size: 40px">Top 10 Chuyên Mục Được Ưa Thích</h2>
             </div>
             <div class="row align-items-stretch pb-5">
-               {{#each topcat}}
+                {{#each topcat}}
                 <span style="width: 50%">
                     <div class="title-chuyen-muc">
                         <a href="/{{ChuyenMuc}}">
@@ -131,112 +132,6 @@
                     </div>
                     <div class="" data-aos="fade-up">
                         <div class="unit-4 d-block">
-                            <div class="unit-4-icon mb-3">
-                                <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img style="height: 350px;" src="{{AnhDaiDien}}"
-                                        class="most-img"></a>
-                            </div>
-                            <div>
-                                <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
-                                <p><a href="/{{ChuyenMuc}}">{{TenCM}}</a><span
-                                        class="mx-2">&bullet;</span> {{format NgayDang}}
-                                </p>
-                                <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </span>
-                 {{/each}}
-
-            </div>
-        </div>
-    </div>
-</div>
-
-{{else}}
-<!-- //bài viết được xem nhiều nhất -->
-<div class="site-section-sm">
-    <div class="container">
-        <div class="row mb-3 mt-4">
-            <div class="col-12 text-center">
-                <h2 class="section-title mb-3" style="font-size: 40px">Bài Viết Được Xem Nhiều Nhất</h2>
-            </div>
-            <div class="row align-items-stretch">
-                {{#each this.top10}}
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-                    <div class="unit-4 d-block">
-                        <div class="unit-4-icon mb-3">
-                            <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img src="{{AnhDaiDien}}" class="most-img"
-                                    alt="{{TenBaiBao}}"></a>
-                        </div>
-                        <div>
-                            <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
-                            <p><a href="/{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
-                                {{format NgayDang}} </p>
-                            <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
-                        </div>
-                    </div>
-
-                </div>
-                {{/each}}
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- //bài viết mới nhất -->
-<div class="site-section-sm bg-light">
-    <div class="container">
-        <hr>
-        <div class="row mb-5">
-            <div class="col-12 text-center">
-                <h2 class="section-title mb-5" style="font-size: 40px">Bài Viết Mới Nhất</h2>
-            </div>
-            <div class="row align-items-stretch">
-                {{#each this.newest}}
-                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-                    <div class="unit-4 d-block">
-                        <div class="unit-4-icon mb-3">
-                            <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img src="{{AnhDaiDien}}" alt="{{TenBaiBao}}"
-                                    class="most-img"></a>
-                        </div>
-                        <div>
-                            <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a></h3>
-                            <p><a href="/{{ChuyenMuc}}">{{tenCM}}</a><span class="mx-2">&bullet;</span>
-                                {{format NgayDang}} </p>
-                            <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
-                        </div>
-                    </div>
-
-                </div>
-                {{/each}}
-
-            </div>
-        </div>
-        <hr>
-    </div>
-</div>
-
-<!-- top 10 chuyên mục -->
-<div class="site-section-sm">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-12 text-center">
-                <h2 class="section-title mb-5" style="font-size: 40px">Top 10 Chuyên Mục Được Ưa Thích</h2>
-            </div>
-
-            <div class="row align-items-stretch">
-			{{#each topcat}}
-                <span style="width: 50%">
-                    
-                    <div class="title-chuyen-muc">
-                        <a href="/{{ChuyenMuc}}">
-                            <h3 class="text-center">{{TenCM}}</h3>
-                        </a>
-                    </div>
-                    
-                    <div class="" data-aos="fade-up">
-                        <div class="unit-4 d-block">
-                            
                             <div class="unit-4-icon mb-3">
                                 <a href="/{{ChuyenMuc}}/{{idBaiBao}}"><img style="height: 350px;" src="{{AnhDaiDien}}"
                                         class="most-img"></a>
@@ -244,19 +139,19 @@
                             <div>
                                 <h3><a href="/{{ChuyenMuc}}/{{idBaiBao}}" class="text-black"><b>{{TenBaiBao}}</b></a>
                                 </h3>
-                                <p><a href="/{{ChuyenMuc}}">{{TenCM}}</a><span class="mx-2">&bullet;</span> {{format NgayDang}}
-                                    <span class="mx-2"></span>
+                                <p><a href="/{{ChuyenMuc}}">{{TenCM}}</a><span class="mx-2">&bullet;</span>
+                                    {{format NgayDang}}
+                                    {{#if Premium}}<span class="text-black"
+                                        style="background-color: rgb(192, 192, 192)">Premium</span>{{/if}}
                                 </p>
                                 <p><a href="/{{ChuyenMuc}}/{{idBaiBao}}">Xem tiếp...</a></p>
                             </div>
-                          
                         </div>
                     </div>
-
                 </span>
-				{{/each}}
+                {{/each}}
+
             </div>
         </div>
     </div>
 </div>
-{{/if}}

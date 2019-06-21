@@ -1,3 +1,13 @@
+{{#section 'js'}}
+<script>
+    $("button").click(function () {
+        var a = $(this).val();
+        $('#FormDelete').attr('action', '/admin/QuanLiTaiKhoan/' + a);
+    })
+
+</script>
+{{/section}}
+
 <div class="">
     <div class="page-title">
         <div class="title_left">
@@ -53,8 +63,10 @@
                                 <th>Họ & tên</th>
                                 <th>Email</th>
                                 <th>Ngày sinh</th>
-                                {{!-- <th>Ngày tạo</th>
-                                <th>Ngày hết hạn</th>
+                                {{#if isdocgia}}
+                                <th>Trạng thái</th>
+                                {{/if}}
+                                {{!-- <th>Ngày hết hạn</th>
                                 <th>Hiện trạng tài khoản</th>
                                 <th>Trạng thái</th> --}}
                                 {{!-- <th>Gia hạn</th> --}}
@@ -68,6 +80,9 @@
                                 <td>{{HoTen}}</td>
                                 <td>{{Email}}</td>
                                 <td>{{format NgaySinh}}</td>
+                                {{#if isdocgia}}
+                                <td>{{tt}}</td>
+                                {{/if}}
                                 {{!-- <td>14/04/2019 19:00:20 PM</td>
                                 <td>20/04/2019 23:55:00 PM</td>
                                 <td>Đã hết hạn</td> --}}
@@ -87,12 +102,15 @@
                                     {{/if}}
 
                                     {{#if isdocgia}}
-                                    <a href="/admin/QuanLiTaiKhoan/DocGia/delete/{{idThanhVien}}"><i
-                                            class="fas fa-trash-alt"></i></a>
+                                    <button style="background: none" value="DocGia/delete/{{idThanhVien}}"
+                                        data-toggle="modal" data-target="#delModal"><i
+                                            class="fas fa-trash-alt"></i></button>
+
                                     {{/if}}
                                     {{#if iseditor}}
-                                    <a href="/admin/QuanLiTaiKhoan/editor/delete/{{idThanhVien}}"><i
-                                            class="fas fa-trash-alt"></i></a>
+                                    <button style="background: none" value="editor/delete/{{idThanhVien}}"
+                                        data-toggle="modal" data-target="#delModal"><i
+                                            class="fas fa-trash-alt"></i></button>
                                     {{/if}}
                                     &nbsp;
                                 </td>
@@ -112,31 +130,23 @@
         </div>
 
         <!--delete-->
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
+        <form method="POST" id="FormDelete">
+            <div class="modal fade" id="delModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="javascript: $('#FormDelete').submit()" class="btn btn-danger">Đồng ý</a>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                        </div>
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
                     </div>
-
-                    <!-- Modal body
-                  <div class="modal-body">
-                    
-                  </div> -->
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng
-                            ý</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
-                    </div>
-
                 </div>
             </div>
-        </div>
+        </form>
         <!--Delete-->
 
         <!-- giahan -->

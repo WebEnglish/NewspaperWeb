@@ -12,15 +12,33 @@
             })
             else {
             $('#Edit').show();
-            }
-        })
+        }
+    })
+    })
+
+
+</script>
+<script>
+    $("button").click(function () {
+        var a = $(this).val();
+        $('#FormDelete').attr('action', '/admin/QuanLiChuyenMuc/delete/' + a);
     })
 </script>
 <script>
-    $(document).ready(function(){
-        $('#allSelect').change(function(){
+    $(document).ready(function () {
+        var b = $('#allSelect').val();
+        //alert(b);
+        if(b == '0')
+        {
+            $('#chinhsua').css("display", "none")
+        }
+        
+        
+
+        $('#allSelect').change(function () {
             $('#formSelect').submit();
         })
+
     })
 </script>
 
@@ -54,13 +72,13 @@
                         <h2>Danh sách các chuyên mục</h2>
                         <form action="/admin/QuanLiChuyenMuc" id="formSelect" method="POST">
                             <select id="allSelect" name="LCMCap1" style="margin-left: 30px; height: 30px; width:200px">
-                                <option id="selectAllCM">Tất cả chuyên mục</option>
+                                <option id="selectAllCM" value="0">Tất cả chuyên mục</option>
                                 {{#each this.cap1 }}
                                 <option {{#if isSelected}} selected {{/if}} value="{{idChuyenMuc}}">{{TenCM}}</option>
                                 {{/each}}
                             </select>
                             <button name="Edit" style="height: 30px;"
-                                  formaction="/admin/QuanLiChuyenMuc/editC1"><a>Chỉnh sửa</a></button>
+                                formaction="/admin/QuanLiChuyenMuc/editC1" id="chinhsua"><a>Chỉnh sửa</a></button>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li class="dropdown">
                                     <a href="/admin/QuanLiChuyenMuc/add" role="button">
@@ -90,10 +108,11 @@
                                     <td>{{TenCM}}</td>
                                     <td>{{TenC1}}</td>
                                     <td>
-                                        <a href="/admin/QuanLiChuyenMuc/delete/{{idChuyenMuc}}" role="button"><i
-                                                class="fas fa-trash"></i></a>&nbsp;
+
                                         <a href="/admin/QuanLiChuyenMuc/edit/{{idChuyenMuc}}" role="button"><i
-                                                class="fas fa-pen"></i></a>
+                                                class="fas fa-pen"></i></a>&nbsp;
+                                        <button value="{{idChuyenMuc}}" style="background: none" data-toggle="modal"
+                                            data-target="#delModal" role="button"><i class="fas fa-trash"></i></button>
                                     </td>
                                 </tr>
                                 {{/each}}
@@ -112,20 +131,24 @@
             </div>
 
             <!--Model Thông báo xoá và chỉnh sửa-->
-            <div class="modal fade" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Đồng ý</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+            <form method="POST" id="FormDelete">
+                <div class="modal fade" id="delModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Bạn thực sự muốn xóa?</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="javascript: $('#FormDelete').submit()" class="btn btn-danger">Đồng ý</a>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
             <div class="modal fade" id="myModal-rewrite">
                 <div class="modal-dialog-rewrite">
                     <div class="modal-content">

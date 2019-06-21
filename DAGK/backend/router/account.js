@@ -5,7 +5,9 @@ var moment = require('moment');
 var passport = require('passport');
 var userModel = require('../model/User-model');
 var auth = require('../middlewares/auth');
+var randomstring = require("randomstring");
 
+var nodemailer = require('nodemailer')
 var router = express.Router();
 router.get('/is-available', (req, res, next) => {
     var email = req.query.email;
@@ -25,9 +27,15 @@ router.get('/is-available', (req, res, next) => {
 // }
 
 router.get('/register', (req, res, next) => {
-    res.render('VAccount/register', {
-        layout: './main'
-    });
+    if (!req.user) {
+        res.render('VAccount/register', {
+            layout: './main'
+        });
+    }
+    else {
+        res.redirect('/home')
+    }
+
 })
 
 router.post('/register', (req, res, next) => {
@@ -51,7 +59,9 @@ router.post('/register', (req, res, next) => {
         MatKhau: hash,
         PhanHe: 1,
         NgayKichHoat: date,
-        NgayHetHan: expire
+        NgayHetHan: expire,
+        KeyPass: randomstring.generate(10),
+        Xoa: 0
     }
     userModel.add(entity).then(id => {
         res.redirect('/account/login');
@@ -59,9 +69,15 @@ router.post('/register', (req, res, next) => {
 })
 
 router.get('/login', (req, res, next) => {
-    res.render('VAccount/login', {
-        layout: './main'
-    });
+    if (!req.user) {
+        res.render('VAccount/login', {
+            layout: './main'
+        });
+    }
+    else {
+        res.redirect('/home')
+    }
+
 })
 
 router.post('/login', (req, res, next) => {
@@ -91,10 +107,6 @@ router.post('/login', (req, res, next) => {
 
 })
 
-router.get('/pro', auth, (req, res, next) => {
-    res.end('avaaad');
-})
-
 router.post('/logout', (req, res, next) => {
     req.logOut();
     res.redirect('/account/login')
@@ -105,42 +117,46 @@ router.get('/logout', (req, res, next) => {
     res.redirect('/account/login')
 })
 
-router.get('/profile', (req, res, next) => {
+router.get('/profile', auth, (req, res, next) => {
     // if (req.user.PhanHe == 4) {
     //     res.render('VAccount/profile', {
     //         layout: './main-layout'
     //     })
     // }
     // else {
-        var isWriter = false;
-        var isEditor = false;
-        var isUser = false;
-        var currentDay = new Date();
-        var day  = moment(currentDay).format('YYYY/MM/DD');
-        var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
-        if(nhh < day)
-        {
-            var hanDung = 'Đã hết hạn'            
-        }
-        else 
-        {
-            var hanDung = moment(req.user.NgayHetHan).format('DD/MM/YYYY');
-        }
-        var dob = moment(req.user.NgaySinh).format('DD/MM/YYYY')
-        switch (req.user.PhanHe) {
-            case 1: isUser = true; break;
-            case 2: isWriter = true; break;
-            case 3: isEditor = true; break;
-        }
-        res.render('VAccount/profile', {
-            user: req.user,
-            dob:dob,        
-            isWriter: isWriter,
-            isEditor: isEditor,
-            hanDung: hanDung,
-            isUser: isUser,
-            layout: './main'
-        })
+    var isWriter = false;
+    var isEditor = false;
+    var isUser = false;
+    var currentDay = new Date();
+    var day = moment(currentDay).format('YYYY/MM/DD');
+    var nhh = moment(req.user.NgayHetHan).format('YYYY/MM/DD');
+    var hethan = false;
+    if (nhh < day && req.user.TinhTrang == 1) {
+        var hanDung = 'Đang chờ gia hạn';
+    }
+    else if (nhh < day && req.user.TinhTrang == 0) {
+        hethan = true;
+        var hanDung = 'Đã hết hạn';
+    }
+    else {
+        var hanDung = moment(req.user.NgayHetHan).format('DD/MM/YYYY');
+    }
+    var dob = moment(req.user.NgaySinh).format('DD/MM/YYYY')
+    switch (req.user.PhanHe) {
+        case 1: isUser = true; break;
+        case 2: isWriter = true; break;
+        case 3: isEditor = true; break;
+    }
+    res.render('VAccount/profile', {
+        user: req.user,
+        dob: dob,
+        isWriter: isWriter,
+        isEditor: isEditor,
+        hanDung: hanDung,
+        isUser: isUser,
+        hethan: hethan,
+        layout: './main'
+    })
     // }
 
 })
@@ -164,12 +180,12 @@ router.post('/profile', (req, res, next) => {
     //     res.redirect('/admin');
     // }
     // else {
-        res.redirect('/');
+    res.redirect('/');
     // }
 
 })
 
-router.get('/doimatkhau', (req, res) => {
+router.get('/doimatkhau', auth, (req, res) => {
 
     // if (req.user.PhanHe == 4) {
     //     res.render('VAccount/DoiMatKhau', {
@@ -177,9 +193,9 @@ router.get('/doimatkhau', (req, res) => {
     //     })
     // }
     // else {
-        res.render('VAccount/DoiMatKhau', {
-            layout: './main'
-        })
+    res.render('VAccount/DoiMatKhau', {
+        layout: './main'
+    })
     // }
 
 })
@@ -204,10 +220,10 @@ router.post('/doimatkhau', (req, res, next) => {
         //         layout: './main-layout'
         //     })
         // } else {
-            res.render('VAccount/DoiMatKhau', {
-                dungPass: dungPass,
-                layout: './main'
-            })
+        res.render('VAccount/DoiMatKhau', {
+            dungPass: dungPass,
+            layout: './main'
+        })
         // }
 
     }
@@ -220,41 +236,91 @@ router.post('/doimatkhau', (req, res, next) => {
         //     })
         // }
         // else {
-            var saiPass = true;
-            res.render('VAccount/DoiMatKhau', {
-                saiPass: saiPass,
-                layout: './main'
-            })
+        var saiPass = true;
+        res.render('VAccount/DoiMatKhau', {
+            saiPass: saiPass,
+            layout: './main'
+        })
         // }
     }
-
-
 })
 
-// router.post('/send', function(req, res, next) {
-//     var transporter =  nodemailer.createTransport({ // config mail server
-//         service: 'Gmail',
-//         auth: {
-//             user: 'lehung03091997@gmail.com',
-//             pass: '0309hung'
-//         }
-//     });
-//     var mainOptions = { // thiết lập đối tượng, nội dung gửi mail
-//         from: 'Thanh Batmon',
-//         to: '@gmail.com',
-//         subject: 'Test Nodemailer',
-//         html: '<a href="">You have got a new message</b><ul><li>Username: ' + req.body.name + '</li><li>Email:' + req.body.email + '</li><li>Username:' + req.body.message + '</li></ul>'
-//     }
-//     transporter.sendMail(mainOptions, function(err, info){
-//         if (err) {
-//             console.log(err);
-//             res.redirect('/');
-//         } else {
-//             console.log('Message sent: ' +  info.response);
-//             res.redirect('/');
-//         }
-//     });
-// });
+
+router.get('/getnewpassword', (req, res) => {
+    if (!req.user) {
+        res.render('VAccount/GetNewPass', {
+            layout: './main'
+        })
+    }
+    else {
+        res.redirect('/home')
+    }
+})
+
+router.post('/getnewpassword', (req, res) => {
+    var mail = req.query.email;
+    var pass = req.body.NewPass;
+    var hash = bcrypt.hashSync(pass, 10);
+    userModel.singleByUserName(mail).then(row => {
+        var entity = {
+            idThanhVien: row[0].idThanhVien,
+            MatKhau: hash,
+        }
+        userModel.updatetk(entity).then(id => {
+            res.redirect('/account/login');
+        })
+    })
+})
+
+
+router.post('/QuenMatKhau', function (req, res, next) {
+    var email = req.body.email;
+    var transporter = nodemailer.createTransport({ // config mail server
+        service: 'Gmail',
+        auth: {
+            user: 'lehung03091997@gmail.com',
+            pass: '0309hung'
+        }
+    });
+
+    var user = new Object();
+    userModel.singleByUserName(email).then(row => {
+        if (row.length > 0) {
+            var url = 'http://localhost:3000/account/getnewpassword?email=' + email + '&key=' + row[0].KeyPass;
+            var mainOptions = { // thiết lập đối tượng, nội dung gửi mail
+                from: 'AH!BreakingNews',
+                to: email,//đến đâu
+                subject: 'Email lấy lại mật khẩu từ báo điện tử AH!BreakingNews',
+                html: '<p>Đây là thông tin bảo mật, đừng để nó public ra ngoài</p></br><a href="' + url + '"><b>Click here to reset password</b></a>',
+            }
+            transporter.sendMail(mainOptions, function (err, info) {
+                if (err) {
+                    console.log(err);
+                    res.redirect('/account/login');
+                } else {
+                    console.log('Message sent: ' + info.response);
+                    res.redirect('/account/login');
+                }
+            });
+        }
+        else{
+         res.redirect('/account/login')
+        }
+
+    });
+});
+
+router.get('/giahan', (req, res) => {
+    var id = req.user.idThanhVien;
+    var entity = {
+        idThanhVien: id,
+        TinhTrang: 1
+    }
+    req.user.TinhTrang = 1;
+    userModel.updatetk(entity).then(id => {
+        res.redirect('/account/profile');
+    })
+})
 
 
 

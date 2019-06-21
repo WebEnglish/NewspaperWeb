@@ -70,6 +70,69 @@
         });
     }); 
 </script>
+<script>
+    function Choose() {
+        var choose = document.getElementById("txtChoose");
+        var chosen = document.getElementById("txtChosen");
+        var options = choose.children;
+        var tmp = [];
+
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+                tmp.push(options[i]);
+            }
+        }
+
+        for (var i = 0; i < tmp.length; i++) {
+            chosen.appendChild(tmp[i]);
+        }
+
+        for (var i = 0; i < chosen.length; i++) {
+            chosen[i].selected = false;
+        }
+    }
+
+    function Unchoose() {
+        var choose = document.getElementById("txtChosen");
+        var chosen = document.getElementById("txtChoose");
+        var options = choose.children;
+        var tmp = [];
+
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+                tmp.push(options[i]);
+            }
+        }
+
+        for (var i = 0; i < tmp.length; i++) {
+            chosen.appendChild(tmp[i]);
+        }
+
+        for (var i = 0; i < chosen.length; i++) {
+            chosen[i].selected = false;
+        }
+    }
+</script>
+
+<script>
+    $('#DangBai').click(function () {
+        var values = $('#txtChosen').val();
+        var x = document.getElementById('txtChosen');
+        var list = "";
+        for (var i = 0; i < x.options.length; i++) {
+            if (true)
+                list += '/' + x.options[i].value
+        }
+        $('#listTag').val(list);
+    })
+
+    $('#ThayDoiTag').click(function () {
+        $('#NewChose').show();
+        $('#Chonsen').hide();
+
+    })
+</script>
+
 {{/section}}
 <div class="site-section mt-4">
     <div class="container an-shadow pt-4">
@@ -78,8 +141,8 @@
         </div>
         <hr>
         <div class="col-md-12 mt-5">
-            <form method="POST" name="frmMain">
-                <div class="col-md-12" >
+            <form method="POST" name="frmMain" id="formRewrite">
+                <div class="col-md-12">
                     <div class="d-flex flex-wrap col-md-12 mb-3">
                         <span class="col-lg-2">
                             <label for="txtTitle">
@@ -129,6 +192,9 @@
                     <textarea name="editor" id="txtEditor" rows="10" cols="80">{{{NoiDung}}}</textarea>
                 </div>
                 {{/each}}
+                <br>
+                <input hidden name="listTag" id="listTag">
+
                 <div class="mt-4 d-flex flex-nowrap">
                     <span class="col-md-5">
                         <label class="col-md-6">Chọn chuyên mục: &nbsp;</label>
@@ -138,11 +204,37 @@
                             {{/each}}
                         </select>
                     </span>
-                    <div class="col-md-6">
+                </div>
+            </form>
+            <div class="mt-4 d-flex flex-nowrap">
+                {{!-- <span class="col-md-5">
+                    <label class="col-md-6">Chọn chuyên mục: &nbsp;</label>
+                    <select class="form-control ml-5" name="optTenCM" style="width: 250px">
+                        {{#each cat}}
+                        <option {{#if isSelected}} selected {{/if}} value="{{idChuyenMuc}}">{{TenCM}}</option>
+                        {{/each}}
+                    </select>
+                </span> --}}
+
+
+                <div class="col-md-6">
+                    <div id="Chonsen" style="display:block" class="ml-4" >
+                        <label>Danh sách tag của bài báo này:&nbsp;</label>
+                        <div class="d-flex flex-nowrap">
+                            <select class="form-control" multiple="multiple" name="chosen"
+                                style="width:250px; height:100px">
+                                {{#each this.isSelectedTag}}
+                                <option value="{{idTag}}">{{tenTag}}</option>
+                                {{/each}}
+                            </select>
+                            <button id="ThayDoiTag" style="height:40px;" class="btn mt-4 ml-3">Thay đổi tag</button>
+                        </div>
+
+                    </div>
+                    <div id="NewChose" style="display:none" class="ml-4">
                         <label>Chọn thẻ tag: &nbsp;</label>
                         <div class="txt-tag">
                             <div class="cbx-option-mul ">
-
                                 <select class="form-control" multiple="multiple" id="txtChoose" name="choose"
                                     style="width:250px; height:200px">
                                     {{#each tag}}
@@ -155,17 +247,18 @@
                                 <input type="button" id="btnUnchoose" onclick="Unchoose()" value="<">
                             </div>
                             <div>
-                                <select class="form-control" multiple="multiple" id="txtChosen" name="txtChosen"
+                                <select class="form-control" multiple="multiple" id="txtChosen" name="chosen"
                                     style="width:250px; height:200px">
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="text-center mt-5 ">
-                    <button class="btn btn-danger mb-5" type="submit"><b>Lưu bài sửa</b></button>
-                </div>
-            </form>
+            </div>
+            <div class="text-center mt-5 ">
+                <a href="javascript: $('#formRewrite').submit()" class="btn btn-danger mb-5" id="DangBai"><b>Lưu bài
+                        sửa</b></a>
+            </div>
         </div>
     </div>
 </div>

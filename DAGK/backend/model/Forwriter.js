@@ -6,11 +6,11 @@ module.exports = {
   },
 
   category: () => {
-    return db.load(`SELECT * from chuyenmuc AS cm WHERE cm.LoaiCM != 0`);
+    return db.load(`SELECT * from chuyenmuc AS cm WHERE cm.LoaiCM != 0 and cm.Xoa = 0`);
   },
 
   tag: () => {
-    return db.load(`SELECT * from nhantag`);
+    return db.load(`SELECT * from nhantag where Xoa = 0`);
   },
 
   addNews: entity => {
@@ -35,5 +35,19 @@ module.exports = {
 
   update: entity =>{
     return db.update('baibao', 'idBaiBao', entity);
-  }
+  },
+
+  addTag: entity => {
+    return db.add(`tag_baibao`,entity);
+  },
+  updateTagBB: entity =>{
+    return db.update('tag_baibao','idBaiBao', entity);
+  },
+  listTagById: id => {
+    return db.load(`SELECT * FROM tag_baibao tbb, nhantag nt WHERE tbb.idTag = nt.idTag and tbb.idBaiBao = '${id}'`);
+  },
+  delete: id => {
+    return db.delete('tag_baibao', 'idBaiBao', id);
+  },
+
 }

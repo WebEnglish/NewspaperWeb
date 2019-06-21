@@ -3,12 +3,14 @@ var userCate = require('../../model/admin/ChuyenMuc');
 var MemberModel = require('../../model/User-model');
 var router = express.Router();
 
+var auth = require('../../middlewares/auth');
+
 
 router.post('/', (req, res, next) => {
     var lcmCap1 = req.body.LCMCap1;
-    if (isNaN(lcmCap1)) {
-       res.redirect('/admin/QuanLiChuyenMuc');
-        
+    if (lcmCap1 == 0) {
+        res.redirect('/admin/QuanLiChuyenMuc');
+
     }
     else {
         Promise.all([
@@ -37,7 +39,7 @@ router.post('/', (req, res, next) => {
 
 })
 
-router.get('/delete/:id', (req, res) => {
+router.post('/delete/:id', (req, res) => {
     var entity = {
         idChuyenMuc: req.params.id,
         Xoa: 1
@@ -50,15 +52,20 @@ router.get('/delete/:id', (req, res) => {
     });
 })
 
-router.get('/add', (req, res) => {
-    Promise.all([
-        userCate.CMCap1()
-    ]).then(([loai]) => {
-        res.render('admin-hbs/AddChuyenMuc', {
-            cate: loai,
-            layout: './main-layout'
-        });
-    })
+router.get('/add',auth, (req, res) => {
+    if (req.user.PhanHe != 4) {
+        res.redirect('/home');
+    }
+    else {
+        Promise.all([
+            userCate.CMCap1()
+        ]).then(([loai]) => {
+            res.render('admin-hbs/AddChuyenMuc', {
+                cate: loai,
+                layout: './main-layout'
+            });
+        })
+    }
 })
 
 
@@ -95,68 +102,73 @@ router.post('/add', (req, res) => {
 
 })
 
-router.get('/edit/:ida', (req, res) => {
-    var id = req.params.ida;
-    var check;
-    userCate.all().then(allcm => {
-        for (const temp of allcm) {
-            if (temp.idChuyenMuc === +id && temp.LoaiCM === 0) {
-                check = 1;
-                break;
-            }
-            else { check = 0; }
-        }
-        if (check === 0) {
-            Promise.all([
-                userCate.getCateC1(id),
-                userCate.CMCap1(),
-                userCate.singleCap2(id)
-
-            ]).then(([rows2, rows3, rows5]) => {
-                
-                for (const b of rows3) {
-                    if (b.idChuyenMuc === +rows2[0].idChuyenMuc) {
-                        b.isSelec = true;
-                    }
+router.get('/edit/:ida',auth, (req, res) => {
+    if (req.user.PhanHe != 4) {
+        res.redirect('/home');
+    }
+    else {
+        var id = req.params.ida;
+        var check;
+        userCate.all().then(allcm => {
+            for (const temp of allcm) {
+                if (temp.idChuyenMuc === +id && temp.LoaiCM === 0) {
+                    check = 1;
+                    break;
                 }
-                var kiemTra = false;
-                res.render('admin-hbs/EditChuyenMuc', {
-                    kiemtra: kiemTra,
-                    allCate: rows3,
-                    catec: rows5[0],
-                    layout: './main-layout'
+                else { check = 0; }
+            }
+            if (check === 0) {
+                Promise.all([
+                    userCate.getCateC1(id),
+                    userCate.CMCap1(),
+                    userCate.singleCap2(id)
 
+                ]).then(([rows2, rows3, rows5]) => {
+
+                    for (const b of rows3) {
+                        if (b.idChuyenMuc === +rows2[0].idChuyenMuc) {
+                            b.isSelec = true;
+                        }
+                    }
+                    var kiemTra = false;
+                    res.render('admin-hbs/EditChuyenMuc', {
+                        kiemtra: kiemTra,
+                        allCate: rows3,
+                        catec: rows5[0],
+                        layout: './main-layout'
+
+                    })
+                }).catch(err => {
+                    console.log(err);
+                    res.end('error m occured.')
+                });
+            }
+            else {
+                Promise.all([
+                    userCate.singleCap1(id)
+
+                ]).then(([rows3]) => {
+                    var kiemTra = true;
+                    res.render('admin-hbs/EditChuyenMuc', {
+                        kiemtra: kiemTra,
+                        catec: rows3[0],
+                        layout: './main-layout'
+
+                    })
                 })
-            }).catch(err => {
-                console.log(err);
-                res.end('error m occured.')
-            });
-        }
-        else {
-            Promise.all([
-                userCate.singleCap1(id)
 
-            ]).then(([rows3]) => {
-                var kiemTra = true;
-                res.render('admin-hbs/EditChuyenMuc', {
-                    kiemtra: kiemTra,
-                    catec: rows3[0],
-                    layout: './main-layout'
-
-                })
-            })
-
-        }
-    })
+            }
+        })
 
 
 
-    // if (isNaN(id)) {
-    //     res.render('admin-hbs/EditChuyenMuc', {
-    //         layout: './main-layout',
-    //         error: true
-    //     });
-    // }
+        // if (isNaN(id)) {
+        //     res.render('admin-hbs/EditChuyenMuc', {
+        //         layout: './main-layout',
+        //         error: true
+        //     });
+        // }
+    }
 
 })
 
